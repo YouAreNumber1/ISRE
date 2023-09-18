@@ -15,7 +15,7 @@
                         <div class="mt-2">
                             <a id="aFilter" href="#Filter" class=" btn btn-primary  px-lg-4 "
                             data-bs-toggle="collapse">查詢條件 
-                                <i class="fa-solid fa-chevron-down"></i>
+                                <i class="fa-solid fa-chevron-down  text-white"></i>
                             </a>
                         </div> 
                      </div>
@@ -177,7 +177,7 @@
                              <div class="card-footer d-flex justify-content-center m-4">
                                  <button type="submit" class="btn btn-primary px-5 text-nowrap">
                                      查詢 
-                                     <i class="fa-solid fa-magnifying-glass"></i> 
+                                     <i class="fa-solid fa-magnifying-glass text-white"></i> 
                                  </button>
                              </div>
                          </div>
@@ -193,24 +193,22 @@
 <div class="  card m-2 d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
-            <div class=" col-lg-3">
-                <span>
+            <div class=" col-lg-4">
+                <div class=" ">
                     活動主題
-                </span>
+                </div>
             </div>
             <div class=" col-lg-3">
-                <span>日期時間</span>
+                <div class=" text-center ">日期時間</div>
             </div>
-            <div class=" col-lg-2">
-                <span>總場次</span>
+            <div class=" col-lg-1">
+                <div class=" text-center ">總場次</div>
             </div>
-            <div class=" col-lg-3    ">
-                <span>發布⽇期</span>
+            <div class=" col-lg-4    ">
+                <div class=" text-center ">發布⽇期</div>
             </div>
            
-            <div class=" col-lg-2">
-
-            </div>
+            
         </div>
     </div>
 </div>
@@ -223,7 +221,7 @@
             <div class="border rounded m-2 p-lg-2">
       <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
           <div class=" row no-gutters  ">
-              <div class="col-12 col-lg-3 ">
+              <div class="col-12 col-lg-4 ">
                  
 
                   <div class="row no-gutters"> 
@@ -240,31 +238,44 @@
                       <span class="d-lg-none  col-4   col-sm-2  ">
                           <span class="badge bg-info">日期時間</span> 
                       </span>
-                      <span class="col-8 col-sm-10  ">112/08/31</span>
+                       <div class="col-8 col-sm-10 col-lg-12 "> 
+                         <div class=" d-flex  d-lg-block">
+                           <div class="text-center">  112/08/31 </div> 
+                         </div> 
+                     </div>
+
+                       
                   </div>
               </div>
-              <div class="col-12 col-lg-2 ">
+              <div class="col-12 col-lg-1 ">
                   <div class="row no-gutters">
-                      <span class="d-lg-none  col-4  col-sm-2   ">
-                          <span class="badge bg-info"> 總場次</span>  
-                      </span>
-                      <span class="col-8 col-sm-10  ">
-                          
-                          <span class="badge bg-info">12</span>
-                      </span>
+                      <div class="d-lg-none  col-4  col-sm-2   ">
+                          <div class="badge bg-info"> 總場次</div>  
+                      </div>
+                       <div class="col-8 col-sm-10 col-lg-12 "> 
+                         <div class=" d-flex  d-lg-block">
+                           <div class="text-center">  
+                               <div class="badge bg-info">12</div> 
+
+                           </div> 
+                         </div> 
+                     </div>
+ 
                   </div>
               </div>
-              <div class="col-12 col-lg-3 ">
+              <div class="col-12 col-lg-4 ">
                   <div class="row no-gutters">
-                      <span class="d-lg-none  col-4  col-sm-2   "> 
-                          <span class="badge bg-info"> 發布⽇期</span>
-                      </span>
-                      <span class="col-8 col-sm-10  ">    112/08/31 </span>
+                      <div class="d-lg-none  col-4  col-sm-2   "> 
+                          <div class="badge bg-info"> 發布⽇期</div>
+                      </div>
+                      <div class="col-8 col-sm-10 col-lg-12 "> 
+                          <div class=" d-flex  d-lg-block">
+                            <div class="text-center">  112/08/31 </div> 
+                          </div> 
+                      </div>
                   </div>
               </div> 
-              <div class="col-12  col-lg-2 text-nowrap  d-flex d-lg-inline-block justify-content-between  ">
-
-              </div>
+               
 
           </div>
       </div>

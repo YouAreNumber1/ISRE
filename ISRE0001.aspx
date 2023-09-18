@@ -236,13 +236,18 @@
 
         <div class="col-12 col-lg-4 mt-5 mt-lg-0 ">
             <div class="row no-gutters  ">
-                <span class="   col   col-lg-6  text-center  "> 
+                <div class="col d-flex justify-content-around">
+                    
+                    <div><a class="btn btn-primary text-nowrap mx-1">單人報名</a> </div>
+                    <div> <a class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> </div>
+                </div>
+               <%-- <span class="   col   col-lg-6  text-center  "> 
                     <a class="btn btn-primary text-nowrap mx-1">單人報名</a> 
 
                 </span>
                 <span class="col col-lg-6  text-center  ">
                      <a class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> 
-                 </span>
+                 </span>--%>
             </div>
         </div> 
      <%--   <div class="col-12 col-lg-3 ">
