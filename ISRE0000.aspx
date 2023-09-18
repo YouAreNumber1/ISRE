@@ -379,7 +379,7 @@
        // thisForm.attr('action', actionUrl).submit();
       //  thisForm.submit();
 
-
+        $("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['tw']);
 
         $(".collapse").on('show.bs.collapse', function () {
             $('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');

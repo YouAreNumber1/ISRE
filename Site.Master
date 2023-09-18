@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%--<%: Page.Title %> - 我的 ASP.NET 應用程式--%></title>
     <script src="Scripts/jquery-3.7.1.min.js"></script>
+
+<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
+    <link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
+   <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+   <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
+   <script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
