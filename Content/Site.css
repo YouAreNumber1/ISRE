@@ -25,6 +25,9 @@
     --Salmon-color: #FF6D5C;
 }
 
+.card-header{
+    background-color: var(--Ice-color);
+}
 .table th {
     text-align: center;
     white-space: nowrap;

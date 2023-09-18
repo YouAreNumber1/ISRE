@@ -120,7 +120,7 @@
                                              <div class="row d-flex align-items-center p-2">
                                                  <div class="col-4 col-lg-2">
                                                      <div class="    ">
-                                                         <label class="text-nowrap"> 活動名稱</label>
+                                                         <label class="text-nowrap">活動名稱</label>
                                                      </div>
                                                  </div>
                                                  <div class="col-8 col-lg-10">
@@ -193,18 +193,18 @@
 <div class="  card m-2 d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
-            <div class=" col-lg-4">
+            <div class=" col-lg-6">
                 <div class=" ">
                     活動主題
                 </div>
             </div>
-            <div class=" col-lg-3">
+            <div class=" col-lg-2">
                 <div class=" text-center ">日期時間</div>
             </div>
-            <div class=" col-lg-1">
+            <div class=" col-lg-2">
                 <div class=" text-center ">總場次</div>
             </div>
-            <div class=" col-lg-4    ">
+            <div class=" col-lg-2    ">
                 <div class=" text-center ">發布⽇期</div>
             </div>
            
@@ -218,10 +218,10 @@
              foreach (var item in List_Activities) 
            { 
          %>
-            <div class="border rounded m-2 p-lg-2">
-      <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
+            <div class="border rounded m-2 p-2">
+      <div class="    card m-1 border-0   ">
           <div class=" row no-gutters  ">
-              <div class="col-12 col-lg-4 ">
+              <div class="col-12 col-lg-6 ">
                  
 
                   <div class="row no-gutters"> 
@@ -233,7 +233,7 @@
                         </span> 
                   </div>
               </div>
-              <div class="col-12 col-lg-3 ">
+              <div class="col-12 col-lg-2 ">
                   <div class="row no-gutters">
                       <span class="d-lg-none  col-4   col-sm-2  ">
                           <span class="badge bg-info">日期時間</span> 
@@ -247,7 +247,7 @@
                        
                   </div>
               </div>
-              <div class="col-12 col-lg-1 ">
+              <div class="col-12 col-lg-2 ">
                   <div class="row no-gutters">
                       <div class="d-lg-none  col-4  col-sm-2   ">
                           <div class="badge bg-info"> 總場次</div>  
@@ -263,7 +263,7 @@
  
                   </div>
               </div>
-              <div class="col-12 col-lg-4 ">
+              <div class="col-12 col-lg-2 ">
                   <div class="row no-gutters">
                       <div class="d-lg-none  col-4  col-sm-2   "> 
                           <div class="badge bg-info"> 發布⽇期</div>
