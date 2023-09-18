@@ -149,7 +149,7 @@
 
 
  
-         <%  String   GUID = Request.QueryString["GUID"];
+         <%  
              dynamic sessions = Process_SessionList(GUID);
              foreach (var item in sessions)
              {
@@ -228,12 +228,10 @@
 
         <div class="col-12 col-lg-4 mt-5 mt-lg-0 ">
             <div class="row no-gutters  ">
-                <div class="col d-flex justify-content-around">
-                    
+                <div class="col d-flex justify-content-around"> 
                     <div><a href="/isre0002.aspx?guid=this&multiple=0" class="btn btn-primary text-nowrap mx-1">單人報名</a> </div>
                     <div> <a href="/isre0002.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> </div>
-                </div>
-               
+                </div> 
             </div>
         </div>  
 

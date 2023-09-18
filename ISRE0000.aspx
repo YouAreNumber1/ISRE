@@ -3,7 +3,9 @@
     Inherits="ISRE.ISRE0000" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+  <%
+    string sSelected = "";
+  %>
        <main> 
            <section> 
 
@@ -19,7 +21,7 @@
                             </a>
                         </div> 
                      </div>
-
+                 
       
 
                      <div id="Filter" class="collapse ">
@@ -39,11 +41,14 @@
                                                          <select name="SESS_LOC" id="SESS_LOC" class="form-control form-select">
                                                              <option value="">請選擇</option>
                                                               <% 
-                                                                      dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
-                                                
-                                                                      foreach (var item in List_CityList)
-                                                                     {%>
-                                                                     <option value="<%: item.CityNo %>"> <%: item.CityName %> </option>
+                                                                  dynamic SESS_LOC = Request["SESS_LOC"]??"";
+                                                                  dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
+                                                                  foreach (var item in List_CityList)
+                                                                  {
+                                                                      sSelected =  (SESS_LOC.ToString()  == item.CityNo.ToString() ) ? "selected": "";
+                                                                      %>
+                                                                     <option value="<%: item.CityNo %>"   <%: sSelected %>
+                                                                         > <%: item.CityName %> </option>
                                                                      <%
                                                                      }
                                                                      %>  
@@ -65,10 +70,13 @@
                                                          <select name="OBJ_NO" id="OBJ_NO" class="form-control form-select">
                                                              <option value="">請選擇</option>
                                                                <%  
+                                                                     dynamic OBJ_NO = Request["OBJ_NO"]??"";
                                                                     dynamic List_OBJ_NO =  StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "OBJ_NO"); 
                                                                      foreach (var item in List_OBJ_NO)
-                                                                    {  %>
-                                                                    <option value="<%: item.SerialID %>"> <%: item.OBJ_NO_NAME%> </option>
+                                                                    { 
+                                                                          sSelected =  (OBJ_NO.ToString() == item.SerialID.ToString()) ? "selected": "";
+                                                                       %>
+                                                                    <option value="<%: item.SerialID %>"   <%: sSelected %>> <%: item.OBJ_NO_NAME%> </option>
                                                                     <%
                                                                     }
                                                                     %>  
@@ -90,10 +98,13 @@
                                                          <select name="ACT_TYPE" id="ACT_TYPE" class="form-control form-select">
                                                              <option value="">請選擇</option>
                                                                <% 
-                                                                     dynamic List_ACT_TYPE =  StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE"); 
-                                                                       foreach (var item in List_ACT_TYPE)
-                                                                      {%>
-                                                                      <option value="<%: item.SerialID %>"> <%: item.TYPE_NAME%> </option>
+                                                                   dynamic TYPE_NAME = Request["TYPE_NAME"]??""; 
+                                                                   dynamic List_ACT_TYPE =  StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE");
+                                                                   foreach (var item in List_ACT_TYPE)
+                                                                   {
+                                                                       sSelected =  (OBJ_NO.ToString()  == item.SerialID.ToString() ) ? "selected": "";
+                                                                       %>
+                                                                      <option value="<%: item.SerialID %>"   <%: sSelected %>> <%: item.TYPE_NAME%> </option>
                                                                       <%
                                                                       }
                                                                       %>  
@@ -125,7 +136,8 @@
                                                  </div>
                                                  <div class="col-8 col-lg-10">
                                                      <div class="  flex-grow-1 ">
-                                                         <input type="text" class="form-control" name="ACT_NAME" id="ACT_NAME">
+                                                         <input type="text" class="form-control" name="ACT_NAME" id="ACT_NAME"
+                                                             value="<%:  Request["ACT_NAME"] %>" >
                                                      </div>
                                                  </div>
                                              </div>
@@ -140,7 +152,8 @@
                                                  </div>
                                                  <div class="col-8">
                                                      <div class="  flex-grow-1 ">
-                                                         <input type="text" class="form-control" name="ACT_HOST" id="ACT_HOST">
+                                                         <input type="text" class="form-control" name="ACT_HOST" id="ACT_HOST"
+                                                               value="<%:  Request["ACT_HOST"] %>" >
                                                      </div>
                                                  </div>
                                              </div>
@@ -160,11 +173,17 @@
                                                  <div class="col-8 col-lg-10">
                                                      <div class="d-lg-flex">
                                                          <div class="d-lg-flex   flex-grow-1">
-                                                             <input type="text" id="ACT_DATE_S_DATE" class="form-control " placeholder="民國年/月/日">
+                                                             <input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE" 
+                                                                 class="form-control " placeholder="民國年/月/日"
+                                                                     value="<%:  Request["ACT_DATE_S_DATE"] %>" >
+                                                             <input type="hidden"   id="ACT_DATE_S" name="ACT_DATE_S" />
                                                              <span class="mx-1">~</span>
                                                          </div>
                                                          <div class="d-lg-flex  flex-grow-1">
-                                                             <input type="text" id="ACT_DATE_E_DATE" class="form-control " placeholder="民國年/月/日">
+                                                             <input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE" 
+                                                                 class="form-control " placeholder="民國年/月/日"
+                                                                       value="<%:  Request["ACT_DATE_E_DATE"] %>">
+                                                              <input type="hidden"   id="ACT_DATE_E" name="ACT_DATE_E" />
                                                          </div>
                                                      </div> 
                                                  </div>
@@ -193,7 +212,7 @@
 <div class="  card m-2 d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
-            <div class=" col-lg-6">
+            <div class=" col-lg-5">
                 <div class=" ">
                     活動主題
                 </div>
@@ -201,13 +220,15 @@
             <div class=" col-lg-2">
                 <div class=" text-center ">日期時間</div>
             </div>
-            <div class=" col-lg-2">
-                <div class=" text-center ">總場次</div>
+            <div class=" col-lg-1">
+                <div class=" text-center ">場次</div>
             </div>
             <div class=" col-lg-2    ">
                 <div class=" text-center ">發布⽇期</div>
             </div>
-           
+             <div class=" col-lg-2">
+     
+             </div>
             
         </div>
     </div>
@@ -221,9 +242,7 @@
             <div class="border rounded m-2 p-2">
       <div class="    card m-1 border-0   ">
           <div class=" row no-gutters  ">
-              <div class="col-12 col-lg-6 ">
-                 
-
+              <div class="col-12 col-lg-5 "> 
                   <div class="row no-gutters"> 
                         <span class="d-lg-none col-4 col-sm-2   ">
                             <span class="badge bg-primary">活動主題</span> 
@@ -247,7 +266,7 @@
                        
                   </div>
               </div>
-              <div class="col-12 col-lg-2 ">
+              <div class="col-12 col-lg-1">
                   <div class="row no-gutters">
                       <div class="d-lg-none  col-4  col-sm-2   ">
                           <div class="badge bg-info"> 總場次</div>  
@@ -255,12 +274,10 @@
                        <div class="col-8 col-sm-10 col-lg-12 "> 
                          <div class=" d-flex  d-lg-block">
                            <div class="text-center">  
-                               <div class="badge bg-info">12</div> 
-
+                               <div class="badge bg-info">12</div>  
                            </div> 
                          </div> 
-                     </div>
- 
+                     </div> 
                   </div>
               </div>
               <div class="col-12 col-lg-2 ">
@@ -275,7 +292,29 @@
                       </div>
                   </div>
               </div> 
-               
+                 <div class="col-12 col-lg-2 mt-5 mt-lg-0">
+                 <div class="row no-gutters">
+                       <div class="col d-flex justify-content-around">  
+                          <div class="d-flex"> 
+                             <%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 查場次  </a> --%>
+                               <a href="ISRE0001.aspx?GUID=<%:item.GUID %>"  class="btn btn-primary text-nowrap mx-1">看場次</a>  
+                          </div>
+                      </div> 
+        <%--              <div class="d-lg-none  col-1    ">
+                          <div class=""> </div>  
+                      </div>
+                       <div class="col-11   col-lg-12 "> 
+                         <div class=" d-flex  d-lg-block">
+                           <div class=" d-flex justify-content-center">  
+                               <div>
+                                    <a   class="btn btn-primary  px-2">查場次</a>
+                               </div>
+                   
+                           </div> 
+                         </div> 
+                     </div> --%>
+      </div>
+  </div>
 
           </div>
       </div>
