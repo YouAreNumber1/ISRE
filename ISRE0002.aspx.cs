@@ -22,7 +22,7 @@ namespace ISRE
         //  private readonly static string ControllerName = string.Concat("/Home/");
         private readonly static string SPName = "[dbo].[SESSION_ISRE_ACTIVITY_MAIN]";
         // private readonly static string Updated_RowView = "Updated_Row";
-        private string GUID = "";
+        private string GUID2 = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 

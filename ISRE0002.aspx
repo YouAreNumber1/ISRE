@@ -6,9 +6,9 @@
 
     <main>
         <%
-            String   GUID = Request.QueryString["GUID"];
+            String   GUID2 = Request.QueryString["GUID"];
             String   multiple = Request.QueryString["multiple"];
-            dynamic Session = Process_Read("Session_ISRE_Session_MAIN", GUID);
+            dynamic Session = Process_Read("Session_ISRE_Session_MAIN", GUID2);
 %>
 
          <div class="  card mt-4 m-2 d-none d-lg-block "> 

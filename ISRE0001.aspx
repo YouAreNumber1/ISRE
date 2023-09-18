@@ -10,8 +10,8 @@
         <div class="container">
     <h3 class="text-center my-4">活動內容</h3> 
              <%
-                 String   GUID = Request.QueryString["GUID"];
-                 dynamic Activity = Process_ActivityInfo(GUID);
+                  String   GUID = Request.QueryString["GUID"];
+                  dynamic Activity = Process_ActivityInfo(GUID);
              %>
     <h5 class="text-center my-4">0524「東區第⼆、三類投保單位承保業務說明會」視訊會議</h5>
 
@@ -149,11 +149,11 @@
 
 
  
-         <% 
-          dynamic sessions = Process_SessionList( GUID);
-           foreach (var item in sessions) 
-         { 
-       %>
+         <%  String   GUID = Request.QueryString["GUID"];
+             dynamic sessions = Process_SessionList(GUID);
+             foreach (var item in sessions)
+             {
+          %>
           <div class="border rounded my-4 p-2">
     <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
         <div class=" row no-gutters  ">
@@ -242,6 +242,7 @@
 
 </div> 
 
+           <%} %>
     </main>
 
 </asp:Content>
