@@ -18,6 +18,13 @@
 
 </head>
 <body>
+    <%--<div class="navbar navbar-inverse navbar-fixed-top  border border-top-0 border-start-0 border-end-0">
+    <div class="container d-flex justify-content-between">
+        <a class="logo" href="/ISRE0000.ASPX"></a> 
+    </div>
+</div>
+    --%>
+   
     <form runat="server">
       <%--  <asp:ScriptManager runat="server">
             <Scripts> 

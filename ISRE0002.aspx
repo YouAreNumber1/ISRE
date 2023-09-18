@@ -5,42 +5,73 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main>
-        <section class="row" aria-labelledby="aspnetTitle">
-            <h1 id="aspnetTitle">ASP.NET</h1>
-            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-            <p><a href="http://www.asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-        </section>
+        <%
+            String   GUID = Request.QueryString["GUID"];
+            String   multiple = Request.QueryString["multiple"];
+            dynamic Session = Process_Read("Session_ISRE_Session_MAIN", GUID);
+%>
 
-        <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-                <h2 id="gettingStartedTitle">Getting started</h2>
-                <p>
-                    ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-                A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                </p>
-            </section>
-            <section class="col-md-4" aria-labelledby="librariesTitle">
-                <h2 id="librariesTitle">Get more libraries</h2>
-                <p>
-                    NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-                </p>
-            </section>
-            <section class="col-md-4" aria-labelledby="hostingTitle">
-                <h2 id="hostingTitle">Web Hosting</h2>
-                <p>
-                    You can easily find a web hosting company that offers the right mix of features and price for your applications.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-                </p>
-            </section>
+         <div class="  card mt-4 m-2 d-none d-lg-block "> 
+    <div class="card-header ">
+        <div class="row no-gutters  ">
+            <div class=" col-lg-1 text-center ">
+                <span>  場次 </span>
+            </div>
+            <div class=" col-lg-2 text-center ">
+                <span>日期時間</span>
+            </div>
+            <div class=" col-lg-1 text-center ">
+                <span>地點</span>
+            </div>
+            <div class=" col-lg-2   text-center   ">
+                <span>報名截⽌⽇</span>
+            </div>
+            <div class=" col-lg-1 text-center ">
+                 <span>活動資料</span>
+             </div>
+             <div class=" col-lg-1 text-center   ">
+                 <span>尚餘名額</span>
+             </div>  
         </div>
+    </div>
+</div>
+         
+
+         
+<%--<div class="card my-3">
+    <div class="card-header ">活動資訊</div>
+</div>
+<table class="  table table-bordered  ">
+    <thead>
+        <tr>
+            <th class="bg-info"> 場次 </th>
+            <th class="bg-info"> ⽇期時間 </th>
+            <th class="bg-info"> 地點 </th>
+            <th class="bg-info"> 報名截⽌⽇</th>
+
+            <th class="bg-info"> 活動資料 </th>
+            <th class="bg-info"> 尚餘名額  </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+
+            <td>        </td>
+            <td>@Model.SESS_DATE_S     </td>
+            <td>@Model.SESS_LOC</td>
+            <td>@Model.CHK_DATE_E</td>
+
+
+            <td> </td>
+            <td> </td>
+        </tr>
+    </tbody>
+
+</table>
+--%>
+
     </main>
 
 </asp:Content>

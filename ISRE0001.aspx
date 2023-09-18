@@ -141,15 +141,7 @@
             <div class=" col-lg-4 text-center ">
                   <span> 報名</span>
               </div>
-              
-
-           <%-- <div class=" col-lg-2 text-center ">
-                  <span>單人報名</span>
-              </div>
-              <div class=" col-lg-2   text-center   ">
-                  <span>多人報名</span>
-              </div> --%>
-             
+            
         </div>
     </div>
 </div>
@@ -238,48 +230,17 @@
             <div class="row no-gutters  ">
                 <div class="col d-flex justify-content-around">
                     
-                    <div><a class="btn btn-primary text-nowrap mx-1">單人報名</a> </div>
-                    <div> <a class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> </div>
+                    <div><a href="/isre0002.aspx?guid=this&multiple=0" class="btn btn-primary text-nowrap mx-1">單人報名</a> </div>
+                    <div> <a href="/isre0002.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> </div>
                 </div>
-               <%-- <span class="   col   col-lg-6  text-center  "> 
-                    <a class="btn btn-primary text-nowrap mx-1">單人報名</a> 
-
-                </span>
-                <span class="col col-lg-6  text-center  ">
-                     <a class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> 
-                 </span>--%>
+               
             </div>
-        </div> 
-     <%--   <div class="col-12 col-lg-3 ">
-            <div class="row no-gutters">
-                <span class="d-lg-none  col-4  col-sm-2   "> 
-                    <span class="badge bg-info"> 多人報名</span>
-                </span>
-                <span class="col-8 col-sm-10  ">  <a class="btn btn-primary">多人報名</a> </span>
-            </div>
-        </div> --%>
-
-
-           
+        </div>  
 
         </div>
     </div>
 
-</div>
-      <% } %>
- 
-       <%-- @{
-            
-            @Html.Partial("SessionList",
-               new ViewDataDictionary() {
-                   { "Query",   QueryMode },
-                   { "ControllerName",   ControllerName },
-                   { "Model",   sessions }
-               })
-        }--%>
-
-    
- 
+</div> 
 
     </main>
 
