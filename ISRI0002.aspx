@@ -21,7 +21,7 @@
                     <div class=" col-lg-3   ">
                         <span>  活動主題 </span>
                     </div>
-                    <div class=" col-lg-2 text-center ">
+                    <div class=" col-lg-3 text-center ">
                         <span>活動起訖⽇期</span>
                     </div>
                     <div class=" col-lg-1 text-center ">
@@ -54,7 +54,7 @@
                                   </div> 
                             </div>
                         </div>
-                        <div class="col-12 col-lg-2 ">
+                        <div class="col-12 col-lg-3 ">
                             <div class="row no-gutters">
                                 <span class="d-lg-none  col-4   col-sm-2  ">
                                     <span class="badge bg-info">活動起訖⽇期</span> 
@@ -109,9 +109,9 @@
 
    
        <%--   session list   start--%>   
-          <% 
-       dynamic Sessions = Process_ActivityInfo(GUID); 
-%>
+        <div class="d-flex  justify-content-end mt-5">
+            <a href="ISRI0003.aspx" class="btn btn-Create btn-primary px-3">新增場次</a>
+        </div>
            
 <%--session list title columns start --%>
 <div class="  card mt-4 m-2 d-none d-lg-block "> 
@@ -120,15 +120,23 @@
             <div class=" col-lg-1 text-center ">
                 <span>  場次 </span>
             </div>
-            <div class=" col-lg-2 text-center ">
+            <div class=" col-lg-1 text-center ">
                 <span>日期時間</span>
             </div>
             <div class=" col-lg-1 text-center ">
                 <span>地點</span>
             </div>
-            <div class=" col-lg-2   text-center   ">
+            <div class=" col-lg-1   text-center   ">
                 <span>報名截⽌⽇</span>
             </div>
+
+            <div class=" col-lg-1   text-center   ">
+                <span>可報名⼈數</span>
+            </div>
+             <div class=" col-lg-1   text-center   ">
+                <span>已報名⼈數</span>
+            </div>
+
             <div class=" col-lg-1 text-center ">
                  <span>活動資料</span>
              </div>
@@ -137,7 +145,7 @@
              </div>
             
             <div class=" col-lg-4 text-center ">
-                  <span> 報名</span>
+                  <span> 編輯/管理</span>
               </div>
             
         </div>
@@ -169,7 +177,7 @@
                             </div> 
                     </div>
                 </div>
-                <div class="col-12 col-lg-2 ">
+                <div class="col-12 col-lg-1 ">
                     <div class="row no-gutters">
                         <span class="d-lg-none  col-4   col-sm-2  ">
                             <span class="badge bg-info">日期時間</span> 
@@ -189,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2 ">
+                <div class="col-12 col-lg-1 ">
                     <div class="row no-gutters">
                         <div class="d-lg-none  col-4  col-sm-2   "> 
                             <span class="badge bg-info"> 報名截⽌⽇</span>
@@ -200,6 +208,27 @@
                     </div>
                 </div>  
 
+                <div class="col-12 col-lg-1 ">
+    <div class="row no-gutters">
+        <div class="d-lg-none  col-4  col-sm-2   "> 
+            <span class="badge bg-info"> 可報名⼈數</span>
+        </div> 
+        <div class="col-8 col-lg-12  text-center ">  
+            <div class="d-flex justify-content-lg-center">   21  </div> 
+        </div> 
+    </div>
+</div>  
+
+                <div class="col-12 col-lg-1 ">
+    <div class="row no-gutters">
+        <div class="d-lg-none  col-4  col-sm-2   "> 
+            <span class="badge bg-info"> 已報名⼈數</span>
+        </div> 
+        <div class="col-8 col-lg-12  text-center ">  
+            <div class="d-flex justify-content-lg-center">   21  </div> 
+        </div> 
+    </div>
+</div>  
                 <div class="col-12 col-lg-1 ">
                 <div class="row no-gutters">
                     <div class="d-lg-none  col-4  col-sm-2   ">
@@ -226,12 +255,22 @@
                 <div class="col-12 col-lg-4 mt-5 mt-lg-0 ">
                 <div class="row no-gutters  ">
                     <div class="col d-flex justify-content-around"> 
-                        <div><a guid="<%:item.GUID %>" 
-                            href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
-                            class="btn btn-primary text-nowrap mx-1 btn-SessionSingleRegister">單人報名</a> </div>
-                        <div> <a guid="<%:item.GUID %>"  
-                            href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
-                            class="btn btn-primary text-nowrap mx-1  btn-SessionMultipleRegister"> 多人報名   </a> </div>
+                        <div> 
+                            <a guid="<%:item.GUID %>"  
+                            href="ISRI0003.aspx?guid=<%:item.GUID %>"
+                            class="btn btn-primary text-nowrap mx-1  px-4">編輯</a>  
+                        </div> 
+                        <div>
+                            <a guid="<%:item.GUID %>" 
+                            href="ISRI0004.aspx?guid=<%:item.GUID %>"
+                            class="btn btn-primary text-nowrap mx-1  px-4 ">前台設定</a>  
+                        </div>
+                        <div> 
+                            <a guid="<%:item.GUID %>"  
+                            href="ISRI0005.aspx?guid=<%:item.GUID %>"
+                            class="btn btn-primary text-nowrap mx-1  px-4">報到管理</a>  
+                        </div>
+                       
                     </div> 
                 </div>
             </div>   
@@ -250,29 +289,7 @@
 
     <%--   session list   end--%>   
          
-      <%--  command buttons start--%>
-      <div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-          <div>
-            <button type="button" id="btn_Register"
-                class="btn btn-primary px-3 mx-1 mx-md-4 px-md-4 text-nowrap"
-                  data-target="/Session/Register">
-                          送出
-            </button>
-          </div>
-          
-          <div>
-            <button type="button" id="btn_Clear" 
-                class="btn btn-primary  px-3 mx-1 mx-md-4 px-md-4 text-nowrap">清除</button>
-          </div>
-          <div>
-                 <a href="\isre0000.aspx" class="btn btn-primary   mx-1 mx-md-4 px-md-4 text-nowrap">回首頁</a>
-             </div>
-        
-      </div>
-  
-      <%--  command buttons end--%>
-          
-    
+      
        
     </main>
 

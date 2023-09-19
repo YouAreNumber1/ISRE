@@ -18,22 +18,39 @@ namespace ISRE
         public static readonly int _PageSize = 3;
 
         private string TableName = "ISRE_SESSION_MAIN"; 
-        private readonly static string SPName = "[dbo].[SESSION_ISRE_ACTIVITY_MAIN]"; 
+        private readonly static string SPName = "[dbo].[Session_ISRE_SESSION_MAIN]"; 
        // private string GUID = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected   dynamic  Process_ActivityInfo(String GUID)
+        protected static List<dynamic> StaticQueryDB(string SPName, string QueryMode)
         {
-            GUID = Request.QueryString["GUID"];
-             
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@QueryMode", QueryMode, DbType.String, ParameterDirection.Input);
+
+            List<dynamic> result = _dbConn.Query<dynamic>(
+           SPName,
+            param,
+            commandType: CommandType.StoredProcedure
+            , commandTimeout: _ConnectionTimeout)
+            .ToList();
+            return result;
+        }
+
+        /// <summary>
+        /// ////////// get activity by session guid
+        /// </summary>
+        /// <param name="GUID"></param>
+        /// <returns></returns>
+        protected dynamic  Process_ActivityInfoBySession(String GUID)
+        { 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
-            param.Add("@QueryMode", "SessionList", DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "ActivityInfoBySession", DbType.String, ParameterDirection.Input);
 
             dynamic  model = _dbConn.Query<dynamic>(
-            "Home_ISRE_ACTIVITY_MAIN",
+            "Session_ISRE_SESSION_MAIN",
             param,
             commandType: CommandType.StoredProcedure
             , commandTimeout: _ConnectionTimeout)
@@ -42,19 +59,18 @@ namespace ISRE
             return model;
         }
 
-        protected List<dynamic> Process_SessionList(string GUID)
-        {
-            
+        protected  dynamic  Process_Session(string GUID)
+        { 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
-            param.Add("@QueryMode", "SessionList", DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
-            List<dynamic> model = _dbConn.Query<dynamic>(
-            "Home_ISRE_ACTIVITY_MAIN",
+            dynamic  model = _dbConn.Query<dynamic>(
+            "Session_ISRE_SESSION_MAIN",
             param,
             commandType: CommandType.StoredProcedure
             , commandTimeout: _ConnectionTimeout)
-            .ToList();
+            .FirstOrDefault();
 
             return model;
         }
