@@ -22,10 +22,17 @@ namespace ISRE
         //  private readonly static string ControllerName = string.Concat("/Home/");
         private readonly static string SPName = "[dbo].[SESSION_ISRE_ACTIVITY_MAIN]";
         // private readonly static string Updated_RowView = "Updated_Row";
-        private string GUID2 = "";
+        private string RegisterMultiple = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.IsPostBack)
+            {
+                RegisterMultiple = Request["RegisterMultiple"]; 
+            }
+            else
+            {
+                RegisterMultiple = Request["RegisterMultiple"];
+            } 
         }
         public dynamic Process_Read(string SPName, string GUID = "")
         {

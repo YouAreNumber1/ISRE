@@ -25,6 +25,9 @@
     --Salmon-color: #FF6D5C;
 }
 
+.note {
+    color: red;
+}
 .card-header{
     background-color: var(--Ice-color);
 }

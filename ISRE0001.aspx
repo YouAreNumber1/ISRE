@@ -4,7 +4,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
       <%
-    string GUID = "";
+    string GUID = "";/////////GUID=activity guid
   %>
        <main aria-labelledby="title">
         
@@ -12,7 +12,7 @@
         <div class="container">
                  <h3 class="text-center my-4">活動內容</h3> 
                  <%
-                       GUID = Request.QueryString["GUID"];
+                       GUID = Request.QueryString["GUID"];  /////////GUID=activity guid
                       dynamic Activity = Process_ActivityInfo(GUID);
                  %>
                  <h5 class="text-center my-4">0524「東區第⼆、三類投保單位承保業務說明會」視訊會議</h5>
@@ -116,7 +116,7 @@
 
        
 
-
+<%--session list title columns start --%>
 <div class="  card mt-4 m-2 d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
@@ -147,9 +147,9 @@
     </div>
 </div>
          
+<%-- session list title columns end--%>
 
-
- 
+ <%--session list start  --%>
          <%  
              dynamic sessions = Process_SessionList(GUID);
              foreach (var item in sessions)
@@ -227,8 +227,12 @@
                     <div class="col-12 col-lg-4 mt-5 mt-lg-0 ">
                     <div class="row no-gutters  ">
                         <div class="col d-flex justify-content-around"> 
-                            <div><a href="/isre0002.aspx?guid=this&multiple=0" class="btn btn-primary text-nowrap mx-1">單人報名</a> </div>
-                            <div> <a href="/isre0002.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 多人報名   </a> </div>
+                            <div><a guid="<%:item.GUID %>" 
+                                href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
+                                class="btn btn-primary text-nowrap mx-1 btn-SessionSingleRegister">單人報名</a> </div>
+                            <div> <a guid="<%:item.GUID %>"  
+                                href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
+                                class="btn btn-primary text-nowrap mx-1  btn-SessionMultipleRegister"> 多人報名   </a> </div>
                         </div> 
                     </div>
                 </div>   
@@ -238,6 +242,43 @@
     </div> 
 
            <%} %>
-    </main>
+        
+<%--  session list end  --%>
 
+
+       </main>
+    <script> 
+
+$(document).ready(function () { 
+
+    //$('.btn-SessionSingleRegister').on('click', function () {
+    //    console.log('here');
+    //    var thisForm = this.closest('form');
+    //    $('#RegisterMultiple').val(0);
+    //    $(thisForm).attr('action', 'isre00002.aspx');
+    //    $(thisForm).submit();
+    //});
+    //$('.btn-SessionMultipleRegister').on('click', function () {
+    //    var thisForm = this.closest('form');
+    //    $('#RegisterMultiple').val(1);
+    //    $(thisForm).attr('action', 'isre00002.aspx');
+    //    $(thisForm).submit();
+    //});
+    //var SearchResult = $('#SearchResult');
+    //var thisForm = SearchResult.closest('form');
+    //SearchResult.parent().find('form');
+
+    //$(thisForm)
+    //    .attr('data-ajax', 'true')
+    //    .attr('data-ajax-method', 'GET')
+    //    .attr('data-ajax-mode', 'replace')
+    //    .attr('data-ajax-update', '#SearchResult')
+    //    ;
+
+     
+
+    
+});
+ 
+    </script>
 </asp:Content>
