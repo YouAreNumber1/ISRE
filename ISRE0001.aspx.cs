@@ -26,9 +26,7 @@ namespace ISRE
 
         }
         protected   dynamic  Process_ActivityInfo(String GUID)
-        {
-            GUID = Request.QueryString["GUID"];
-             
+        { 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
             param.Add("@QueryMode", "SessionList", DbType.String, ParameterDirection.Input);

@@ -99,11 +99,11 @@
                                                          <select name="ACT_TYPE" id="ACT_TYPE" class="form-control form-select">
                                                              <option value="">請選擇</option>
                                                                <% 
-                                                                   dynamic TYPE_NAME = Request["TYPE_NAME"]??""; 
+                                                                   dynamic ACT_TYPE = Request["ACT_TYPE"]??""; 
                                                                    dynamic List_ACT_TYPE =  StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE");
                                                                    foreach (var item in List_ACT_TYPE)
                                                                    {
-                                                                       sSelected =  (OBJ_NO.ToString()  == item.SerialID.ToString() ) ? "selected": "";
+                                                                       sSelected =  (ACT_TYPE.ToString()  == item.SerialID.ToString() ) ? "selected": "";
                                                                        %>
                                                                       <option value="<%: item.SerialID %>"   <%: sSelected %>> <%: item.TYPE_NAME%> </option>
                                                                       <%
@@ -298,22 +298,11 @@
                        <div class="col d-flex justify-content-around">  
                           <div class="d-flex"> 
                              <%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 查場次  </a> --%>
-                               <a href="ISRE0001.aspx?GUID=<%:item.GUID %>"  class="btn btn-primary text-nowrap mx-1">看場次</a>  
+                               <a href="ISRE0001.aspx?GUID=<%:item.GUID %>"
+                                   class="btn btn-primary text-nowrap mx-1 px-3">看場次</a>  
                           </div>
                       </div> 
-        <%--              <div class="d-lg-none  col-1    ">
-                          <div class=""> </div>  
-                      </div>
-                       <div class="col-11   col-lg-12 "> 
-                         <div class=" d-flex  d-lg-block">
-                           <div class=" d-flex justify-content-center">  
-                               <div>
-                                    <a   class="btn btn-primary  px-2">查場次</a>
-                               </div>
-                   
-                           </div> 
-                         </div> 
-                     </div> --%>
+        
       </div>
   </div>
 

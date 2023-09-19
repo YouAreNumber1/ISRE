@@ -145,10 +145,10 @@
           <div class="card-body">
 
               <div class="   row   unit   ">
-                  <div class="    py-3   col-lg-2  ">
+                  <div class="    py-lg-3    col-lg-2  ">
                       <span class="note">*</span><b><label>投保單位代號</label></b>
                   </div>
-                  <div class="  py-3   col-lg-10  ">
+                  <div class="    py-lg-3   col-lg-10  ">
                       <div>
                           <input type="text" class=" form-control requiredInput" name="UNIT_NO" id="UNIT_NO">
                       </div>
@@ -156,10 +156,10 @@
               </div>
 
               <div class="   row   unit   ">
-                  <div class="   py-3   col-lg-2  ">
+                  <div class="   py-lg-3    col-lg-2  ">
                       <span class="note">*</span><b><label>投保單位名稱</label></b>
                   </div>
-                  <div class="  py-3   col-lg-10    ">
+                  <div class="    py-lg-3  col-lg-10    ">
                       <div>
                           <input type="text" name="UNIT_NAME2" id="UNIT_NAME2" class=" form-control requiredInput">
                       </div>
@@ -287,10 +287,10 @@
                   <div class="   py-lg-3    col-lg-10  ">
                       <div >
                           <input type="text" class=" form-control ">
-                          <div class="my-2">
-                            <img src="Content/images/gdcode.jpg" alt="">
-                            <img src="Content/images/icon-reload.jpg" alt="">
-                            <img src="Content/images/icon-voice.jpg" alt="">
+                          <div class=" d-flex justify-content-center my-2">
+                            <img src="Content/images/gdcode.jpg"  alt="">
+                            <img src="Content/images/icon-reload.jpg"    alt="">
+                            <img src="Content/images/icon-voice.jpg"    alt="">
                           </div>
                          
                       </div>

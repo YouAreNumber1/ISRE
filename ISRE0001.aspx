@@ -12,7 +12,7 @@
         <div class="container">
                  <h3 class="text-center my-4">活動內容</h3> 
                  <%
-                       GUID = Request.QueryString["GUID"];  /////////GUID=activity guid
+                       GUID = Request.QueryString["GUID"]??"";  /////////GUID=activity guid
                       dynamic Activity = Process_ActivityInfo(GUID);
                  %>
                  <h5 class="text-center my-4">0524「東區第⼆、三類投保單位承保業務說明會」視訊會議</h5>
@@ -64,22 +64,54 @@
                         <div class="card-header ">活動內容</div>
                     </div>
                     <div class="my-2 px-3">
-                         <div class=" d-flex">
-                             <div class="">
-                                  <span class="badge bg-info">112/05/24</span>  
+                        <div>
+                              <div class=" d-flex justify-content-start  ">
+                                  <div class="d-flex">
+                                        <div class="">
+                                            <span class="badge bg-info">112/05/24</span>  
+                                        </div>
+                                        <div class="ms-2">
+                                            (台北市)Microsoft Teams線上視訊會議  
+                                        </div>
+                                  </div>
+                                  <div>
+                                       <i class="fa-solid fa-chevron-down ms-3 "></i>
+                                  </div> 
+                                </div>
+                        
+                             <div class=" d-flex justify-content-start  ">
+                                 <div class="d-flex">
+                                       <div class="">
+                                           <span class="badge bg-info">112/05/24</span>  
+                                       </div>
+                                       <div class="ms-2">
+                                           (台北市)Microsoft Teams線上視訊會議  
+                                       </div>
+                                 </div>
+                                 <div>
+                                      <i class="fa-solid fa-chevron-down ms-3 "></i>
+                                 </div> 
                                </div>
-                             <div class="ms-2">
-                                    (花蓮縣)Microsoft Teams線上視訊會議  
-                             </div>
-                         </div>
-                        <div class=" d-flex">
-                            <div class="">
-                                 <span class="badge bg-info">112/05/31</span>  
-                              </div>
-                            <div class="ms-2">
-                                   (花蓮縣)Microsoft Teams線上視訊會議  
+                        
+                             <div class=" d-flex justify-content-start  ">
+                                <div class="d-flex">
+                                    <div class="">
+                                        <span class="badge bg-info">112/05/24</span>  
+                                    </div>
+                                    <div class="ms-2">
+                                        (台北市)Microsoft Teams線上視訊會議  
+                                    </div>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-chevron-down ms-3 "></i>
+                                </div> 
                             </div>
-                        </div> 
+                        </div>
+                       
+                        <div class="d-flex justify-content-start">
+                           <a class="btn btn-link mt-3">More .....</a> 
+                        </div>
+
                     </div>
                 </div>
 

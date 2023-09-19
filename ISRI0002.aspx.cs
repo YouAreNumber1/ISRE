@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -31,6 +32,22 @@ namespace ISRE
                 RegisterMultiple = Request["RegisterMultiple"];
             } 
         }
+        protected dynamic Process_ActivityInfo(String GUID)
+        {
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
+
+            dynamic model = _dbConn.Query<dynamic>(
+            "Home_ISRE_ACTIVITY_MAIN",
+            param,
+            commandType: CommandType.StoredProcedure
+            , commandTimeout: _ConnectionTimeout)
+            .FirstOrDefault();
+
+            return model;
+        }
+
         public dynamic Process_Read(string SPName, string GUID = "")
         {
             dynamic model = new ExpandoObject();
@@ -88,6 +105,23 @@ namespace ISRE
             return model;
         }
 
+
+        protected List<dynamic> Process_SessionList(string GUID)
+        {
+
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "SessionList", DbType.String, ParameterDirection.Input);
+
+            List<dynamic> model = _dbConn.Query<dynamic>(
+            "Home_ISRE_ACTIVITY_MAIN",
+            param,
+            commandType: CommandType.StoredProcedure
+            , commandTimeout: _ConnectionTimeout)
+            .ToList();
+
+            return model;
+        }
 
     }
 }
