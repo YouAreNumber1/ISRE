@@ -3,28 +3,28 @@
     Inherits="ISRE.ISRI0003" %>
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-      <%
+<%
            string GUID = Request.QueryString["GUID"]??"";  /////////GUID=session guid
   
            string ActioinName = (GUID == "") ?  "新增":"編輯" ;
   %>
         <style>
-.bg-info {
-background-color: var(--Ice-color) !important;
-font-weight: normal;
-} 
+            .bg-info {
+            background-color: var(--Ice-color) !important;
+            font-weight: normal;
+            } 
     </style>
        <main aria-labelledby="title">
         
 
         <div class="container">
-                 <h3 class="text-center my-4">活動內容</h3> 
+                 <h3 class="text-center  ">活動內容</h3> 
                  <% 
                       dynamic Activity = Process_ActivityInfoBySession(GUID);
                  %>
                   <%-- activity info summary start --%>
-      <%-- activity info summary title start --%>
-      <div class="  card mt-4 m-2 d-none d-lg-block "> 
+      <%-- activity info summary title  rt --%>
+      <div class="  card   m-2 d-none d-lg-block "> 
          <div class="card-header ">
              <div class="row no-gutters  ">
                  <div class=" col-lg-3   ">
@@ -120,8 +120,8 @@ font-weight: normal;
 
        
  
- <%--session list start  --%>
-            <h3 class="text-center my-2"> <%: String.Concat(ActioinName, "場次資訊") %> </h3>
+ <%--session   start  --%>
+            <h3 class="text-center mt-5 mb-2"> <%: String.Concat(ActioinName, "場次資訊") %> </h3>
          <%  
              dynamic Model = Process_Session(GUID);
            string sSelected = "";

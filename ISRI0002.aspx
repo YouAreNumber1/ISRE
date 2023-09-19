@@ -7,6 +7,7 @@
   string GUID = "";/////////GUID= activity guid
 %>
     <main>
+          <h3 class="text-center ">活動內容</h3> 
  <%
      GUID = Request.QueryString["GUID"];
        dynamic Model = Process_ActivityInfo(GUID);
@@ -15,7 +16,7 @@
 
        <%-- activity info summary start --%>
          <%-- activity info summary title start --%>
-         <div class="  card mt-4 m-2 d-none d-lg-block "> 
+         <div class="  card   m-2 d-none d-lg-block "> 
             <div class="card-header ">
                 <div class="row no-gutters  ">
                     <div class=" col-lg-3   ">
@@ -109,12 +110,14 @@
 
    
        <%--   session list   start--%>   
-        <div class="d-flex  justify-content-end mt-5">
+        <div class="d-flex  justify-content-between  align-items-center mt-5 "> 
+            <div></div>
+            <h3 class="text-center ">場次列表</h3>   
             <a href="ISRI0003.aspx" class="btn btn-Create btn-primary px-3">新增場次</a>
         </div>
-           
+          
 <%--session list title columns start --%>
-<div class="  card mt-4 m-2 d-none d-lg-block "> 
+<div class="  card  m-2 d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
             <div class=" col-lg-1 text-center ">
@@ -155,14 +158,14 @@
 <%-- session list title columns end--%>
 
 
-        
+       
  <%--session list start  --%>
         <%  
             dynamic sessions = Process_SessionList(GUID);
             foreach (var item in sessions)
             {
         %>
-        <div class="border rounded my-4 p-2">
+        <div class="border rounded m-2 p-2">
     <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
         <div class=" row no-gutters  ">
                 <div class="col-12 col-lg-1 "> 
@@ -263,12 +266,12 @@
                         <div>
                             <a guid="<%:item.GUID %>" 
                             href="ISRI0004.aspx?guid=<%:item.GUID %>"
-                            class="btn btn-primary text-nowrap mx-1  px-4 ">前台設定</a>  
+                            class="btn btn-primary text-nowrap mx-1  px-2 ">前台設定</a>  
                         </div>
                         <div> 
                             <a guid="<%:item.GUID %>"  
                             href="ISRI0005.aspx?guid=<%:item.GUID %>"
-                            class="btn btn-primary text-nowrap mx-1  px-4">報到管理</a>  
+                            class="btn btn-primary text-nowrap mx-1  px-2">報到管理</a>  
                         </div>
                        
                     </div> 

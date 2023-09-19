@@ -41,6 +41,21 @@ namespace ISRE
 
             return model;
         }
+        protected dynamic Process_ActivityInfoBySession(String GUID)
+        {
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "ActivityInfoBySession", DbType.String, ParameterDirection.Input);
+
+            dynamic model = _dbConn.Query<dynamic>(
+            "Session_ISRE_SESSION_MAIN",
+            param,
+            commandType: CommandType.StoredProcedure
+            , commandTimeout: _ConnectionTimeout)
+            .FirstOrDefault();
+
+            return model;
+        }
 
         protected List<dynamic> Process_SessionList(string GUID)
         {
@@ -55,6 +70,21 @@ namespace ISRE
             commandType: CommandType.StoredProcedure
             , commandTimeout: _ConnectionTimeout)
             .ToList();
+
+            return model;
+        }
+        protected dynamic Process_Session(string GUID)
+        {
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
+
+            dynamic model = _dbConn.Query<dynamic>(
+            "Session_ISRE_SESSION_MAIN",
+            param,
+            commandType: CommandType.StoredProcedure
+            , commandTimeout: _ConnectionTimeout)
+            .FirstOrDefault();
 
             return model;
         }
