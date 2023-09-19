@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
-    AutoEventWireup="true" CodeBehind="ISRE0001.aspx.cs" 
-    Inherits="ISRE.ISRE0001" %>
-<%--this page is for frontend activity and session list--%>
+    AutoEventWireup="true" CodeBehind="ISRI0005.aspx.cs" 
+    Inherits="ISRE.ISRI0005" %>
+<%--this page is for backend to manage   register --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
       <%
     string GUID = "";/////////GUID=activity guid

@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
-    AutoEventWireup="true" CodeBehind="ISRE0002.aspx.cs" 
-    Inherits="ISRE.ISRE0002" %>
-<%--this page is for frontend  session  registration--%>
+    AutoEventWireup="true" CodeBehind="ISRI0002.aspx.cs" 
+    Inherits="ISRE.ISRI0002" %>
+<%--this page is for backend activity create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- 
+  <%
+  string GUID = "";/////////GUID= session guid
+%>
     <main>
  <%
-     String GUID = Request.QueryString["GUID"];///GUID= session guid
+     GUID = Request.QueryString["GUID"];
      String   multiple = Request.QueryString["multiple"];
      dynamic Session = Process_Read("Session_ISRE_Session_MAIN", GUID);
-     string RegisterMultiple = Request.QueryString["RegisterMultiple"]??"";
-    
+     string RegisterMultiple = Request["RegisterMultiple"];
 %>
 
        <%-- session info summary start --%>
@@ -123,9 +124,8 @@
           value="<%:RegisterMultiple %>"" />
 
         <%
-
-            if (RegisterMultiple.ToString()==((int)ISRE.Enum_Register.Single).ToString()
-            || RegisterMultiple.ToString()==((int)ISRE.Enum_Register.Multiple).ToString())
+            if (RegisterMultiple==ISRE.Enum_RegisterMultiple.Single.ToString()
+            || RegisterMultiple==ISRE.Enum_RegisterMultiple.Multiple.ToString())
             {
 %>
             <div class="text-center"> 

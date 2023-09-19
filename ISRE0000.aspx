@@ -2,8 +2,9 @@
     AutoEventWireup="true" CodeBehind="ISRE0000.aspx.cs" 
     Inherits="ISRE.ISRE0000" %>
 
+<%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-  <%
+  <%   
     string sSelected = "";
   %>
        <main> 
