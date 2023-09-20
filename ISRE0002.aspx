@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
     AutoEventWireup="true" CodeBehind="ISRE0002.aspx.cs" 
     Inherits="ISRE.ISRE0002" %>
+ 
+
 <%--this page is for frontend  session  registration--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
  
     <main>
  <%
-     String GUID = Request.QueryString["GUID"];///GUID= session guid
-     String   multiple = Request.QueryString["multiple"];
+     String GUID = Request.QueryString["GUID"];///GUID= session guid 
      dynamic Session = Process_Read("Session_ISRE_Session_MAIN", GUID);
      string RegisterMultiple = Request.QueryString["RegisterMultiple"]??"";
     
@@ -205,16 +206,25 @@
 
 
    <%--     registration form start--%>
+<input type="hidden" name="RegisterMultiple" id="RegisterMultiple" 
+          value="<%:RegisterMultiple %>" />
+        <%      
+            dynamic enumValue = Int32.Parse(RegisterMultiple.ToString());
+             var enumName = (ISRE.Enum_Register)enumValue;
+             var desc = enumName.GetDescription();
+    %>
+ 
 
         <div class="mt-5">
+             <h3 class="text-center mt-5 mb-2">報名單(<%:desc %>)  </h3>
 
-<input type="hidden" name="RegisterMultiple" id="RegisterMultiple" 
-          value="<%:RegisterMultiple %>"" />
 
         <%
 
             if (RegisterMultiple.ToString()==((int)ISRE.Enum_Register.Single).ToString()
-            || RegisterMultiple.ToString()==((int)ISRE.Enum_Register.Multiple).ToString())
+            || RegisterMultiple.ToString()==((int)ISRE.Enum_Register.Multiple).ToString()
+             || RegisterMultiple.ToString()==((int)ISRE.Enum_Register.Backup).ToString()
+            )
             {
 %>
             <div class="text-center"> 

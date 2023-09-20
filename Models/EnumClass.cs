@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace ISRE
 {
@@ -48,8 +49,10 @@ namespace ISRE
         [Description("單人"), Display(Name = "單人")]
         Single = 0,
         [Description("多人"), Display(Name = "多人")]
-        Multiple=1
-    }
+        Multiple=1,
+		[Description("候補"), Display(Name = "候補")]
+		Backup = 2
+	}
 
 
     public enum Enum_AttachmentCategory
@@ -67,12 +70,12 @@ namespace ISRE
 
 
 
+	 
 
 
 
 
-
-    public enum Enum_Dispaly_Required
+	public enum Enum_Dispaly_Required
     { 
         [Description("顯示"), Display(Name = "顯示")]
         Dispaly = 1,

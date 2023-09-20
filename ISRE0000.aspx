@@ -281,7 +281,9 @@
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-										<div class="badge bg-info">12</div>
+										<div class="badge bg-info">
+											<%:item.TotalSessionNo %> 
+										</div>
 									</div>
 								</div>
 							</div>
@@ -306,7 +308,7 @@
 									<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 查場次  </a> --%>
 									<a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=a"
 										class="btn btn-primary text-nowrap mx-1 px-3">檢視場次
-										<span class="d-lg-none badge bg-info">4</span>
+										<span class="d-lg-none badge bg-info"><%:item.TotalSessionNo %> </span>
 									</a>
 								</div>
 							</div>

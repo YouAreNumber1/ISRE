@@ -12,7 +12,6 @@
 		.schedule td {
 			padding: 4px;
 		}
-		
 	</style>
 	<main aria-labelledby="title">
 
@@ -513,6 +512,8 @@
 			foreach (var item in sessions)
 			{
 		%>
+
+
 		<div class="border rounded my-1 py-1">
 			<div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
 				<div class=" row no-gutters session ">
@@ -523,7 +524,7 @@
 							</span>
 							<div class="col-8 col-lg-12 ">
 								<div class="d-flex justify-content-lg-center">
-									4  
+									<%:item.SESS_Serial_NO??"" %>
 								</div>
 							</div>
 						</div>
@@ -584,51 +585,51 @@
 						</div>
 					</div>
 
-					<div class="col-12  showSchedule collapse"  >
+					<div class="col-12  showSchedule collapse">
 						<div class="row no-gutters">
-						<%--	<div class="d-lg-none  col-12   ">
+							<%--	<div class="d-lg-none  col-12   ">
 								<span class="badge bg-primary">活動內容</span>
 							</div>--%>
 							<div class="  col-lg-12   ">
-								 
-									<div  class="p-2 m-2 col-12     table-responsive">
-										<table class="schedule">
-											<thead>
-												<tr>
-													<th class="time-td">時間</th>
-													<th>活動內容</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="time-td">10:30~10:40</td>
-													<td>主席致詞</td>
-												</tr>
-												<tr>
-													<td class="time-td">10:40~10:50</td>
-													<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-												</tr>
-												<tr>
-													<td class="time-td">10:50~11:20</td>
-													<td>⼆三類承保業務說明</td>
-												</tr>
-												<tr>
-													<td class="time-td">11:20~11:30</td>
-													<td>休息</td>
-												</tr>
-												<tr>
-													<td class="time-td">11:30~11:50</td>
-													<td>⼆三類多憑證網路承保業務</td>
-												</tr>
-												<tr>
-													<td class="time-td">11:50~12:00</td>
-													<td>弱勢協助措施</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
 
-								 
+								<div class="p-2 m-2 col-12     table-responsive">
+									<table class="schedule">
+										<thead>
+											<tr>
+												<th class="time-td">時間</th>
+												<th>活動內容</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="time-td">10:30~10:40</td>
+												<td>主席致詞</td>
+											</tr>
+											<tr>
+												<td class="time-td">10:40~10:50</td>
+												<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
+											</tr>
+											<tr>
+												<td class="time-td">10:50~11:20</td>
+												<td>⼆三類承保業務說明</td>
+											</tr>
+											<tr>
+												<td class="time-td">11:20~11:30</td>
+												<td>休息</td>
+											</tr>
+											<tr>
+												<td class="time-td">11:30~11:50</td>
+												<td>⼆三類多憑證網路承保業務</td>
+											</tr>
+											<tr>
+												<td class="time-td">11:50~12:00</td>
+												<td>弱勢協助措施</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+
 							</div>
 						</div>
 					</div>
@@ -640,21 +641,39 @@
 							<div class="col d-flex justify-content-around">
 								<% if (plan == "b")
 									{ %>
-								<div> 
-									<a class=" btn-showSchedule btn btn-primary px-3" >看議程 </a>
+								<div>
+									<a class=" btn-showSchedule btn btn-primary px-2">檢視議程 </a>
 								</div>
 								<%}
 								%>
+
+								<% if (sessions.Count == 1)
+									{ %>
+								<div>
+									<a class="btn disabled px-3 btn-primary text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
+								</div>
+								<% 	}
+									else if (sessions.Count == 2)
+									{%>
+								<div>
+									<a guid="<%:item.GUID %>"
+										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=2"
+										class="btn btn-danger text-nowrap mx-1  ">候補報名</a>
+								</div>
+								<% }
+									else
+									{ %>
 								<div>
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
-										class="btn btn-primary text-nowrap mx-1 btn-SessionSingleRegister">單人報名</a>
+										class="btn btn-primary text-nowrap mx-1  ">單人報名</a>
 								</div>
 								<div>
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
-										class="btn btn-primary text-nowrap mx-1  btn-SessionMultipleRegister">多人報名   </a>
+										class="btn btn-primary text-nowrap mx-1  ">多人報名   </a>
 								</div>
+								<% 	}%>
 							</div>
 						</div>
 					</div>
@@ -684,7 +703,7 @@
 				let test = target.hasClass('collapse');
 				if (test) {
 					target.removeClass('collapse');
-					var scrollTop = target == null ? 0 : target.offset().top; 
+					var scrollTop = target == null ? 0 : target.offset().top;
 					$('html, body').animate({
 						scrollTop: scrollTop
 					}, {
@@ -701,9 +720,9 @@
 					$(this).closest('.col-Command').removeClass('col-lg-4');
 				}
 				else {
-					 
+
 					target.addClass('collapse');
-					var scrollTop = targetRow == null ? 0 : targetRow.offset().top; 
+					var scrollTop = targetRow == null ? 0 : targetRow.offset().top;
 					$('html, body').animate({
 						scrollTop: scrollTop
 					}, {

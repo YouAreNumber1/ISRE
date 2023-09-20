@@ -1,11 +1,13 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -106,7 +108,7 @@ namespace ISRE
 
 			return model;
 		}
-
+		 
 
 	}
 }
