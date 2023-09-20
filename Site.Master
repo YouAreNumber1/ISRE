@@ -40,8 +40,8 @@
     <div class="navbar navbar-inverse navbar-fixed-top  border border-top-0 border-start-0 border-end-0">
     <div class="container d-flex justify-content-between">
  <%
-     string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath).ToUpper();
-     if (PhysicalPath.Contains("ISRI"))
+     string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath)??"";
+     if (PhysicalPath.ToUpper().Contains("ISRI"))
        { %>
           <a class="logo" href="/ISRI0000.ASPX"></a> 
          <div class="backend-info">
