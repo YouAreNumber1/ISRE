@@ -28,13 +28,26 @@
 .note {
     color: red;
 }
+label
+{
+    font-weight:bold;
+}
 .card-header{
     background-color: var(--Ice-color);
 }
 .table th {
-    text-align: center;
+     text-align: center; 
     white-space: nowrap;
     font-weight: bold;
+}
+
+.table-registration  .note-g {
+    text-align: left;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.table-registration td {
+    text-align: center;
 }
 
 a {
@@ -99,10 +112,7 @@ a {
     font-weight: normal;
 }
 
-.text-isre {
-    color: var(--Cyan-color) !important;
-}
-
+ 
 /*
 .centered {
     width: auto !important;
@@ -132,8 +142,13 @@ a {
     }
 
 
-.body-content {
+/*.body-content {
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
+}
+*/
+.card-header.active {
+    background-color: var(--Cyan-color) !important;
+    color: var(--White-color) !important;
 }

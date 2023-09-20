@@ -16,8 +16,8 @@
 
        <%-- activity info summary start --%>
          <%-- activity info summary title start --%>
-         <div class="  card   m-2 d-none d-lg-block "> 
-            <div class="card-header ">
+         <div class="  card   d-none d-lg-block "> 
+            <div class="card-header active ">
                 <div class="row no-gutters  ">
                     <div class=" col-lg-3   ">
                         <span>  活動主題 </span>
@@ -40,7 +40,7 @@
         </div>
           <%-- activity info summary title end --%>
           <%-- activity info summary content start --%>
-         <div class="border rounded m-2 p-2">
+         <div class="border rounded my-1 py-1">
             <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
                 <div class=" row no-gutters  ">
                         <div class="col-12 col-lg-3 "> 
@@ -117,7 +117,7 @@
         </div>
           
 <%--session list title columns start --%>
-<div class="  card  m-2 d-none d-lg-block "> 
+<div class="  card   d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
             <div class=" col-lg-1 text-center ">
@@ -165,8 +165,8 @@
             foreach (var item in sessions)
             {
         %>
-        <div class="border rounded m-2 p-2">
-    <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
+        <div class="border rounded my-1 py-1">
+    <div class="    card   border-end-0 border-top-0 border-bottom-0 border-start-0   ">
         <div class=" row no-gutters  ">
                 <div class="col-12 col-lg-1 "> 
                     <div class="row no-gutters"> 

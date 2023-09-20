@@ -9,7 +9,7 @@
        <main aria-labelledby="title">
         
 
-        <div class="container">
+        <div class="">
                  <h3 class="text-center my-4">活動內容</h3> 
                  <%
                        GUID = Request.QueryString["GUID"]??"";  /////////GUID=activity guid
@@ -65,7 +65,7 @@
                     </div>
                     <div class="my-2 px-3">
                         <div>
-                              <div class=" d-flex justify-content-start  ">
+                              <div class=" d-flex justify-content-between justify-content-lg-start ">
                                   <div class="d-flex">
                                         <div class="">
                                             <span class="badge bg-info">112/05/24</span>  
@@ -74,12 +74,12 @@
                                             (台北市)Microsoft Teams線上視訊會議  
                                         </div>
                                   </div>
-                                  <div>
-                                       <i class="fa-solid fa-chevron-down ms-3 "></i>
+                                  <div class=" ">
+                                       <i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
                                   </div> 
                                 </div>
                         
-                             <div class=" d-flex justify-content-start  ">
+                             <div class=" d-flex  justify-content-between  justify-content-lg-start ">
                                  <div class="d-flex">
                                        <div class="">
                                            <span class="badge bg-info">112/05/24</span>  
@@ -89,11 +89,11 @@
                                        </div>
                                  </div>
                                  <div>
-                                      <i class="fa-solid fa-chevron-down ms-3 "></i>
+                                      <i class="fa-solid fa-chevron-down ms-1 ms-lg-4"></i>
                                  </div> 
                                </div>
                         
-                             <div class=" d-flex justify-content-start  ">
+                             <div class=" d-flex  justify-content-between  justify-content-lg-start  ">
                                 <div class="d-flex">
                                     <div class="">
                                         <span class="badge bg-info">112/05/24</span>  
@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <i class="fa-solid fa-chevron-down ms-3 "></i>
+                                    <i class="fa-solid fa-chevron-down ms-1  ms-lg-4"></i>
                                 </div> 
                             </div>
                         </div>
@@ -149,7 +149,7 @@
        
 
 <%--session list title columns start --%>
-<div class="  card mt-4 m-2 d-none d-lg-block "> 
+<div class="  card mt-4  d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
             <div class=" col-lg-1 text-center ">
@@ -187,7 +187,7 @@
              foreach (var item in sessions)
              {
           %>
-          <div class="border rounded my-4 p-2">
+          <div class="border rounded my-1 py-1">
         <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
             <div class=" row no-gutters  ">
                     <div class="col-12 col-lg-1 "> 

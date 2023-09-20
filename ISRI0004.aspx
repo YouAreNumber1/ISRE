@@ -7,12 +7,7 @@
            string GUID = Request.QueryString["GUID"]??"";  /////////GUID=session guid 
            string ActioinName = (GUID == "") ?  "新增":"編輯" ;
   %>
-  <style>
-        .bg-info {
-        background-color: var(--Ice-color) !important;
-        font-weight: normal;
-        } 
-</style>
+ 
     
     <main aria-labelledby="title">
         
@@ -23,8 +18,8 @@
       dynamic Activity = Process_ActivityInfoBySession(GUID);
  %>  
      <%-- activity info summary title start --%>
- <div class="  card   m-2 d-none d-lg-block "> 
-    <div class="card-header ">
+ <div class="  card    d-none d-lg-block "> 
+    <div class=" card-header  active">
         <div class="row no-gutters  ">
             <div class=" col-lg-3   ">
                 <span>  活動主題 </span>
@@ -48,8 +43,8 @@
     
                       <%-- activity info summary title end --%>
        <%-- activity info summary content start --%>
-      <div class="border rounded m-2 p-2">
-         <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
+      <div class="border rounded my-1 py-1">
+         <div class="    card  m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
              <div class=" row no-gutters  ">
                      <div class="col-12 col-lg-3 "> 
                          <div class="row no-gutters"> 
@@ -124,7 +119,7 @@
           %>    
 
 <%--session   title columns start --%>
-<div class="  card  m-2 d-none d-lg-block "> 
+<div class="  card   d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
             <div class=" col-lg-1 text-center ">
@@ -161,7 +156,7 @@
 
 <%-- session   title columns end--%>
 
-        <div class="border rounded m-2 p-2">
+        <div class="border rounded my-1 py-1">
     <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
         <div class=" row no-gutters  ">
                 <div class="col-12 col-lg-1 "> 
@@ -258,14 +253,16 @@
 
        
             
+<div class="mt-5">
 
-             <h3 class="text-center">活動報名表</h3> 
- <div class="card m-4">
-     <div class="card-header">報名表</div>
- </div>
+<h3 class="text-center">活動報名表</h3> 
+<div class="card  ">
+    <div class="card-header">報名表</div>
+</div>
 
-  <div class="my-2">
-         <div class="d-flex">
+
+  <div class="my-1 py-1">
+         <div class="d-flex justify-content-center">
              <span>報名⾝分：</span>
              <div class="form-check  form-check-inline">
                  <input type="radio" class="form-check-input " id="REMIND_MAIL_ENABLE1" name="REMIND_MAIL_ENABLE" value="1" checked>個人
@@ -278,11 +275,110 @@
          </div>
 
 
-         <div class="my-2">
-             <table class="table border">
+         <div class="  ">
+
+              
+               
+                    <div class="row my-1 py-1  border border-end-0 border-top-0  border-start-0 ">
+                         <div class="col-8"> <label>欄位</label> </div>
+                         <div class="col-2  text-center"><label>顯示</label> </div>
+                         <div class="col-2 text-center"> <label>必填</label></div>
+                     </div>
+                      <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+                          <div class="col-8  "><label>投保單位代號</label> </div>
+                        <div class="col-2 text-center"><input type="checkbox"  ></div>
+                    <div class="col-2 text-center"><input type="checkbox"  ></div>
+                      </div>
+                     <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+                          <div class="col-8"><label>醫療院所代號</label></div>
+                         <div class="col-2 text-center"><input type="checkbox"  ></div>
+                    <div class="col-2 text-center"><input type="checkbox"  ></div>
+                      </div>
+            <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+                  <div class="col-8"><label>統⼀編號</label></div>
+                 <div class="col-2 text-center"><input type="checkbox"  ></div>
+                <div class="col-2 text-center"><input type="checkbox"  ></div>
+              </div>
+             <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+                  <div class="col-8"><label>投保單位代號或統⼀編號</label></div>
+                  <div class="col-2 text-center"><input type="checkbox"  ></div>
+                  <div class="col-2 text-center"><input type="checkbox"  ></div>
+              </div>
+
+              <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+                  <div class="col-8"><label>指定單位代號</label></div>
+                  <div class="col-2 text-center"><input type="checkbox"  ></div>
+                  <div class="col-2 text-center"><input type="checkbox"  ></div>
+              </div>
+
+              <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+                 <div class="col-8"><label>單位名稱</label></div>
+                 <div class="col-2 text-center"><input type="checkbox"  ></div>
+                 <div class="col-2 text-center"><input type="checkbox"  ></div>
+             </div>
+
+              <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>⾝分證號/居留證號</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+                           <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>職稱</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+
+                                        <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>製作教師研習證明</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+
+                                                     <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>上傳公務⼈員訓練時數</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+
+   <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>參與⽅式</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+
+   <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>個資使⽤同意證明</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+
+
+
+   <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>餐飲習慣</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+   <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+    <div class="col-8"><label>備註</label></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+    <div class="col-2 text-center"><input type="checkbox"  ></div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<%--             <table class="table border table-registration">
                  <thead>
                      <tr>
-                         <th class="b-item-td" width="40%">欄位</th>
+                         <th>欄位</th>
                          <th>顯示</th>
                          <th>必填</th>
                      </tr>
@@ -318,7 +414,7 @@
                              <th>姓名</th>
                              <td><label><input type="checkbox" checked><span class="checkbox-unit-disabled"></span></label></td>
                              <td><label><input type="checkbox" checked><span class="checkbox-unit-disabled"></span></label></td>
-                         </tr>*@--%>
+                         </tr>*@ 
                      <tr>
                          <th>⾝分證號/居留證號</th>
                          <td><label><input type="checkbox"><span class="checkbox-unit"></span></label></td>
@@ -338,7 +434,7 @@
                              <th>電⼦郵件信箱</th>
                              <td><label><input type="checkbox" checked><span class="checkbox-unit-disabled"></span></label></td>
                              <td><label><input type="checkbox" checked><span class="checkbox-unit-disabled"></span></label></td>
-                         </tr>*@--%>
+                         </tr>*@ 
                      <tr>
                          <th>製作教師研習證明</th>
                          <td><label><input type="checkbox"><span class="checkbox-unit"></span></label></td>
@@ -371,6 +467,8 @@
                      </tr>
                  </tbody>
              </table>
+         --%>
+         
          </div>
 
      </div>

@@ -5,41 +5,50 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
   
        <main> 
-<h3 class="text-center my-3">活動清單</h3>
-           <section>  
-                    <div class="d-flex  justify-content-between align-items-center m-2"> 
-                         <div class="d-flex" >
-                             <div class="mx-1 mx-sm-3">
-                                 <div>代理人員：</div>
-                                 <select name="agentName" id="agentName" class="form-control form-select">
+<%--<h3 class="text-center my-3">活動清單</h3>--%>
+           <section class="mb-2">  
+               <div class="d-flex  justify-content-between align-items-center  "> 
+                    <div class="d-none d-sm-block"></div> 
+                      <h3 class="  ">活動清單</h3> 
+                   
+                         <a href="ISRI0001.aspx" 
+                             class=" btn btn-primary   "
+                          >新增活動  
+                         </a>
+                     
+                </div>
 
-                                     <option value=""> </option>
-                                     <option value="">王大頭</option>
-                                 </select>
-                             </div>
-                             <div class="mx-1 mx-sm-3">
-                                 <div>查詢條件：</div>
-                                 <select name="pagesize" id="pagesize" class="form-control form-select">
-                                     <option value="">最近20筆</option>
-                                     <option value="">全部</option>
-                                 </select>
-                             </div> 
-                         </div> 
-                        <div  >
-                            <a href="ISRI0001.aspx" 
-                                class=" btn btn-primary  px-lg-4 "
-                             >新增活動  
-                            </a>
+              
+                        <div class="d-flex" >
+                            <div class="mx-1 mx-sm-3">
+                                <div>代理人員：</div>
+                                <select name="agentName" id="agentName" class="form-control form-select">
+
+                                    <option value=""> </option>
+                                    <option value="">王大頭</option>
+                                </select>
+                            </div>
+                            <div class="mx-1 mx-sm-3">
+                                <div>查詢條件：</div>
+                                <select name="pagesize" id="pagesize" class="form-control form-select">
+                                    <option value="">最近20筆</option>
+                                    <option value="">全部</option>
+                                </select>
+                            </div> 
                         </div> 
-                     </div> 
+                   
+             
+
+
+                    
            </section>
  
      
  
-<div class="  card m-2 d-none d-lg-block "> 
+<div class="  card  d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
-            <div class=" col-lg-4">
+            <div class=" col-lg-3">
                 <div class=" "> 活動主題 </div>
             </div>
             <div class=" col-lg-2">
@@ -54,7 +63,7 @@
             <div class=" col-lg-2    ">
                 <div class=" text-center ">發布起訖⽇期</div>
             </div>
-             <div class=" col-lg-2">
+             <div class=" col-lg-3">
                 <div class=" text-center ">編輯/管理</div>
              </div>
              <%-- <div class=" col-lg-1">
@@ -69,10 +78,10 @@
              foreach (var item in List_Activities) 
            { 
          %>
-            <div class="border rounded m-2 p-2">
+            <div class="border rounded my-1 py-1">
       <div class="    card m-1 border-0   ">
           <div class=" row no-gutters   ">
-              <div class="col-12 col-lg-4 "> 
+              <div class="col-12 col-lg-3 "> 
                   <div class="row    no-gutters"> 
                         <span class="d-lg-none col-5 col-sm-2   ">
                             <span class="badge bg-primary">活動主題</span> 
@@ -139,7 +148,7 @@
 
               
               
-              <div class="col-12 col-lg-2">
+              <div class="col-12 col-lg-3">
                       <div class="row no-gutters">
                           <div class="col mt-3 mt-lg-0 d-flex justify-content-around">  
                                  <a href="ISRI0001.aspx?GUID=<%:item.GUID %>" 

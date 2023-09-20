@@ -8,20 +8,19 @@
     string sSelected = "";
   %>
        <main> 
-           <section> 
-
-                    <div class="d-flex  justify-content-between align-content-center m-2"> 
-                        <div class="d-none d-sm-block"></div>
-                         <div>
-                             <h3 class="text-center my-3">活動報名</h3>
-                         </div>
-                        <div class="mt-2">
-                            <a id="aFilter" href="#Filter" class=" btn btn-primary  px-lg-4 "
-                            data-bs-toggle="collapse">查詢條件 
-                                <i class="fa-solid fa-chevron-down  text-white"></i>
-                            </a>
-                        </div> 
-                     </div>
+           <section>  
+                <div class="d-flex  justify-content-between align-content-center  "> 
+                    <div class="d-none d-sm-block"></div>
+                        <div>
+                            <h3 class="text-center my-3">活動報名</h3>
+                        </div>
+                    <div class="mt-2">
+                        <a id="aFilter" href="#Filter" class=" btn btn-primary  px-lg-4 "
+                        data-bs-toggle="collapse">查詢條件 
+                            <i class="fa-solid fa-chevron-down  text-white"></i>
+                        </a>
+                    </div> 
+                </div>
                  
       
 
@@ -210,7 +209,7 @@
  
      
  
-<div class="  card m-2 d-none d-lg-block "> 
+<div class="  card  d-none d-lg-block "> 
     <div class="card-header ">
         <div class="row no-gutters  ">
             <div class=" col-lg-5">
@@ -240,7 +239,7 @@
              foreach (var item in List_Activities) 
            { 
          %>
-            <div class="border rounded m-2 p-2">
+            <div class="border rounded my-1 py-1">
       <div class="    card m-1 border-0   ">
           <div class=" row no-gutters  ">
               <div class="col-12 col-lg-5 "> 

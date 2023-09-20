@@ -24,8 +24,8 @@
                  %>
                   <%-- activity info summary start --%>
       <%-- activity info summary title  rt --%>
-      <div class="  card   m-2 d-none d-lg-block "> 
-         <div class="card-header ">
+      <div class="  card   d-none d-lg-block "> 
+         <div class="card-header active">
              <div class="row no-gutters  ">
                  <div class=" col-lg-3   ">
                      <span>  活動主題 </span>
@@ -48,8 +48,8 @@
      </div>
        <%-- activity info summary title end --%>
        <%-- activity info summary content start --%>
-      <div class="border rounded m-2 p-2">
-         <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
+      <div class="border rounded my-1 py-1">
+         <div class="    card m-1  border-end-0 border-top-0 border-bottom-0 border-start-0   ">
              <div class=" row no-gutters  ">
                      <div class="col-12 col-lg-3 "> 
                          <div class="row no-gutters"> 
@@ -127,7 +127,9 @@
            string sSelected = "";
           %>
          
-     <%   
+            <div class="m-2 p-2">
+
+   <%   
           if (Model != null)
           { %>
               <div class="   row      ">
@@ -142,8 +144,7 @@
                           : "" %>" >
                   </div>
               </div>
-        <%    }
-        %>
+        <%    }  %>
 
 
       <div class="  row     ">
@@ -328,8 +329,7 @@
               </div>
           </div>
       </div>
-
-
+             
       <div class="  row     ">
           <div class=" bg-info   py-3  col-lg-2 border  ">
               <span class="">*</span><b><label> 設定活動內容</label></b>
@@ -371,8 +371,7 @@
               </div>
           </div>
       </div>
-
-
+             
     <%--  @*上傳活動資料*@--%>
       <div class="  row     ">
           <div class=" bg-info   py-3  col-lg-2 border  ">
@@ -408,9 +407,7 @@
               </div>
           </div>
       </div>
-
-
-
+ 
       <div class="  row     ">
           <div class=" bg-info   py-3  col-lg-2 border  ">
               <span class="">*</span><b><label> 上傳單位限定資料</label></b>
@@ -491,9 +488,7 @@
               </div>
           </div>
       </div>
-
-
-
+ 
       <div class="  row     ">
           <div class=" bg-info   py-3  col-lg-2 border  ">
               <span class="">*</span><b><label> 報名確認信</label></b>
@@ -542,9 +537,7 @@
 
           </div>
       </div>
-
-
-
+ 
       <div class="  row     ">
           <div class=" bg-info   py-3  col-lg-2 border  ">
               <span class="">*</span><b><label> 活動提醒通知信</label></b>
@@ -591,12 +584,7 @@
               </div>
           </div>
       </div>
-
-
-
-
-
-
+             
       <div class="d-flex justify-content-center mt-5 mb-3">
          <%-- @if (Model == null)
           {
@@ -638,6 +626,9 @@
       </div>
  
  
+
+            </div>
+  
         
 <%--  session   end  --%>
 

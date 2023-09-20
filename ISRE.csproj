@@ -2212,6 +2212,7 @@
     <Content Include="ISRE0000.aspx" />
     <Content Include="ISRI0003.aspx" />
     <Content Include="ISRI0004.aspx" />
+    <Content Include="ISRI0006.aspx" />
     <Content Include="ISRI0005.aspx" />
     <Content Include="ISRI0002.aspx" />
     <Content Include="ISRI0001.aspx" />
@@ -2433,6 +2434,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-timepicker-addon\i18n\jquery-ui-timepicker-zh-TW.js" />
     <Content Include="Scripts\jquery-timepicker-addon\jquery-ui-sliderAccess.js" />
@@ -2571,6 +2573,13 @@
     </Compile>
     <Compile Include="ISRI0004.aspx.designer.cs">
       <DependentUpon>ISRI0004.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI0006.aspx.cs">
+      <DependentUpon>ISRI0006.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI0006.aspx.designer.cs">
+      <DependentUpon>ISRI0006.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI0005.aspx.cs">
       <DependentUpon>ISRI0005.aspx</DependentUpon>

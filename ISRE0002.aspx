@@ -15,8 +15,8 @@
 
        <%-- session info summary start --%>
          <%-- session info summary title start --%>
-         <div class="  card mt-4 m-2 d-none d-lg-block "> 
-            <div class="card-header ">
+         <div class="  card  d-none d-lg-block "> 
+            <div class="card-header active ">
                 <div class="row no-gutters  ">
                     <div class=" col-lg-1 text-center ">
                         <span>  場次 </span>
@@ -41,7 +41,7 @@
         </div>
           <%-- session info summary title end --%>
           <%-- session info summary content start --%>
-         <div class="border rounded m-2 p-2">
+         <div class="border rounded my-1 py-1">
             <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
                 <div class=" row no-gutters  ">
                         <div class="col-12 col-lg-1 "> 
@@ -119,7 +119,10 @@
 
 
    <%--     registration form start--%>
-      <input type="hidden" name="RegisterMultiple" id="RegisterMultiple" 
+
+        <div class="mt-5">
+
+<input type="hidden" name="RegisterMultiple" id="RegisterMultiple" 
           value="<%:RegisterMultiple %>"" />
 
         <%
@@ -325,10 +328,12 @@
       </div>
   
       <%--  command buttons end--%>
-          <%
-            }
-            %>
+     <% }  %>
     
+
+
+        </div>
+      
         <%-- registration form end--%>
     </main>
 

@@ -333,7 +333,7 @@ font-weight: normal;
     
     <script> 
         var SaveForm = function (btn) {
-            return;
+           // return;
             //  btn.attr('disabled', 'disabled');
             var id = btn.attr('id');
             var guid = btn.attr('guid');
@@ -351,9 +351,9 @@ font-weight: normal;
 
             ////////// customer form data
            // $("#inputForm :input").prop("disabled", false);
-          //  var data = new FormData($('#' + thisFormId).get(0));
-            let data = new FormData();
-            // var data = new FormData(thisForm);
+           var data = new FormData($('#' + thisFormId).get(0));
+          //  let data = new FormData();
+          //   var data = new FormData(thisForm.get(0));
             data.append('guid', guid);
              console.log(data);
             return;
@@ -441,9 +441,9 @@ font-weight: normal;
                 e.preventDefault();
                 var btn = $(this);
 
-                var requiredInput = $("#inputForm").find('.requiredInput');
-                if (HasAllRequireValue(requiredInput) == false)
-                    return false;
+                //var requiredInput = $("#inputForm").find('.requiredInput');
+                //if (HasAllRequireValue(requiredInput) == false)
+                //    return false;
                 SaveForm(btn);
             });
         });
