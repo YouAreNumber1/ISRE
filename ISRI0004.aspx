@@ -4,18 +4,18 @@
 <%--this page is for backend to manage frontend registration form (show/required) --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
    <%
-           string GUID = Request.QueryString["GUID"]??"";  /////////GUID=session guid 
-           string ActioinName = (GUID == "") ?  "新增":"編輯" ;
+       string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid 
+       string ActioinName = (GUID == "") ? "新增" : "編輯";
   %>
  
     
     <main aria-labelledby="title">
         
 
-        <div class="container">
+        <div class=" ">
                  <h3 class="text-center  ">活動內容</h3> 
  <% 
-      dynamic Activity = Process_ActivityInfoBySession(GUID);
+     dynamic Activity = Process_ActivityInfoBySession(GUID);
  %>  
      <%-- activity info summary title start --%>
  <div class="  card    d-none d-lg-block "> 
@@ -41,7 +41,7 @@
     </div>
 </div>           
     
-                      <%-- activity info summary title end --%>
+       <%-- activity info summary title end --%>
        <%-- activity info summary content start --%>
       <div class="border rounded my-1 py-1">
          <div class="    card  m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
@@ -115,7 +115,7 @@
             <h3 class="text-center mt-5 mb-2"> 場次資訊  </h3>
          <%  
              dynamic Model = Process_Session(GUID);
-           
+
           %>    
 
 <%--session   title columns start --%>
@@ -499,11 +499,11 @@
        </main>
     <script> 
 
-$(document).ready(function () { 
-     
+		$(document).ready(function () {
 
-    
-});
- 
-    </script>
+
+
+		});
+
+	</script>
 </asp:Content>

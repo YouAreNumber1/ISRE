@@ -152,3 +152,6 @@ a {
     background-color: var(--Cyan-color) !important;
     color: var(--White-color) !important;
 }
+li, .font85 {
+    font-size: 0.9em;
+} 

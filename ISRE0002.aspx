@@ -13,10 +13,96 @@
     
 %>
 
+                         <h3 class="text-center   my-2">活動內容</h3> 
+ <% 
+     dynamic Activity = Process_ActivityInfoBySession(GUID);
+ %>  
+     <%-- activity info summary title start --%>
+ <div class="  card    d-none d-lg-block "> 
+    <div class=" card-header  active">
+        <div class="row no-gutters  ">
+            <div class=" col-lg-3   ">
+                <span>  活動主題 </span>
+            </div>
+            <div class=" col-lg-3 text-center ">
+                <span>活動起訖⽇期</span>
+            </div>
+            
+            <div class=" col-lg-2   text-center   ">
+                <span>主辦單位</span>
+            </div>
+            <div class=" col-lg-3 text-center ">
+                    <span>發布起訖⽇期</span>
+                </div>
+                
+        </div>
+    </div>
+</div>           
+    
+       <%-- activity info summary title end --%>
+               <%-- activity info summary content start --%>
+      <div class="border rounded my-1 py-1">
+         <div class="    card  m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
+             <div class=" row no-gutters  ">
+                     <div class="col-12 col-lg-3 "> 
+                         <div class="row no-gutters"> 
+                               <span class="d-lg-none col-4 col-sm-2   ">
+                                   <span class="badge bg-primary card-header">活動主題</span> 
+                               </span>
+                               <div class="col-8 col-lg-12 ">
+                                   <div >
+                                        活動主題
+                                   </div>  
+                               </div> 
+                         </div>
+                     </div>
+                     <div class="col-12 col-lg-3 ">
+                         <div class="row no-gutters">
+                             <span class="d-lg-none  col-4   col-sm-2  ">
+                                 <span class="badge bg-primary">活動起訖⽇期</span> 
+                             </span>
+                             <div class="col-8 col-lg-12  text-center  ">
+                                 <div class="d-flex justify-content-lg-center"> 112/08/31-112/09/30 </div> 
+                              </div>
+                         </div>
+                     </div>
+                     
+                     <div class="col-12 col-lg-2 ">
+                         <div class="row no-gutters">
+                             <div class="d-lg-none  col-4  col-sm-2   "> 
+                                 <span class="badge bg-primary"> 主辦單位</span>
+                             </div>
+                             <div class="col-8 col-lg-12  text-center  "> 
+                                  <div class="d-flex justify-content-lg-center"> 主辦單位 </div>  
+                                </div>
+                         </div>
+                     </div>  
+
+                    <div class="col-12 col-lg-3 ">
+                     <div class="row no-gutters">
+                         <div class="d-lg-none  col-4  col-sm-2   ">
+                             <span class="badge bg-primary"> 發布起訖⽇期</span>  
+                         </div>
+                         <div class="col-8 col-lg-12 "> 
+                             <div class="  text-center "> 
+                                 <div class="d-flex justify-content-lg-center">   112/08/31-112/09/30  </div>  
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                    
+ 
+             </div>
+         </div>
+
+     </div>       
+<%-- activity info summary content end --%>
+
        <%-- session info summary start --%>
+          <h3 class="text-center mt-5 mb-2"> 場次資訊  </h3>
          <%-- session info summary title start --%>
-         <div class="  card  d-none d-lg-block "> 
-            <div class="card-header active ">
+         <div class="   card  d-none d-lg-block "> 
+            <div class="card-header   ">
                 <div class="row no-gutters  ">
                     <div class=" col-lg-1 text-center ">
                         <span>  場次 </span>
@@ -24,13 +110,13 @@
                     <div class=" col-lg-2 text-center ">
                         <span>日期時間</span>
                     </div>
-                    <div class=" col-lg-1 text-center ">
+                    <div class=" col-lg-2 text-center ">
                         <span>地點</span>
                     </div>
                     <div class=" col-lg-2   text-center   ">
                         <span>報名截⽌⽇</span>
                     </div>
-                    <div class=" col-lg-1 text-center ">
+                    <div class=" col-lg-2 text-center ">
                             <span>活動資料</span>
                         </div>
                         <div class=" col-lg-1 text-center   ">
@@ -66,7 +152,7 @@
                                  </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-1 ">
+                        <div class="col-12 col-lg-2 ">
                             <div class="row no-gutters">
                                 <span class="d-lg-none  col-4  col-sm-2   ">
                                     <span class="badge bg-primary"> 地點</span>  
@@ -87,14 +173,14 @@
                             </div>
                         </div>  
 
-                       <div class="col-12 col-lg-1 ">
+                       <div class="col-12 col-lg-2 ">
                         <div class="row no-gutters">
                             <div class="d-lg-none  col-4  col-sm-2   ">
                                 <span class="badge bg-primary"> 活動資料</span>  
                             </div>
                             <div class="col-8 col-lg-12 "> 
                                 <div class="  text-center "> 
-                                    <div class="d-flex justify-content-lg-center">   21  </div>  
+                                    <div class="d-flex justify-content-lg-center">  活動資料 </div>  
                                 </div>
                             </div>
                         </div>
@@ -234,7 +320,7 @@
                   <div class="    py-lg-3  col-lg-10  ">
                       <div>
                           <input type="text" id="EMAIL" name="EMAIL" class=" form-control requiredInput">
-                          <p class="note">
+                          <p class="note font85">
                               1.請正確填寫以利確認信寄達，並請
                               於 2 小時內完成信件內點選連結驗證，未於時限內確認則取消報名。 <br>
                               2.若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
