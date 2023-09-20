@@ -255,7 +255,7 @@
               <div class="col-12 col-lg-2 ">
                   <div class="row no-gutters">
                       <span class="d-lg-none  col-4   col-sm-2  ">
-                          <span class="badge bg-info">日期時間</span> 
+                          <span class="badge bg-primary">日期時間</span> 
                       </span>
                        <div class="col-8 col-sm-10 col-lg-12 "> 
                          <div class=" d-flex  d-lg-block">
@@ -269,7 +269,7 @@
               <div class="col-12 col-lg-1">
                   <div class="row no-gutters">
                       <div class="d-lg-none  col-4  col-sm-2   ">
-                          <div class="badge bg-info"> 總場次</div>  
+                          <div class="badge bg-primary"> 總場次</div>  
                       </div>
                        <div class="col-8 col-sm-10 col-lg-12 "> 
                          <div class=" d-flex  d-lg-block">
@@ -283,7 +283,7 @@
               <div class="col-12 col-lg-2 ">
                   <div class="row no-gutters">
                       <div class="d-lg-none  col-4  col-sm-2   "> 
-                          <div class="badge bg-info"> 發布⽇期</div>
+                          <div class="badge bg-primary"> 發布⽇期</div>
                       </div>
                       <div class="col-8 col-sm-10 col-lg-12 "> 
                           <div class=" d-flex  d-lg-block">

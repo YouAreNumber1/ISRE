@@ -59,7 +59,7 @@
                         <div class="col-12 col-lg-2 ">
                             <div class="row no-gutters">
                                 <span class="d-lg-none  col-4   col-sm-2  ">
-                                    <span class="badge bg-info">日期時間</span> 
+                                    <span class="badge bg-primary">日期時間</span> 
                                 </span>
                                 <div class="col-8 col-lg-12  text-center  ">
                                     <div class="d-flex justify-content-lg-center"> 112/08/31 </div> 
@@ -69,7 +69,7 @@
                         <div class="col-12 col-lg-1 ">
                             <div class="row no-gutters">
                                 <span class="d-lg-none  col-4  col-sm-2   ">
-                                    <span class="badge bg-info"> 地點</span>  
+                                    <span class="badge bg-primary"> 地點</span>  
                                 </span>
                                 <div class="col-8 col-lg-12   text-center  "> 
                                     <div class="d-flex justify-content-lg-center"> 台北市 </div>  
@@ -79,7 +79,7 @@
                         <div class="col-12 col-lg-2 ">
                             <div class="row no-gutters">
                                 <div class="d-lg-none  col-4  col-sm-2   "> 
-                                    <span class="badge bg-info"> 報名截⽌⽇</span>
+                                    <span class="badge bg-primary"> 報名截⽌⽇</span>
                                 </div>
                                 <div class="col-8 col-lg-12  text-center  "> 
                                      <div class="d-flex justify-content-lg-center">   112/08/31  </div>  
@@ -90,7 +90,7 @@
                        <div class="col-12 col-lg-1 ">
                         <div class="row no-gutters">
                             <div class="d-lg-none  col-4  col-sm-2   ">
-                                <span class="badge bg-info"> 活動資料</span>  
+                                <span class="badge bg-primary"> 活動資料</span>  
                             </div>
                             <div class="col-8 col-lg-12 "> 
                                 <div class="  text-center "> 
@@ -102,10 +102,10 @@
                        <div class="col-12 col-lg-1 ">
                         <div class="row no-gutters">
                             <div class="d-lg-none  col-4  col-sm-2   "> 
-                                <span class="badge bg-info"> 尚餘名額</span>
+                                <span class="badge bg-primary"> 尚餘名額</span>
                             </div> 
                             <div class="col-8 col-lg-12  text-center ">  
-                                <div class="d-flex justify-content-lg-center">   21  </div> 
+                                <div class="d-flex justify-content-lg-center">     <div class="badge bg-info">21</div> </div> 
                             </div> 
                         </div>
                     </div>  
