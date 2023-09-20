@@ -48,7 +48,7 @@
                      <div class="col-12 col-lg-3 "> 
                          <div class="row no-gutters"> 
                                <span class="d-lg-none col-4 col-sm-2   ">
-                                   <span class="badge bg-primary card-header">活動主題</span> 
+                                   <span class="badge bg-info card-header">活動主題</span> 
                                </span>
                                <div class="col-8 col-lg-12 ">
                                    <div >
@@ -60,7 +60,7 @@
                      <div class="col-12 col-lg-3 ">
                          <div class="row no-gutters">
                              <span class="d-lg-none  col-4   col-sm-2  ">
-                                 <span class="badge bg-primary">活動起訖⽇期</span> 
+                                 <span class="badge bg-info">活動起訖⽇期</span> 
                              </span>
                              <div class="col-8 col-lg-12  text-center  ">
                                  <div class="d-flex justify-content-lg-center"> 112/08/31-112/09/30 </div> 
@@ -71,7 +71,7 @@
                      <div class="col-12 col-lg-2 ">
                          <div class="row no-gutters">
                              <div class="d-lg-none  col-4  col-sm-2   "> 
-                                 <span class="badge bg-primary"> 主辦單位</span>
+                                 <span class="badge bg-info"> 主辦單位</span>
                              </div>
                              <div class="col-8 col-lg-12  text-center  "> 
                                   <div class="d-flex justify-content-lg-center"> 主辦單位 </div>  
@@ -82,7 +82,7 @@
                     <div class="col-12 col-lg-3 ">
                      <div class="row no-gutters">
                          <div class="d-lg-none  col-4  col-sm-2   ">
-                             <span class="badge bg-primary"> 發布起訖⽇期</span>  
+                             <span class="badge bg-info"> 發布起訖⽇期</span>  
                          </div>
                          <div class="col-8 col-lg-12 "> 
                              <div class="  text-center "> 
@@ -134,7 +134,7 @@
                         <div class="col-12 col-lg-1 "> 
                             <div class="row no-gutters"> 
                                   <span class="d-lg-none col-4 col-sm-2   ">
-                                      <span class="badge bg-primary card-header">場次</span> 
+                                      <span class="badge bg-info card-header">場次</span> 
                                   </span>
                                   <div class="col-8 col-lg-12 ">
                                       <div class="d-flex justify-content-lg-center">
@@ -146,7 +146,7 @@
                         <div class="col-12 col-lg-2 ">
                             <div class="row no-gutters">
                                 <span class="d-lg-none  col-4   col-sm-2  ">
-                                    <span class="badge bg-primary">日期時間</span> 
+                                    <span class="badge bg-info">日期時間</span> 
                                 </span>
                                 <div class="col-8 col-lg-12  text-center  ">
                                     <div class="d-flex justify-content-lg-center"> 112/08/31 </div> 
@@ -156,7 +156,7 @@
                         <div class="col-12 col-lg-2 ">
                             <div class="row no-gutters">
                                 <span class="d-lg-none  col-4  col-sm-2   ">
-                                    <span class="badge bg-primary"> 地點</span>  
+                                    <span class="badge bg-info"> 地點</span>  
                                 </span>
                                 <div class="col-8 col-lg-12   text-center  "> 
                                     <div class="d-flex justify-content-lg-center"> 台北市 </div>  
@@ -166,7 +166,7 @@
                         <div class="col-12 col-lg-2 ">
                             <div class="row no-gutters">
                                 <div class="d-lg-none  col-4  col-sm-2   "> 
-                                    <span class="badge bg-primary"> 報名截⽌⽇</span>
+                                    <span class="badge bg-info"> 報名截⽌⽇</span>
                                 </div>
                                 <div class="col-8 col-lg-12  text-center  "> 
                                      <div class="d-flex justify-content-lg-center">   112/08/31  </div>  
@@ -177,7 +177,7 @@
                        <div class="col-12 col-lg-2 ">
                         <div class="row no-gutters">
                             <div class="d-lg-none  col-4  col-sm-2   ">
-                                <span class="badge bg-primary"> 活動資料</span>  
+                                <span class="badge bg-info"> 活動資料</span>  
                             </div>
                             <div class="col-8 col-lg-12 "> 
                                 <div class="  text-center "> 
@@ -189,10 +189,11 @@
                        <div class="col-12 col-lg-1 ">
                         <div class="row no-gutters">
                             <div class="d-lg-none  col-4  col-sm-2   "> 
-                                <span class="badge bg-primary"> 尚餘名額</span>
+                                <span class="badge bg-info"> 尚餘名額</span>
                             </div> 
                             <div class="col-8 col-lg-12  text-center ">  
-                                <div class="d-flex justify-content-lg-center">     <div class="badge bg-info">21</div> </div> 
+                                <div class="d-flex justify-content-lg-center">  
+                                    <div class="badge bg-warning">21</div> </div> 
                             </div> 
                         </div>
                     </div>  
@@ -407,7 +408,7 @@
       <div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
           <div>
             <button type="button" id="btn_Register"
-                class="btn btn-primary px-3 mx-1 mx-md-4 px-md-4 text-nowrap"
+                class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap"
                   data-target="/Session/Register">
                           送出
             </button>
@@ -415,10 +416,10 @@
           
           <div>
             <button type="button" id="btn_Clear" 
-                class="btn btn-primary  px-3 mx-1 mx-md-4 px-md-4 text-nowrap">清除</button>
+                class="btn btn-primary-isre  px-3 mx-1 mx-md-4 px-md-4 text-nowrap">清除</button>
           </div>
           <div>
-                 <a href="\isre0000.aspx" class="btn btn-primary   mx-1 mx-md-4 px-md-4 text-nowrap">回首頁</a>
+                 <a href="\isre0000.aspx" class="btn btn-primary-isre   mx-1 mx-md-4 px-md-4 text-nowrap">回首頁</a>
              </div>
         
       </div>

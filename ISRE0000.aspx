@@ -15,7 +15,7 @@
 					<h3 class="text-center my-3">活動報名</h3>
 				</div>
 				<div class="mt-2">
-					<a id="aFilter" href="#Filter" class=" btn btn-primary  px-lg-4 "
+					<a id="aFilter" href="#Filter" class=" btn btn-primary-isre  px-lg-4 "
 						data-bs-toggle="collapse">查詢條件 
                             <i class="fa-solid fa-chevron-down  text-white"></i>
 					</a>
@@ -200,7 +200,7 @@
 					</div>
 				</div>
 				<div class="card-footer d-flex justify-content-center m-4">
-					<button type="submit" class="btn btn-primary px-5 text-nowrap">
+					<button type="submit" class="btn btn-primary-isre px-5 text-nowrap">
 						查詢 
                                      <i class="fa-solid fa-magnifying-glass text-white"></i>
 					</button>
@@ -252,7 +252,7 @@
 					<div class="col-12 col-lg-5 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none col-4 col-sm-2   ">
-								<span class="badge bg-primary">活動主題</span>
+								<span class="badge bg-info">活動主題</span>
 							</span>
 							<span class="col-8 col-sm-10">
 								<a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=b"><%:item.ACT_NAME %></a>
@@ -262,7 +262,7 @@
 					<div class="col-12 col-lg-2 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4   col-sm-2  ">
-								<span class="badge bg-primary">日期時間</span>
+								<span class="badge bg-info">日期時間</span>
 							</span>
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
@@ -276,12 +276,12 @@
 					<div class="col-12 col-lg-1 d-none d-lg-block">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4  col-sm-2   ">
-								<div class="badge bg-primary">總場次</div>
+								<div class="badge bg-info">總場次</div>
 							</div>
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-										<div class="badge bg-info">
+										<div class="badge bg-primary">
 											<%:item.TotalSessionNo %> 
 										</div>
 									</div>
@@ -292,7 +292,7 @@
 					<div class="col-12 col-lg-2 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4  col-sm-2   ">
-								<div class="badge bg-primary">發布⽇期</div>
+								<div class="badge bg-info">發布⽇期</div>
 							</div>
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
@@ -305,10 +305,11 @@
 						<div class="row no-gutters">
 							<div class="col d-flex justify-content-around">
 								<div class="d-flex">
-									<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary text-nowrap mx-1"> 查場次  </a> --%>
+									<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
 									<a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=a"
-										class="btn btn-primary text-nowrap mx-1 px-3">檢視場次
-										<span class="d-lg-none badge bg-info"><%:item.TotalSessionNo %> </span>
+										class="btn btn-primary-isre text-nowrap mx-1 px-3">
+										檢視<span class="d-lg-none badge bg-primary mx-1"><%:item.TotalSessionNo %> 個</span>場次
+											
 									</a>
 								</div>
 							</div>

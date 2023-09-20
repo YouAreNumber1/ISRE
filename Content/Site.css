@@ -66,6 +66,7 @@ a {
     background-repeat: no-repeat;
     background-size: contain;
 }
+/*
  .btn-primary {
     text-align: center;
     display: block;
@@ -81,9 +82,12 @@ a {
     font-size: 1em;
     margin: 5px;
 }
+*/
 
-
-.btn.disabled {
+.btn {
+    border-radius: 24px;
+}
+/*.btn.disabled {
     text-align: center;
     display: block;
     color: var(--White-color);
@@ -98,8 +102,8 @@ a {
     font-size: 1em;
     margin: 5px;
 }
-
-.btn.danger {
+*/
+/*.btn.danger {
     text-align: center;
     display: block;
     color: var(--White-color);
@@ -113,7 +117,7 @@ a {
     border: none;
     font-size: 1em;
     margin: 5px;
-}
+}*/
 .btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
     /*  color: var(--White-color);
     border-color: var(--bs-btn-hover-border-color);*/
@@ -124,27 +128,16 @@ a {
     border-color: var(--bs-btn-hover-border-color);*/
 }
 
-/*.btn-primary {
-    text-align: center;
-    display: block;
-    color: var(--White-color);
-    background-color: var(--Cyan-color);   
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.3); 
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: normal;
-    border: none;
-    font-size: 1em;
-    margin: 5px;
-}*/
+ 
 
 /* .bg-info {
     background-color: var(--Ice-color) !important;
     font-weight: normal;
 } */
-.bg-primary {
+.btn-primary-isre {
     background-color: var(--Cyan-color) !important;
     font-weight: normal;
+    color: var(--White-color) !important;
 }
 
  

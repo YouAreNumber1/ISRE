@@ -75,7 +75,7 @@
 						<div class=" d-flex justify-content-between justify-content-lg-start ">
 							<div class="d-flex">
 								<div class="">
-									<span class="badge bg-primary">112/06/24</span>
+									<span class="badge bg-info">112/06/24</span>
 								</div>
 								<div class="ms-2">
 									(台北市)Microsoft Teams線上視訊會議  
@@ -134,7 +134,7 @@
 						<div class=" d-flex justify-content-between justify-content-lg-start ">
 							<div class="d-flex">
 								<div class="">
-									<span class="badge bg-primary">112/07/24</span>
+									<span class="badge bg-info">112/07/24</span>
 								</div>
 								<div class="ms-2">
 									(台北市)Microsoft Teams線上視訊會議  
@@ -192,7 +192,7 @@
 						<div class=" d-flex justify-content-between justify-content-lg-start ">
 							<div class="d-flex">
 								<div class="">
-									<span class="badge bg-primary">112/08/24</span>
+									<span class="badge bg-info">112/08/24</span>
 								</div>
 								<div class="ms-2">
 									(台北市)Microsoft Teams線上視訊會議  
@@ -252,7 +252,7 @@
 							<div class=" d-flex justify-content-between justify-content-lg-start ">
 								<div class="d-flex">
 									<div class="">
-										<span class="badge bg-primary">112/09/24</span>
+										<span class="badge bg-info">112/09/24</span>
 									</div>
 									<div class="ms-2">
 										(台北市)Microsoft Teams線上視訊會議  
@@ -311,7 +311,7 @@
 							<div class=" d-flex justify-content-between justify-content-lg-start ">
 								<div class="d-flex">
 									<div class="">
-										<span class="badge bg-primary">112/11/24</span>
+										<span class="badge bg-info">112/11/24</span>
 									</div>
 									<div class="ms-2">
 										(台北市)Microsoft Teams線上視訊會議  
@@ -369,7 +369,7 @@
 							<div class=" d-flex justify-content-between justify-content-lg-start ">
 								<div class="d-flex">
 									<div class="">
-										<span class="badge bg-primary">112/12/24</span>
+										<span class="badge bg-info">112/12/24</span>
 									</div>
 									<div class="ms-2">
 										(台北市)Microsoft Teams線上視訊會議  
@@ -449,19 +449,19 @@
 				<div class="my-2 px-3">
 					<div class=" d-flex">
 						<div class="">
-							<span class="badge bg-primary">主辦單位</span>
+							<span class="badge bg-info">主辦單位</span>
 						</div>
 						<div class="ms-2">承保服務科 </div>
 					</div>
 					<div class=" d-flex">
 						<div class="">
-							<span class="badge bg-primary">協辦單位</span>
+							<span class="badge bg-info">協辦單位</span>
 						</div>
 						<div class="ms-2">協辦單位 </div>
 					</div>
 					<div class=" d-flex">
 						<div class="">
-							<span class="badge bg-primary">洽詢專線</span>
+							<span class="badge bg-info">洽詢專線</span>
 						</div>
 						<div class="ms-2">03-8332111轉1002梁⼩姐 (東區業務組承保服務科)</div>
 					</div>
@@ -520,7 +520,7 @@
 					<div class="col-12 col-lg-1 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none col-4 col-sm-2   ">
-								<span class="badge bg-primary">場次</span>
+								<span class="badge bg-info">場次</span>
 							</span>
 							<div class="col-8 col-lg-12 ">
 								<div class="d-flex justify-content-lg-center">
@@ -532,7 +532,7 @@
 					<div class="col-12 col-lg-2 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4   col-sm-2  ">
-								<span class="badge bg-primary">日期時間</span>
+								<span class="badge bg-info">日期時間</span>
 							</span>
 							<div class="col-8 col-lg-12  text-center  ">
 								<div class="d-flex justify-content-lg-center">112/08/31 </div>
@@ -542,7 +542,7 @@
 					<div class="col-12 col-lg-1 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4  col-sm-2   ">
-								<span class="badge bg-primary">地點</span>
+								<span class="badge bg-info">地點</span>
 							</span>
 							<div class="col-8 col-lg-12   text-center  ">
 								<div class="d-flex justify-content-lg-center">台北市 </div>
@@ -552,7 +552,7 @@
 					<div class="col-12 col-lg-2 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4  col-sm-2   ">
-								<span class="badge bg-primary">報名截⽌⽇</span>
+								<span class="badge bg-info">報名截⽌⽇</span>
 							</div>
 							<div class="col-8 col-lg-12  text-center  ">
 								<div class="d-flex justify-content-lg-center">112/08/31  </div>
@@ -563,7 +563,7 @@
 					<div class="col-12 col-lg-1 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4  col-sm-2   ">
-								<span class="badge bg-primary">活動資料</span>
+								<span class="badge bg-info">活動資料</span>
 							</div>
 							<div class="col-8 col-lg-12 ">
 								<div class="  text-center ">
@@ -575,11 +575,11 @@
 					<div class="col-12 col-lg-1 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4  col-sm-2   ">
-								<span class="badge bg-primary">尚餘名額</span>
+								<span class="badge bg-info">尚餘名額</span>
 							</div>
 							<div class="col-8 col-lg-12  text-center ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-info">21</div>
+									<div class="badge bg-warning">21</div>
 								</div>
 							</div>
 						</div>
@@ -588,7 +588,7 @@
 					<div class="col-12  showSchedule collapse">
 						<div class="row no-gutters">
 							<%--	<div class="d-lg-none  col-12   ">
-								<span class="badge bg-primary">活動內容</span>
+								<span class="badge bg-info">活動內容</span>
 							</div>--%>
 							<div class="  col-lg-12   ">
 
@@ -642,7 +642,7 @@
 								<% if (plan == "b")
 									{ %>
 								<div>
-									<a class=" btn-showSchedule btn btn-primary px-2">檢視議程 </a>
+									<a class=" btn-showSchedule btn btn-primary-isre px-2">檢視議程 </a>
 								</div>
 								<%}
 								%>
@@ -650,7 +650,7 @@
 								<% if (sessions.Count == 1)
 									{ %>
 								<div>
-									<a class="btn disabled px-3 btn-primary text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
+									<a class="btn disabled px-3 btn-primary-isre text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
 								</div>
 								<% 	}
 									else if (sessions.Count == 2)
@@ -666,12 +666,12 @@
 								<div>
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
-										class="btn btn-primary text-nowrap mx-1  ">單人報名</a>
+										class="btn btn-primary-isre text-nowrap mx-1  ">單人報名</a>
 								</div>
 								<div>
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
-										class="btn btn-primary text-nowrap mx-1  ">多人報名   </a>
+										class="btn btn-primary-isre text-nowrap mx-1  ">多人報名   </a>
 								</div>
 								<% 	}%>
 							</div>
