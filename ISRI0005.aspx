@@ -47,7 +47,7 @@
                      <div class="col-12 col-lg-3 "> 
                          <div class="row no-gutters"> 
                                <span class="d-lg-none col-4 col-sm-2   ">
-                                   <span class="badge bg-primary card-header">活動主題</span> 
+                                   <span class="badge bg-info card-header">活動主題</span> 
                                </span>
                                <div class="col-8 col-lg-12 ">
                                    <div >
@@ -113,10 +113,10 @@
                          data-target=@string.Concat(ControllerName
                                 ,"Insert"
                          )
-                         class="    px-4 py-2  me-3 mb-2 text-nowrap  btn-primary-isre btn ">
-                     <span>產生報到QRcode</span>
+                         class="    px-2  px-lg-5 me-3 mb-2 text-nowrap  btn-primary-isre btn ">
+                     <span>報到QRcode</span>
                  </button>
-                 <a href="#" class="btn btn-primary-isre    px-5 py-2  me-5 mb-2 ">匯出報名清單</a>
+                 <a href="#" class="btn btn-primary-isre px-2   px-lg-5   me-5 mb-2 ">匯出報名清單</a>
 
              </div>
             <%--session   start  --%>
@@ -169,7 +169,7 @@
                         <div class="col-12 col-lg-1 "> 
                             <div class="row no-gutters"> 
                                     <span class="d-lg-none col-4 col-sm-2   ">
-                                        <span class="badge bg-primary">場次</span> 
+                                        <span class="badge bg-info">場次</span> 
                                     </span>
                                     <div class="col-8 col-lg-12 ">
                                         <div class="d-flex justify-content-lg-center">
@@ -268,23 +268,28 @@
            
 
             <%-- search bar end--%>
-<div class="d-flex my-1 align-items-center">
-    <div class="text-nowrap">關鍵字：</div>
+<div class="d-flex my-2 my-lg-4 mx-lg-5 align-items-center">
+    <div class="text-nowrap mx-2">關鍵字：</div>
     <input type="text" class="form-control">
-    <button class="text-nowrap btn btn-primary-isre px-5">查詢</button>
+    <button class="text-nowrap btn btn-primary-isre mx-1 px-2 px-lg-5 mx-lg-5">查詢</button>
 </div>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified mt-1">
         
         <li class="nav-item  ">
-            <a class="nav-link active" data-bs-toggle="tab" href="#home">已報到人員</a>
+			<div class=" ">
+				<a class="nav-link active" data-bs-toggle="tab" href="#home">
+                    已報到人員<span class="bg-info badge mx-2">9</span></a> 
+			</div> 
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#menu1">未報到⼈員</a>
+            <a class="nav-link" data-bs-toggle="tab" href="#menu1">
+                未報到⼈員<span class="bg-warning badge mx-2">19</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#menu2">未確認通知信⼈員</a>
+            <a class="nav-link" data-bs-toggle="tab" href="#menu2">
+                未確認通知信⼈員<span class="bg-danger badge mx-2">29</span></a>
         </li>
     </ul>
 
@@ -293,13 +298,14 @@
     <div class="tab-content">
         <div class="tab-pane container active py-1 border" id="home">
               
-            <div class="card">
-                    <div class="card-header">
-                        <b> 已報到⼈數</b>  ：9         
-                    </div>
-                </div>
-
-
+         <div class="col m-2 ">最新報到⼈員：謝銀河 112/05/11 09:31</div> 
+		<div class=" d-flex">
+			<div class="mx-2 text-nowrap ">報到掃描區：</div>
+			<input type="text" class="form-control">
+		</div> 	     
+			 
+				
+				
       
             <div class="table-responsive">
 				<table class="table table-striped">
@@ -363,7 +369,7 @@
 </div>
 
 
-<%-- register   title columns start --%>,
+<%-- register   title columns start --%> 
 
 
 

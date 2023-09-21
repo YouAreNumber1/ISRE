@@ -49,7 +49,7 @@
                      <div class="col-12 col-lg-3 "> 
                          <div class="row no-gutters"> 
                                <span class="d-lg-none col-4 col-sm-2   ">
-                                   <span class="badge bg-primary card-header">活動主題</span> 
+                                   <span class="badge bg-info card-header">活動主題</span> 
                                </span>
                                <div class="col-8 col-lg-12 ">
                                    <div >
@@ -162,7 +162,7 @@
                 <div class="col-12 col-lg-1 "> 
                     <div class="row no-gutters"> 
                             <span class="d-lg-none col-4 col-sm-2   ">
-                                <span class="badge bg-primary">場次</span> 
+                                <span class="badge bg-info">場次</span> 
                             </span>
                             <div class="col-8 col-lg-12 ">
                                 <div class="d-flex justify-content-lg-center">
@@ -281,8 +281,8 @@
                
                     <div class="row my-1 py-1  border border-end-0 border-top-0  border-start-0 ">
                          <div class="col-8"> <label>欄位</label> </div>
-                         <div class="col-2  text-center"><label>顯示</label> </div>
-                         <div class="col-2 text-center"> <label>必填</label></div>
+                         <div class="col-2 text-nowrap text-center"><label>顯示</label> </div>
+                         <div class="col-2  text-nowrap text-center"> <label>必填</label></div>
                      </div>
                       <div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
                           <div class="col-8  "><label>投保單位代號</label> </div>

@@ -157,7 +157,7 @@ font-weight: normal;
                 <span class="note">*</span><b><label>負責⼈</label></b>
             </div>
             <div class="  border  py-3     col-lg-10">
-                王⼩明
+               A111888 王⼩明
             </div>
         </div>
 
@@ -169,12 +169,12 @@ font-weight: normal;
             <div class=" border  py-3   col-lg-10">
                 <div class="d-flex">
                     <button type="button" class="btn bg-white border ">
-                        <span class="text-black-50">程冰冰</span>
+                        <span class="text-black-50">A111885 王大明</span>
                         <span class="badge "><span class="fas  text-danger fa-times-circle  fa-2x"></span></span>
                     </button>
 
                     <button type="button" class="btn bg-white border ">
-                        <span class="text-black-50">程冰冰</span>
+                        <span class="text-black-50">A111880 王中明</span>
                         <span class="badge "><span class="fas  text-danger fa-times-circle  fa-2x"></span></span>
                     </button>
                     <span>

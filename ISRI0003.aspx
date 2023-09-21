@@ -1,8 +1,14 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
     AutoEventWireup="true" CodeBehind="ISRI0003.aspx.cs" 
     Inherits="ISRE.ISRI0003" %>
+
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+     label {
+    background-color: var(--Ice-color) !important;
+}
+    </style>
 <%
            string GUID = Request.QueryString["GUID"]??"";  /////////GUID=session guid
   
@@ -128,7 +134,7 @@
           if (Model != null)
           { %>
               <div class="   row      ">
-                  <div class="  bg-info   py-3   col-lg-2 border">
+                  <div class=" bg-ice   py-3   col-lg-2 border">
                       <b><label>場次 </label></b>
                   </div>
                   <div class="  py-3   col-lg-10 border">
@@ -143,8 +149,8 @@
 
 
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label>日期時間 </label></b>
+          <div class=" bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label>日期時間 </label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div class="d-flex">
@@ -174,8 +180,8 @@
       </div>
 
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label>地點 </label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label>地點 </label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -201,8 +207,8 @@
       </div>
 
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 報名期間</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 報名期間</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div class="d-flex">
@@ -221,8 +227,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label>報到時間 </label></b>
+          <div class=" bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label>報到時間 </label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div class="d-flex">
@@ -248,8 +254,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 主辦單位</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 主辦單位</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -261,8 +267,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 協辦單位</label></b>
+          <div class=" bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 協辦單位</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -273,8 +279,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 洽詢專線</label></b>
+          <div class="bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 洽詢專線</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -286,8 +292,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 報名⼈數上限</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 報名⼈數上限</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -299,8 +305,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 候補⼈數</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 候補⼈數</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -312,8 +318,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 單位報名⼈數上限</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 單位報名⼈數上限</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -326,8 +332,8 @@
       </div>
              
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 設定活動內容</label></b>
+          <div class=" bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 設定活動內容</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -369,8 +375,8 @@
              
     <%--  @*上傳活動資料*@--%>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 上傳活動資料</label></b>
+          <div class="bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 上傳活動資料</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div class="d-flex">
@@ -404,8 +410,8 @@
       </div>
  
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 上傳單位限定資料</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 上傳單位限定資料</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -453,8 +459,8 @@
       </div>
 
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b> <label> 視訊會議</label></b>
+          <div class="bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b> <label> 視訊會議</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -485,8 +491,8 @@
       </div>
  
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 報名確認信</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 報名確認信</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -501,8 +507,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label>報名成功通知 </label>信</b>
+          <div class=" bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label>報名成功通知 </label>信</b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -516,8 +522,8 @@
           </div>
       </div>
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 報名候補確認信</label></b>
+          <div class=" bg-ice  py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 報名候補確認信</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -534,8 +540,8 @@
       </div>
  
       <div class="  row     ">
-          <div class=" bg-info   py-3  col-lg-2 border  ">
-              <span class="">*</span><b><label> 活動提醒通知信</label></b>
+          <div class=" bg-ice   py-3  col-lg-2 border  ">
+              <span class="note">*</span><b><label> 活動提醒通知信</label></b>
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>

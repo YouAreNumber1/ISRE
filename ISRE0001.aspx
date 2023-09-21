@@ -475,6 +475,9 @@
 
 
 		<%--session list title columns start --%>
+		<div class="card  mt-4 d-lg-none">
+			 <div class="card-header ">場次列表</div>
+		</div>
 		<div class="  card mt-4  d-none d-lg-block ">
 			<div class="card-header ">
 				<div class="row no-gutters  ">
@@ -651,7 +654,7 @@
 								<% if (sessions.Count == 1)
 									{ %>
 								<div>
-									<a class="btn disabled px-3 btn-primary-isre text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
+									<a class="btn disabled px-3   text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
 								</div>
 								<% 	}
 									else if (sessions.Count == 2)
