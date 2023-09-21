@@ -2209,6 +2209,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="ISRE0004.aspx" />
     <Content Include="ISRE0000.aspx" />
     <Content Include="ISRI0003.aspx" />
     <Content Include="ISRI0004.aspx" />
@@ -2554,6 +2555,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\EnumSelectHelper.cs" />
+    <Compile Include="ISRE0004.aspx.cs">
+      <DependentUpon>ISRE0004.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRE0004.aspx.designer.cs">
+      <DependentUpon>ISRE0004.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ISRE0000.aspx.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

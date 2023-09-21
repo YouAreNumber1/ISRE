@@ -140,7 +140,9 @@ a {
     color: var(--White-color) !important;
 }
 
- 
+.bg-ice {
+    background-color: var(--Ice-color) !important;
+}
 /*
 .centered {
     width: auto !important;

@@ -6,7 +6,7 @@
   
        <main> 
 <%--<h3 class="text-center my-3">活動清單</h3>--%>
-           <section class="mb-2">  
+           <section class="mb-2 my-2">  
                <div class="d-flex  justify-content-between align-items-center  "> 
                     <div class="d-none d-sm-block"></div> 
                       <h3 class="  ">活動清單</h3> 

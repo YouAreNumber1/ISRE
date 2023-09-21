@@ -12,7 +12,7 @@
     <main aria-labelledby="title">
         
 
-        <div class=" ">
+        <div class=" my-2 ">
                  <h3 class="text-center  ">活動內容</h3> 
  <% 
      dynamic Activity = Process_ActivityInfoBySession(GUID);

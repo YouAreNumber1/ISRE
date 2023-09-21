@@ -17,7 +17,7 @@ font-weight: normal;
        <main aria-labelledby="title">
         
 
-        <div class="container">
+        <div class=" my-2">
                 <%-- <h3 class="text-center my-4">活動內容</h3> --%>
                  <%   
                       dynamic Model = Process_ActivityInfo(GUID);

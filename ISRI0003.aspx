@@ -8,16 +8,11 @@
   
            string ActioinName = (GUID == "") ?  "新增":"編輯" ;
   %>
-        <style>
-            .bg-info {
-            background-color: var(--Ice-color) !important;
-            font-weight: normal;
-            } 
-    </style>
+        
        <main aria-labelledby="title">
         
 
-        <div class="container">
+        <div class=" my-2">
                  <h3 class="text-center  ">活動內容</h3> 
                  <% 
                       dynamic Activity = Process_ActivityInfoBySession(GUID);
@@ -54,7 +49,7 @@
                      <div class="col-12 col-lg-3 "> 
                          <div class="row no-gutters"> 
                                <span class="d-lg-none col-4 col-sm-2   ">
-                                   <span class="badge bg-primary card-header">活動主題</span> 
+                                   <span class="badge bg-info card-header">活動主題</span> 
                                </span>
                                <div class="col-8 col-lg-12 ">
                                    <div >
