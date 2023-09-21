@@ -27,6 +27,7 @@ namespace ISRE
 		
 		protected void Page_Load(object sender, EventArgs e)
         {
+			//string colorName = SESS_LOC.Items[SESS_LOC.SelectedIndex].Text;
 			//StringBuilder sb2 = new StringBuilder();
 			if (!this.IsPostBack)
 			{

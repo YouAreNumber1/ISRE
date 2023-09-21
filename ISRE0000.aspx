@@ -9,6 +9,8 @@
 		//Response.Write(colorName);
 		string sSelected = "";
 		string SESS_LOC = Request["SESS_LOC"] ?? "";
+		
+
 		string OBJ_NO = Request["OBJ_NO"] ?? "";
 		string ACT_TYPE = Request["ACT_TYPE"] ?? "";
 		string ACT_NAME = Request["ACT_NAME"] ?? "";
@@ -17,11 +19,73 @@
 		string ACT_DATE_E_DATE = Request["ACT_DATE_E_DATE"] ?? "";
 		StringBuilder sb = new StringBuilder();
 		bool bSearch = false;
-		//if (SESS_LOC != "" || OBJ_NO != "" || ACT_TYPE != "" || ACT_NAME != "" || ACT_HOST != "" || ACT_DATE_S_DATE != "" || ACT_DATE_E_DATE != "")
-		//{
-		//	bSearch = true;
-		//}
+		if (SESS_LOC != "" || OBJ_NO != "" || ACT_TYPE != "" || ACT_NAME != "" || ACT_HOST != "" || ACT_DATE_S_DATE != "" || ACT_DATE_E_DATE != "")
+		{
+			bSearch = true;
+		}
 	%>
+
+
+
+	<%--<%: SESS_LOC  %>
+<%: OBJ_NO  %>
+<%: ACT_TYPE  %>
+<%: ACT_NAME  %>
+<%: ACT_HOST  %>
+<%: ACT_DATE_S_DATE  %>
+<%: ACT_DATE_E_DATE  %>--%>
+<% if (bSearch)
+	{
+		if (ACT_NAME != "")
+		{
+			sb.Append("<h6>活動名稱 <span class='");
+			sb.Append("badge bg-secondary'>");
+			sb.Append(ACT_NAME);
+			sb.Append("</span></h6>");
+		}
+		//if (OBJ_NO != "")
+		//{
+		//	sb.Append("<h6>身分別 <span class='badge bg-secondary'>");
+		//	sb.Append(OBJ_NO);
+		//	sb.Append("</span></h6>");
+		//}
+		//if (ACT_TYPE != "")
+		//{
+		//	sb.Append("<h6>活動類別 <span class='badge bg-secondary'>");
+		//	sb.Append(ACT_TYPE);
+		//	sb.Append("</span></h6>");
+		//}
+		//if (ACT_NAME != "")
+		//{
+		//	sb.Append("<h6>活動名稱 <span class='badge bg-secondary'>");
+		//	sb.Append(ACT_NAME);
+		//	sb.Append("</span></h6>");
+		//}
+		//if (ACT_HOST != "")
+		//{
+		//	sb.Append("<h6>主辦單位 <span class='badge bg-secondary'>");
+		//	sb.Append(ACT_HOST);
+		//	sb.Append("</span></h6>");
+		//}
+		//if (ACT_DATE_S_DATE != "")
+		//{
+		//	sb.Append("<h6>活動時間起日 <span class='badge bg-secondary'>");
+		//	sb.Append(ACT_DATE_S_DATE);
+		//	sb.Append("</span></h6>");
+		//}
+		//if (ACT_DATE_S_DATE != "")
+		//{
+		//	sb.Append("<h6>活動時間迄日 <span class='badge bg-secondary'>");
+		//	sb.Append(ACT_DATE_E_DATE);
+		//	sb.Append("</span></h6>");
+		//}
+	}
+%>
+ 
+
+
+
+
 
 	<main>
 		<section>
@@ -232,80 +296,38 @@
 		<asp:Literal ID="cardSearch" runat="server" />
 
 		<asp:Literal ID="ltTable3" runat="server" />
-		<%--<%: SESS_LOC  %>
-		<%: OBJ_NO  %>
-		<%: ACT_TYPE  %>
-		<%: ACT_NAME  %>
-		<%: ACT_HOST  %>
-		<%: ACT_DATE_S_DATE  %>
-		<%: ACT_DATE_E_DATE  %>--%>
-		<% if (bSearch)
-			{
-				//if (SESS_LOC != "")
-				//{
-				// sb.Append("<h6>辦理縣市 <span class='badge bg-secondary'>");
-				// sb.Append(SESS_LOC);
-				// sb.Append("</span></h6>");
-				//}
-				//if (OBJ_NO != "")
-				//{
-				//	sb.Append("<h6>身分別 <span class='badge bg-secondary'>");
-				//	sb.Append(OBJ_NO);
-				//	sb.Append("</span></h6>");
-				//}
-				//if (ACT_TYPE != "")
-				//{
-				//	sb.Append("<h6>活動類別 <span class='badge bg-secondary'>");
-				//	sb.Append(ACT_TYPE);
-				//	sb.Append("</span></h6>");
-				//}
-				//if (ACT_NAME != "")
-				//{
-				//	sb.Append("<h6>活動名稱 <span class='badge bg-secondary'>");
-				//	sb.Append(ACT_NAME);
-				//	sb.Append("</span></h6>");
-				//}
-				//if (ACT_HOST != "")
-				//{
-				//	sb.Append("<h6>主辦單位 <span class='badge bg-secondary'>");
-				//	sb.Append(ACT_HOST);
-				//	sb.Append("</span></h6>");
-				//}
-				//if (ACT_DATE_S_DATE != "")
-				//{
-				//	sb.Append("<h6>活動時間起日 <span class='badge bg-secondary'>");
-				//	sb.Append(ACT_DATE_S_DATE);
-				//	sb.Append("</span></h6>");
-				//}
-				//if (ACT_DATE_S_DATE != "")
-				//{
-				//	sb.Append("<h6>活動時間迄日 <span class='badge bg-secondary'>");
-				//	sb.Append(ACT_DATE_E_DATE);
-				//	sb.Append("</span></h6>");
-				//}
-			}
-		%>
+		
+		
+<% if (sb.Length != 0)
+	{ %>
+<div class="card mb-2">
+	<div class="card-body">
+		<div class="badge bg-info">搜尋條件</div>
+	<%  if (ACT_NAME != "")
+{ %>
+	 <h6>活動名稱 <span class="badge bg-secondary"> <%: ACT_NAME %>   </span></h6> 
+<% } %>
+			<%  if (ACT_HOST != "")
+{ %>
+	 <h6>主辦單位 <span class="badge bg-secondary"> <%: ACT_HOST %>   </span></h6> 
+<% } %>
+		<%-- <h6>辦理縣市<span class="badge bg-secondary">New</span></h6>
+		<h6>身分別 <span class="badge bg-secondary">New</span></h6>
+		<h6>活動類別 <span class="badge bg-secondary">New</span></h6>
+		<h6>活動名稱<span class="badge bg-secondary">New</span></h6>
+		<h6>主辦單位 <span class="badge bg-secondary">New</span></h6>--%>
+		<%--<h6>活動時間 <span class="badge bg-secondary">New</span></h6>
 
-		<% if (sb.Length != 0)
-			{ %>
-		<div class="card mb-2">
-			<div class="card-body">
-				<div class="badge bg-info">搜尋條件</div>
-				<%:  
-					 sb.ToString()
-				%>
+		<h6>活動時間 <span class="badge bg-secondary">New</span></h6> --%>
+	</div>
+</div>
+<%	}%>
 
-
-				<%-- <h6>辦理縣市<span class="badge bg-secondary">New</span></h6>
-				<h6>身分別 <span class="badge bg-secondary">New</span></h6>
-				<h6>活動類別 <span class="badge bg-secondary">New</span></h6>
-				<h6>活動名稱<span class="badge bg-secondary">New</span></h6>
-				<h6>主辦單位 <span class="badge bg-secondary">New</span></h6>
-				<h6>活動時間 <span class="badge bg-secondary">New</span></h6> --%>
-			</div>
-		</div>
-		<%	}%>
-
+		<%	if (bSearch)
+			{%>
+	<h5 class="my-2  text-center">查詢結果</h5>
+		<%		} %>
+	
 
 
 		<div class="  card  d-none d-lg-block ">
