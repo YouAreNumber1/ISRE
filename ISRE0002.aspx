@@ -193,7 +193,7 @@
                             </div> 
                             <div class="col-8 col-lg-12  text-center ">  
                                 <div class="d-flex justify-content-lg-center">  
-                                    <div class="badge bg-warning">21</div> </div> 
+                                    <div class="badge bg-primary">21</div> </div> 
                             </div> 
                         </div>
                     </div>  
@@ -216,7 +216,7 @@
     %>
  
 
-        <div class="mt-5">
+        <div id="registrationForm" class="mt-5">
              <h3 class="text-center mt-5 mb-2">報名單(<%:desc %>)  </h3>
 
 
@@ -444,6 +444,8 @@ $(document).ready(function () {
 
     $('.personal').show();
     $('.unit').hide();
+    var registrationForm = $('#registrationForm');
+	MoveTo(registrationForm);
 
     $(document).on('click', 'input[name="REG_TYPE"]', function (e) {
         if (this.value == '1') {
@@ -464,5 +466,5 @@ $(document).ready(function () {
     
 });
  
-        </script>
+		</script>
 </asp:Content>

@@ -13,6 +13,7 @@
 			padding: 4px;
 		}
 	</style>
+	
 	<main aria-labelledby="title">
 
 
@@ -579,7 +580,7 @@
 							</div>
 							<div class="col-8 col-lg-12  text-center ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-warning">21</div>
+									<div class="badge bg-primary">21</div>
 								</div>
 							</div>
 						</div>
@@ -697,76 +698,53 @@
 			});
 
 			$('.btn-showSchedule').on('click', function () {
-				console.log('here');
-				let targetRow = $(this).closest('.session');
+				 
+				
 				let target = $(this).closest('.session').find('.showSchedule');
 				let test = target.hasClass('collapse');
 				if (test) {
 					target.removeClass('collapse');
+					MoveTo(target);
 					var scrollTop = target == null ? 0 : target.offset().top;
-					$('html, body').animate({
-						scrollTop: scrollTop
-					}, {
-						// duration:1000,
-						easing: 'swing',
-						complete: function () {
-							//obj.focus();
-							//bFileInput
-							//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
-							//    : obj.removeClass('border-4 border-danger');
+					//$('html, body').animate({
+					//	scrollTop: scrollTop
+					//}, {
+					//	// duration:1000,
+					//	easing: 'swing',
+					//	complete: function () {
+					//		//obj.focus();
+					//		//bFileInput
+					//		//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
+					//		//    : obj.removeClass('border-4 border-danger');
 
-						}
-					});
+					//	}
+					//});
 					$(this).closest('.col-Command').removeClass('col-lg-4');
 				}
-				else {
-
+				else { 
 					target.addClass('collapse');
-					var scrollTop = targetRow == null ? 0 : targetRow.offset().top;
-					$('html, body').animate({
-						scrollTop: scrollTop
-					}, {
-						// duration:1000,
-						easing: 'swing',
-						complete: function () {
-							//obj.focus();
-							//bFileInput
-							//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
-							//    : obj.removeClass('border-4 border-danger');
+					let targetRow = $(this).closest('.session');
+					MoveTo(targetRow);
+					//var scrollTop = targetRow == null ? 0 : targetRow.offset().top;
+					//$('html, body').animate({
+					//	scrollTop: scrollTop
+					//}, {
+					//	// duration:1000,
+					//	easing: 'swing',
+					//	complete: function () {
+					//		//obj.focus();
+					//		//bFileInput
+					//		//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
+					//		//    : obj.removeClass('border-4 border-danger');
 
-						}
-					});
+					//	}
+					//});
 					$(this).closest('.col-Command').addClass('col-lg-4');
 				}
 				console.log(test);
 				//$(this).closest('.session').find('.showSchedule').toggle();
 			});
-
-			//$('.btn-SessionSingleRegister').on('click', function () {
-			//    console.log('here');
-			//    var thisForm = this.closest('form');
-			//    $('#RegisterMultiple').val(0);
-			//    $(thisForm).attr('action', 'isre00002.aspx');
-			//    $(thisForm).submit();
-			//});
-			//$('.btn-SessionMultipleRegister').on('click', function () {
-			//    var thisForm = this.closest('form');
-			//    $('#RegisterMultiple').val(1);
-			//    $(thisForm).attr('action', 'isre00002.aspx');
-			//    $(thisForm).submit();
-			//});
-			//var SearchResult = $('#SearchResult');
-			//var thisForm = SearchResult.closest('form');
-			//SearchResult.parent().find('form');
-
-			//$(thisForm)
-			//    .attr('data-ajax', 'true')
-			//    .attr('data-ajax-method', 'GET')
-			//    .attr('data-ajax-mode', 'replace')
-			//    .attr('data-ajax-update', '#SearchResult')
-			//    ;
-
-
+ 
 
 
 		});

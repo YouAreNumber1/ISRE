@@ -12,7 +12,7 @@
                       <h3 class="  ">活動清單</h3> 
                    
                          <a href="ISRI0001.aspx" 
-                             class=" btn btn-primary   "
+                             class=" btn btn-primary-isre   "
                           >新增活動  
                          </a>
                      
@@ -84,7 +84,7 @@
               <div class="col-12 col-lg-3 "> 
                   <div class="row    no-gutters"> 
                         <span class="d-lg-none col-5 col-sm-2   ">
-                            <span class="badge bg-primary">活動主題</span> 
+                            <span class="badge bg-info">活動主題</span> 
                         </span>
                         <span class="col-7 col-sm-10">
                             <a href="ISRE0001.aspx?GUID=<%:item.GUID %>"><%:item.ACT_NAME %></a>  
@@ -113,7 +113,7 @@
                        <div class="col-7 col-sm-10 col-lg-12 "> 
                          <div class=" d-flex  d-lg-block">
                            <div class="text-center">  
-                               <div class="badge bg-info">12</div>  
+                               <div class="badge bg-warning">12</div>  
                            </div> 
                          </div> 
                      </div> 
@@ -152,9 +152,9 @@
                       <div class="row no-gutters">
                           <div class="col mt-3 mt-lg-0 d-flex justify-content-around">  
                                  <a href="ISRI0001.aspx?GUID=<%:item.GUID %>" 
-                                     class="btn btn-primary text-nowrap mx-1 px-3">編輯</a>  
+                                     class="btn btn-primary-isre text-nowrap mx-1 px-3">編輯</a>  
                               <a href="ISRI0002.aspx?GUID=<%:item.GUID %>"  
-                                  class="btn btn-primary text-nowrap mx-1">場次管理</a>  
+                                  class="btn btn-primary-isre text-nowrap mx-1">場次管理</a>  
                       
                         </div> 
                       </div>

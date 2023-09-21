@@ -366,7 +366,7 @@
                       </tbody>
                   </table>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary px-4">+新增活動內容</a>
+                      <a href="#" class="btn btn-primary-isre px-4">+新增活動內容</a>
                   </div>
               </div>
           </div>
@@ -379,7 +379,7 @@
           </div>
           <div class="  py-3   col-lg-10 border">
               <div class="d-flex">
-                  <a href="#" class="btn btn-primary px-5"> 選擇檔案</a>
+                  <a href="#" class="btn btn-primary-isre px-5"> 選擇檔案</a>
               </div>
               <div>
                   <table class="table border">
@@ -399,7 +399,7 @@
 
                               </td>
                               <td>1.35MB </td>
-                              <td><a href="#" class="btn btn-primary form-control">刪除</a></td>
+                              <td><a href="#" class="btn btn-primary-isre form-control">刪除</a></td>
                           </tr>
                       </tbody>
                   </table>
@@ -425,7 +425,7 @@
                       </div>
 
                       <div class="d-flex">
-                          <a href="#" class="btn btn-primary px-5"> 選擇檔案</a>
+                          <a href="#" class="btn btn-primary-isre px-5"> 選擇檔案</a>
                       </div>
                       <div>
                           <table class="table border">
@@ -445,7 +445,7 @@
 
                                       </td>
                                       <td>1.35MB </td>
-                                      <td><a href="#" class="btn btn-primary form-control">刪除</a></td>
+                                      <td><a href="#" class="btn btn-primary-isre form-control">刪除</a></td>
                                   </tr>
                               </tbody>
                           </table>
@@ -499,7 +499,7 @@
                   <textarea name="CONFIRM_MAIL" id="CONFIRM_MAIL" cols="30" rows="3"
                             class="form-control  requiredInput"><%: (Model !=null &&  Model.CONFIRM_MAIL!=null ? Model.CONFIRM_MAIL : ""  )  %></textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
                   </div>
 
               </div>
@@ -515,7 +515,7 @@
                   <textarea name="SUCCESS_MAIL" id="SUCCESS_MAIL" cols="30" rows="3"
                             class="form-control  requiredInput"><%: (Model !=null &&  Model.SUCCESS_MAIL!=null ? Model.SUCCESS_MAIL : ""  )  %> </textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
                   </div>
               </div>
           </div>
@@ -531,7 +531,7 @@
                     class="form-control  
                       requiredInput"> <%: (Model !=null &&  Model.WAIT_MAIL!=null ? Model.WAIT_MAIL : ""  )  %> </textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
                   </div>
               </div>
 
@@ -578,7 +578,7 @@
                             class="form-control requiredInput ">
                       <%: (Model !=null &&  Model.REMIND_MAIL_TEXT!=null ? Model.REMIND_MAIL_TEXT : ""  )  %> </textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
                   </div>
 
               </div>
@@ -592,7 +592,7 @@
                       data-target=@string.Concat(ControllerName
                      ,"Insert"
               )
-                      class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary btn ">
+                      class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
                   <span>新增</span>
               </button>
           }
@@ -602,7 +602,7 @@
                       data-target=@string.Concat(ControllerName
                      ,"Save"
               )
-                      class="   px-sm-4 py-2  me-md-5 mb-2  text-nowrap  btn-primary btn ">
+                      class="   px-sm-4 py-2  me-md-5 mb-2  text-nowrap  btn-primary-isre btn ">
                   <span>儲存</span>
               </button>
 
@@ -610,16 +610,16 @@
                       data-target=@string.Concat(ControllerName
                  ,"Delete"
                )
-                      class=" btn btn_Delete   btn-primary   px-sm-4 py-2  me-md-5 mb-2 ">
+                      class=" btn btn_Delete   btn-primary-isre   px-sm-4 py-2  me-md-5 mb-2 ">
                   刪除
               </button>
 
           }--%>
-        <%--  @*<a href="#" class="btn btn-primary  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回前一頁</a>*@--%>
+        <%--  @*<a href="#" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回前一頁</a>*@--%>
 
-          <a href="/Activity/ManageActivity?Guid=@ViewBag.ActivityGUID" class="btn btn-primary  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回前一頁</a>
+          <a href="/Activity/ManageActivity?Guid=@ViewBag.ActivityGUID" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回前一頁</a>
 
-          <a href="/" class="btn btn-primary  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
+          <a href="/" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 
 

@@ -71,7 +71,8 @@
                                     <span class="badge bg-info"> 總場次</span>  
                                 </span>
                                 <div class="col-8 col-lg-12   text-center  "> 
-                                    <div class="d-flex justify-content-lg-center"> 4 </div>  
+                                    <div class="d-flex justify-content-lg-center"> 
+                                        <div class="badge bg-warning">5</div> </div>  
                                 </div>
                             </div>
                         </div>
@@ -113,7 +114,7 @@
         <div class="d-flex  justify-content-between  align-items-center mt-5 "> 
             <div></div>
             <h3 class="text-center ">場次列表</h3>   
-            <a href="ISRI0003.aspx" class="btn btn-Create btn-primary px-3">新增場次</a>
+            <a href="ISRI0003.aspx" class="btn btn-Create btn-primary-isre px-3">新增場次</a>
         </div>
           
 <%--session list title columns start --%>
@@ -261,17 +262,17 @@
                         <div> 
                             <a guid="<%:item.GUID %>"  
                             href="ISRI0003.aspx?guid=<%:item.GUID %>"
-                            class="btn btn-primary text-nowrap mx-1  px-4">編輯</a>  
+                            class="btn btn-primary-isre text-nowrap mx-1  px-4">編輯</a>  
                         </div> 
                         <div>
                             <a guid="<%:item.GUID %>" 
                             href="ISRI0004.aspx?guid=<%:item.GUID %>"
-                            class="btn btn-primary text-nowrap mx-1  px-2 ">前台設定</a>  
+                            class="btn btn-primary-isre text-nowrap mx-1  px-2 ">前台設定</a>  
                         </div>
                         <div> 
                             <a guid="<%:item.GUID %>"  
                             href="ISRI0005.aspx?guid=<%:item.GUID %>"
-                            class="btn btn-primary text-nowrap mx-1  px-2">報到管理</a>  
+                            class="btn btn-primary-isre text-nowrap mx-1  px-2">報到管理</a>  
                         </div>
                        
                     </div> 

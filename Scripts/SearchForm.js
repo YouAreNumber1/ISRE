@@ -85,6 +85,20 @@ var MoveToTop = function (callback) {
     });
 };
 
+var MoveTo = function (target, callback) {
+    var scrollTop = target == null ? 0 : target.offset().top;
+    $('html, body').animate({
+        scrollTop: scrollTop
+    }, { 
+        easing: 'swing',
+        complete: function () {
+            if (callback) {
+                callback();
+            }
+        }
+    }); 
+};
+
 var ShowToast = function (msg) {
     $(".toast-body").empty().append(msg);
     $(".toast").toast({ delay: 2000 }).toast('show');

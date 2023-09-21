@@ -5,8 +5,24 @@
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%   
-		string sSelected = "";
+		string colorName = ShowAssumptions.Items[ShowAssumptions.SelectedIndex].Text;
+Response.Write(colorName);
+		//string sSelected = "";
+		//string SESS_LOC = Request["SESS_LOC"] ?? "";
+		string OBJ_NO = Request["OBJ_NO"] ?? "";
+		string ACT_TYPE = Request["ACT_TYPE"] ?? "";
+		string ACT_NAME = Request["ACT_NAME"] ?? "";
+		string ACT_HOST = Request["ACT_HOST"] ?? "";
+		string ACT_DATE_S_DATE = Request["ACT_DATE_S_DATE"] ?? "";
+		string ACT_DATE_E_DATE = Request["ACT_DATE_E_DATE"] ?? "";
+		StringBuilder sb = new StringBuilder();
+		bool bSearch = false;
+		//if (SESS_LOC != "" || OBJ_NO != "" || ACT_TYPE != "" || ACT_NAME != "" || ACT_HOST != "" || ACT_DATE_S_DATE != "" || ACT_DATE_E_DATE != "")
+		//{
+		//	bSearch = true;
+		//}
 	%>
+
 	<main>
 		<section>
 			<div class="d-flex  justify-content-between align-content-center  ">
@@ -38,18 +54,21 @@
 										</div>
 										<div class="col-8">
 											<div class="  flex-grow-1 ">
-												<select name="SESS_LOC" id="SESS_LOC" class="form-control form-select">
-													<option value="">請選擇</option>
+												<asp:DropDownList name="ShowAssumptions" id="ShowAssumptions" class="form-control form-select"  runat="server">
+</asp:DropDownList>
+
+												<select name="SESS_LOC" id="SESS_LOC" class="form-control form-select"  runat="server" >
+													<%--<option value="">請選擇</option>--%>
 													<% 
-														dynamic SESS_LOC = Request["SESS_LOC"] ?? "";
-														dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
-														foreach (var item in List_CityList)
-														{
-															sSelected = (SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
+//	dynamic SESS_LOC = Request["SESS_LOC"] ?? "";
+//dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
+//foreach (var item in List_CityList)
+//{
+//	sSelected = (SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
 													%>
-													<option value="<%: item.CityNo %>" <%: sSelected %>><%: item.CityName %> </option>
-													<%
-														}
+												<%--	<option value="<%: item.CityNo %>" <%: sSelected %>><%: item.CityName %> </option>
+												--%>	<%
+													//	}
 													%>
 												</select>
 											</div>
@@ -66,18 +85,18 @@
 										</div>
 										<div class="col-8">
 											<div class="  flex-grow-1 ">
-												<select name="OBJ_NO" id="OBJ_NO" class="form-control form-select">
+												<select name="OBJ_NO" id="OBJ_NO" class="form-control form-select" runat="server">
 													<option value="">請選擇</option>
 													<%  
-														dynamic OBJ_NO = Request["OBJ_NO"] ?? "";
-														dynamic List_OBJ_NO = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "OBJ_NO");
-														foreach (var item in List_OBJ_NO)
-														{
-															sSelected = (OBJ_NO.ToString() == item.SerialID.ToString()) ? "selected" : "";
+//dynamic OBJ_NO = Request["OBJ_NO"] ?? "";
+//dynamic List_OBJ_NO = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "OBJ_NO");
+//foreach (var item in List_OBJ_NO)
+//{
+//	sSelected = (OBJ_NO.ToString() == item.SerialID.ToString()) ? "selected" : "";
 													%>
-													<option value="<%: item.SerialID %>" <%: sSelected %>><%: item.OBJ_NO_NAME%> </option>
-													<%
-														}
+												<%--	<option value="<%: item.SerialID %>" <%: sSelected %>><%: item.OBJ_NO_NAME%> </option>
+												--%>	<%
+													//	}
 													%>
 												</select>
 											</div>
@@ -97,13 +116,13 @@
 												<select name="ACT_TYPE" id="ACT_TYPE" class="form-control form-select">
 													<option value="">請選擇</option>
 													<% 
-														dynamic ACT_TYPE = Request["ACT_TYPE"] ?? "";
+														//	dynamic ACT_TYPE = Request["ACT_TYPE"] ?? "";
 														dynamic List_ACT_TYPE = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE");
 														foreach (var item in List_ACT_TYPE)
 														{
-															sSelected = (ACT_TYPE.ToString() == item.SerialID.ToString()) ? "selected" : "";
+															//sSelected = (ACT_TYPE.ToString() == item.SerialID.ToString()) ? "selected" : "";
 													%>
-													<option value="<%: item.SerialID %>" <%: sSelected %>><%: item.TYPE_NAME%> </option>
+													<option value="<%: item.SerialID %>" ><%: item.TYPE_NAME%> </option>
 													<%
 														}
 													%>
@@ -185,11 +204,11 @@
 										</div>
 										<div class="col-8">
 											<div class="  flex-grow-1 ">
-												 <select class="form-control form-select">
-													 <option>活動主題</option>
-													  <option>日期時間</option>
-													  <option>發布⽇期</option>
-												 </select>
+												<select class="form-control form-select">
+													<option>活動主題</option>
+													<option>日期時間</option>
+													<option>發布⽇期</option>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -212,7 +231,84 @@
 			<%--   <div id="SearchResult" class="my-4"> </div> --%>
 		</section>
 
+		<asp:Literal ID = "cardSearch" runat = "server" />
 
+		<asp:Literal ID = "ltTable3" runat = "server" />
+		<%--<%: SESS_LOC  %>
+		<%: OBJ_NO  %>
+		<%: ACT_TYPE  %>
+		<%: ACT_NAME  %>
+		<%: ACT_HOST  %>
+		<%: ACT_DATE_S_DATE  %>
+		<%: ACT_DATE_E_DATE  %>--%>
+		 <% if (bSearch)
+			 {
+				 //if (SESS_LOC != "")
+				 //{
+				 // sb.Append("<h6>辦理縣市 <span class='badge bg-secondary'>");
+				 // sb.Append(SESS_LOC);
+				 // sb.Append("</span></h6>");
+				 //}
+				 //if (OBJ_NO != "")
+				 //{
+				 //	sb.Append("<h6>身分別 <span class='badge bg-secondary'>");
+				 //	sb.Append(OBJ_NO);
+				 //	sb.Append("</span></h6>");
+				 //}
+				 //if (ACT_TYPE != "")
+				 //{
+				 //	sb.Append("<h6>活動類別 <span class='badge bg-secondary'>");
+				 //	sb.Append(ACT_TYPE);
+				 //	sb.Append("</span></h6>");
+				 //}
+				 //if (ACT_NAME != "")
+				 //{
+				 //	sb.Append("<h6>活動名稱 <span class='badge bg-secondary'>");
+				 //	sb.Append(ACT_NAME);
+				 //	sb.Append("</span></h6>");
+				 //}
+				 //if (ACT_HOST != "")
+				 //{
+				 //	sb.Append("<h6>主辦單位 <span class='badge bg-secondary'>");
+				 //	sb.Append(ACT_HOST);
+				 //	sb.Append("</span></h6>");
+				 //}
+				 //if (ACT_DATE_S_DATE != "")
+				 //{
+				 //	sb.Append("<h6>活動時間起日 <span class='badge bg-secondary'>");
+				 //	sb.Append(ACT_DATE_S_DATE);
+				 //	sb.Append("</span></h6>");
+				 //}
+				 //if (ACT_DATE_S_DATE != "")
+				 //{
+				 //	sb.Append("<h6>活動時間迄日 <span class='badge bg-secondary'>");
+				 //	sb.Append(ACT_DATE_E_DATE);
+				 //	sb.Append("</span></h6>");
+				 //}
+			 }
+		%>
+		 
+		<% if (sb.Length != 0)
+			{ %>
+				 <div class="card mb-2">
+			<div class="card-body">
+				<div class="badge bg-info">搜尋條件</div>
+				 <%:  
+					 sb.ToString()
+					%>
+
+			 
+			<%-- <h6>辦理縣市<span class="badge bg-secondary">New</span></h6>
+				<h6>身分別 <span class="badge bg-secondary">New</span></h6>
+				<h6>活動類別 <span class="badge bg-secondary">New</span></h6>
+				<h6>活動名稱<span class="badge bg-secondary">New</span></h6>
+				<h6>主辦單位 <span class="badge bg-secondary">New</span></h6>
+				<h6>活動時間 <span class="badge bg-secondary">New</span></h6> --%>
+			</div> 
+		</div>
+		<%	}%>
+		 
+		
 
 		<div class="  card  d-none d-lg-block ">
 			<div class="card-header ">
@@ -281,8 +377,8 @@
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-										<div class="badge bg-primary">
-											<%:item.TotalSessionNo %> 
+										<div class="badge bg-warning">
+											<%:item.TotalSessionNo %>
 										</div>
 									</div>
 								</div>
@@ -307,8 +403,7 @@
 								<div class="d-flex">
 									<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
 									<a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=a"
-										class="btn btn-primary-isre text-nowrap mx-1 px-3">
-										檢視<span class="d-lg-none badge bg-primary mx-1"><%:item.TotalSessionNo %> 個</span>場次
+										class="btn btn-primary-isre text-nowrap mx-1 px-3">檢視<span class="d-lg-none badge bg-warning mx-1"><%:item.TotalSessionNo %> 個</span>場次
 											
 									</a>
 								</div>
@@ -327,58 +422,8 @@
 		<%-- <div id="test"  >test test</div>--%>
 	</main>
 
-	<script>
-		var controllerName = $('#controllerName').val();
-		var formAction_Desktop = controllerName + "/QueryMobile";
-		var formAction_Mobile = controllerName + "/QueryMobile";
-
-
-
-
-
+	<script> 
 		$(document).ready(function () {
-			console.log("ready!");
-
-			$('#MainContent_test').on('click', function () {
-				var postData = { User: 'JOE', Phone: '0900222333' };
-				alert('readt');
-
-				var url = "https://localhost:44396/Default.aspx/GetData";
-				alert(url);
-				$.ajax({
-					type: "POST",
-					url: url,
-					// url: "https://localhost:44396/Default.aspx/GetData",
-					data: "{postData:'1'}",
-					//  data: JSON.stringify({ 'postData': postData }),
-					contentType: "application/json; charset=utf-8",
-					dataType: "json",
-					success: function (data) {
-						console.log(data.d);
-						//alert(data);
-					}
-				});
-			});
-			var SearchResult = $('#SearchResult');
-			var thisForm = SearchResult.closest('form');
-			//SearchResult.parent().find('form');
-
-			//$(thisForm)
-			//    .attr('data-ajax', 'true')
-			//    .attr('data-ajax-method', 'GET')
-			//    .attr('data-ajax-mode', 'replace')
-			//    .attr('data-ajax-update', '#SearchResult')
-			//    ;
-
-			//var w = $(window).width();
-			//var actionUrl = (w <= 576) ? formAction_Mobile : formAction_Desktop;
-			//$("#clientScreenWidth").val(w);
-			/////////// event handler
-			////////// must be on last
-			//console.log(thisForm);
-			// alert('here');
-			// thisForm.attr('action', actionUrl).submit();
-			//  thisForm.submit();
 
 			$("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['zh-TW']);
 

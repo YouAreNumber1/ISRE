@@ -74,7 +74,7 @@
                                  <span class="badge bg-info"> 總場次</span>  
                              </span>
                              <div class="col-8 col-lg-12   text-center  "> 
-                                 <div class="d-flex justify-content-lg-center"> 4 </div>  
+                                 <div class="d-flex justify-content-lg-center">  <div class="badge bg-warning">5</div> </div>  
                              </div>
                          </div>
                      </div>
@@ -482,10 +482,10 @@
                  data-target=@string.Concat(ControllerName
                     ,"Insert"
              )
-                 class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary btn ">
+                 class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
              <span>儲存</span>
          </button>
-         <a href="#" class="btn btn-primary    px-3 py-2  me-5 mb-2 ">回前頁</a>
+         <a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">回前頁</a>
 
      </div>
  

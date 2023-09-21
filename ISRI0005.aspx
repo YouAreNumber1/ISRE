@@ -72,7 +72,7 @@
                                  <span class="badge bg-info"> 總場次</span>  
                              </span>
                              <div class="col-8 col-lg-12   text-center  "> 
-                                 <div class="d-flex justify-content-lg-center"> 4 </div>  
+                                 <div class="d-flex justify-content-lg-center">  <div class="badge bg-warning">5</div> </div>  
                              </div>
                          </div>
                      </div>
@@ -113,10 +113,10 @@
                          data-target=@string.Concat(ControllerName
                                 ,"Insert"
                          )
-                         class="    px-4 py-2  me-3 mb-2 text-nowrap  btn-primary btn ">
+                         class="    px-4 py-2  me-3 mb-2 text-nowrap  btn-primary-isre btn ">
                      <span>產生報到QRcode</span>
                  </button>
-                 <a href="#" class="btn btn-primary    px-5 py-2  me-5 mb-2 ">匯出報名清單</a>
+                 <a href="#" class="btn btn-primary-isre    px-5 py-2  me-5 mb-2 ">匯出報名清單</a>
 
              </div>
             <%--session   start  --%>
@@ -272,7 +272,7 @@
 <div class="d-flex my-1 align-items-center">
     <div class="text-nowrap">關鍵字：</div>
     <input type="text" class="form-control">
-    <button class="text-nowrap btn btn-primary px-5">查詢</button>
+    <button class="text-nowrap btn btn-primary-isre px-5">查詢</button>
 </div>
 
     <!-- Nav tabs -->

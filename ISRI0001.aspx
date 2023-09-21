@@ -178,7 +178,7 @@ font-weight: normal;
                         <span class="badge "><span class="fas  text-danger fa-times-circle  fa-2x"></span></span>
                     </button>
                     <span>
-                        <button type="button" class="btn btn-primary px-4">新增</button>
+                        <button type="button" class="btn btn-primary-isre px-4">新增</button>
                     </span>
                 </div>
                 <div class="py-2">代理人員最多設定10名</div>
@@ -238,7 +238,7 @@ font-weight: normal;
                 <span class="note">*</span><b><label>視覺圖檔</label></b>
             </div>
             <div class="   border  py-3    col-lg-10">
-               <%-- @*<button class="btn btn-primary">檔案上傳</button>*@--%>
+               <%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
                 <div class="note-b">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
 
                <%-- @*<input type="file" class="custom-file-input  requiredInput "
@@ -293,17 +293,17 @@ font-weight: normal;
         <div class="d-flex justify-content-center mt-5">
             <button type="button" id="btn_Insert" data-target="isri0001.aspx.cs"
                 guid="<%:GUID%>"
-                    class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary btn ">
+                    class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
                 <span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
             </button>  
-            <button class="btn btn-primary text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
-            <a href="ISRI0000.ASPX" class="btn btn-primary  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
+            <button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
+            <a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
            <%-- @*<a href="#" data-target="/Activity/DeleteActivity" guid="@Model.GUID"
-        class="btn  btn_DeleteActivity  btn-primary  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除
+        class="btn  btn_DeleteActivity  btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除
 
               </a>*@--%>
                 <a href="#" data-target="/Activity/DeleteActivity" guid="@Model.GUID"
-                   class="btn   btn-primary  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+                   class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
 
 
         </div>
