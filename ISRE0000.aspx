@@ -109,14 +109,14 @@
 					<div class="card-body  ">
 						<div class="">
 							<div class="      row  ">
-								<div class="    col-lg-4">
+								<div class=" col-sm-6   col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4  ">
 											<div class="    ">
 												<label class="text-nowrap">辦理縣市</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 ">
 											<div class="  flex-grow-1 ">
 												<%--<asp:DropDownList name="ShowAssumptions" id="ShowAssumptions" class="form-control form-select"  runat="server">
 </asp:DropDownList>--%>
@@ -140,7 +140,7 @@
 									</div>
 								</div>
 
-								<div class="    col-lg-4">
+								<div class="  col-sm-6  col-lg-4">
 									<div class="row d-flex align-items-center p-2">
 										<div class="col-4">
 											<div class="    ">
@@ -167,7 +167,7 @@
 									</div>
 								</div>
 
-								<div class="    col-lg-4">
+								<div class="  col-sm-6    col-lg-4">
 									<div class="row d-flex align-items-center p-2">
 										<div class="col-4">
 											<div class="    ">
@@ -184,7 +184,7 @@
 														{
 															sSelected = (ACT_TYPE.ToString() == item.SerialID.ToString()) ? "selected" : "";
 													%>
-													<option value="<%: item.SerialID %>"><%: item.TYPE_NAME%> </option>
+													<option value="<%: item.SerialID %>" <%: sSelected %>><%: item.TYPE_NAME%> </option>
 													<%
 														}
 													%>
@@ -193,26 +193,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							<%--</div>
 
-							<div class="      row  ">
-								<div class="    col-lg-8">
-									<div class="row d-flex align-items-center p-2">
-										<div class="col-4 col-lg-2">
-											<div class="    ">
-												<label class="text-nowrap">活動名稱</label>
-											</div>
-										</div>
-										<div class="col-8 col-lg-10">
-											<div class="  flex-grow-1 ">
-												<input type="text" class="form-control" name="ACT_NAME" id="ACT_NAME"
-													value="<%:  Request["ACT_NAME"] %>">
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="    col-lg-4">
+							<div class="      row  ">--%>
+								<div class=" col-sm-6   col-lg-4">
 									<div class="row d-flex align-items-center p-2">
 										<div class="col-4">
 											<div class="    ">
@@ -227,10 +211,73 @@
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class=" row  ">
-								<div class="    col-lg-8">
+								<div class="  col-sm-6  col-lg-8">
+									<div class="row d-flex align-items-center p-2">
+										<div class="col-4  ">
+											<div class="    ">
+												<label class="text-nowrap">活動名稱</label>
+											</div>
+										</div>
+										<div class="col-8 ">
+											<div class="  flex-grow-1 ">
+												<input type="text" class="form-control" name="ACT_NAME" id="ACT_NAME"
+													value="<%:  Request["ACT_NAME"] %>">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								
+						<%--	</div>
+
+							<div class=" row  ">--%>
+
+
+								<div class=" col-sm-6   col-lg-4">
+									<div class="row d-flex align-items-center p-2">
+										<div class="col-4">
+											<div class="    ">
+												<label class="text-nowrap">活動起始日</label>
+											</div>
+										</div>
+										<div class="col-8">
+											<div class="  flex-grow-1 ">
+												<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
+													class="form-control " placeholder="民國年/月/日"
+													value="<%:  Request["ACT_DATE_S_DATE"] %>">
+												<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" />
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class=" col-sm-6   col-lg-4">
+									<div class="row d-flex align-items-center p-2">
+										<div class="col-4">
+											<div class="    ">
+												<label class="text-nowrap">活動結束日</label>
+											</div>
+										</div>
+										<div class="col-8">
+											<div class="  flex-grow-1 ">
+												<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
+													class="form-control " placeholder="民國年/月/日"
+													value="<%:  Request["ACT_DATE_E_DATE"] %>">
+												<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E" />
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+<%--								<div class="   col-sm-6  col-lg-8">
 									<div class="row d-flex align-items-center p-2">
 										<div class="col-4 col-lg-2">
 											<div class="    ">
@@ -255,9 +302,9 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>--%>
 
-								<div class="  d-lg-none  col-lg-4">
+								<div class="  d-lg-none  col-sm-6 col-lg-4">
 									<div class="row d-flex align-items-center p-2">
 										<div class="col-4">
 											<div class="    ">
@@ -298,11 +345,19 @@
 		<asp:Literal ID="ltTable3" runat="server" />
 		
 		
-<% if (sb.Length != 0)
+<% if (bSearch)
 	{ %>
 <div class="card mb-2">
 	<div class="card-body">
-		<div class="badge bg-info">搜尋條件</div>
+		<span class="badg3e bg-warning3">搜尋條件</span>
+		<div class="badge bg-secondary">台北市</div>
+		<div class="badge bg-secondary">一般民眾</div>
+		<div class="badge bg-secondary">健康促進活動</div>
+		<div class="badge bg-secondary">QRCode</div>
+		<div class="badge bg-secondary">健保局</div>
+		<div class="badge bg-secondary">112/04/30</div>
+		<div class="badge bg-secondary">112/06/30</div>
+
 	<%  if (ACT_NAME != "")
 { %>
 	 <h6>活動名稱 <span class="badge bg-secondary"> <%: ACT_NAME %>   </span></h6> 

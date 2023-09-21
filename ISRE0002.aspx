@@ -45,46 +45,46 @@
       <div class="border rounded my-1 py-1">
          <div class="    card  m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
              <div class=" row no-gutters  ">
-                     <div class="col-12 col-lg-3 "> 
+                     <div class="col-12 col-sm-6 col-lg-3 "> 
                          <div class="row no-gutters"> 
-                               <span class="d-lg-none col-4 col-sm-2   ">
+                               <span class="d-lg-none col-4     ">
                                    <span class="badge bg-info card-header">活動主題</span> 
                                </span>
-                               <div class="col-8 col-lg-12 ">
+                               <div class="col-8 col-lg-12  ">
                                    <div >
                                         活動主題
                                    </div>  
                                </div> 
                          </div>
                      </div>
-                     <div class="col-12 col-lg-3 ">
+                     <div class="col-12 col-sm-6  col-lg-3 ">
                          <div class="row no-gutters">
-                             <span class="d-lg-none  col-4   col-sm-2  ">
+                             <span class="d-lg-none  col-4     ">
                                  <span class="badge bg-info">活動起訖⽇期</span> 
                              </span>
-                             <div class="col-8 col-lg-12  text-center  ">
+                             <div class="col-8 col-lg-12    text-center  ">
                                  <div class="d-flex justify-content-lg-center"> 112/08/31-112/09/30 </div> 
                               </div>
                          </div>
                      </div>
                      
-                     <div class="col-12 col-lg-2 ">
+                     <div class="col-12 col-sm-6 col-lg-2 ">
                          <div class="row no-gutters">
-                             <div class="d-lg-none  col-4  col-sm-2   "> 
+                             <div class="d-lg-none  col-4     "> 
                                  <span class="badge bg-info"> 主辦單位</span>
                              </div>
-                             <div class="col-8 col-lg-12  text-center  "> 
+                             <div class="col-8  col-lg-12  text-center  "> 
                                   <div class="d-flex justify-content-lg-center"> 主辦單位 </div>  
                                 </div>
                          </div>
                      </div>  
 
-                    <div class="col-12 col-lg-3 ">
+                    <div class="col-12 col-sm-6  col-lg-3 ">
                      <div class="row no-gutters">
-                         <div class="d-lg-none  col-4  col-sm-2   ">
+                         <div class="d-lg-none  col-4     ">
                              <span class="badge bg-info"> 發布起訖⽇期</span>  
                          </div>
-                         <div class="col-8 col-lg-12 "> 
+                         <div class="col-8  col-lg-12 "> 
                              <div class="  text-center "> 
                                  <div class="d-flex justify-content-lg-center">   112/08/31-112/09/30  </div>  
                              </div>
@@ -120,7 +120,7 @@
                     <div class=" col-lg-2 text-center ">
                             <span>活動資料</span>
                         </div>
-                        <div class=" col-lg-1 text-center   ">
+                        <div class=" col-lg-2 text-center   ">
                             <span>尚餘名額</span>
                         </div>  
                 </div>
@@ -131,64 +131,64 @@
          <div class="border rounded my-1 py-1">
             <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
                 <div class=" row no-gutters  ">
-                        <div class="col-12 col-lg-1 "> 
+                        <div class="col-12 col-sm-6  col-lg-1 "> 
                             <div class="row no-gutters"> 
-                                  <span class="d-lg-none col-4 col-sm-2   ">
+                                  <span class="d-lg-none col-4    ">
                                       <span class="badge bg-info card-header">場次</span> 
                                   </span>
-                                  <div class="col-8 col-lg-12 ">
+                                  <div class="col-8 col-lg-12   ">
                                       <div class="d-flex justify-content-lg-center">
                                            4  
                                       </div>  
                                   </div> 
                             </div>
                         </div>
-                        <div class="col-12 col-lg-2 ">
+                        <div class="col-12 col-sm-6  col-lg-2 ">
                             <div class="row no-gutters">
-                                <span class="d-lg-none  col-4   col-sm-2  ">
+                                <span class="d-lg-none  col-4      ">
                                     <span class="badge bg-info">日期時間</span> 
                                 </span>
-                                <div class="col-8 col-lg-12  text-center  ">
+                                <div class="col-8 col-lg-12   text-center  ">
                                     <div class="d-flex justify-content-lg-center"> 112/08/31 </div> 
                                  </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-2 ">
+                        <div class="col-12 col-sm-6 col-lg-2 ">
                             <div class="row no-gutters">
-                                <span class="d-lg-none  col-4  col-sm-2   ">
+                                <span class="d-lg-none  col-4     ">
                                     <span class="badge bg-info"> 地點</span>  
                                 </span>
-                                <div class="col-8 col-lg-12   text-center  "> 
+                                <div class="col-8  col-lg-12    text-center  "> 
                                     <div class="d-flex justify-content-lg-center"> 台北市 </div>  
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-2 ">
+                        <div class="col-12 col-sm-6  col-lg-2 ">
                             <div class="row no-gutters">
-                                <div class="d-lg-none  col-4  col-sm-2   "> 
+                                <div class="d-lg-none  col-4     "> 
                                     <span class="badge bg-info"> 報名截⽌⽇</span>
                                 </div>
-                                <div class="col-8 col-lg-12  text-center  "> 
+                                <div class="col-8  col-lg-12  text-center  "> 
                                      <div class="d-flex justify-content-lg-center">   112/08/31  </div>  
                                    </div>
                             </div>
                         </div>  
 
-                       <div class="col-12 col-lg-2 ">
+                       <div class="col-12 col-sm-6  col-lg-2 ">
                         <div class="row no-gutters">
-                            <div class="d-lg-none  col-4  col-sm-2   ">
+                            <div class="d-lg-none  col-4     ">
                                 <span class="badge bg-info"> 活動資料</span>  
                             </div>
-                            <div class="col-8 col-lg-12 "> 
+                            <div class="col-8 col-lg-12   "> 
                                 <div class="  text-center "> 
                                     <div class="d-flex justify-content-lg-center">  活動資料 </div>  
                                 </div>
                             </div>
                         </div>
                     </div>
-                       <div class="col-12 col-lg-1 ">
+                       <div class="col-12 col-sm-6 col-lg-2 ">
                         <div class="row no-gutters">
-                            <div class="d-lg-none  col-4  col-sm-2   "> 
+                            <div class="d-lg-none  col-4     "> 
                                 <span class="badge bg-info"> 尚餘名額</span>
                             </div> 
                             <div class="col-8 col-lg-12  text-center ">  
