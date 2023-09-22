@@ -5,20 +5,15 @@
 <%--this page is for frontend activity and session list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%
-		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
-		string plan = Request.QueryString["plan"] ?? "";  /////////GUID=activity guid
+		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid 
 	%>
-	<style>
-		.schedule td {
-			padding: 4px;
-		}
-	</style>
+	 
 	
 	<main aria-labelledby="title">
 
 
 		<div class="">
-			<h3 class="text-center my-2">活動內容</h3>
+			<h3 class="text-center my-2">活動主題</h3>
 			<%
 
 				dynamic Activity = Process_ActivityInfo(GUID);
@@ -63,11 +58,8 @@
 				</div>
 			</div>
 
-			<%-- @*活動內容*@--%>
-			<%
-				if (plan == "a")
-				{%>
-			<div>
+			<%-- @*活動內容*@--%> 
+		<%--	<div>
 				<div class="card  mt-4">
 					<div class="card-header ">活動內容</div>
 				</div>
@@ -433,12 +425,9 @@
 				<a id="btnMore" class="btn btn-link  px-3  "
 					data-bs-toggle="collapse"
 					data-bs-target="#more">More .....</a>
-
-
-
-			</div>
-			<%}
-			%>
+				 
+			</div>--%>
+			 
 
 
 
@@ -484,23 +473,23 @@
 					<div class=" col-lg-1 text-center ">
 						<span>場次 </span>
 					</div>
-					<div class=" col-lg-2 text-center ">
+					<div class=" col-lg-3 text-center ">
 						<span>日期時間</span>
 					</div>
 					<div class=" col-lg-1 text-center ">
 						<span>地點</span>
 					</div>
-					<div class=" col-lg-2   text-center   ">
-						<span>報名截⽌⽇</span>
+					<div class=" col-lg-1   text-center   ">
+						<span class="text-nowrap">報名截⽌⽇</span>
 					</div>
-					<div class=" col-lg-1 text-center ">
-						<span>活動資料</span>
+					<div class=" col-lg-2 text-center ">
+						<span>議程/資料</span>
 					</div>
 					<div class=" col-lg-1 text-center   ">
 						<span>尚餘名額</span>
 					</div>
 
-					<div class=" col-lg-4 text-center ">
+					<div class=" col-lg-3 text-center ">
 						<span>報名</span>
 					</div>
 
@@ -518,10 +507,10 @@
 		%>
 
 
-		<div class="border rounded my-1 py-1">
+		<div class="border rounded my-2 py-1">
 			<div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
 				<div class=" row no-gutters session ">
-					<div class="col-12 col-sm-6 col-lg-1 ">
+					<div class="col-12 col-sm-5 col-lg-1 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none col-4     ">
 								<span class="badge bg-info">場次</span>
@@ -533,17 +522,17 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12  col-sm-6  col-lg-2 ">
+					<div class="col-12  col-sm-7  col-lg-3 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4     ">
 								<span class="badge bg-info">日期時間</span>
 							</span>
 							<div class="col-8 col-lg-12  text-center  ">
-								<div class="d-flex justify-content-lg-center">112/08/31 </div>
+								<div class="d-flex justify-content-lg-center">112/08/31 09:00-15:30</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-sm-6  col-lg-1 ">
+					<div class="col-12 col-sm-5  col-lg-1 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4     ">
 								<span class="badge bg-info">地點</span>
@@ -553,7 +542,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-sm-6  col-lg-2 ">
+					<div class="col-12 col-sm-7  col-lg-1 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4      ">
 								<span class="badge bg-info">報名截⽌⽇</span>
@@ -564,19 +553,23 @@
 						</div>
 					</div>
 
-					<div class="col-12 col-sm-6  col-lg-1 ">
+					<div class="col-12 col-sm-5  col-lg-2 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4    ">
-								<span class="badge bg-info">活動資料</span>
+								<span class="badge bg-info">議程/資料</span>
 							</div>
 							<div class="col-8 col-lg-12 ">
 								<div class="  text-center ">
-									<div class="d-flex justify-content-lg-center">資料  </div>
+									<div class="d-flex justify-content-lg-center">
+									<a href="#" class="  btn-showSchedule ">議程/資料
+										  <i class="fa-solid fa-chevron-down btn-primary"></i>
+									</a>	 
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-sm-6  col-lg-1 ">
+					<div class="col-12 col-sm-7  col-lg-1 ">
 						<div class="row no-gutters">
 							<div class="d-lg-none  col-4   ">
 								<span class="badge bg-info">尚餘名額</span>
@@ -589,50 +582,77 @@
 						</div>
 					</div>
 
-					<div class="col-12  showSchedule collapse">
-						<div class="row no-gutters">
+					<div class="col-12  showSchedule collapse ">
+						<div class="row   ">
 							<%--	<div class="d-lg-none  col-12   ">
 								<span class="badge bg-info">活動內容</span>
 							</div>--%>
 							<div class="  col-lg-12   ">
+								<div class="row ">
+									<div class="col-12  col-md-6">
+										<div class="card  m-2   h-100 ">
+											<div class="card-header">議程</div>
+											<div class="card-body">
+												<div class="   table-responsive">
+													<table class="schedule  ">
+														<%--<thead>
+													<tr>
+														<th class="time-td">時間</th>
+														<th>活動內容</th>
+													</tr>
+												</thead>--%>
+														<tbody>
+															<tr>
+																<td class="time-td">10:30~10:40</td>
+																<td>主席致詞</td>
+															</tr>
+															<tr>
+																<td class="time-td">10:40~10:50</td>
+																<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
+															</tr>
+															<tr>
+																<td class="time-td">10:50~11:20</td>
+																<td>⼆三類承保業務說明</td>
+															</tr>
+															<tr>
+																<td class="time-td">11:20~11:30</td>
+																<td>休息</td>
+															</tr>
+															<tr>
+																<td class="time-td">11:30~11:50</td>
+																<td>⼆三類多憑證網路承保業務</td>
+															</tr>
+															<tr>
+																<td class="time-td">11:50~12:00</td>
+																<td>弱勢協助措施</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
 
-								<div class="p-2 m-2 col-12     table-responsive">
-									<table class="schedule">
-										<thead>
-											<tr>
-												<th class="time-td">時間</th>
-												<th>活動內容</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="time-td">10:30~10:40</td>
-												<td>主席致詞</td>
-											</tr>
-											<tr>
-												<td class="time-td">10:40~10:50</td>
-												<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-											</tr>
-											<tr>
-												<td class="time-td">10:50~11:20</td>
-												<td>⼆三類承保業務說明</td>
-											</tr>
-											<tr>
-												<td class="time-td">11:20~11:30</td>
-												<td>休息</td>
-											</tr>
-											<tr>
-												<td class="time-td">11:30~11:50</td>
-												<td>⼆三類多憑證網路承保業務</td>
-											</tr>
-											<tr>
-												<td class="time-td">11:50~12:00</td>
-												<td>弱勢協助措施</td>
-											</tr>
-										</tbody>
-									</table>
+											</div>
+
+										</div>
+										
+										
+									</div>
+									<div class="col-12 col-md-6">
+										<div class="card   m-2  h-100 "> 
+											<div class="card-header">資料</div>
+											<div class="card-body">
+												<div>簡報.pdf　</div>
+												<div>高雄場議程表發函附件.pdf</div>
+												<div>交通位置圖(高雄場).pdf </div>
+											</div>
+										</div>
+										
+										<%--<div class="mx-2 bg-primary p-2 mx-lg-4">
+											
+										</div>--%>
+										
+									</div>
 								</div>
-
+								
 
 							</div>
 						</div>
@@ -640,16 +660,14 @@
 
 
 
-					<div class="col-12 col-lg-4 mt-3 mt-lg-0 col-Command">
-						<div class="row no-gutters  ">
-							<div class="col d-flex justify-content-around">
-								<% if (plan == "b")
-									{ %>
-								<div>
+					<div class="col-12 col-lg-3 mt-3 mt-lg-0 col-Command">
+						<div class="row     ">
+							<div class="col d-flex justify-content-center">
+								 
+								<%--<div>
 									<a class=" btn-showSchedule btn btn-primary-isre px-2">檢視議程 </a>
-								</div>
-								<%}
-								%>
+								</div>--%>
+								 
 
 								<% if (sessions.Count == 1)
 									{ %>
@@ -670,12 +688,12 @@
 								<div>
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
-										class="btn btn-primary-isre text-nowrap mx-1  ">單人報名</a>
+										class="btn btn-primary-isre text-nowrap mx-1 ">單人報名</a>
 								</div>
 								<div>
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
-										class="btn btn-primary-isre text-nowrap mx-1  ">多人報名   </a>
+										class="btn btn-primary-isre text-nowrap mx-1  ">多人報名 </a>
 								</div>
 								<% 	}%>
 							</div>
@@ -700,52 +718,27 @@
 				this.remove();
 			});
 
-			$('.btn-showSchedule').on('click', function () {
-				 
-				
-				let target = $(this).closest('.session').find('.showSchedule');
-				let test = target.hasClass('collapse');
-				if (test) {
-					target.removeClass('collapse');
-					MoveTo(target);
-					var scrollTop = target == null ? 0 : target.offset().top;
-					//$('html, body').animate({
-					//	scrollTop: scrollTop
-					//}, {
-					//	// duration:1000,
-					//	easing: 'swing',
-					//	complete: function () {
-					//		//obj.focus();
-					//		//bFileInput
-					//		//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
-					//		//    : obj.removeClass('border-4 border-danger');
-
-					//	}
-					//});
-					$(this).closest('.col-Command').removeClass('col-lg-4');
+			$('.btn-showSchedule').on('click', function (e) {
+				e.preventDefault();
+				let sessionRow = $(this).closest('.session');
+				let colShowSchedule = sessionRow.find('.showSchedule');
+				let colCommand = sessionRow.find('.col-Command');
+				let hasClassCollapse = colShowSchedule.hasClass('collapse');
+				if (hasClassCollapse) {  /////need to  show
+					colShowSchedule.removeClass('collapse');
+					colCommand.removeClass('col-lg-3').addClass('mb-5');
+					colCommand.find('.btn').addClass('mx-5 mt-5');
+					MoveTo(colShowSchedule);
+					$(this).children().removeClass('fa-chevron-down').addClass('fa-chevron-up');
 				}
-				else { 
-					target.addClass('collapse');
-					let targetRow = $(this).closest('.session');
-					MoveTo(targetRow);
-					//var scrollTop = targetRow == null ? 0 : targetRow.offset().top;
-					//$('html, body').animate({
-					//	scrollTop: scrollTop
-					//}, {
-					//	// duration:1000,
-					//	easing: 'swing',
-					//	complete: function () {
-					//		//obj.focus();
-					//		//bFileInput
-					//		//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
-					//		//    : obj.removeClass('border-4 border-danger');
-
-					//	}
-					//});
-					$(this).closest('.col-Command').addClass('col-lg-4');
-				}
-				console.log(test);
-				//$(this).closest('.session').find('.showSchedule').toggle();
+				else { //////// need to hide
+					MoveTo(sessionRow); 
+					 
+					colShowSchedule.addClass('collapse');  
+					colCommand.addClass('col-lg-3 ').removeClass('mb-5');
+					colCommand.find('.btn').removeClass('mx-5 mt-5');
+					$(this).children().removeClass('fa-chevron-up').addClass('fa-chevron-down');
+				} 
 			});
  
 

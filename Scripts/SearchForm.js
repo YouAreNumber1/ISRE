@@ -88,7 +88,7 @@ var MoveToTop = function (callback) {
 var MoveTo = function (target, callback) {
     var scrollTop = target == null ? 0 : target.offset().top;
     $('html, body').animate({
-        scrollTop: scrollTop
+        scrollTop: scrollTop 
     }, { 
         easing: 'swing',
         complete: function () {
