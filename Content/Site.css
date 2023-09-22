@@ -150,6 +150,9 @@ a {
 .bg-ice {
     background-color: var(--Ice-color) !important;
 }
+.color-isre {
+    color: var(--Cyan-color) !important;
+}
 /*
 .centered {
     width: auto !important;
@@ -185,7 +188,7 @@ a {
     padding-right: 15px;
 }
 */
-.card-header.active {
+.card.active {
     background-color: var(--Cyan-color) !important;
     color: var(--White-color) !important;
 }

@@ -401,7 +401,9 @@
 					<div class=" col-lg-2    ">
 						<div class=" text-center ">
 							發布⽇期
-                    <i class="fas fa-long-arrow-alt-down mx-1" style="color: #197584"></i>
+                    <i class="fas fa-long-arrow-alt-down mx-1 color-isre " >
+
+                    </i>
 						</div>
 					</div>
 					<div class=" col-lg-2">
@@ -425,7 +427,7 @@
 								<span class="badge bg-info">活動主題</span>
 							</span>
 							<span class="col-8 col-sm-10">
-								<a href="ISRE0001.aspx?GUID=<%:item.GUID %>"><%:item.ACT_NAME %></a>
+								 <%:item.ACT_NAME %> 
 							</span>
 						</div>
 					</div>
@@ -435,7 +437,7 @@
 								<span class="badge bg-info">日期 </span>
 							</span>
 							<div class="col-8 col-sm-10 col-lg-12 ">
-								<div class=" d-flex  d-lg-block">
+								<div class=" d-block d-lg-flex   justify-content-lg-center">
 									<div class=" ">112/08/31 - 112/12/31 </div>
 								</div>
 							</div>
@@ -465,7 +467,7 @@
 								<div class="badge bg-info">發布⽇期</div>
 							</div>
 							<div class="col-8 col-sm-10 col-lg-12 ">
-								<div class=" d-flex  d-lg-block">
+								<div class="  d-block d-lg-flex   justify-content-lg-center">
 									<div class=" ">112/08/31 </div>
 								</div>
 							</div>
