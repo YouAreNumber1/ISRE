@@ -10,7 +10,7 @@
  <%
      String GUID = Request.QueryString["GUID"];///GUID= session guid 
      dynamic Session = Process_Read("Session_ISRE_Session_MAIN", GUID);
-     string RegisterMultiple = Request.QueryString["RegisterMultiple"]??"";
+     string RegisterMultiple = Request.QueryString["RegisterMultiple"]?? ((int) ISRE.Enum_Register.Single).ToString() ;
     
 %>
 
@@ -210,14 +210,16 @@
 <input type="hidden" name="RegisterMultiple" id="RegisterMultiple" 
           value="<%:RegisterMultiple %>" />
         <%      
-            dynamic enumValue = Int32.Parse(RegisterMultiple.ToString());
+            dynamic enumValue = Int32.Parse(RegisterMultiple );
              var enumName = (ISRE.Enum_Register)enumValue;
              var desc = enumName.GetDescription();
     %>
  
 
         <div id="registrationForm" class="mt-5">
-             <h3 class="text-center mt-5 mb-2">報名單(<%:desc %>)  </h3>
+             <h3 class="text-center mt-5 mb-2">
+                 報名單(<%:desc %>) 
+             </h3>
 
 
         <%
