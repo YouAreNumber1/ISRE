@@ -1,11 +1,7 @@
 ﻿/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 @charset "UTF-8";
-@media (min-width: 768px) {
-    .container-md, .container-sm, .container {
-        max-width: 840px;
-    }
-}
+ 
 :root {
     --Cyan-color: #197584;
     --White-color: #FFFFFF;

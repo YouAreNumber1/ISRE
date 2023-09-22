@@ -111,12 +111,12 @@
 							<div class="      row  ">
 								<div class=" col-sm-6   col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4  ">
+										<div class="col-4  col-sm-5 ">
 											<div class="    ">
 												<label class="text-nowrap">辦理縣市</label>
 											</div>
 										</div>
-										<div class="col-8 ">
+										<div class="col-8  col-sm-7">
 											<div class="  flex-grow-1 ">
 												<%--<asp:DropDownList name="ShowAssumptions" id="ShowAssumptions" class="form-control form-select"  runat="server">
 </asp:DropDownList>--%>
@@ -142,12 +142,12 @@
 
 								<div class="  col-sm-6  col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4 col-sm-5">
 											<div class="    ">
 												<label class="text-nowrap">身分別</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 col-sm-7">
 											<div class="  flex-grow-1 ">
 												<select name="OBJ_NO" id="OBJ_NO" class="form-control form-select">
 													<option value="">請選擇</option>
@@ -169,12 +169,12 @@
 
 								<div class="  col-sm-6    col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4 col-sm-5">
 											<div class="    ">
 												<label class="text-nowrap">活動類別</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 col-sm-7">
 											<div class="  flex-grow-1 ">
 												<select name="ACT_TYPE" id="ACT_TYPE" class="form-control form-select">
 													<option value="">請選擇</option>
@@ -198,12 +198,12 @@
 							<div class="      row  ">--%>
 								<div class=" col-sm-6   col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4 col-sm-5">
 											<div class="    ">
 												<label class="text-nowrap">主辦單位</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 col-sm-7">
 											<div class="  flex-grow-1 ">
 												<input type="text" class="form-control" name="ACT_HOST" id="ACT_HOST"
 													value="<%:  Request["ACT_HOST"] %>">
@@ -212,14 +212,14 @@
 									</div>
 								</div>
 
-								<div class="  col-sm-6  col-lg-8">
+								<div class="  col-sm-6  col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4  ">
+										<div class="col-4  col-sm-5 ">
 											<div class="    ">
 												<label class="text-nowrap">活動名稱</label>
 											</div>
 										</div>
-										<div class="col-8 ">
+										<div class="col-8  col-sm-7">
 											<div class="  flex-grow-1 ">
 												<input type="text" class="form-control" name="ACT_NAME" id="ACT_NAME"
 													value="<%:  Request["ACT_NAME"] %>">
@@ -236,12 +236,12 @@
 
 								<div class=" col-sm-6   col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4 col-sm-5">
 											<div class="    ">
 												<label class="text-nowrap">活動起始日</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 col-sm-7">
 											<div class="  flex-grow-1 ">
 												<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 													class="form-control " placeholder="民國年/月/日"
@@ -257,12 +257,12 @@
 
 								<div class=" col-sm-6   col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4 col-sm-5">
 											<div class="    ">
 												<label class="text-nowrap">活動結束日</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 col-sm-7">
 											<div class="  flex-grow-1 ">
 												<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 													class="form-control " placeholder="民國年/月/日"
@@ -306,12 +306,12 @@
 
 								<div class="  d-lg-none  col-sm-6 col-lg-4">
 									<div class="row d-flex align-items-center p-2">
-										<div class="col-4">
+										<div class="col-4 col-sm-5">
 											<div class="    ">
 												<label class="text-nowrap">排序</label>
 											</div>
 										</div>
-										<div class="col-8">
+										<div class="col-8 col-sm-7">
 											<div class="  flex-grow-1 ">
 												<select class="form-control form-select">
 													<option>活動主題</option>
@@ -349,7 +349,7 @@
 	{ %>
 <div class="card mb-2">
 	<div class="card-body">
-		<span class="badg3e bg-warning3">搜尋條件</span>
+		<span class="   ">查詢條件</span>
 		<div class="badge bg-secondary">台北市</div>
 		<div class="badge bg-secondary">一般民眾</div>
 		<div class="badge bg-secondary">健康促進活動</div>
