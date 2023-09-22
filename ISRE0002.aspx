@@ -19,21 +19,21 @@
      dynamic Activity = Process_ActivityInfoBySession(GUID);
  %>  
      <%-- activity info summary title start --%>
- <div class="  card   active my-1 p-2  d-none d-lg-block "> 
+ <div class="  card p-2  my-2  active    d-none d-lg-block "> 
     
-        <div class="row no-gutters  ">
-            <div class=" col-lg-3    ">
-                <span>  活動主題 </span>
+        <div class="row  text-center  ">
+            <div class=" col-lg-3  text-start  ">
+                 活動主題 
             </div>
-            <div class=" col-lg-3 text-center ">
-                <span>活動起訖⽇期</span>
+            <div class=" col-lg-3  ">
+               活動起訖⽇期 
             </div>
             
-            <div class=" col-lg-2   text-center   ">
-                <span>主辦單位</span>
+            <div class=" col-lg-2       ">
+                主辦單位 
             </div>
-            <div class=" col-lg-3 text-center ">
-                    <span>發布起訖⽇期</span>
+            <div class=" col-lg-3   ">
+                   發布起訖⽇期 
                 </div>
                 
         </div>
@@ -43,10 +43,10 @@
        <%-- activity info summary title end --%>
                <%-- activity info summary content start --%>
       
-         <div class="    card my-1 p-2  ">
-             <div class=" row no-gutters  ">
-                     <div class="col-12 col-sm-6 col-lg-3 "> 
-                         <div class="row no-gutters"> 
+         <div class="  card p-2  my-2   ">
+             <div class=" row    ">
+                     <div class="col-12 col-sm-5 col-lg-3 "> 
+                         <div class="row  "> 
                                <span class="d-lg-none col-4     ">
                                    <span class="badge bg-info card-header">活動主題</span> 
                                </span>
@@ -57,8 +57,8 @@
                                </div> 
                          </div>
                      </div>
-                     <div class="col-12 col-sm-6  col-lg-3 ">
-                         <div class="row no-gutters">
+                     <div class="col-12 col-sm-7  col-lg-3 ">
+                         <div class="row ">
                              <span class="d-lg-none  col-4     ">
                                  <span class="badge bg-info">活動起訖⽇期</span> 
                              </span>
@@ -68,8 +68,8 @@
                          </div>
                      </div>
                      
-                     <div class="col-12 col-sm-6 col-lg-2 ">
-                         <div class="row no-gutters">
+                     <div class="col-12 col-sm-5 col-lg-2 ">
+                         <div class="row  ">
                              <div class="d-lg-none  col-4     "> 
                                  <span class="badge bg-info"> 主辦單位</span>
                              </div>
@@ -79,8 +79,8 @@
                          </div>
                      </div>  
 
-                    <div class="col-12 col-sm-6  col-lg-3 ">
-                     <div class="row no-gutters">
+                    <div class="col-12 col-sm-7  col-lg-3 ">
+                     <div class="row ">
                          <div class="d-lg-none  col-4     ">
                              <span class="badge bg-info"> 發布起訖⽇期</span>  
                          </div>
@@ -107,35 +107,35 @@
          <%-- session info summary title start --%>
          <div class="   card my-1 p-2  bg-ice d-none d-lg-block "> 
             
-				<div class="row no-gutters  ">
-					<div class=" col-lg-1 text-center ">
-						<span>場次 </span>
+				<div class="row  text-center ">
+					<div class=" col-lg-1   ">
+						 場次  
 					</div>
-					<div class=" col-lg-2 text-center ">
-						<span>日期時間</span>
+					<div class=" col-lg-2  ">
+						 日期時間 
 					</div>
-					<div class=" col-lg-2 text-center ">
-						<span>地點</span>
+					<div class=" col-lg-2  ">
+						 地點 
 					</div>
-					<div class=" col-lg-2   text-center   ">
-						<span>報名截⽌⽇</span>
+					<div class=" col-lg-2      ">
+						 報名截⽌⽇ 
 					</div>
-					<div class=" col-lg-2 text-center ">
-						<span>資料</span>
+					<div class=" col-lg-2  ">
+						 資料 
 					</div>
-					<div class=" col-lg-2 text-center   ">
-						<span>尚餘名額</span>
+					<div class=" col-lg-2     ">
+						 尚餘名額 
 					</div>
 				</div>
             
         </div>
           <%-- session info summary title end --%>
           <%-- session info summary content start --%>
-         <div class="    ">
-            <div class="    card my-1 p-2   ">
-                <div class=" row no-gutters  ">
-                        <div class="col-12 col-sm-6  col-lg-1 "> 
-                            <div class="row no-gutters"> 
+         
+            <div class="    card my-2 p-2   ">
+                <div class=" row   ">
+                        <div class="col-12 col-sm-5  col-lg-1 "> 
+                            <div class="row  "> 
                                   <span class="d-lg-none col-4    ">
                                       <span class="badge bg-info card-header">場次</span> 
                                   </span>
@@ -146,8 +146,8 @@
                                   </div> 
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6  col-lg-2 ">
-                            <div class="row no-gutters">
+                        <div class="col-12 col-sm-7  col-lg-2 ">
+                            <div class="row  ">
                                 <span class="d-lg-none  col-4      ">
                                     <span class="badge bg-info">日期時間</span> 
                                 </span>
@@ -156,8 +156,8 @@
                                  </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-2 ">
-                            <div class="row no-gutters">
+                        <div class="col-12 col-sm-5 col-lg-2 ">
+                            <div class="row  ">
                                 <span class="d-lg-none  col-4     ">
                                     <span class="badge bg-info"> 地點</span>  
                                 </span>
@@ -166,8 +166,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6  col-lg-2 ">
-                            <div class="row no-gutters">
+                        <div class="col-12 col-sm-7  col-lg-2 ">
+                            <div class="row  ">
                                 <div class="d-lg-none  col-4     "> 
                                     <span class="badge bg-info"> 報名截⽌⽇</span>
                                 </div>
@@ -177,8 +177,8 @@
                             </div>
                         </div>  
 
-                       <div class="col-12 col-sm-6  col-lg-2 ">
-                        <div class="row no-gutters">
+                       <div class="col-12 col-sm-5  col-lg-2 ">
+                        <div class="row  ">
                             <div class="d-lg-none  col-4     ">
                                 <span class="badge bg-info"> 資料</span>  
                             </div>
@@ -189,8 +189,8 @@
                             </div>
                         </div>
                     </div>
-                       <div class="col-12 col-sm-6 col-lg-2 ">
-                        <div class="row no-gutters">
+                       <div class="col-12 col-sm-7 col-lg-2 ">
+                        <div class="row  ">
                             <div class="d-lg-none  col-4     "> 
                                 <span class="badge bg-info"> 尚餘名額</span>
                             </div> 
@@ -204,7 +204,7 @@
                 </div>
             </div>
 
-        </div>       
+           
    <%-- session info summary content end --%>
         <%--   session info summary end--%>     
 
@@ -274,10 +274,10 @@
 
 
               <div class="   row      ">
-                  <div class="      py-lg-3   col-lg-2  ">
+                  <div class="      py-lg-3   col-lg-3  ">
                       <span class="note">*</span><b><label>姓名</label></b>
                   </div>
-                  <div class="  py-lg-3   col-lg-10  ">
+                  <div class="  py-lg-3   col-lg-9  ">
                       <div>
                           <input type="text" name="APPLY_NAME" id="APPLY_NAME" class=" form-control requiredInput">
                       </div>
@@ -288,10 +288,10 @@
 
 
               <div class="  row  personal    ">
-                  <div class="      py-lg-3  col-lg-2    ">
+                  <div class="      py-lg-3  col-lg-3    ">
                       <span class="note">*</span><b><label>⾝分證號/居留證號</label></b>
                   </div>
-                  <div class="   py-lg-3    col-lg-10  ">
+                  <div class="   py-lg-3    col-lg-9  ">
                       <div>
                           <input type="text" name="ID_AES" id="ID_AES" class=" form-control requiredInput">
                           <p class="note-r">(若需登錄公務⼈員教育訓練時數，請填寫本項資料)</p>
@@ -300,10 +300,10 @@
               </div>
 
               <div class="  row  personal   ">
-                  <div class="   py-lg-3   col-lg-2    ">
+                  <div class="   py-lg-3   col-lg-3   ">
                       <span class="note">*</span><b><label>服務單位</label></b>
                   </div>
-                  <div class="   py-lg-3   col-lg-10  ">
+                  <div class="   py-lg-3   col-lg-9 ">
                       <div>
                           <input type="text" name="UNIT_NAME" 
                               id="UNIT_NAME" class=" form-control requiredInput">
@@ -312,10 +312,10 @@
               </div>
 
               <div class="  row     ">
-                  <div class="     py-lg-3   col-lg-2    ">
+                  <div class="     py-lg-3   col-lg-3    ">
                       <span class="note">*</span><b><label>聯絡電話</label></b>
                   </div>
-                  <div class="    py-lg-3   col-lg-10  ">
+                  <div class="    py-lg-3   col-lg-9  ">
                       <div>
                           <p class="note">＊市話或⾏動電話請務必⾄少填寫⼀項</p>
                           <input type="text" name="MOB_NUM" id="MOB_NUM" class=" form-control requiredInput" placeholder="行動電話號碼">
@@ -330,10 +330,10 @@
                   </div>
               </div>
               <div class="  row     ">
-                  <div class="      py-lg-3   col-lg-2    ">
+                  <div class="      py-lg-3   col-lg-3    ">
                       <span class="note">*</span><b><label>電⼦郵件信箱</label></b>
                   </div>
-                  <div class="    py-lg-3  col-lg-10  ">
+                  <div class="    py-lg-3  col-lg-9  ">
                       <div>
                           <input type="text" id="EMAIL" name="EMAIL" class=" form-control requiredInput">
                           <p class="note font85">
@@ -346,10 +346,10 @@
                   </div>
               </div>
               <div class="  row    personal ">
-                  <div class="     py-lg-3   col-lg-2    ">
+                  <div class="     py-lg-3   col-lg-3    ">
                       <span class="note">*</span><b><label>上傳公務⼈員訓練時數</label></b>
                   </div>
-                  <div class="    py-lg-3  col-lg-10  ">
+                  <div class="    py-lg-3  col-lg-9 ">
                       <div  class="form-control">
                           <div class="form-check  form-check-inline">
                               <input type="radio" class="form-check-input  requiredInput" id="UPLOAD_TRAIN_HOUR1" name="UPLOAD_TRAIN_HOUR" value="Y" checked>是
@@ -364,10 +364,10 @@
                   </div>
               </div>
               <div class="  row     ">
-                  <div class="   py-lg-3   col-lg-2    ">
+                  <div class="   py-lg-3   col-lg-3    ">
                       <span class="note">*</span><b><label>餐飲</label></b>
                   </div>
-                  <div class="    py-lg-3   col-lg-10  ">
+                  <div class="    py-lg-3   col-lg-9 ">
                       <div class="form-control">
                           <div class="form-check  form-check-inline">
                               <input type="radio" class="form-check-input requiredInput" id="DIET_TEND1" name="DIET_TEND" value="1" checked>無
@@ -386,10 +386,10 @@
                   </div>
               </div>
               <div class="  row     ">
-                  <div class="     py-lg-3   col-lg-2    ">
+                  <div class="     py-lg-3   col-lg-3    ">
                       <span class="note">*</span><b><label>驗證碼</label></b>
                   </div>
-                  <div class="   py-lg-3    col-lg-10  ">
+                  <div class="   py-lg-3    col-lg-9  ">
                       <div >
                           <input type="text" class=" form-control ">
                           <div class=" d-flex justify-content-center my-2">

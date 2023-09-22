@@ -7,7 +7,14 @@
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid 
 	%>
-	 
+	 <style>
+			.table td
+			{
+				text-align:left !important;
+				vertical-align:top !important;
+				padding:4px !important;
+			}
+	 </style>
 	
 	<main aria-labelledby="title">
 
@@ -28,8 +35,8 @@
 
 			<%-- @*活動說明*@--%>
 			<div>
-				<div class="card mt-4">
-					<div class="card-header ">活動說明</div>
+				<div class="card p-2  my-2  mt-4 bg-ice">
+					 活動說明 
 				</div>
 				<div class="my-2 d-flex ">
 					<ol>
@@ -50,8 +57,8 @@
 
 			<%-- @*參加對象*@--%>
 			<div>
-				<div class="card  mt-4">
-					<div class="card-header ">參加對象</div>
+				<div class="card p-2  my-2  mt-4 bg-ice">
+					 參加對象 
 				</div>
 				<div class="my-2   font85  px-3">
 					花蓮縣及台東縣⼆、三類投保單位業務承辦⼈員
@@ -433,8 +440,8 @@
 
 			<%--  @*主辦單位*@--%>
 			<div>
-				<div class="card  mt-4">
-					<div class="card-header ">相關資訊</div>
+				<div class="card p-2  my-2  mt-4 bg-ice">
+					 相關資訊 
 				</div>
 				<div class="my-2 px-3">
 					<div class=" d-flex">
@@ -467,34 +474,34 @@
 		<div class="card  mt-4 d-lg-none">
 			 <div class="card-header ">場次列表</div>
 		</div>
-		<div class="  card mt-4  d-none d-lg-block ">
-			<div class="card-header ">
-				<div class="row no-gutters  ">
-					<div class=" col-lg-1 text-center ">
+		<div class="  card mt-4 p-2  my-2 d-none d-lg-block bg-ice ">
+			 
+				<div class="row   text-center  ">
+					<div class=" col-lg-1 ">
 						<span>場次 </span>
 					</div>
-					<div class=" col-lg-3 text-center ">
+					<div class=" col-lg-3   ">
 						<span>日期時間</span>
 					</div>
-					<div class=" col-lg-1 text-center ">
+					<div class=" col-lg-1   ">
 						<span>地點</span>
 					</div>
-					<div class=" col-lg-1   text-center   ">
-						<span class="text-nowrap">報名截⽌⽇</span>
+					<div class=" col-lg-1     ">
+						<span  >報名截⽌⽇</span>
 					</div>
-					<div class=" col-lg-2 text-center ">
+					<div class=" col-lg-2   ">
 						<span>議程/資料</span>
 					</div>
-					<div class=" col-lg-1 text-center   ">
+					<div class=" col-lg-1     ">
 						<span>尚餘名額</span>
 					</div>
 
-					<div class=" col-lg-3 text-center ">
+					<div class=" col-lg-3  ">
 						<span>報名</span>
 					</div>
 
 				</div>
-			</div>
+			 
 		</div>
 
 		<%-- session list title columns end--%>
@@ -507,11 +514,11 @@
 		%>
 
 
-		<div class="border rounded my-2 py-1">
-			<div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
-				<div class=" row no-gutters session ">
+		 
+			<div class="    card p-2  my-2      ">
+				<div class=" row   session ">
 					<div class="col-12 col-sm-5 col-lg-1 ">
-						<div class="row no-gutters">
+						<div class="row  ">
 							<span class="d-lg-none col-4     ">
 								<span class="badge bg-info">場次</span>
 							</span>
@@ -523,58 +530,58 @@
 						</div>
 					</div>
 					<div class="col-12  col-sm-7  col-lg-3 ">
-						<div class="row no-gutters">
+						<div class="row  ">
 							<span class="d-lg-none  col-4     ">
 								<span class="badge bg-info">日期時間</span>
 							</span>
-							<div class="col-8 col-lg-12  text-center  ">
+							<div class="col-8 col-lg-12   ">
 								<div class="d-flex justify-content-lg-center">112/08/31 09:00-15:30</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-12 col-sm-5  col-lg-1 ">
-						<div class="row no-gutters">
+						<div class="row  ">
 							<span class="d-lg-none  col-4     ">
 								<span class="badge bg-info">地點</span>
 							</span>
-							<div class="col-8 col-lg-12   text-center  ">
+							<div class="col-8 col-lg-12     ">
 								<div class="d-flex justify-content-lg-center">台北市 </div>
 							</div>
 						</div>
 					</div>
 					<div class="col-12 col-sm-7  col-lg-1 ">
-						<div class="row no-gutters">
+						<div class="row ">
 							<div class="d-lg-none  col-4      ">
 								<span class="badge bg-info">報名截⽌⽇</span>
 							</div>
-							<div class="col-8 col-lg-12  text-center  ">
+							<div class="col-8 col-lg-12   ">
 								<div class="d-flex justify-content-lg-center">112/08/31  </div>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-12 col-sm-5  col-lg-2 ">
-						<div class="row no-gutters">
+						<div class="row  ">
 							<div class="d-lg-none  col-4    ">
 								<span class="badge bg-info">議程/資料</span>
 							</div>
 							<div class="col-8 col-lg-12 ">
-								<div class="  text-center ">
+								 
 									<div class="d-flex justify-content-lg-center">
 									<a href="#" class="  btn-showSchedule ">議程/資料
 										  <i class="fa-solid fa-chevron-down btn-primary"></i>
 									</a>	 
 									</div>
-								</div>
+								 
 							</div>
 						</div>
 					</div>
 					<div class="col-12 col-sm-7  col-lg-1 ">
-						<div class="row no-gutters">
+						<div class="row  ">
 							<div class="d-lg-none  col-4   ">
 								<span class="badge bg-info">尚餘名額</span>
 							</div>
-							<div class="col-8 col-lg-12  text-center ">
+							<div class="col-8 col-lg-12   ">
 								<div class="d-flex justify-content-lg-center">
 									<div class="badge bg-primary">21</div>
 								</div>
@@ -594,7 +601,7 @@
 											<div class="card-header">議程</div>
 											<div class="card-body">
 												<div class="   table-responsive">
-													<table class="schedule  ">
+													<table class="schedule table  table-borderless table-info ">
 														<%--<thead>
 													<tr>
 														<th class="time-td">時間</th>
@@ -640,9 +647,10 @@
 										<div class="card   m-2  h-100 "> 
 											<div class="card-header">資料</div>
 											<div class="card-body">
-												<div>簡報.pdf　</div>
-												<div>高雄場議程表發函附件.pdf</div>
-												<div>交通位置圖(高雄場).pdf </div>
+												<div class="badge   bg-secondary p-2 m-2">簡報.pdf　</div>
+												<div class="badge bg-secondary p-2 m-2"> 高雄場議程表發函附件.pdf　</div>
+												<div class="badge bg-secondary p-2 m-2"> 交通位置圖(高雄場).pdf　</div>
+												 
 											</div>
 										</div>
 										
@@ -704,7 +712,7 @@
 				</div>
 			</div>
 
-		</div>
+		 
 
 		<%} %>
 
