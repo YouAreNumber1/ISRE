@@ -595,19 +595,14 @@
 								<span class="badge bg-info">活動內容</span>
 							</div>--%>
 							<div class="  col-lg-12   ">
-								<div class="row ">
+								<div class="row   ">
 									<div class="col-12  col-md-6">
-										<div class="card  m-2   h-100 ">
+										 <div class="card  m-2   h-100 ">
 											<div class="card-header">議程</div>
 											<div class="card-body">
 												<div class="   table-responsive">
 													<table class="schedule table  table-borderless table-info ">
-														<%--<thead>
-													<tr>
-														<th class="time-td">時間</th>
-														<th>活動內容</th>
-													</tr>
-												</thead>--%>
+														 
 														<tbody>
 															<tr>
 																<td class="time-td">10:30~10:40</td>
@@ -639,12 +634,12 @@
 
 											</div>
 
-										</div>
+										</div> 
 										
 										
 									</div>
 									<div class="col-12 col-md-6">
-										<div class="card   m-2  h-100 "> 
+									 	 <div class="card   m-2  h-100 "> 
 											<div class="card-header">資料</div>
 											<div class="card-body">
 												<div class="badge   bg-secondary p-2 m-2">簡報.pdf　</div>
@@ -652,11 +647,9 @@
 												<div class="badge bg-secondary p-2 m-2"> 交通位置圖(高雄場).pdf　</div>
 												 
 											</div>
-										</div>
+										</div> 
 										
-										<%--<div class="mx-2 bg-primary p-2 mx-lg-4">
-											
-										</div>--%>
+										 
 										
 									</div>
 								</div>
@@ -679,30 +672,29 @@
 
 								<% if (sessions.Count == 1)
 									{ %>
-								<div>
+								 
 									<a class="btn disabled px-3   text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
-								</div>
+								 
 								<% 	}
 									else if (sessions.Count == 2)
 									{%>
-								<div>
+								 
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=2"
 										class="btn btn-danger text-nowrap mx-1  ">候補報名</a>
-								</div>
+								 
 								<% }
 									else
 									{ %>
-								<div>
+								 
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
 										class="btn btn-primary-isre text-nowrap mx-1 ">單人報名</a>
-								</div>
-								<div>
+								 
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
 										class="btn btn-primary-isre text-nowrap mx-1  ">多人報名 </a>
-								</div>
+								 
 								<% 	}%>
 							</div>
 						</div>
@@ -735,7 +727,7 @@
 				if (hasClassCollapse) {  /////need to  show
 					colShowSchedule.removeClass('collapse');
 					colCommand.removeClass('col-lg-3').addClass('mb-5');
-					colCommand.find('.btn').addClass('mx-5 mt-5');
+					colCommand.find('.btn').addClass('mx-4 mt-5');
 					MoveTo(colShowSchedule);
 					$(this).children().removeClass('fa-chevron-down').addClass('fa-chevron-up');
 				}
@@ -744,7 +736,7 @@
 					 
 					colShowSchedule.addClass('collapse');  
 					colCommand.addClass('col-lg-3 ').removeClass('mb-5');
-					colCommand.find('.btn').removeClass('mx-5 mt-5');
+					colCommand.find('.btn').removeClass('mx-4 mt-5');
 					$(this).children().removeClass('fa-chevron-up').addClass('fa-chevron-down');
 				} 
 			});
