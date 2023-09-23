@@ -119,11 +119,10 @@
 			<%--   activity info summary end--%>
 
 
-			<div class="d-flex  justify-content-center my-4">
-				<a href="#" class=" btn   btn-primary-isre mx-2 mx-sm-4">
-					<span>報到QRcode</span>
-				</a>
-				<a href="#" class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
+			<div class="d-flex   justify-content-center my-4">
+				<a href="#" id="aOnsiteRegister" class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">現場報名</a>
+				<a href="#" id="aQRcode" class=" btn btn-primary-isre mx-2 mx-sm-4">  報到QRcode  </a>
+				<a href="#" id="aExport" class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
 			</div>
 
 
@@ -277,38 +276,38 @@
 			<%-- search bar start  --%>
 			<h3 class="text-center mt-5  ">報到人員管理  </h3>
 
-
-
-			<%-- search bar end--%>
-			<div class="row	">
-				<div class=" col-6">
-					<div>關鍵字</div>
-					<div class="d-flex">
-						<input type="text" class="form-control">
-						<a href="#" class=" text-nowrap ms-2 btn btn-primary-isre px-4 ">查詢</a>
-					</div> 
+<div class="row">
+				<div class="col-md-6">
+					<div class="card mb-2">
+						<div class="card-header">
+							報到掃描區
+						</div>
+						<div class="card-body">
+							<input type="text" class="form-control">
+						</div>
+					</div>
 				</div>
-				<div class=" col-6">
-					<div>報到掃描區</div>
-					<div class="d-flex">
-						<input type="text" class="form-control"> 
+				<div class="col-md-6">
+					<div class="card mb-2">
+						<div class="card-header">
+							關鍵字查詢
+						</div>
+						<div class="card-body">
+							<div class="d-flex">
+								<input type="text" class="form-control">
+								<a href="#" class=" text-nowrap ms-2 btn btn-primary-isre px-4 ">查詢</a>
+							</div>
+
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="  d-flex   align-items-center mx-4 mb-4  ">
-				 
-					<div class="text-nowrap me-2 ">關鍵字：</div>
-					<input type="text" class="form-control">
-					<%--<a href="#" class=" text-nowrap ms-2 btn btn-primary-isre px-4 ">查詢</a>
-				 --%>
-			</div>
 
-			<div class="  d-flex   align-items-center mx-4 mb-4  "> 
-				 
-					<div class="mx-2 text-nowrap ">報到掃描區：</div>
-					<input type="text" class="form-control">
-				 
-			</div>
+			<%-- search bar end--%>
+			
+			 
+
+		 
 
 
 			<!-- Nav tabs -->
@@ -424,7 +423,7 @@
 					<div class="table-responsive">
 						<table class="table table-striped" id="tblGroup2">
 							<thead>
-									<tr>
+								 <tr>
 								<th>報名⽇期 
 								</th>
 								<th>姓名 
@@ -444,8 +443,7 @@
 								</th>
 								<th>編輯 
 								</th>
-								<th>報到</th>
-								 - 
+								<th>報到</th> 
 				</tr>
 							</thead>
 							<tbody>
@@ -501,28 +499,18 @@
 					<div class="table-responsive">
 						<table class="table table-striped" id="tblGroup3">
 							<thead>
-																<tr>
-							<th>報名⽇期 
-							</th>
-							<th>姓名 
-							</th>
-							<th>投保單位代號 
-							</th>
-							<th>單位名稱 
-							</th>
-							<th>連絡電話 
-							</th>
-							<th>電⼦郵件 
-							</th>
-							<th>餐飲習慣 
-							</th>
+								<tr>
+									<th>報名⽇期  </th>
+									<th>姓名  </th>
+									<th>投保單位代號  </th>
+									<th>單位名稱 </th>
+									<th>連絡電話  </th>
+									<th>電⼦郵件  </th>
+									<th>餐飲習慣  </th>
 
-							<th>報到時間 
-							</th>
-							<th>編輯 
-							</th>
-							<th>確認</th> 
-</tr>
+									<th>報到時間  </th> 
+									<th>重新報名</th>
+								</tr>
 							</thead>
 							<tbody>
 								<tr>
@@ -535,11 +523,10 @@
 									<td>葷食</td>
 
 									<td>112/05/11 10:23</td>
-									<td>
-										<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
+									 
+								   <td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td> 
 
-									</td>
-								  <td><a href="#" class="btn btn-primary-isre text-nowrap">確認</a></td> 	</tr>
+								</tr>
 								<tr>
 									<td>2023/05/11</td>
 									<td>黃必勝</td>
@@ -549,8 +536,10 @@
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
-									<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
-									  <td><a href="#" class="btn btn-primary-isre text-nowrap">確認</a></td> 	</tr>
+								 
+									 <td><a href="#" class="aReRegister btn btn-primary-isre text-nowrap">重新報名</a></td> 
+
+								</tr>
 								<tr>
 									<td>2023/05/11</td>
 									<td>許明華</td>
@@ -559,9 +548,8 @@
 									<td>0911222333</td>
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td><a href="isri0006.aspx" class="btn btn-primary-isre text-nowrap">編輯</a></td>
-									  <td><a href="#" class="btn btn-primary-isre text-nowrap">確認</a></td> 
+									<td>112/05/11 10:23</td> 
+								    <td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td> 
 								</tr>
 							</tbody>
 						</table>
@@ -579,8 +567,23 @@
 
 		$(document).ready(function () {
 
+			$('#aOnsiteRegister').on('click', function (e) {
+				e.preventDefault();
+				alert('產出空白完整報名表, 填完, 送出報到');
+			});
+			$('#aQRcode').on('click', function (e) {
+				e.preventDefault();
+				alert('產出報到單, 輸入基本資料 (key information), 送出報到');
+			});
+			$('#aExport').on('click', function (e) {
+				e.preventDefault();
+				alert('匯出所有人員清單');
+			});
 			 
-
+			$('.aReRegister').on('click', function (e) {
+				e.preventDefault();
+				alert('產出帶個資的報名表, 送出報到');
+			});
 		});
 
 	</script>
