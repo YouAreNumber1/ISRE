@@ -14,14 +14,14 @@
     
 %>
 
-                         <h3 class="text-center   my-2">活動內容</h3> 
+     <h3 class="text-center my-2">活動內容</h3> 
  <% 
      dynamic Activity = Process_ActivityInfoBySession(GUID);
  %>  
      <%-- activity info summary title start --%>
  <div class="  card p-2  my-2  active    d-none d-lg-block "> 
     
-        <div class="row  text-center  ">
+        <div class="row  text-center d-flex align-items-center ">
             <div class=" col-lg-3  text-start  ">
                  活動主題 
             </div>
@@ -44,11 +44,11 @@
                <%-- activity info summary content start --%>
       
          <div class="  card p-2  my-2   ">
-             <div class=" row    ">
+             <div class=" row  d-flex align-items-center  ">
                      <div class="col-12 col-sm-5 col-lg-3 "> 
-                         <div class="row  "> 
+                         <div class="row   d-flex align-items-center"> 
                                <span class="d-lg-none col-4     ">
-                                   <span class="badge bg-info card-header">活動主題</span> 
+                                   <span class="badge bg-info  ">活動主題</span> 
                                </span>
                                <div class="col-8 col-lg-12  ">
                                    <div >
@@ -58,7 +58,7 @@
                          </div>
                      </div>
                      <div class="col-12 col-sm-7  col-lg-3 ">
-                         <div class="row ">
+                         <div class="row  d-flex align-items-center">
                              <span class="d-lg-none  col-4     ">
                                  <span class="badge bg-info">活動起訖⽇期</span> 
                              </span>
@@ -69,7 +69,7 @@
                      </div>
                      
                      <div class="col-12 col-sm-5 col-lg-2 ">
-                         <div class="row  ">
+                         <div class="row  d-flex align-items-center ">
                              <div class="d-lg-none  col-4     "> 
                                  <span class="badge bg-info"> 主辦單位</span>
                              </div>
@@ -80,7 +80,7 @@
                      </div>  
 
                     <div class="col-12 col-sm-7  col-lg-3 ">
-                     <div class="row ">
+                     <div class="row  d-flex align-items-center">
                          <div class="d-lg-none  col-4     ">
                              <span class="badge bg-info"> 發布起訖⽇期</span>  
                          </div>
@@ -107,7 +107,7 @@
          <%-- session info summary title start --%>
          <div class="   card my-1 p-2  bg-ice d-none d-lg-block "> 
             
-				<div class="row  text-center ">
+				<div class="row  text-center  d-flex align-items-center">
 					<div class=" col-lg-1   ">
 						 場次  
 					</div>
@@ -135,7 +135,7 @@
             <div class="    card my-2 p-2   ">
                 <div class=" row   ">
                         <div class="col-12 col-sm-5  col-lg-1 "> 
-                            <div class="row  "> 
+                            <div class="row  d-flex align-items-center "> 
                                   <span class="d-lg-none col-4    ">
                                       <span class="badge bg-info card-header">場次</span> 
                                   </span>
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-7  col-lg-2 ">
-                            <div class="row  ">
+                            <div class="row   d-flex align-items-center">
                                 <span class="d-lg-none  col-4      ">
                                     <span class="badge bg-info">日期時間</span> 
                                 </span>
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-5 col-lg-2 ">
-                            <div class="row  ">
+                            <div class="row  d-flex align-items-center ">
                                 <span class="d-lg-none  col-4     ">
                                     <span class="badge bg-info"> 地點</span>  
                                 </span>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-7  col-lg-2 ">
-                            <div class="row  ">
+                            <div class="row  d-flex align-items-center ">
                                 <div class="d-lg-none  col-4     "> 
                                     <span class="badge bg-info"> 報名截⽌⽇</span>
                                 </div>
@@ -178,7 +178,7 @@
                         </div>  
 
                        <div class="col-12 col-sm-5  col-lg-2 ">
-                        <div class="row  ">
+                        <div class="row  d-flex align-items-center ">
                             <div class="d-lg-none  col-4     ">
                                 <span class="badge bg-info"> 資料</span>  
                             </div>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                        <div class="col-12 col-sm-7 col-lg-2 ">
-                        <div class="row  ">
+                        <div class="row   d-flex align-items-center">
                             <div class="d-lg-none  col-4     "> 
                                 <span class="badge bg-info"> 尚餘名額</span>
                             </div> 

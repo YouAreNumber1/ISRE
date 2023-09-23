@@ -64,379 +64,7 @@
 					花蓮縣及台東縣⼆、三類投保單位業務承辦⼈員
 				</div>
 			</div>
-
-			<%-- @*活動內容*@--%> 
-		<%--	<div>
-				<div class="card  mt-4">
-					<div class="card-header ">活動內容</div>
-				</div>
-				<div class="my-2 px-3">
-					<div>
-						<div class=" d-flex justify-content-between justify-content-lg-start ">
-							<div class="d-flex">
-								<div class="">
-									<span class="badge bg-info">112/06/24</span>
-								</div>
-								<div class="ms-2">
-									(台北市)Microsoft Teams線上視訊會議  
-								</div>
-							</div>
-
-							<div class=" ">
-								<a href="#" class="btn-showSchedule  "
-									data-bs-toggle="collapse"
-									data-bs-target="#showSchedule">
-									<i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
-								</a>
-
-							</div>
-						</div>
-
-						<div id="showSchedule" class="ps-3 my-1   collapse table-responsive">
-							<table class="schedule">
-								<thead>
-									<tr>
-										<th class="time-td">時間</th>
-										<th>活動內容</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="time-td">10:30~10:40</td>
-										<td>主席致詞</td>
-									</tr>
-									<tr>
-										<td class="time-td">10:40~10:50</td>
-										<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-									</tr>
-									<tr>
-										<td class="time-td">10:50~11:20</td>
-										<td>⼆三類承保業務說明</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:20~11:30</td>
-										<td>休息</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:30~11:50</td>
-										<td>⼆三類多憑證網路承保業務</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:50~12:00</td>
-										<td>弱勢協助措施</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<div>
-						<div class=" d-flex justify-content-between justify-content-lg-start ">
-							<div class="d-flex">
-								<div class="">
-									<span class="badge bg-info">112/07/24</span>
-								</div>
-								<div class="ms-2">
-									(台北市)Microsoft Teams線上視訊會議  
-								</div>
-							</div>
-
-							<div class=" ">
-								<a href="#" class="btn-showSchedule  "
-									data-bs-toggle="collapse"
-									data-bs-target="#showSchedule2">
-									<i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
-								</a>
-
-							</div>
-						</div>
-
-						<div id="showSchedule2" class="ps-3 my-1   collapse table-responsive">
-							<table class="schedule">
-								<thead>
-									<tr>
-										<th class="time-td">時間</th>
-										<th>活動內容</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="time-td">10:30~10:40</td>
-										<td>主席致詞</td>
-									</tr>
-									<tr>
-										<td class="time-td">10:40~10:50</td>
-										<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-									</tr>
-									<tr>
-										<td class="time-td">10:50~11:20</td>
-										<td>⼆三類承保業務說明</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:20~11:30</td>
-										<td>休息</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:30~11:50</td>
-										<td>⼆三類多憑證網路承保業務</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:50~12:00</td>
-										<td>弱勢協助措施</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div>
-						<div class=" d-flex justify-content-between justify-content-lg-start ">
-							<div class="d-flex">
-								<div class="">
-									<span class="badge bg-info">112/08/24</span>
-								</div>
-								<div class="ms-2">
-									(台北市)Microsoft Teams線上視訊會議  
-								</div>
-							</div>
-
-							<div class=" ">
-								<a href="#" class="btn-showSchedule  "
-									data-bs-toggle="collapse"
-									data-bs-target="#showSchedule3">
-									<i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
-								</a>
-
-							</div>
-						</div>
-
-						<div id="showSchedule3" class="ps-3 my-1   collapse table-responsive">
-							<table class="schedule">
-								<thead>
-									<tr>
-										<th class="time-td">時間</th>
-										<th>活動內容</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="time-td">10:30~10:40</td>
-										<td>主席致詞</td>
-									</tr>
-									<tr>
-										<td class="time-td">10:40~10:50</td>
-										<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-									</tr>
-									<tr>
-										<td class="time-td">10:50~11:20</td>
-										<td>⼆三類承保業務說明</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:20~11:30</td>
-										<td>休息</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:30~11:50</td>
-										<td>⼆三類多憑證網路承保業務</td>
-									</tr>
-									<tr>
-										<td class="time-td">11:50~12:00</td>
-										<td>弱勢協助措施</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<div id="more" class=" collapse">
-						<div>
-							<div class=" d-flex justify-content-between justify-content-lg-start ">
-								<div class="d-flex">
-									<div class="">
-										<span class="badge bg-info">112/09/24</span>
-									</div>
-									<div class="ms-2">
-										(台北市)Microsoft Teams線上視訊會議  
-									</div>
-								</div>
-
-								<div class=" ">
-									<a href="#" class="btn-showSchedule  "
-										data-bs-toggle="collapse"
-										data-bs-target="#showSchedule4">
-										<i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
-									</a>
-
-								</div>
-							</div>
-
-							<div id="showSchedule4" class="ps-3 my-1   collapse table-responsive">
-								<table class="schedule">
-									<thead>
-										<tr>
-											<th class="time-td">時間</th>
-											<th>活動內容</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="time-td">10:30~10:40</td>
-											<td>主席致詞</td>
-										</tr>
-										<tr>
-											<td class="time-td">10:40~10:50</td>
-											<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-										</tr>
-										<tr>
-											<td class="time-td">10:50~11:20</td>
-											<td>⼆三類承保業務說明</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:20~11:30</td>
-											<td>休息</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:30~11:50</td>
-											<td>⼆三類多憑證網路承保業務</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:50~12:00</td>
-											<td>弱勢協助措施</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-						<div>
-							<div class=" d-flex justify-content-between justify-content-lg-start ">
-								<div class="d-flex">
-									<div class="">
-										<span class="badge bg-info">112/11/24</span>
-									</div>
-									<div class="ms-2">
-										(台北市)Microsoft Teams線上視訊會議  
-									</div>
-								</div>
-
-								<div class=" ">
-									<a href="#" class="btn-showSchedule  "
-										data-bs-toggle="collapse"
-										data-bs-target="#showSchedule5">
-										<i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
-									</a>
-
-								</div>
-							</div>
-
-							<div id="showSchedule5" class="ps-3 my-1   collapse table-responsive">
-								<table class="schedule">
-									<thead>
-										<tr>
-											<th class="time-td">時間</th>
-											<th>活動內容</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="time-td">10:30~10:40</td>
-											<td>主席致詞</td>
-										</tr>
-										<tr>
-											<td class="time-td">10:40~10:50</td>
-											<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-										</tr>
-										<tr>
-											<td class="time-td">10:50~11:20</td>
-											<td>⼆三類承保業務說明</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:20~11:30</td>
-											<td>休息</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:30~11:50</td>
-											<td>⼆三類多憑證網路承保業務</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:50~12:00</td>
-											<td>弱勢協助措施</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div>
-							<div class=" d-flex justify-content-between justify-content-lg-start ">
-								<div class="d-flex">
-									<div class="">
-										<span class="badge bg-info">112/12/24</span>
-									</div>
-									<div class="ms-2">
-										(台北市)Microsoft Teams線上視訊會議  
-									</div>
-								</div>
-
-								<div class=" ">
-									<a href="#" class="btn-showSchedule  "
-										data-bs-toggle="collapse"
-										data-bs-target="#showSchedule6">
-										<i class="fa-solid fa-chevron-down   ms-1 ms-lg-4"></i>
-									</a>
-
-								</div>
-							</div>
-
-							<div id="showSchedule6" class="ps-3 my-1   collapse table-responsive">
-								<table class="schedule">
-									<thead>
-										<tr>
-											<th class="time-td">時間</th>
-											<th>活動內容</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="time-td">10:30~10:40</td>
-											<td>主席致詞</td>
-										</tr>
-										<tr>
-											<td class="time-td">10:40~10:50</td>
-											<td>本署政策暨廉政業務宣導、「健保好夥伴。五恁真好」活動說明</td>
-										</tr>
-										<tr>
-											<td class="time-td">10:50~11:20</td>
-											<td>⼆三類承保業務說明</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:20~11:30</td>
-											<td>休息</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:30~11:50</td>
-											<td>⼆三類多憑證網路承保業務</td>
-										</tr>
-										<tr>
-											<td class="time-td">11:50~12:00</td>
-											<td>弱勢協助措施</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-					</div>
-
-
-				</div>
-
-				<a id="btnMore" class="btn btn-link  px-3  "
-					data-bs-toggle="collapse"
-					data-bs-target="#more">More .....</a>
-				 
-			</div>--%>
 			 
-
-
 
 			<%--  @*主辦單位*@--%>
 			<div>
@@ -476,7 +104,7 @@
 		</div>
 		<div class="  card mt-4 p-2  my-2 d-none d-lg-block bg-ice ">
 			 
-				<div class="row   text-center  ">
+				<div class="row   text-center  d-flex align-items-center  ">
 					<div class=" col-lg-1 ">
 						<span>場次 </span>
 					</div>
@@ -512,13 +140,11 @@
 			foreach (var item in sessions)
 			{
 		%>
-
-
 		 
 			<div class="    card p-2  my-2      ">
-				<div class=" row   session ">
+				<div class=" row  d-flex align-items-center session ">
 					<div class="col-12 col-sm-5 col-lg-1 ">
-						<div class="row  ">
+						<div class="row  d-flex align-items-center  ">
 							<span class="d-lg-none col-4     ">
 								<span class="badge bg-info">場次</span>
 							</span>
@@ -530,7 +156,7 @@
 						</div>
 					</div>
 					<div class="col-12  col-sm-7  col-lg-3 ">
-						<div class="row  ">
+						<div class="row   d-flex align-items-center ">
 							<span class="d-lg-none  col-4     ">
 								<span class="badge bg-info">日期時間</span>
 							</span>
@@ -540,7 +166,7 @@
 						</div>
 					</div>
 					<div class="col-12 col-sm-5  col-lg-1 ">
-						<div class="row  ">
+						<div class="row  d-flex align-items-center  ">
 							<span class="d-lg-none  col-4     ">
 								<span class="badge bg-info">地點</span>
 							</span>
@@ -550,7 +176,7 @@
 						</div>
 					</div>
 					<div class="col-12 col-sm-7  col-lg-1 ">
-						<div class="row ">
+						<div class="row  d-flex align-items-center ">
 							<div class="d-lg-none  col-4      ">
 								<span class="badge bg-info">報名截⽌⽇</span>
 							</div>
@@ -561,7 +187,7 @@
 					</div>
 
 					<div class="col-12 col-sm-5  col-lg-2 ">
-						<div class="row  ">
+						<div class="row   d-flex align-items-center ">
 							<div class="d-lg-none  col-4    ">
 								<span class="badge bg-info">議程/資料</span>
 							</div>
@@ -577,7 +203,7 @@
 						</div>
 					</div>
 					<div class="col-12 col-sm-7  col-lg-1 ">
-						<div class="row  ">
+						<div class="row   d-flex align-items-center ">
 							<div class="d-lg-none  col-4   ">
 								<span class="badge bg-info">尚餘名額</span>
 							</div>
@@ -590,12 +216,10 @@
 					</div>
 
 					<div class="col-12  showSchedule collapse ">
-						<div class="row   ">
-							<%--	<div class="d-lg-none  col-12   ">
-								<span class="badge bg-info">活動內容</span>
-							</div>--%>
+						<div class="row   d-flex align-items-center  ">
+							 
 							<div class="  col-lg-12   ">
-								<div class="row   ">
+								<div class="row   d-flex align-items-center  ">
 									<div class="col-12  col-md-6">
 										 <div class="card  m-2   h-100 ">
 											<div class="card-header">議程</div>
@@ -662,13 +286,8 @@
 
 
 					<div class="col-12 col-lg-3 mt-3 mt-lg-0 col-Command">
-						<div class="row     ">
-							<div class="col d-flex justify-content-center">
-								 
-								<%--<div>
-									<a class=" btn-showSchedule btn btn-primary-isre px-2">檢視議程 </a>
-								</div>--%>
-								 
+						<div class="   d-flex align-items-center   justify-content-between mx-sm-5 mx-lg-0 ">
+							 
 
 								<% if (sessions.Count == 1)
 									{ %>
@@ -696,7 +315,7 @@
 										class="btn btn-primary-isre text-nowrap mx-1  ">多人報名 </a>
 								 
 								<% 	}%>
-							</div>
+							 
 						</div>
 					</div>
 

@@ -106,7 +106,7 @@
 
 			<div id="Filter" class="collapse ">
 				<div class="card p-2  my-2">
-					<div class="      row  ">
+					<div class="      row d-flex align-items-center ">
 						<div class=" col-sm-6   col-lg-4">
 							<div class="row d-flex align-items-center p-2">
 								<div class="col-4  col-sm-5 ">
@@ -265,38 +265,7 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-						<%--								<div class="   col-sm-6  col-lg-8">
-									<div class="row d-flex align-items-center p-2">
-										<div class="col-4 col-lg-2">
-											<div class="    ">
-												<label class="text-nowrap">活動時間</label>
-											</div>
-										</div>
-										<div class="col-8 col-lg-10">
-											<div class="d-lg-flex">
-												<div class="d-lg-flex   flex-grow-1">
-													<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
-														class="form-control " placeholder="民國年/月/日"
-														value="<%:  Request["ACT_DATE_S_DATE"] %>">
-													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" />
-													<span class="mx-1">~</span>
-												</div>
-												<div class="d-lg-flex  flex-grow-1">
-													<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
-														class="form-control " placeholder="民國年/月/日"
-														value="<%:  Request["ACT_DATE_E_DATE"] %>">
-													<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E" />
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>--%>
-
+						 
 						<div class="  d-lg-none  col-sm-6 col-lg-4">
 							<div class="row d-flex align-items-center p-2">
 								<div class="col-4 col-sm-5">
@@ -326,14 +295,10 @@
 			</div>
 
 
-
-			<%--   <div id="SearchResult" class="my-4"> </div> --%>
+			 
 		</section>
 
-		<asp:Literal ID="cardSearch" runat="server" />
-
-		<asp:Literal ID="ltTable3" runat="server" />
-
+		 
 
 		<% if (bSearch)
 			{ %>
@@ -356,14 +321,8 @@
 					{ %>
 				<h6>主辦單位 <span class="badge bg-secondary"><%: ACT_HOST %>   </span></h6>
 				<% } %>
-				<%-- <h6>辦理縣市<span class="badge bg-secondary">New</span></h6>
-		<h6>身分別 <span class="badge bg-secondary">New</span></h6>
-		<h6>活動類別 <span class="badge bg-secondary">New</span></h6>
-		<h6>活動名稱<span class="badge bg-secondary">New</span></h6>
-		<h6>主辦單位 <span class="badge bg-secondary">New</span></h6>--%>
-				<%--<h6>活動時間 <span class="badge bg-secondary">New</span></h6>
-
-		<h6>活動時間 <span class="badge bg-secondary">New</span></h6> --%>
+				 
+			 
 			</div>
 		</div>
 		<%	}%>
@@ -377,7 +336,7 @@
 
 		<div class="  card  d-none d-lg-block ">
 			<div class="card-header ">
-				<div class="row   text-center ">
+				<div class="row  d-flex align-items-center   text-center ">
 					<div class=" col-lg-4 text-start">
 						活動主題
 						 
@@ -408,7 +367,7 @@
 		<%-- card p-2  my-2 , no header, body as standard --%>
 		<div class="     card p-2  my-2 ">
 
-			<div class=" row   ">
+			<div class=" row  d-flex align-items-center ">
 				<div class="col-12 col-lg-4 ">
 					<div class="row  ">
 						<span class="d-lg-none col-4 col-sm-2   ">
@@ -420,7 +379,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-3 ">
-					<div class="row  ">
+					<div class="row  d-flex align-items-center  ">
 						<span class="d-lg-none  col-4   col-sm-2  ">
 							<span class="badge bg-info">日期 </span>
 						</span>
@@ -434,7 +393,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-1   ">
-					<div class="row  ">
+					<div class="row   d-flex align-items-center ">
 						<div class="d-lg-none  col-4  col-sm-2   ">
 							<div class="badge bg-info">尚餘名額</div>
 						</div>
@@ -450,7 +409,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-2 ">
-					<div class="row  ">
+					<div class="row   d-flex align-items-center ">
 						<div class="d-lg-none  col-4  col-sm-2   ">
 							<div class="badge bg-info">發布⽇期</div>
 						</div>
@@ -462,7 +421,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-2 mt-3 mt-lg-0">
-					<div class="row  ">
+					<div class="row  d-flex align-items-center  ">
 						<div class="col d-flex justify-content-around">
 							<div class="d-flex">
 								<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
