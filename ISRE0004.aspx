@@ -31,7 +31,7 @@
 
 	<main>
 		<section>
-			<div class="d-flex  justify-content-between align-content-center  ">
+			<div class="d-flex  justify-content-between align-items-center  ">
 				<div class="d-none d-sm-block"></div>
 				<div>
 					<h3 class="text-center my-3">活動報名</h3>
