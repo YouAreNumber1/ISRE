@@ -17,98 +17,98 @@
  <% 
      dynamic Activity = Process_ActivityInfoBySession(GUID);
  %>  
-     <%-- activity info summary title start --%>
- <div class="  card    d-none d-lg-block "> 
-    <div class=" card-header  active">
-        <div class="row no-gutters  ">
-            <div class=" col-lg-3   ">
-                <span>  活動主題 </span>
-            </div>
-            <div class=" col-lg-3 text-center ">
-                <span>活動起訖⽇期</span>
-            </div>
-            <div class=" col-lg-1 text-center ">
-                <span>總場次</span>
-            </div>
-            <div class=" col-lg-2   text-center   ">
-                <span>主辦單位</span>
-            </div>
-            <div class=" col-lg-3 text-center ">
-                    <span>發布起訖⽇期</span>
-                </div>
-                
-        </div>
-    </div>
-</div>           
-    
-       <%-- activity info summary title end --%>
-       <%-- activity info summary content start --%>
-      <div class="border rounded my-1 py-1">
-         <div class="    card  m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
-             <div class=" row no-gutters  ">
-                     <div class="col-12 col-lg-3 "> 
-                         <div class="row no-gutters"> 
-                               <span class="d-lg-none col-4 col-sm-2   ">
-                                   <span class="badge bg-info card-header">活動主題</span> 
-                               </span>
-                               <div class="col-8 col-lg-12 ">
-                                   <div >
-                                        活動主題
-                                   </div>  
-                               </div> 
-                         </div>
-                     </div>
-                     <div class="col-12 col-lg-3 ">
-                         <div class="row no-gutters">
-                             <span class="d-lg-none  col-4   col-sm-2  ">
-                                 <span class="badge bg-info">活動起訖⽇期</span> 
-                             </span>
-                             <div class="col-8 col-lg-12  text-center  ">
-                                 <div class="d-flex justify-content-lg-center"> 112/08/31-112/09/30 </div> 
-                              </div>
-                         </div>
-                     </div>
-                     <div class="col-12 col-lg-1 ">
-                         <div class="row no-gutters">
-                             <span class="d-lg-none  col-4  col-sm-2   ">
-                                 <span class="badge bg-info"> 總場次</span>  
-                             </span>
-                             <div class="col-8 col-lg-12   text-center  "> 
-                                 <div class="d-flex justify-content-lg-center">  <div class="badge bg-warning">5</div> </div>  
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-12 col-lg-2 ">
-                         <div class="row no-gutters">
-                             <div class="d-lg-none  col-4  col-sm-2   "> 
-                                 <span class="badge bg-info"> 主辦單位</span>
-                             </div>
-                             <div class="col-8 col-lg-12  text-center  "> 
-                                  <div class="d-flex justify-content-lg-center"> 主辦單位 </div>  
-                                </div>
-                         </div>
-                     </div>  
+   <%-- activity info summary start --%>
+<%-- activity info summary title start --%>
+<div class="    card p-2  my-2 d-none d-lg-block bg-ice    ">
+	<div class="row text-center  ">
+		<div class=" col-lg-3   text-start">
+			活動主題  
+		</div>
+		<div class=" col-lg-3  ">
+			⽇期 
+		</div>
+		<div class=" col-lg-1  ">
+			總場次 
+		</div>
+		<div class=" col-lg-2    ">
+			主辦單位 
+		</div>
+		<div class=" col-lg-3   ">
+			發布⽇期 
+		</div>
 
-                    <div class="col-12 col-lg-3 ">
-                     <div class="row no-gutters">
-                         <div class="d-lg-none  col-4  col-sm-2   ">
-                             <span class="badge bg-info"> 發布起訖⽇期</span>  
-                         </div>
-                         <div class="col-8 col-lg-12 "> 
-                             <div class="  text-center "> 
-                                 <div class="d-flex justify-content-lg-center">   112/08/31-112/09/30  </div>  
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                    
- 
-             </div>
-         </div>
+	</div>
 
-     </div>       
+</div>
+<%-- activity info summary title end --%>
+<%-- activity info summary content start --%>
+<div class="    card p-2  my-2     ">
+	<div class=" row    d-flex align-items-center ">
+		<div class="col-12 col-sm-5 col-lg-3 ">
+			<div class="row   ">
+				<span class="d-lg-none col-3 col-sm-4   ">
+					<span class="badge bg-info  ">活動主題</span>
+				</span>
+				<div class="col-9 col-sm-8 col-lg-12 ">
+					<div>
+						活動主題
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-sm-7 col-lg-3 ">
+			<div class="row  d-flex align-items-center ">
+				<span class="d-lg-none  col-3 col-sm-4    ">
+					<span class="badge bg-info">⽇期</span>
+				</span>
+				<div class="col-9 col-sm-8 col-lg-12    ">
+					<div class="d-flex justify-content-lg-center">112/08/31-112/09/30 </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12  col-sm-5  col-lg-1 ">
+			<div class="row  d-flex align-items-center ">
+				<span class="d-lg-none  col-3  col-sm-4  ">
+					<span class="badge bg-info">總場次</span>
+				</span>
+				<div class="col-9 col-sm-8 col-lg-12   text-center  ">
+					<div class="d-flex justify-content-lg-center">
+						<div class="badge bg-warning">5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12  col-sm-7  col-lg-2 ">
+			<div class="row  d-flex align-items-center ">
+				<div class="d-lg-none  col-3  col-sm-4   ">
+					<span class="badge bg-info">主辦單位</span>
+				</div>
+				<div class="col-9 col-sm-8 col-lg-12  text-center  ">
+					<div class="d-flex justify-content-lg-center">主辦單位 </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12  col-sm-5 col-lg-3 ">
+			<div class="row  d-flex align-items-center ">
+				<div class="d-lg-none  col-3  col-sm-4   ">
+					<span class="badge bg-info">發布⽇期</span>
+				</div>
+				<div class="col-9 col-sm-8 col-lg-12 ">
+					<div class="  text-center ">
+						<div class="d-flex justify-content-lg-center">112/08/31  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+</div>
 <%-- activity info summary content end --%>
-     <%--   activity info summary end--%>     
+<%--   activity info summary end--%>
+
              
 
             <%--session   start  --%>
@@ -119,137 +119,143 @@
           %>    
 
 <%--session   title columns start --%>
-<div class="  card   d-none d-lg-block "> 
-    <div class="card-header ">
-        <div class="row no-gutters  ">
-            <div class=" col-lg-1 text-center ">
-                <span>  場次 </span>
+<div class="  card p-2  my-2 d-none d-lg-block bg-ice      ">  
+        <div class="row text-center   d-flex align-items-center">
+            <div class=" col-lg-1  ">
+                  場次  
             </div>
-            <div class=" col-lg-2 text-center ">
-                <span>日期時間</span>
+            <div class=" col-lg-2  ">
+                日期時間 
             </div>
-            <div class=" col-lg-1 text-center ">
-                <span>地點</span>
+            <div class=" col-lg-1  ">
+                地點 
             </div>
-             <div class=" col-lg-1 text-center ">
-                 <span>主辦單位</span>
+             <div class=" col-lg-1 ">
+                 主辦單位 
              </div>
-            <div class=" col-lg-2   text-center   ">
-                <span>報名截⽌⽇</span>
+            <div class=" col-lg-2      ">
+                 報名截⽌⽇ 
             </div> 
-            <div class=" col-lg-2   text-center   ">
-                <span>可報名⼈數</span>
+            <div class=" col-lg-2     ">
+                可報名⼈數 
             </div>
-             <div class=" col-lg-2   text-center   ">
-                <span>已報名⼈數</span>
-            </div>
-
-            
-             <div class=" col-lg-1 text-center   ">
-                 <span>尚餘名額</span>
+             <div class=" col-lg-2     ">
+                 已報名⼈數 
+            </div> 
+             <div class=" col-lg-1    ">
+                 尚餘名額 
              </div>
              
-        </div>
-    </div>
-</div>
-           
-
+        </div> 
+</div> 
 <%-- session   title columns end--%>
 
-        <div class="border rounded my-1 py-1">
-    <div class="    card m-1 border-end-0 border-top-0 border-bottom-0 border-start-0   ">
-        <div class=" row no-gutters  ">
-                <div class="col-12 col-lg-1 "> 
-                    <div class="row no-gutters"> 
-                            <span class="d-lg-none col-4 col-sm-2   ">
+  <%-- session summary  content start --%>
+      
+    <div class="    card p-2  my-2     ">
+        <div class=" row  d-flex align-items-center  ">
+                <div class="col-12 col-sm-5  col-lg-1 "> 
+                    <div class="row  d-flex align-items-center"> 
+                            <span class="d-lg-none  col-4 col-sm-5     ">
                                 <span class="badge bg-info">場次</span> 
                             </span>
-                            <div class="col-8 col-lg-12 ">
+                            <div class=" col-8 col-sm-7    col-lg-12 ">
                                 <div class="d-flex justify-content-lg-center">
                                     4  
                                 </div>  
                             </div> 
                     </div>
                 </div>
-                <div class="col-12 col-lg-2 ">
-                    <div class="row no-gutters">
-                        <span class="d-lg-none  col-4   col-sm-2  ">
+                <div class="col-12 col-sm-7  col-lg-2 ">
+                    <div class="row  d-flex align-items-center">
+                        <span class="d-lg-none   col-4 col-sm-5     ">
                             <span class="badge bg-info">日期時間</span> 
                         </span>
-                        <div class="col-8 col-lg-12  text-center  ">
+                        <div class=" col-8 col-sm-7    col-lg-12  text-center  ">
                             <div class="d-flex justify-content-lg-center"> 112/08/31 </div> 
                             </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-1 ">
-                    <div class="row no-gutters">
-                        <span class="d-lg-none  col-4  col-sm-2   ">
+                <div class="col-12 col-sm-5  col-lg-1 ">
+                    <div class="row  d-flex align-items-center">
+                        <span class="d-lg-none  col-4 col-sm-5      ">
                             <span class="badge bg-info"> 地點</span>  
                         </span>
-                        <div class="col-8 col-lg-12   text-center  "> 
+                        <div class=" col-8 col-sm-7    col-lg-12   text-center  "> 
                             <div class="d-flex justify-content-lg-center"> 台北市 </div>  
                         </div>
                     </div>
                 </div>
-            <div class="col-12 col-lg-1 ">
-    <div class="row no-gutters">
-        <span class="d-lg-none  col-4  col-sm-2   ">
-            <span class="badge bg-info"> 主辦單位</span>  
-        </span>
-        <div class="col-8 col-lg-12   text-center  "> 
-            <div class="d-flex justify-content-lg-center"> 台北市 </div>  
-        </div>
-    </div>
-</div>
-                <div class="col-12 col-lg-2 ">
-                    <div class="row no-gutters">
-                        <div class="d-lg-none  col-4  col-sm-2   "> 
+			<div class="col-12 col-sm-7 col-lg-1 ">
+				<div class="row  d-flex align-items-center">
+					<span class="d-lg-none    col-4 col-sm-5      ">
+						<span class="badge bg-info">主辦單位</span>
+					</span>
+					<div class=" col-8 col-sm-7    col-lg-12   text-center  ">
+						<div class="d-flex justify-content-lg-center">台北市 </div>
+					</div>
+				</div>
+			</div>
+                <div class="col-12 col-sm-5 col-lg-2 ">
+                    <div class="row  d-flex align-items-center">
+                        <div class="d-lg-none   col-4 col-sm-5       "> 
                             <span class="badge bg-info"> 報名截⽌⽇</span>
                         </div>
-                        <div class="col-8 col-lg-12  text-center  "> 
+                        <div class=" col-8 col-sm-7    col-lg-12  text-center  "> 
                                 <div class="d-flex justify-content-lg-center">   112/08/31  </div>  
                             </div>
                     </div>
-                </div>  
-
-                <div class="col-12 col-lg-2 ">
-    <div class="row no-gutters">
-        <div class="d-lg-none  col-4  col-sm-2   "> 
-            <span class="badge bg-info"> 可報名⼈數</span>
-        </div> 
-        <div class="col-8 col-lg-12  text-center ">  
-            <div class="d-flex justify-content-lg-center">   21  </div> 
-        </div> 
-    </div>
-</div>  
-
-                <div class="col-12 col-lg-2 ">
-    <div class="row no-gutters">
-        <div class="d-lg-none  col-4  col-sm-2   "> 
-            <span class="badge bg-info"> 已報名⼈數</span>
-        </div> 
-        <div class="col-8 col-lg-12  text-center ">  
-            <div class="d-flex justify-content-lg-center">   21  </div> 
-        </div> 
-    </div>
-</div>  
-                
-                <div class="col-12 col-lg-1 ">
-                <div class="row no-gutters">
-                    <div class="d-lg-none  col-4  col-sm-2   "> 
-                        <span class="badge bg-info"> 尚餘名額</span>
-                    </div> 
-                    <div class="col-8 col-lg-12  text-center ">  
-                        <div class="d-flex justify-content-lg-center">   21  </div> 
-                    </div> 
                 </div>
-            </div>  
 
-                 
-        </div>
+			<div class="col-12 col-sm-7 col-lg-2 ">
+				<div class="row  d-flex align-items-center">
+					<div class="d-lg-none   col-4 col-sm-5     ">
+						<span class="badge bg-info">可報名⼈數</span>
+					</div>
+					<div class=" col-8 col-sm-7    col-lg-12  text-center ">
+						<div class="d-flex justify-content-lg-center">
+							<div class="badge bg-primary">
+								21
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-sm-5 col-lg-2 ">
+				<div class="row  d-flex align-items-center">
+					<div class="d-lg-none   col-4 col-sm-5      ">
+						<span class="badge bg-info">已報名⼈數</span>
+					</div>
+					<div class="  col-8 col-sm-7    col-lg-12  text-center ">
+						<div class="d-flex justify-content-lg-center">
+							<div class="badge bg-success">
+								7
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-sm-7 col-lg-1 ">
+				<div class="row  d-flex align-items-center">
+					<div class="d-lg-none   col-4 col-sm-5     ">
+						<span class="badge bg-info">尚餘名額</span>
+					</div>
+					<div class="  col-8 col-sm-7     col-lg-12  text-center ">
+						<div class="d-flex justify-content-lg-center">
+							<div class="badge bg-dark">
+								14
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
     </div>
 
-</div> 
+  <%-- session summary  content end --%>
+       
 
        
             

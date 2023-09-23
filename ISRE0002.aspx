@@ -221,8 +221,7 @@
 
 
 		<div id="registrationForm" class="mt-5">
-			<h3 class="text-center mt-5 mb-2">報名單(<%:desc %>) 
-			</h3>
+			<h3 class="text-center mt-5 mb-2">報名表(<%:desc %>)  </h3>
 
 
 			<%
@@ -397,10 +396,10 @@
 								</div>
 
 								<div class="col-sm-8">
-									<div class=" d-flex  align-items-center ">
+									<div class=" d-flex  align-items-center my-1 my-sm-0">
 										<div>
 											<img class="img-fluid" src="Content/images/gdcode.jpg" alt="">
-										</div> 
+										</div>
 										<div>
 											<i class="fa-solid fa-arrows-rotate   fa-2x mx-2"></i>
 										</div>

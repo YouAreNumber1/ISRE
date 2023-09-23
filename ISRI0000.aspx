@@ -50,9 +50,9 @@
 				<div class=" col-lg-1 ">
 					<div class="   ">主辦單位</div>
 				</div>
-				<div class=" col-lg-2  ">
-					發布⽇期    <i class="fas fa-long-arrow-alt-down mx-1 color-isre "></i>
-
+				<div class=" col-lg-2 ">
+					發布⽇期 
+					<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> 
 				</div>
 				<div class=" col-lg-2">
 					<div class="   ">編輯/管理</div>
@@ -139,7 +139,10 @@
 							<i class="fa-solid fa-pen-to-square"></i>
 						</a>
 						<a href="ISRI0002.aspx?GUID=<%:item.GUID %>"
-							class="btn btn-primary-isre text-nowrap  ">場次管理</a>
+							class="btn btn-primary-isre text-nowrap px-4 px-lg-2 ">
+							場次 
+							<i class="fa-solid fa-bars-progress"></i>
+						</a>
 					</div>
 				</div>
 

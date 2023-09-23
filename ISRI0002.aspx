@@ -19,7 +19,7 @@
 			<%-- activity info summary start --%>
 			<%-- activity info summary title start --%>
 			<div class="    card p-2  my-2 d-none d-lg-block bg-ice    ">
-				<div class="row text-center  ">
+				<div class="row text-center  d-flex align-items-center ">
 					<div class=" col-lg-3   text-start">
 						活動主題  
 					</div>
@@ -44,7 +44,7 @@
 			<div class="    card p-2  my-2     ">
 				<div class=" row    d-flex align-items-center ">
 					<div class="col-12 col-sm-5 col-lg-3 ">
-						<div class="row   ">
+						<div class="row   d-flex align-items-center ">
 							<span class="d-lg-none col-3 col-sm-4   ">
 								<span class="badge bg-info  ">活動主題</span>
 							</span>

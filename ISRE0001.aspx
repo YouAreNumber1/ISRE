@@ -191,8 +191,7 @@
 							<div class="d-lg-none  col-4    ">
 								<span class="badge bg-info">議程/資料</span>
 							</div>
-							<div class="col-8 col-lg-12 ">
-								 
+							<div class="col-8 col-lg-12 "> 
 									<div class="d-flex justify-content-lg-center">
 									<a href="#" class="  btn-showSchedule ">議程/資料
 										  <i class="fa-solid fa-chevron-down btn-primary"></i>
@@ -219,7 +218,7 @@
 						<div class="row   d-flex align-items-center  ">
 							 
 							<div class="  col-lg-12   ">
-								<div class="row   d-flex align-items-center  ">
+								<div class="row     ">
 									<div class="col-12  col-md-6">
 										 <div class="card  m-2   h-100 ">
 											<div class="card-header">議程</div>
