@@ -85,17 +85,24 @@ var MoveToTop = function (callback) {
     });
 };
 
-var MoveTo = function (target, callback) {
+var MoveTo = function (target, adjustment, callback) {
+    
     var scrollTop = target == null ? 0 : target.offset().top;
-    $('html, body').animate({
-        scrollTop: scrollTop 
+   
+    if (adjustment != null) scrollTop += adjustment;
+    target.addClass('searched');
+    $('html, body').animate({ 
+        scrollTop: scrollTop   
     }, { 
-        easing: 'swing',
+        easing: 'swing', 
         complete: function () {
             if (callback) {
                 callback();
-            }
-        }
+            }  
+            target.delay(5000).queue(function () {
+                target.removeClass('searched').dequeue();
+            });
+        } 
     }); 
 };
 

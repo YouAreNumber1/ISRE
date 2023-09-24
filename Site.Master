@@ -34,34 +34,43 @@
     <link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+         #backtotop {
+     position: fixed;
+   /*  display: none;*/
+     right: 10px;
+     bottom: 10px;
+     z-index: 200;
+ }
 
+    </style>
 </head>
     
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top  border border-top-0 border-start-0 border-end-0">
+    <div class="   border-0 border-top-0 border-start-0 border-end-0">
     <div class="container d-flex justify-content-between">
+ 
  <%
-     string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath)??"";
+     string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath) ?? "";
      if (PhysicalPath.ToUpper().Contains("ISRI"))
-       { %>
-          <a class="logo" href="/ISRI0000.ASPX"></a> 
-         <div class="backend-info">
-             <span>主機名稱</span>
-             <span>承保服務科</span>
-             <span>王⼩明</span>
-             <a href="#">登出</a>
-         </div>
-    <%  }
-    else
-       {
-    %>   
-        <a class="logo" href="/ISRE0000.ASPX"></a>  
-    <%  
-       }
-     %>
-       
-    </div>
-</div>
+     { %>
+		<a class="logo" href="/ISRI0000.ASPX"></a>
+		<div class="backend-info">
+			<span>主機名稱</span>
+			<span>承保服務科</span>
+			<span>王⼩明</span>
+			<a href="#">登出</a>
+		</div>
+		<%  }
+            else
+            {
+		%>
+		<a class="logo" href="/ISRE0000.ASPX"></a>
+		<%  
+            }
+		%>
+	</div>
+	</div>
     
    
     <form runat="server">
@@ -104,6 +113,9 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
+                <a id="backtotop" href="#" class="d-none">
+                    <i class="fa fa-3x fa-chevron-circle-up "></i>
+                </a>
             <%--    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 應用程式</p>--%>
             </footer>
         </div>

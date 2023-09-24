@@ -367,8 +367,8 @@
 		<%-- card p-2  my-2 , no header, body as standard --%>
 		<div class="     card p-2  my-2 ">
 
-			<div class=" row  d-flex align-items-center ">
-				<div class="col-12 col-lg-4 ">
+			<div class=" row  d-flex align-items-center  ">
+				<div class="col-12 col-lg-4  ">
 					<div class="row  ">
 						<span class="d-lg-none col-4 col-sm-2   ">
 							<span class="badge bg-info">活動主題</span>
