@@ -47,15 +47,17 @@
 </head>
     
 <body>
-    <div class="   border-0 border-top-0 border-start-0 border-end-0">
-    <div class="container d-flex justify-content-between">
+    
+    <div class="container pb-1
+        navbar navbar-expand-sm  
+        border border-top border-start-0 border-end-0 d-flex justify-content-between">
  
  <%
      string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath) ?? "";
      if (PhysicalPath.ToUpper().Contains("ISRI"))
      { %>
-		<a class="logo" href="/ISRI0000.ASPX"></a>
-		<div class="backend-info">
+		<a class="logo me-2" href="/ISRI0000.ASPX"></a>
+		<div class="backend-info m-1">
 			<span>主機名稱</span>
 			<span>承保服務科</span>
 			<span>王⼩明</span>
@@ -65,12 +67,12 @@
             else
             {
 		%>
-		<a class="logo" href="/ISRE0000.ASPX"></a>
+		<a class="logo me-2" href="/ISRE0000.ASPX"></a>
 		<%  
             }
 		%>
 	</div>
-	</div>
+	 
     
    
     <form runat="server">

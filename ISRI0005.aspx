@@ -288,8 +288,8 @@
 				{%>
 			<h3 class="text-center mt-5  ">報到工具  </h3>
 			<div id="divTool" class="row g-1 sticky-top">
-				<div class="col-md-6">
-					<div class="card mb-1">
+				<div class="  col-sm-6">
+					<div class="card mb-1 h-100">
 						<div class="card-header bg-success text-white">
 							報到掃描區
 						</div>
@@ -298,10 +298,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="card mb-1">
+				<div class="  col-sm-6">
+					<div class="card mb-1 h-100">
 						<div class="card-header bg-success text-white">
-							關鍵字查詢 (電話/電⼦郵件/姓名 )
+							關鍵字查詢 (電話/電郵/姓名 )
 						</div>
 						<div class="card-body">
 							<div class="d-flex">
@@ -358,8 +358,8 @@
 						  <span class="bg-danger badge  mx-1 mx-sm-2">29</span>
 					</a>
 				</li>
-				
-				
+
+
 			</ul>
 
 
@@ -751,9 +751,9 @@
 							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								未確認 <span id="spanSumUnconfirm" class="badge bg-danger">20</span>
 							</button>
-							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
-				  <i class="fa-solid fa-eye-slash"></i>
-</button>
+							<a href="#" id="btnView" class="btn btn-info btn-label   me-4 px-sm-4 mb-1">
+								<i class="fa-solid fa-eye-slash"></i>
+							</a>
 						</div>
 						<div id="lastAttended">
 							<div>最新報到⼈員 </div>
@@ -1000,7 +1000,7 @@
 									status="<%: i<50 ? "0":"1" %>">
 									<td>112/05/11</td>
 									<td class="left">
-										<div>來賓<%:i %></div>
+										<div class="name">來賓<%:i %></div>
 										<div>葷食</div>
 									</td>
 									<td class="left">
@@ -1008,8 +1008,8 @@
 										<div>資訊組</div>
 									</td>
 									<td class="left">
-										<div><%:mobile %></div>
-										<div>guest<%:i %>.yahoo.com</div>
+										<div class="mobile"><%:mobile %></div>
+										<div class="email">guest<%:i %>.yahoo.com</div>
 									</td>
 									<td class="left">
 										<div class="AttendDate"></div>
@@ -1091,7 +1091,51 @@
 			$("#modalAttend").on('hide.bs.modal', function () {
 				$("#modalAttend").removeAttr('name email mobile guid status');
 			});
+			$(document).on('click', '#btnView', function (e) {
+				e.preventDefault();
+				if ($(this).children().hasClass('fa-eye-slash')) {
+					$(this).children().removeClass('fa-eye-slash').addClass('fa-eye');
+					$('.name').each(function () {
+						// get element text
+						var text = $(this).text();
+						let char1 = text.substring(0, 1);
+						let charLast = text.substring(text.length - 1); ///// to the end
 
+						$(this).text(char1 + '*' + charLast);
+					});
+					$('.mobile').each(function () {
+						// get element text
+						var text = $(this).text();
+						let char3 = text.substring(0, 3);
+						let charLast3 = text.substring(text.length - 3); ///// to the end
+						$(this).text(char3 + '***' + charLast3);
+					});
+					$('.email').each(function () {
+						// get element text
+						var text = $(this).text();
+						let char3 = text.substring(0, 3);
+						let charLast3 = text.substring(text.length - 3); ///// to the end
+						$(this).text(char3 + '***' + charLast3);
+					});
+				}
+				else {
+					$(this).children().addClass('fa-eye-slash').removeClass('fa-eye');
+					$('.name').each(function () {
+						// get element text 
+						$(this).text( $(this).closest('tr').attr('name'));
+					});
+					$('.mobile').each(function () {
+						// get element text 
+						$(this).text( $(this).closest('tr').attr('mobile'));
+					});
+					$('.email').each(function () {
+						// get element text 
+						$(this).text( $(this).closest('tr').attr('email'));
+					});
+				}
+				
+
+			});
 
 			$(document).on('click', '.btnAttend', function (e) {
 				e.preventDefault();

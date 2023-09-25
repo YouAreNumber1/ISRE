@@ -20,12 +20,12 @@
 			<%--  activity form starts--%>
 
 
-			<div class="  container">
+			<div class="   ">
 				<h3 class="text-center my-2"><%: String.Concat(ActioinName, "活動資訊") %> </h3>
 
 				<div class="  row     ">
 					<div class=" bg-ice   py-3  col-lg-2 border  ">
-						<span class="note">*</span><b><label>發布⽇期</label></b>
+						<span class="note">*</span><label>發布⽇期</label>
 					</div>
 					<div class="  py-3   col-lg-10 border">
 						<div class="d-flex">
@@ -42,10 +42,12 @@
                             ? Model.PUB_DATE_S 
                             : DateTime.Now )  %>" />
 							<span class="mx-2">~ </span>
-							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE" placeholder="yyyy/mm/dd"
+							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE" 
+								placeholder="民國年/月/日"
 								class="form-control mx-1 requiredInput">
 
-							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME" placeholder="HH:mm"
+							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME" 
+								placeholder="HH:mm"
 								class="form-control mx-1 requiredInput">
 
 							<input type="hidden" id="PUB_DATE_E" name="PUB_DATE_E"
@@ -112,7 +114,7 @@
 
 				<div class="    row ">
 					<div class=" border  py-3    bg-ice  col-lg-2">
-						<span class="note">*</span><b><label>負責⼈</label></b>
+						<label>負責⼈</label>
 					</div>
 					<div class="  border  py-3     col-lg-10">
 						A111888 王⼩明
@@ -122,7 +124,7 @@
 				<%--  @*代理人員*@--%>
 				<div class=" row   ">
 					<div class="   border  py-3  bg-ice col-lg-2">
-						<span class="note">*</span><b><label>代理人員</label></b>
+						<label>代理人員</label>
 					</div>
 					<div class=" border  py-3   col-lg-10">
 						<div class="d-flex">
@@ -193,7 +195,7 @@
 				<%-- @*視覺圖檔*@--%>
 				<div class="  row    ">
 					<div class=" border  py-3 bg-ice   col-lg-2">
-						<span class="note">*</span><b><label>視覺圖檔</label></b>
+						<label>視覺圖檔</label>
 					</div>
 					<div class="   border  py-3    col-lg-10">
 						<%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
@@ -224,17 +226,7 @@
 						<span class="note">*</span><b><label>參加對象</label></b>
 					</div>
 					<div class=" border  py-3     col-lg-10">
-						<%--@{
-                    dynamic List_OBJ_NO = ImplementController.StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "OBJ_NO");
-                    foreach (var item in List_OBJ_NO)
-                    {
-                        <div class="form-check  form-check-inline">
-                            <input class="form-check-input form-control" type="checkbox"
-                                   id="OBJ_NO_NAME1" name="OBJ_NO_NAME" value="@item.SerialID" checked>
-                            <label class="form-check-label">@item.OBJ_NO_NAME</label>
-                        </div>
-                    }
-                }--%>
+
 
 						<div class="">
 							<span>
@@ -248,12 +240,19 @@
 					</div>
 				</div>
 
-
 				<div class="    row  ">
 					<div class=" border  py-3   bg-ice col-lg-2">
-						<span class="note">*</span>
-						<b>
-							<label>建立⽇期</label></b>
+						<span class="note">*</span><label>建立者</label>
+					</div>
+					<div class="  border  py-3     col-lg-10">
+						<input type="text" id="CREATEDBY" name="CREATEDBY"
+							class="form-control requiredInput "
+							value="<%: (Model !=null &&  Model.CREATEDBY!=null ? Model.CREATEDBY  : ""  )  %>">
+					</div>
+				</div>
+				<div class="    row  ">
+					<div class=" border  py-3   bg-ice col-lg-2">
+						<span class="note">*</span><label>建立⽇期</label>
 					</div>
 					<div class="  border  py-3     col-lg-10">
 						<input type="text" id="CREATE_DATE" name="CREATE_DATE"
@@ -263,9 +262,19 @@
                           : DateTime.Now.ToString("yyyy-MM-dd")  )  %>">
 					</div>
 				</div>
+				<div class="    row  ">
+					<div class=" border  py-3   bg-ice col-lg-2">
+						<span class="note">*</span><label>更新者</label>
+					</div>
+					<div class="  border  py-3     col-lg-10">
+						<input type="text" id="MODIFIEDBY" name="MODIFIEDBY"
+							class="form-control requiredInput "
+							value="<%: (Model !=null &&  Model.MODIFIEDBY!=null ? Model.MODIFIEDBY  : ""  )  %>">
+					</div>
+				</div>
 				<div class="  row  ">
 					<div class=" border  py-3  bg-ice   col-lg-2">
-						<span class="note">*</span><b><label>更新⽇期</label></b>
+						<span class="note">*</span><label>更新⽇期</label>
 					</div>
 					<div class="  border  py-3     col-lg-10">
 						<input type="text" id="TXT_DATE" name="TXT_DATE" class="form-control  requiredInput"
@@ -278,18 +287,15 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
-					<button type="button" id="btn_Insert" data-target="isri0001.aspx.cs"
+					<button type="button" id="btn_Insert"  
 						guid="<%:GUID%>"
 						class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
 						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
 					</button>
 					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
-					<%-- @*<a href="#" data-target="/Activity/DeleteActivity" guid="@Model.GUID"
-        class="btn  btn_DeleteActivity  btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除
 
-              </a>*@--%>
-					<a href="#" data-target="/Activity/DeleteActivity" guid="@Model.GUID"
+					<a href="#"
 						class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
 
 
@@ -297,15 +303,8 @@
 
 
 
-
-
-
-
-
 			</div>
 
-
-			<%--            <input type="hidden" id="GUID" name="GUID" value="<%:GUID%>" />--%>
 			<%--  activity form end--%>
 		</div>
 
