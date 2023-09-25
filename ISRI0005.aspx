@@ -11,9 +11,9 @@
 			vertical-align: middle;
 		}
 
-		.table td.left, th.left {
-			text-align: left;
-		}
+			.table td.left, th.left {
+				text-align: left;
+			}
 
 		table {
 			border-collapse: collapse;
@@ -21,6 +21,10 @@
 
 		tr.searched {
 			border: 4pt solid red;
+		}
+
+		.buttons-excel {
+			display: none;
 		}
 	</style>
 	<%
@@ -130,9 +134,9 @@
 
 
 			<div class="d-flex   justify-content-center my-4">
-				<a href="#" id="btnVIP" 
-				class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">VIP</a>
-				<a href="#" id="btnOnsiteRegister" 
+				<a href="#" id="btnVIP"
+					class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">VIP</a>
+				<a href="#" id="btnOnsiteRegister"
 					class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">現場報名</a>
 				<button type="button" class="btn btn-primary-isre mx-2 mx-sm-4 "
 					data-bs-toggle="modal" data-bs-target="#ModalQRcode">
@@ -775,7 +779,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table  table-sm">
+						<table id="tableList" class="table  table-sm">
 							<thead>
 								<tr>
 									<th>報名⽇期  </th>
@@ -783,8 +787,8 @@
 									</th>
 									<th class="left">投保單位代號<div>單位名稱  </div>
 									</th>
-									<th class="left">連絡電話<div>電⼦郵件</div>
-									</th>
+									<th class="left">連絡電話 </th>
+									<th class="left">電⼦郵件</th>
 									<th class="left">報到時間  	</th>
 									<th>報到狀態</th>
 									<th>編輯/報到</th>
@@ -1017,6 +1021,8 @@
 									</td>
 									<td class="left">
 										<div class="mobile"><%:mobile %></div>
+									</td>
+									<td class="left">
 										<div class="email">guest<%:i %>.yahoo.com</div>
 									</td>
 									<td class="left">
@@ -1101,7 +1107,7 @@
 							<thead>
 								<tr>
 									<th></th>
-								</tr> 
+								</tr>
 							</thead>
 							<tbody>
 								<tr>
@@ -1146,16 +1152,9 @@
 
 		$(document).ready(function () {
 
-			//$('#myTable').DataTable({
-			//		dom: 'Bfrtip',
-			//		buttons: [
-			//			{ extend: 'pdf', text: '下載 PDF' }
-			//	], 
-			//	'searching': false,
-			//	'ordering': false,
-			//	'paging': false,
-			//	'info': false,
-			//	});
+			
+
+			 
 			$("#modalAttend").on('show.bs.modal', function () {
 				$("#modalAttend").find('#spName').text($("#modalAttend").attr('name'));
 				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('email'));
@@ -1165,7 +1164,7 @@
 				$("#modalAttend").removeAttr('name email mobile guid status');
 			});
 
-			 
+
 			$(document).on('blur', '#scanQRcode', function (e) {
 				e.preventDefault();
 				console.log('test');
@@ -1288,7 +1287,20 @@
 			});
 			$('#btnExport').on('click', function (e) {
 				e.preventDefault();
-				alert('匯出所有人員清單');
+				var table = $('#tableList').DataTable({
+					dom: 'Bfrtip',
+					buttons: [
+						{ extend: 'excel', text: 'Export Excel' }
+					],
+					'searching': false,
+					'ordering': false,
+					'paging': false,
+					'info': false,
+				});
+
+				$('.buttons-excel').click();
+				//table.off();
+				//alert('匯出所有人員清單');
 			});
 
 			$('.btnReRegister').on('click', function (e) {
