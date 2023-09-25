@@ -8,19 +8,19 @@
 	<style>
 		.table td {
 			text-align: center;
-			vertical-align: central;
+			vertical-align: middle;
 		}
 
-			.table td.left, th.left {
-				text-align: left;
-			}
+		.table td.left, th.left {
+			text-align: left;
+		}
 
 		table {
 			border-collapse: collapse;
 		}
 
 		tr.searched {
-			border: 4pt solid black;
+			border: 4pt solid red;
 		}
 	</style>
 	<%
@@ -28,7 +28,7 @@
 		string plan = Request.QueryString["plan"] ?? "";
 		string guest = Request.QueryString["guest"] ?? "";
 	%>
-
+	<script src="DataTable/datatables.js"></script>
 	<main aria-labelledby="title">
 		<div class=" my-2">
 
@@ -130,8 +130,16 @@
 
 
 			<div class="d-flex   justify-content-center my-4">
-				<a href="#" id="btnOnsiteRegister" class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">現場報名</a>
-				<a href="#" id="btnQRcode" class=" btn btn-primary-isre mx-2 mx-sm-4">報到QRcode  </a>
+				<a href="#" id="btnVIP" 
+				class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">VIP</a>
+				<a href="#" id="btnOnsiteRegister" 
+					class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">現場報名</a>
+				<button type="button" class="btn btn-primary-isre mx-2 mx-sm-4 "
+					data-bs-toggle="modal" data-bs-target="#ModalQRcode">
+					報名QRcode 
+				</button>
+				<%--	<a href="#" id="btnQRcode" class=" btn btn-primary-isre mx-2 mx-sm-4">報到QRcode  </a>
+				--%>
 				<a href="#" id="btnExport" class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
 			</div>
 
@@ -1075,6 +1083,60 @@
 			</div>
 		</div>
 
+
+		<!-- The Modal -->
+		<div class="modal" id="ModalQRcode">
+			<div class="modal-dialog modal-lg  modal-dialog-scrollable  modal-dialog-centered">
+				<div class="modal-content ">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4>活動主題</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body text-center">
+						<table id="myTable" class="table table-borderless " width="100%">
+							<thead>
+								<tr>
+									<th></th>
+								</tr> 
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<h2>活動主題</h2>
+										<h5>0524「東區第⼆、三類投保單位承保業務說明會」視訊會議</h5>
+										<img class="img-fluid" src="Content/images/QR_Code.png" />
+										<div class="d-flex justify-content-center">
+											<ol class="text-start">
+												<li>活動日期：112/05/23</li>
+												<li>活動時間：09:00~12:00 </li>
+												<li>活動地點：(花蓮縣)MicrosoftTeams線上視訊會議-場次⼀</li>
+												<li>報到時間：112/05/23 08:30~112/05/23 12:00 </li>
+											</ol>
+										</div>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer d-flex justify-content-between align-items-center">
+						<button type="button" class="btn btn-primary-isre px-4" data-bs-dismiss="modal">OK</button>
+						<button type="button" class="btn btn-primary  px-4">下載 PDF</button>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
 	</main>
 
 
@@ -1083,6 +1145,17 @@
 	<script> 
 
 		$(document).ready(function () {
+
+			//$('#myTable').DataTable({
+			//		dom: 'Bfrtip',
+			//		buttons: [
+			//			{ extend: 'pdf', text: '下載 PDF' }
+			//	], 
+			//	'searching': false,
+			//	'ordering': false,
+			//	'paging': false,
+			//	'info': false,
+			//	});
 			$("#modalAttend").on('show.bs.modal', function () {
 				$("#modalAttend").find('#spName').text($("#modalAttend").attr('name'));
 				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('email'));
@@ -1091,6 +1164,23 @@
 			$("#modalAttend").on('hide.bs.modal', function () {
 				$("#modalAttend").removeAttr('name email mobile guid status');
 			});
+
+			 
+			$(document).on('blur', '#scanQRcode', function (e) {
+				e.preventDefault();
+				console.log('test');
+				let divToolHeight = $('#divTool').height();
+				let target3 = $('tr[name="來賓100"]');
+				if (target3.length == 0) {////// name not found
+					alert('Not found!'); return;
+				} else {
+					MoveTo(target3, - divToolHeight);
+					target3.find('.btnAttend').click();
+				}
+			});
+
+
+
 			$(document).on('click', '#btnView', function (e) {
 				e.preventDefault();
 				if ($(this).children().hasClass('fa-eye-slash')) {
@@ -1122,18 +1212,18 @@
 					$(this).children().addClass('fa-eye-slash').removeClass('fa-eye');
 					$('.name').each(function () {
 						// get element text 
-						$(this).text( $(this).closest('tr').attr('name'));
+						$(this).text($(this).closest('tr').attr('name'));
 					});
 					$('.mobile').each(function () {
 						// get element text 
-						$(this).text( $(this).closest('tr').attr('mobile'));
+						$(this).text($(this).closest('tr').attr('mobile'));
 					});
 					$('.email').each(function () {
 						// get element text 
-						$(this).text( $(this).closest('tr').attr('email'));
+						$(this).text($(this).closest('tr').attr('email'));
 					});
 				}
-				
+
 
 			});
 

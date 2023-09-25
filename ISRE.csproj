@@ -2206,6 +2206,10 @@
     <Content Include="Content\images\Logo.png" />
     <Content Include="Content\images\QR_Code.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="DataTable\datatables.css" />
+    <Content Include="DataTable\datatables.js" />
+    <Content Include="DataTable\datatables.min.css" />
+    <Content Include="DataTable\datatables.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

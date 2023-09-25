@@ -8,6 +8,16 @@
 		label {
 			background-color: var(--Ice-color) !important;
 		}
+
+		tbody tr {
+			vertical-align: middle;
+		}
+		td.right, th.right{
+			text-align:right;
+		}
+		td.left, th.left{
+	text-align:left;
+}
 	</style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid
@@ -339,42 +349,41 @@
 
 				<div class="  row     ">
 					<div class=" bg-ice  py-3  col-lg-2 border  ">
-						<label>設定活動內容</label>
+						<label>設定議程</label>
 					</div>
 					<div class="  py-3   col-lg-10 border">
 						<div>
-							<table class="table border">
+							<table class="table  ">
 								<thead>
-									<tr>
-										<th>時間</th>
-										<th>內容</th>
-										<th width="10%">刪除</th>
+									<tr class="bg-ice">
+										<th class="left ps-2">時間</th>
+										<th class="left ps-2">內容</th>
+										<th class="right pe-4">刪除</th> 
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<tr class=" ">
 										<!--<td><input type="datetime-local" class="medium"></td>-->
 										<td>
 											<div class="d-flex">
 												<input type="text" class="form-control    "
 													id="sch_s_datepicker" placeholder="民國年/月/日">
-												<ut type="time" placeholder="HH:mm" class="form-control">
-													<span>~</span>
-													<input type="text" id="sch_e_datepicker"
-														class="form-control  " placeholder="民國年/月/日">
-													<input type="time" placeholder="HH:mm" class="form-control">
+												<input type="time" placeholder="HH:mm" class="form-control">
+												<span>~</span>
+												<%--<input type="text" id="sch_e_datepicker"
+													class="form-control  " placeholder="民國年/月/日">--%>
+												<input type="time" placeholder="HH:mm" class="form-control">
 											</div>
 
 										</td>
 										<td>
-											<textarea name="" id="" cols="30" rows="2"
-												class="form-control"></textarea></td>
-										<td><a href="#" class="btn form-control">刪除</a></td>
+											<textarea name="" id="" cols="30" rows="2" class="form-control"></textarea></td>
+										<td class="right"><a href="#" class="btn btn-primary-isre  ">刪除</a></td>
 									</tr>
 								</tbody>
 							</table>
 							<div class="d-flex">
-								<a href="#" class="btn btinpn-primary-isre px-4">+新增活動內容</a>
+								<a href="#" class="btn btn-primary-isre px-4">+新增議程</a>
 							</div>
 						</div>
 					</div>
@@ -390,12 +399,12 @@
 							<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>
 						</div>
 						<div>
-							<table class="table border">
+							<table class="table  ">
 								<thead>
 									<tr>
-										<th>檔名</th>
-										<th>檔案大小</th>
-										<th width="10%">刪除</th>
+										<th class="left ps-2">檔名</th>
+										<th class="left ps-2">檔案大小</th>
+								 	<th class="right pe-4">刪除</th> 
 									</tr>
 								</thead>
 								<tbody>
@@ -407,7 +416,7 @@
 
 										</td>
 										<td>1.35MB </td>
-										<td><a href="#" class="btn btn-primary-isre form-control">刪除</a></td>
+										<td class="right"><a href="#" class="btn btn-primary-isre  ">刪除</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -437,12 +446,12 @@
 									<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>
 								</div>
 								<div>
-									<table class="table border">
+									<table class="table  ">
 										<thead>
 											<tr>
-												<th>檔名</th>
-												<th>檔案大小</th>
-												<th width="10%">刪除</th>
+												<th class="left ps-2">檔名</th>
+												<th class="left ps-2">檔案大小</th>
+												<th class="right pe-4">刪除</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -454,7 +463,9 @@
 
 												</td>
 												<td>1.35MB </td>
-												<td><a href="#" class="btn btn-primary-isre form-control">刪除</a></td>
+												<td class="right"> 
+														<a href="#" class="btn btn-primary-isre ">刪除</a> 
+												</td>
 											</tr>
 										</tbody>
 									</table>
@@ -594,24 +605,26 @@
 				</div>
 
 				<div class="d-flex justify-content-center mt-5 mb-3">
-					 
+
 					<% if (Model != null)
 						{%>
 					<a href="#" id="btnInsert" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">新增</a>
+					<a href="#" id="btnCancel" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">取消</a>
 
 					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">儲存</a>
 
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">複製</a>
+					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">傳送</a>
 
 					<% }
-					 else
-					 { %>
+						else
+						{ %>
 					<a href="#" id="btnAdd" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">新增</a>
 
 					<%}%>
 					<a href="#" id="btnBack" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回前一頁</a>
 
-					<a href="/" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
+					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 
 
@@ -628,13 +641,20 @@
 	<script> 
 
 		$(document).ready(function () {
+			$("#SESS_DATE_S_DATE, #SESS_DATE_E_DATE,#REG_DATE_S, #REG_DATE_E, #CHK_DATE_S_DATE, #CHK_DATE_E_DATE, #REMIND_MAIL_DATE, #sch_s_datepicker")
+				.datepicker($.datepicker.regional['zh-TW']);
+
 
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
-				$('#btnCopy, #btnSave').addClass('d-none');
-				$('#btnInsert').removeClass('d-none');
+				$('#btnCopy, #btnSave, #btnRelease').addClass('d-none');
+				$('#btnInsert, #btnCancel').removeClass('d-none');
 			});
-
+			$(document).on('click', '#btnCancel', function (e) {
+				e.preventDefault();
+				$('#btnCopy, #btnSave, #btnRelease').removeClass('d-none');
+				$('#btnInsert, #btnCancel').addClass('d-none');
+			});
 
 		});
 
