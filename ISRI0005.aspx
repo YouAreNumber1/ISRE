@@ -1152,9 +1152,9 @@
 
 		$(document).ready(function () {
 
-			
 
-			 
+
+
 			$("#modalAttend").on('show.bs.modal', function () {
 				$("#modalAttend").find('#spName').text($("#modalAttend").attr('name'));
 				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('email'));
@@ -1287,7 +1287,12 @@
 			});
 			$('#btnExport').on('click', function (e) {
 				e.preventDefault();
-				var table = $('#tableList').DataTable({
+				if ($.fn.dataTable.isDataTable('#tableList')) { 
+					table = $('#tableList').DataTable();
+					table.destroy();
+				}
+
+				table = $('#tableList').DataTable({
 					dom: 'Bfrtip',
 					buttons: [
 						{ extend: 'excel', text: 'Export Excel' }
@@ -1296,10 +1301,9 @@
 					'ordering': false,
 					'paging': false,
 					'info': false,
-				});
-
+				}); 
 				$('.buttons-excel').click();
-				//table.off();
+				 
 				//alert('匯出所有人員清單');
 			});
 
