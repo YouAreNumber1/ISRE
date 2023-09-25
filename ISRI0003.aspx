@@ -459,13 +459,13 @@
 
       <div class="  row     ">
           <div class="bg-ice   py-3  col-lg-2 border  ">
-              <span class="note">*</span><b> <label> 視訊會議</label></b>
+               <label> 視訊會議</label> 
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
 
                   <div>視訊連結</div>
-                  <input type="text" class="form-control  mx-1 requiredInput" 
+                  <input type="text" class="form-control  mx-1  " 
                       id="VIDEO_LINK" name="VIDEO_LINK"
                        value="<%: (Model !=null &&  Model.VIDEO_LINK!=null
                         ? Model.VIDEO_LINK : ""  )  %>"  >
@@ -491,15 +491,15 @@
  
       <div class="  row     ">
           <div class=" bg-ice   py-3  col-lg-2 border  ">
-              <span class="note">*</span><b><label> 報名確認信</label></b>
+              <label> 報名確認信</label> 
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
                   <div>文字敘述</div>
                   <textarea name="CONFIRM_MAIL" id="CONFIRM_MAIL" cols="30" rows="3"
-                            class="form-control  requiredInput"><%: (Model !=null &&  Model.CONFIRM_MAIL!=null ? Model.CONFIRM_MAIL : ""  )  %></textarea>
+                            class="form-control   "><%: (Model !=null &&  Model.CONFIRM_MAIL!=null ? Model.CONFIRM_MAIL : "您已完成填寫『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名表，為確保為您的電子信箱填寫無誤，請您點選下方連結進行電子郵件確認(於2023/05/25 14:20前)，確認完成後方能完成報名程序。\n　　如您未進行活動報名，有可能是他人誤用（或冒用），請將這封信直接刪除即可。"  )  %></textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre my-2 px-4">預覽</a>
                   </div>
 
               </div>
@@ -507,31 +507,30 @@
       </div>
       <div class="  row     ">
           <div class=" bg-ice  py-3  col-lg-2 border  ">
-              <span class="note">*</span><b><label>報名成功通知 </label>信</b>
+               <label>報名成功通知信 </label> 
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
                   <div>文字敘述</div>
                   <textarea name="SUCCESS_MAIL" id="SUCCESS_MAIL" cols="30" rows="3"
-                            class="form-control  requiredInput"><%: (Model !=null &&  Model.SUCCESS_MAIL!=null ? Model.SUCCESS_MAIL : ""  )  %> </textarea>
+                            class="form-control   "><%: (Model !=null &&  Model.SUCCESS_MAIL!=null ? Model.SUCCESS_MAIL : "您已完成『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre  my-2 px-4">預覽</a>
                   </div>
               </div>
           </div>
       </div>
       <div class="  row     ">
           <div class=" bg-ice  py-3  col-lg-2 border  ">
-              <span class="note">*</span><b><label> 報名候補確認信</label></b>
+               <label> 報名候補確認信</label> 
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
                   <div>文字敘述</div>
                   <textarea name="WAIT_MAIL" id="WAIT_MAIL" cols="30" rows="3"
-                    class="form-control  
-                      requiredInput"> <%: (Model !=null &&  Model.WAIT_MAIL!=null ? Model.WAIT_MAIL : ""  )  %> </textarea>
+                    class="form-control    "><%: (Model !=null &&  Model.WAIT_MAIL!=null ? Model.WAIT_MAIL : "您已完成『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名候補，若您遞補成功將會另外發函通知，\n請密切注意您的電子郵件信箱。若無沒遞補恕不另外通知。"  )  %> </textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre  my-2 px-4">預覽</a>
                   </div>
               </div>
 
@@ -540,7 +539,7 @@
  
       <div class="  row     ">
           <div class=" bg-ice   py-3  col-lg-2 border  ">
-              <span class="note">*</span><b><label> 活動提醒通知信</label></b>
+              <label> 活動提醒通知信</label> 
           </div>
           <div class="  py-3   col-lg-10 border">
               <div>
@@ -557,7 +556,7 @@
                               <label class="form-check-label" for="REMIND_MAIL_ENABLE2"></label>
                           </div>
                       </div>
-                      <div class="ms-5 me-3 "><label> 寄送時間</label></div>
+                      <div class="ms-5 me-3 "><b> 寄送時間</b></div>
                       <div class="d-flex">
                           <input type="text" id="REMIND_MAIL_DATE" name="REMIND_MAIL_DATE"
                                  placeholder="民國年/月/日" class="form-control  mx-1    requiredInput"
@@ -575,10 +574,10 @@
                   </div>
                   <div>文字敘述</div>
                   <textarea name="REMIND_MAIL_TEXT" id="REMIND_MAIL_TEXT" cols="30" rows="3"
-                            class="form-control requiredInput ">
-                      <%: (Model !=null &&  Model.REMIND_MAIL_TEXT!=null ? Model.REMIND_MAIL_TEXT : ""  )  %> </textarea>
+                            class="form-control   "><%:(Model !=null &&  Model.REMIND_MAIL_TEXT!=null 
+                              ? Model.REMIND_MAIL_TEXT : "『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動即將開始，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
                   <div class="d-flex">
-                      <a href="#" class="btn btn-primary-isre px-4">預覽</a>
+                      <a href="#" class="btn btn-primary-isre my-2  px-4">預覽</a>
                   </div>
 
               </div>

@@ -358,6 +358,8 @@
 						  <span class="bg-danger badge  mx-1 mx-sm-2">29</span>
 					</a>
 				</li>
+				
+				
 			</ul>
 
 
@@ -749,6 +751,9 @@
 							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								未確認 <span id="spanSumUnconfirm" class="badge bg-danger">20</span>
 							</button>
+							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
+				  <i class="fa-solid fa-eye-slash"></i>
+</button>
 						</div>
 						<div id="lastAttended">
 							<div>最新報到⼈員 </div>
