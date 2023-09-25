@@ -317,7 +317,7 @@
 
 			<% }
 				else
-				{%> 
+				{%>
 			<div class="d-flex mt-5">
 				<div class="text-nowrap">關鍵字：</div>
 				<input type="text" class="form-control">
@@ -399,7 +399,8 @@
 
 									<td>112/05/11 10:23</td>
 									<td>
-										<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
 									</td>
 								</tr>
 								<tr>
@@ -412,7 +413,10 @@
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
-									<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr>
 									<td>2023/05/11</td>
@@ -424,7 +428,10 @@
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
-									<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr>
 									<td>2023/05/11</td>
@@ -437,7 +444,8 @@
 
 									<td>112/05/11 10:23</td>
 									<td>
-										<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
 									</td>
 								</tr>
 								<tr>
@@ -450,7 +458,10 @@
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
-									<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr>
 									<td>2023/05/11</td>
@@ -462,84 +473,101 @@
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
-									<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr>
-				<td>2023/05/11</td>
-				<td>謝銀河</td>
-				<td>12345678<br />
-								資訊組</td>
-				<td>0911222333</td>
-				<td class="left">ga.yahoo.com</td>
-				<td>葷食</td>
+									<td>2023/05/11</td>
+									<td>謝銀河</td>
+									<td>12345678<br />
+										資訊組</td>
+									<td>0911222333</td>
+									<td class="left">ga.yahoo.com</td>
+									<td>葷食</td>
 
-				<td>112/05/11 10:23</td>
-				<td>
-								<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
-				</td>
-</tr>
-<tr>
-				<td>2023/05/11</td>
-				<td>黃必勝</td>
-				<td>12345678<br />
-								資訊組</td>
+									<td>112/05/11 10:23</td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2023/05/11</td>
+									<td>黃必勝</td>
+									<td>12345678<br />
+										資訊組</td>
 
-				<td>0911222333</td>
-				<td class="left">galaxy.yahoo.com</td>
-				<td>葷食</td>
-				<td>112/05/11 10:23</td>
-				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
-</tr>
-<tr>
-				<td>2023/05/11</td>
-				<td>許明華</td>
-				<td>12345678<br />
-								資訊組</td>
+									<td>0911222333</td>
+									<td class="left">galaxy.yahoo.com</td>
+									<td>葷食</td>
+									<td>112/05/11 10:23</td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2023/05/11</td>
+									<td>許明華</td>
+									<td>12345678<br />
+										資訊組</td>
 
-				<td>0911222333</td>
-				<td class="left">galaxy.yahoo.com</td>
-				<td>葷食</td>
-				<td>112/05/11 10:23</td>
-				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
-</tr>
-<tr>
-				<td>2023/05/11</td>
-				<td>謝銀河</td>
-				<td>12345678<br />
-								資訊組</td>
-				<td>0911222333</td>
-				<td class="left">ga.yahoo.com</td>
-				<td>葷食</td>
+									<td>0911222333</td>
+									<td class="left">galaxy.yahoo.com</td>
+									<td>葷食</td>
+									<td>112/05/11 10:23</td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2023/05/11</td>
+									<td>謝銀河</td>
+									<td>12345678<br />
+										資訊組</td>
+									<td>0911222333</td>
+									<td class="left">ga.yahoo.com</td>
+									<td>葷食</td>
 
-				<td>112/05/11 10:23</td>
-				<td>
-								<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
-				</td>
-</tr>
-<tr>
-				<td>2023/05/11</td>
-				<td>黃必勝</td>
-				<td>12345678<br />
-								資訊組</td>
+									<td>112/05/11 10:23</td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2023/05/11</td>
+									<td>黃必勝</td>
+									<td>12345678<br />
+										資訊組</td>
 
-				<td>0911222333</td>
-				<td class="left">galaxy.yahoo.com</td>
-				<td>葷食</td>
-				<td>112/05/11 10:23</td>
-				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
-</tr>
-<tr>
-				<td>2023/05/11</td>
-				<td>許明華</td>
-				<td>12345678<br />
-								資訊組</td>
+									<td>0911222333</td>
+									<td class="left">galaxy.yahoo.com</td>
+									<td>葷食</td>
+									<td>112/05/11 10:23</td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2023/05/11</td>
+									<td>許明華</td>
+									<td>12345678<br />
+										資訊組</td>
 
-				<td>0911222333</td>
-				<td class="left">galaxy.yahoo.com</td>
-				<td>葷食</td>
-				<td>112/05/11 10:23</td>
-				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
-</tr>
+									<td>0911222333</td>
+									<td class="left">galaxy.yahoo.com</td>
+									<td>葷食</td>
+									<td>112/05/11 10:23</td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -659,8 +687,10 @@
 
 									<td>112/05/11 10:23</td>
 
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr>
 									<td>2023/05/11</td>
@@ -672,8 +702,10 @@
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
 
-									<td><a href="#" class="aReRegister btn btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr>
 									<td>2023/05/11</td>
@@ -684,7 +716,10 @@
 									<td class="left">galaxy.yahoo.com</td>
 									<td>葷食</td>
 									<td>112/05/11 10:23</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -756,12 +791,15 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-success">已報到</div>
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class="table-warning">
 									<td>2023/05/11</td>
@@ -774,12 +812,15 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-warning">未報到</div>
 									</td>
-									<td><a href="#" class="aReRegister btn btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class=" ">
 									<td>2023/05/11</td>
@@ -792,11 +833,15 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-danger">未確認</div>
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class="table-success">
 									<td>2023/05/11</td>
@@ -810,12 +855,15 @@
 									</td>
 
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-success">已報到</div>
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class="table-warning">
 									<td>2023/05/11</td>
@@ -828,12 +876,15 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-warning">未報到</div>
 									</td>
-									<td><a href="#" class="aReRegister btn btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class=" ">
 									<td>2023/05/11</td>
@@ -846,11 +897,15 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-danger">未確認</div>
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class="table-success">
 									<td>2023/05/11</td>
@@ -865,12 +920,15 @@
 									</td>
 
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-success">已報到</div>
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class="table-warning">
 									<td>2023/05/11</td>
@@ -883,12 +941,15 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-warning">未報到</div>
 									</td>
-									<td><a href="#" class="aReRegister btn btn-primary-isre text-nowrap">重新報名</a></td>
-
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<tr class=" ">
 									<td>2023/05/11</td>
@@ -901,11 +962,15 @@
 										<div>0911222333</div>
 										<div>ga.yahoo.com</div>
 									</td>
-									<td class="left">112/05/11<br>10:23</td>
+									<td class="left">112/05/11<br>
+										10:23</td>
 									<td>
 										<div class="badge bg-danger">未確認</div>
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<%	}
 									else
@@ -976,7 +1041,7 @@
 			</div>
 			<%}%>
 		</div>
-		 
+
 		<!-- The Modal -->
 		<div class="modal" id="modalAttend">
 			<div class="modal-dialog">
@@ -997,8 +1062,8 @@
 
 					<!-- Modal footer -->
 					<div class="modal-footer d-flex justify-content-between align-items-center">
-						<button type="button" class="btn btn-light" data-bs-dismiss="modal">取消</button>
-						<button type="button" id="btnConfirm" class="btn btn-danger">確認</button>
+						<button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">取消</button>
+						<button type="button" id="btnConfirm" class="btn btn-danger px-4">確認</button>
 					</div>
 
 				</div>
@@ -1014,21 +1079,21 @@
 
 		$(document).ready(function () {
 			$("#modalAttend").on('show.bs.modal', function () {
-				$("#modalAttend").find('#spName').text($("#modalAttend").attr('Name'));
-				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('Email'));
-				$("#modalAttend").find('#spMobile').text($("#modalAttend").attr('Mobile'));
+				$("#modalAttend").find('#spName').text($("#modalAttend").attr('name'));
+				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('email'));
+				$("#modalAttend").find('#spMobile').text($("#modalAttend").attr('mobile'));
 			});
 			$("#modalAttend").on('hide.bs.modal', function () {
-				$("#modalAttend").removeAttr('Name Email Mobile guid status');
+				$("#modalAttend").removeAttr('name email mobile guid status');
 			});
 
 
 			$(document).on('click', '.btnAttend', function (e) {
 				e.preventDefault();
-				$("#modalAttend").attr('Name', $(this).closest('tr').attr('Name'));
-				$("#modalAttend").attr('Email', $(this).closest('tr').attr('Email'));
-				$("#modalAttend").attr('Mobile', $(this).closest('tr').attr('Mobile'));
-				$("#modalAttend").attr('Status', $(this).closest('tr').attr('Status'));
+				$("#modalAttend").attr('name', $(this).closest('tr').attr('name'));
+				$("#modalAttend").attr('email', $(this).closest('tr').attr('email'));
+				$("#modalAttend").attr('mobile', $(this).closest('tr').attr('mobile'));
+				$("#modalAttend").attr('status', $(this).closest('tr').attr('status'));
 				$("#modalAttend").attr('guid', $(this).closest('tr').attr('id'));
 				$("#modalAttend").modal('show');
 			});
@@ -1038,13 +1103,15 @@
 				let guid = $("#modalAttend").attr('guid');
 				let status = $("#modalAttend").attr('status');
 				let name = $("#modalAttend").attr('name');
-				//////// update status col and row class
-				$('#' + guid).find('.attendstatus').html('<div class="badge bg-success">已報到</div>');
-				$('#' + guid).removeClass('table-warning').addClass('table-success');
+				//////// update status col and row class 
+				$('#' + guid)
+					.removeClass('table-warning')
+					.addClass('table-success')
+					.find('.attendstatus').html('<div class="badge bg-success">已報到</div>');
 				// update attend date/time
 				let date = new Date();
 				let attenddate = (date.getFullYear() - 1911)
-					+ '/' +  '0'+ (date.getMonth() + 1)
+					+ '/' + '0' + (date.getMonth() + 1)
 					+ '/' + date.getDate();
 				let attendtime = (date.getHours()) + ':' + (date.getMinutes());
 				$('#' + guid).find('.AttendDate').html(attenddate);
@@ -1053,12 +1120,13 @@
 					.addClass('disabled').removeClass('btnAttend');
 
 				///////////update summary info
-				let spanSumAttended = parseInt($('#spanSumAttended').text());
-				let spanSumUnatended = parseInt($('#spanSumUnatended').text());
-				let spanSumUnconfirm = parseInt($('#spanSumUnconfirm').text());
-				$('#spanSumAttended').text(spanSumAttended + 1);
-				if (status == '1') $('#spanSumUnatended').text(spanSumUnatended - 1);
-				if (status == '0') $('#spanSumUnconfirm').text(spanSumUnconfirm - 1);
+				let SumAttended = parseInt($('#spanSumAttended').text());
+				let SumUnatended = parseInt($('#spanSumUnatended').text());
+				let SumUnconfirm = parseInt($('#spanSumUnconfirm').text());
+				$('#spanSumAttended').text(SumAttended + 1);
+				(status == '1')
+					? $('#spanSumUnatended').text(SumUnatended - 1)
+					: $('#spanSumUnconfirm').text(SumUnconfirm - 1);
 
 				////////update last attend info
 				$('#lastAttendant').text(name);
@@ -1088,9 +1156,9 @@
 				e.preventDefault();
 				alert('產出帶個資的報名表, 送出報到');
 			});
-			$(document).on('click','#btnSearch', function (e) {
+			$(document).on('click', '#btnSearch', function (e) {
 				e.preventDefault();
-				let divToolHeight = $('#divTool').height(); 
+				let divToolHeight = $('#divTool').height();
 				let txtSearch = $('#txtSearch').val();
 				if (txtSearch.trim() == '') return;
 
@@ -1111,7 +1179,7 @@
 				}
 				else {
 					MoveTo(target, - divToolHeight);
-				} 
+				}
 			});
 		});
 
