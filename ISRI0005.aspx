@@ -14,13 +14,14 @@
 			.table td.left, th.left {
 				text-align: left;
 			}
-			table {
-				border-collapse: collapse;
-			}
 
-			tr.searched {
-				border: 4pt solid black;
-			}
+		table {
+			border-collapse: collapse;
+		}
+
+		tr.searched {
+			border: 4pt solid black;
+		}
 	</style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid 
@@ -129,9 +130,9 @@
 
 
 			<div class="d-flex   justify-content-center my-4">
-				<a href="#" id="aOnsiteRegister" class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">現場報名</a>
-				<a href="#" id="aQRcode" class=" btn btn-primary-isre mx-2 mx-sm-4">報到QRcode  </a>
-				<a href="#" id="aExport" class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
+				<a href="#" id="btnOnsiteRegister" class=" btn btn-primary-isre mx-2 mx-sm-4  px-4">現場報名</a>
+				<a href="#" id="btnQRcode" class=" btn btn-primary-isre mx-2 mx-sm-4">報到QRcode  </a>
+				<a href="#" id="btnExport" class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
 			</div>
 
 
@@ -283,9 +284,9 @@
 
 
 			<%-- search bar start  --%>
+			<% if (plan == "b")
+				{%>
 			<h3 class="text-center mt-5  ">報到工具  </h3>
-
-
 			<div id="divTool" class="row g-1 sticky-top">
 				<div class="col-md-6">
 					<div class="card mb-1">
@@ -314,6 +315,18 @@
 				</div>
 			</div>
 
+			<% }
+				else
+				{%> 
+			<div class="d-flex mt-5">
+				<div class="text-nowrap">關鍵字：</div>
+				<input type="text" class="form-control">
+				<button class="text-nowrap btn btn-primary-isre mx-2">查詢</button>
+			</div>
+
+			<% }
+			%>
+
 			<%-- search bar end--%>
 
 
@@ -321,6 +334,7 @@
 
 
 			<h3 class="text-center mt-5  ">報到人員管理  </h3>
+
 			<% if (plan == "")
 				{%>
 			<!-- Nav tabs -->
@@ -353,7 +367,10 @@
 				<div class="tab-pane container active py-1 border" id="home">
 
 					<div class="col m-2 ">最新報到⼈員：謝銀河 112/05/11 09:31</div>
-
+					<div class="d-flex m-2">
+						<div class="text-nowrap">報到掃描區：</div>
+						<input type="text" class="form-control">
+					</div>
 					<div class="table-responsive">
 						<table class="table table-striped" id="tblGroup1">
 							<thead>
@@ -447,6 +464,82 @@
 									<td>112/05/11 10:23</td>
 									<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
 								</tr>
+								<tr>
+				<td>2023/05/11</td>
+				<td>謝銀河</td>
+				<td>12345678<br />
+								資訊組</td>
+				<td>0911222333</td>
+				<td class="left">ga.yahoo.com</td>
+				<td>葷食</td>
+
+				<td>112/05/11 10:23</td>
+				<td>
+								<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
+				</td>
+</tr>
+<tr>
+				<td>2023/05/11</td>
+				<td>黃必勝</td>
+				<td>12345678<br />
+								資訊組</td>
+
+				<td>0911222333</td>
+				<td class="left">galaxy.yahoo.com</td>
+				<td>葷食</td>
+				<td>112/05/11 10:23</td>
+				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+</tr>
+<tr>
+				<td>2023/05/11</td>
+				<td>許明華</td>
+				<td>12345678<br />
+								資訊組</td>
+
+				<td>0911222333</td>
+				<td class="left">galaxy.yahoo.com</td>
+				<td>葷食</td>
+				<td>112/05/11 10:23</td>
+				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+</tr>
+<tr>
+				<td>2023/05/11</td>
+				<td>謝銀河</td>
+				<td>12345678<br />
+								資訊組</td>
+				<td>0911222333</td>
+				<td class="left">ga.yahoo.com</td>
+				<td>葷食</td>
+
+				<td>112/05/11 10:23</td>
+				<td>
+								<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
+				</td>
+</tr>
+<tr>
+				<td>2023/05/11</td>
+				<td>黃必勝</td>
+				<td>12345678<br />
+								資訊組</td>
+
+				<td>0911222333</td>
+				<td class="left">galaxy.yahoo.com</td>
+				<td>葷食</td>
+				<td>112/05/11 10:23</td>
+				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+</tr>
+<tr>
+				<td>2023/05/11</td>
+				<td>許明華</td>
+				<td>12345678<br />
+								資訊組</td>
+
+				<td>0911222333</td>
+				<td class="left">galaxy.yahoo.com</td>
+				<td>葷食</td>
+				<td>112/05/11 10:23</td>
+				<td><a href="" class="btn btn-primary-isre text-nowrap">編輯</a></td>
+</tr>
 							</tbody>
 						</table>
 					</div>
@@ -612,18 +705,22 @@
 				<div class="card-header">
 					<div class="d-flex justify-content-between align-items-center">
 						<div>
-							<button type="button" class="btn btn-info btn-label me-4 px-4">
-								已報到 <span class="badge bg-success">24</span>
+							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
+								已報到 <span id="spanSumAttended" class="badge bg-success">24</span>
 							</button>
-							<button type="button" class="btn btn-info btn-label me-4 px-4">
-								未報到 <span class="badge bg-warning">164</span>
+							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
+								未報到 <span id="spanSumUnatended" class="badge bg-warning">164</span>
 							</button>
-							<button type="button" class="btn btn-info btn-label me-4 px-4">
-								未確認 <span class="badge bg-danger">20</span>
+							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
+								未確認 <span id="spanSumUnconfirm" class="badge bg-danger">20</span>
 							</button>
 						</div>
-						<div>
-							<i class="fa-solid fa-arrows-rotate   fa-2x mx-2"></i>
+						<div id="lastAttended">
+							<div>最新報到⼈員 </div>
+							<div>
+								<span id="lastAttendant">謝銀河</span>
+								<span id="lastAttendantDateTime">112/05/11 09:31</span>
+							</div>
 						</div>
 					</div>
 
@@ -642,8 +739,7 @@
 									</th>
 									<th class="left">報到時間  	</th>
 									<th>報到狀態</th>
-									<th>編輯/管理 </th>
-
+									<th>編輯/報到</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -660,7 +756,7 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-success">已報到</div>
 									</td>
@@ -678,7 +774,7 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-warning">未報到</div>
 									</td>
@@ -696,7 +792,7 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-danger">未確認</div>
 									</td>
@@ -714,7 +810,7 @@
 									</td>
 
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-success">已報到</div>
 									</td>
@@ -732,7 +828,7 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-warning">未報到</div>
 									</td>
@@ -750,7 +846,7 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-danger">未確認</div>
 									</td>
@@ -769,7 +865,7 @@
 									</td>
 
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-success">已報到</div>
 									</td>
@@ -787,7 +883,7 @@
 										<div>ga.yahoo.com</div>
 									</td>
 
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-warning">未報到</div>
 									</td>
@@ -805,7 +901,7 @@
 										<div>0911222333</div>
 										<div>ga.yahoo.com</div>
 									</td>
-									<td>112/05/11 10:23</td>
+									<td class="left">112/05/11<br>10:23</td>
 									<td>
 										<div class="badge bg-danger">未確認</div>
 									</td>
@@ -825,31 +921,44 @@
 											mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
 											tableClass = i > 50 ? "table-warning" : "";
 											bgClass = i > 50 ? "bg-warning" : "bg-danger";
-											%>
-								<tr class="<%:tableClass %> " id="<%:mobile %>">
-									<td>2023/05/11</td>
-									<td class="left"><div class="來賓<%:i %>">來賓<%:i %></div><div>葷食</div>
-									</td>
-									<td class="left">12345678
-								<div>資訊組</div>
+								%>
+								<tr id="guid<%:mobile %>"
+									class="<%:tableClass %>  "
+									mobile="<%:mobile %>"
+									name="來賓<%:i %>"
+									email="guest<%:i %>.yahoo.com"
+									status="<%: i<50 ? "0":"1" %>">
+									<td>112/05/11</td>
+									<td class="left">
+										<div>來賓<%:i %></div>
+										<div>葷食</div>
 									</td>
 									<td class="left">
-										<div class="mobile"><%:  mobile  %></div>
-										<div class="email-guest<%:i %>">guest<%:i %>.yahoo.com</div>
+										<div>12345678</div>
+										<div>資訊組</div>
 									</td>
-									<td class="left">  </td>
-									<td>
+									<td class="left">
+										<div><%:mobile %></div>
+										<div>guest<%:i %>.yahoo.com</div>
+									</td>
+									<td class="left">
+										<div class="AttendDate"></div>
+										<div class="AttendTime"></div>
+									</td>
+									<td class="attendstatus">
 										<% if (i < 50)
 											{   %>
-												<div class=" badge <%:bgClass %> ">未確認</div> 
-											<%	}
-												else
-												{ %>
-										<div class="badge  <%:bgClass %> ">已確認</div> 
-										 	<% } %>
-										
+										<div class=" badge <%:bgClass %> ">未確認</div>
+										<%	}
+											else
+											{ %>
+										<div class="badge  <%:bgClass %> ">已確認</div>
+										<% } %> 
 									</td>
-									<td><a href="#" class="btn aReRegister btn-primary-isre text-nowrap">重新報名</a></td>
+									<td>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+									</td>
 								</tr>
 								<%}
 								%>
@@ -867,7 +976,34 @@
 			</div>
 			<%}%>
 		</div>
+		 
+		<!-- The Modal -->
+		<div class="modal" id="modalAttend">
+			<div class="modal-dialog">
+				<div class="modal-content">
 
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">報到確認</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+						<div>Name: <span id="spName"></span></div>
+						<div>Email: <span id="spEmail"></span></div>
+						<div>Mobile: <span id="spMobile"></span></div>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer d-flex justify-content-between align-items-center">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">取消</button>
+						<button type="button" id="btnConfirm" class="btn btn-danger">確認</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 	</main>
 
@@ -877,54 +1013,105 @@
 	<script> 
 
 		$(document).ready(function () {
+			$("#modalAttend").on('show.bs.modal', function () {
+				$("#modalAttend").find('#spName').text($("#modalAttend").attr('Name'));
+				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('Email'));
+				$("#modalAttend").find('#spMobile').text($("#modalAttend").attr('Mobile'));
+			});
+			$("#modalAttend").on('hide.bs.modal', function () {
+				$("#modalAttend").removeAttr('Name Email Mobile guid status');
+			});
 
-			$('#aOnsiteRegister').on('click', function (e) {
+
+			$(document).on('click', '.btnAttend', function (e) {
+				e.preventDefault();
+				$("#modalAttend").attr('Name', $(this).closest('tr').attr('Name'));
+				$("#modalAttend").attr('Email', $(this).closest('tr').attr('Email'));
+				$("#modalAttend").attr('Mobile', $(this).closest('tr').attr('Mobile'));
+				$("#modalAttend").attr('Status', $(this).closest('tr').attr('Status'));
+				$("#modalAttend").attr('guid', $(this).closest('tr').attr('id'));
+				$("#modalAttend").modal('show');
+			});
+
+			$(document).on('click', '#btnConfirm', function (e) {
+				e.preventDefault();
+				let guid = $("#modalAttend").attr('guid');
+				let status = $("#modalAttend").attr('status');
+				let name = $("#modalAttend").attr('name');
+				//////// update status col and row class
+				$('#' + guid).find('.attendstatus').html('<div class="badge bg-success">已報到</div>');
+				$('#' + guid).removeClass('table-warning').addClass('table-success');
+				// update attend date/time
+				let date = new Date();
+				let attenddate = (date.getFullYear() - 1911)
+					+ '/' +  '0'+ (date.getMonth() + 1)
+					+ '/' + date.getDate();
+				let attendtime = (date.getHours()) + ':' + (date.getMinutes());
+				$('#' + guid).find('.AttendDate').html(attenddate);
+				$('#' + guid).find('.AttendTime').html(attendtime);
+				$('#' + guid).find('.btnAttend')
+					.addClass('disabled').removeClass('btnAttend');
+
+				///////////update summary info
+				let spanSumAttended = parseInt($('#spanSumAttended').text());
+				let spanSumUnatended = parseInt($('#spanSumUnatended').text());
+				let spanSumUnconfirm = parseInt($('#spanSumUnconfirm').text());
+				$('#spanSumAttended').text(spanSumAttended + 1);
+				if (status == '1') $('#spanSumUnatended').text(spanSumUnatended - 1);
+				if (status == '0') $('#spanSumUnconfirm').text(spanSumUnconfirm - 1);
+
+				////////update last attend info
+				$('#lastAttendant').text(name);
+				$('#lastAttendantDateTime').text(attenddate + ' ' + attendtime);
+
+				/////// update row status 
+				$('#' + guid).attr('status', '2');
+				$("#modalAttend").modal('hide');
+			});
+
+
+
+			$('#btnOnsiteRegister').on('click', function (e) {
 				e.preventDefault();
 				alert('產出空白完整報名表, 填完, 送出報到');
 			});
-			$('#aQRcode').on('click', function (e) {
+			$('#btnQRcode').on('click', function (e) {
 				e.preventDefault();
 				alert('產出報到單, 輸入基本資料 (key information), 送出報到');
 			});
-			$('#aExport').on('click', function (e) {
+			$('#btnExport').on('click', function (e) {
 				e.preventDefault();
 				alert('匯出所有人員清單');
 			});
 
-			$('.aReRegister').on('click', function (e) {
+			$('.btnReRegister').on('click', function (e) {
 				e.preventDefault();
-				alert('產出帶個資的報名表, 送出報到'); 
+				alert('產出帶個資的報名表, 送出報到');
 			});
-			$('#btnSearch').on('click', function (e) {
+			$(document).on('click','#btnSearch', function (e) {
 				e.preventDefault();
-				let divToolHeight = $('#divTool').height();  
-
+				let divToolHeight = $('#divTool').height(); 
 				let txtSearch = $('#txtSearch').val();
-				if (txtSearch.trim()=='') return;
-				let target = $('#' + txtSearch.trim()); 
-				if (target.length == 0) {  ////////// mobile not found
-					let email = '.email-' + txtSearch;  
-					let target2 = $(email); 
+				if (txtSearch.trim() == '') return;
+
+				let target = $('tr[mobile="' + txtSearch.trim() + '"]');
+				if (target.length == 0) {  ////////// mobile not found 
+					let target2 = $('tr[email="' + txtSearch.trim() + '"]');
 					if (target2.length == 0) {///////// email not found
-						let target3 = $('.' + txtSearch);
-						if (target3.length == 0) {
-							alert('Not found!');return;
+						let target3 = $('tr[name="' + txtSearch.trim() + '"]');
+						if (target3.length == 0) {////// name not found
+							alert('Not found!'); return;
 						} else {
-							MoveTo(target3.closest('tr'), - divToolHeight); 
-						} 
+							MoveTo(target3, - divToolHeight);
+						}
 					}
 					else {
-						MoveTo(target2.closest('tr'), - divToolHeight);
+						MoveTo(target2, - divToolHeight);
 					}
 				}
 				else {
-					MoveTo(target.closest('tr'),  - divToolHeight );
-				}
-
-				
-				
-			 	
-				 
+					MoveTo(target, - divToolHeight);
+				} 
 			});
 		});
 
