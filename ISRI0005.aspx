@@ -783,12 +783,15 @@
 							<thead>
 								<tr>
 									<th>報名⽇期  </th>
-									<th class="left">姓名<div>餐飲習慣</div>
+									<th class="left">姓名 </th>
+									<th class="left">投保單位代號 
 									</th>
-									<th class="left">投保單位代號<div>單位名稱  </div>
+									<th class="left">
+										<div>單位名稱  </div>
 									</th>
 									<th class="left">連絡電話 </th>
 									<th class="left">電⼦郵件</th>
+									<th class="left">餐飲習慣</th>
 									<th class="left">報到時間  	</th>
 									<th>報到狀態</th>
 									<th>編輯/報到</th>
@@ -799,15 +802,16 @@
 									{%>
 								<tr class="table-success">
 									<td>2023/05/11</td>
-									<td class="left">謝銀河<div>葷食</div>
-									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">謝銀河  </td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
-
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -820,15 +824,17 @@
 								</tr>
 								<tr class="table-warning">
 									<td>2023/05/11</td>
-									<td class="left">黃必勝<div>葷食</div>
+									<td class="left">黃必勝 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
-
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -841,15 +847,17 @@
 								</tr>
 								<tr class=" ">
 									<td>2023/05/11</td>
-									<td class="left">許明華<div>葷食</div>
+									<td class="left">許明華 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
-
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -862,16 +870,18 @@
 								</tr>
 								<tr class="table-success">
 									<td>2023/05/11</td>
-									<td class="left">謝銀河<div>葷食</div>
+									<td class="left">謝銀河 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
 
-
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -884,15 +894,17 @@
 								</tr>
 								<tr class="table-warning">
 									<td>2023/05/11</td>
-									<td class="left">黃必勝<div>葷食</div>
+									<td class="left">黃必勝 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
-
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -905,15 +917,17 @@
 								</tr>
 								<tr class=" ">
 									<td>2023/05/11</td>
-									<td class="left">許明華<div>葷食</div>
+									<td class="left">許明華 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
-
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -926,17 +940,18 @@
 								</tr>
 								<tr class="table-success">
 									<td>2023/05/11</td>
-									<td class="left">謝銀河<div>葷食</div>
+									<td class="left">謝銀河 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
-
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
 
-
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -949,15 +964,17 @@
 								</tr>
 								<tr class="table-warning">
 									<td>2023/05/11</td>
-									<td class="left">黃必勝<div>葷食</div>
+									<td class="left">黃必勝 
 									</td>
-									<td class="left">12345678<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
-
+									<td class="left">
+				<div>gatest2039.huang@yahoo.com</div>
+</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -970,15 +987,17 @@
 								</tr>
 								<tr class=" ">
 									<td>2023/05/11</td>
-									<td class="left">許明華<div>葷食</div>
+									<td class="left">許明華 
 									</td>
-									<td class="left">12345678
-										<div>資訊組</div>
-									</td>
+									<td class="left">12345678  </td>
+									<td class="left">資訊組  </td>
 									<td class="left">
 										<div>0911222333</div>
-										<div>ga.yahoo.com</div>
 									</td>
+									<td class="left">
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
+									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
 									<td>
@@ -1013,17 +1032,23 @@
 									<td>112/05/11</td>
 									<td class="left">
 										<div class="name">來賓<%:i %></div>
-										<div>葷食</div>
 									</td>
 									<td class="left">
 										<div>12345678</div>
-										<div>資訊組</div>
+										 
 									</td>
+									<td class="left">
+			 
+				<div>資訊組</div>
+</td>
 									<td class="left">
 										<div class="mobile"><%:mobile %></div>
 									</td>
 									<td class="left">
 										<div class="email">guest<%:i %>.yahoo.com</div>
+									</td>
+									<td class="left">
+										<div>葷食</div>
 									</td>
 									<td class="left">
 										<div class="AttendDate"></div>
@@ -1249,9 +1274,9 @@
 				// update attend date/time
 				let date = new Date();
 				let attenddate = (date.getFullYear() - 1911)
-					+ '/' + '0' + (date.getMonth() + 1)
+					+ '/' + ('0' + (date.getMonth() + 1)).slice(-2)
 					+ '/' + date.getDate();
-				let attendtime = (date.getHours()) + ':' + (date.getMinutes());
+				let attendtime = (date.getHours()) + ':' + ("0" + date.getUTCMinutes()).slice(-2);
 				$('#' + guid).find('.AttendDate').html(attenddate);
 				$('#' + guid).find('.AttendTime').html(attendtime);
 				$('#' + guid).find('.btnAttend')
@@ -1287,7 +1312,7 @@
 			});
 			$('#btnExport').on('click', function (e) {
 				e.preventDefault();
-				if ($.fn.dataTable.isDataTable('#tableList')) { 
+				if ($.fn.dataTable.isDataTable('#tableList')) {
 					table = $('#tableList').DataTable();
 					table.destroy();
 				}
@@ -1295,15 +1320,21 @@
 				table = $('#tableList').DataTable({
 					dom: 'Bfrtip',
 					buttons: [
-						{ extend: 'excel', text: 'Export Excel' }
+						{
+							extend: 'excel',
+							text: 'Export Excel',
+							exportOptions: {
+								columns: [0, 1, 2,3,4 ,5,6,7,8]
+							}
+						}
 					],
 					'searching': false,
 					'ordering': false,
 					'paging': false,
 					'info': false,
-				}); 
+				});
 				$('.buttons-excel').click();
-				 
+
 				//alert('匯出所有人員清單');
 			});
 
