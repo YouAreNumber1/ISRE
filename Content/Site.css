@@ -1,201 +1,144 @@
 ﻿/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 @charset "UTF-8";
- 
+
 :root {
-    --Cyan-color: #197584;
-    --White-color: #FFFFFF;
-    --Silver-color: #F2F2F2;
-    --Iron-color: #E4E4E4;
-    --Steel-color: #D1D1D1;
-    --Stone-color: #B5B5B5;
-    --Dark-color: #343434;
-    --Ice-color: #E2F0F1;
-    --Sea-color: #69CAD9;
-    --Plum-color: #9E1E5C;
-    --Blossom-color: #F4EAEE;
-    --Yellow-color: #D8A603;
-    --Pale-color: #FAF4E1;
-    --Green-color: #148930;
-    --Orange-color: #DA3C03;
-    --Lime-color: #C0E9BA;
-    --Custard-color: #FFEAA3;
-    --Chiffon-color: #FFB078;
-    --Peach-color: #FC8779;
-    --Salmon-color: #FF6D5C;
-    --Grey-color: #CCC;
+	--Cyan-color: #197584;
+	--White-color: #FFFFFF;
+	--Silver-color: #F2F2F2;
+	--Iron-color: #E4E4E4;
+	--Steel-color: #D1D1D1;
+	--Stone-color: #B5B5B5;
+	--Dark-color: #343434;
+	--Ice-color: #E2F0F1;
+	--Sea-color: #69CAD9;
+	--Plum-color: #9E1E5C;
+	--Blossom-color: #F4EAEE;
+	--Yellow-color: #D8A603;
+	--Pale-color: #FAF4E1;
+	--Green-color: #148930;
+	--Orange-color: #DA3C03;
+	--Lime-color: #C0E9BA;
+	--Custard-color: #FFEAA3;
+	--Chiffon-color: #FFB078;
+	--Peach-color: #FC8779;
+	--Salmon-color: #FF6D5C;
+	--Grey-color: #CCC;
 }
 
- 
+
 
 .note {
-    color: red;
-}
-label
-{
-    font-weight:bold;
-}
-.card-header{
-    background-color: var(--Ice-color);
-}
-.table th {
-     text-align: center; 
-    white-space: nowrap;
-    font-weight: bold;
+	color: red;
 }
 
-.table-registration  .note-g {
-    text-align: left;
-    white-space: nowrap;
-    font-weight: bold;
+label {
+	font-weight: bold;
 }
+
+.card-header {
+	background-color: var(--Ice-color);
+}
+
+
+/*
+.table-registration .note-g {
+	text-align: left;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
 .table-registration td {
-    text-align: center;
+	text-align: center;
+}*/
+
+/*a {
+	color: var(--Cyan-color);
+	text-decoration: none !important;
+}
+*/
+.table th {
+	text-align: center;
+	white-space: nowrap;
+	font-weight: bold;
+}
+.table td {
+	text-align: center;
+	vertical-align: middle;
 }
 
-a {
-    color: var(--Cyan-color);
-    text-decoration: none !important;
+.table td.left, th.left {
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
 }
 
 .logo {
-    overflow: hidden;
-    width: 260px;
-    height: 60px;
-    background-image: url(../Content/images/Logo.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+	overflow: hidden;
+	width: 260px;
+	height: 60px;
+	background-image: url(../Content/images/Logo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
 }
-/*
- .btn-primary {
-    text-align: center;
-    display: block;
-    color: var(--White-color);
-    background-color: var(--Cyan-color);
-    border-radius: 24px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    padding: 7px;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: normal;
-    border: none;
-    font-size: 1em;
-    margin: 5px;
-}
-*/
 
 .btn {
-    border-radius: 24px;
+	border-radius: 24px;
 }
+
 .btn-label {
-    border-radius: 6px;
+	border-radius: 6px;
 }
 
-.btn.disabled
-{
-    background-color:#999;
-    color:#fff;
-    border:none;
+.btn.disabled {
+	background-color: #999;
+	color: #fff;
+	border: none;
 }
-
-/*.btn.disabled {
-    text-align: center;
-    display: block;
-    color: var(--White-color);
-    background-color: var(--Grey-color);
-    border-radius: 24px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    padding: 7px;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: normal;
-    border: none;
-    font-size: 1em;
-    margin: 5px;
-}
-*/
-/*.btn.danger {
-    text-align: center;
-    display: block;
-    color: var(--White-color);
-    background-color: var(--Plum-color);
-    border-radius: 24px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    padding: 7px;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: normal;
-    border: none;
-    font-size: 1em;
-    margin: 5px;
-}*/
-.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
-    /*  color: var(--White-color);
-    border-color: var(--bs-btn-hover-border-color);*/
-}
-
-.btn:hover {
-    /* color: var(--White-color); 
-    border-color: var(--bs-btn-hover-border-color);*/
-}
-
  
 
-/* .bg-info {
-    background-color: var(--Ice-color) !important;
-    font-weight: normal;
-} */
+
+ 
 .btn-primary-isre {
-    background-color: var(--Cyan-color) !important;
-    font-weight: normal;
-    color: var(--White-color) !important;
+	background-color: var(--Cyan-color) !important;
+	font-weight: normal;
+	color: var(--White-color) !important;
 }
 
 .bg-ice {
-    background-color: var(--Ice-color) !important;
+	background-color: var(--Ice-color) !important;
 }
+
 .color-isre {
-    color: var(--Cyan-color) !important;
+	color: var(--Cyan-color) !important;
 }
-/*
-.centered {
-    width: auto !important;
-    margin: auto;
-    position: fixed;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 900;
-}*/
-
+ 
 .modalAjax {
-    display: none;
-    position: fixed;
-    z-index: 8000;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+	display: none;
+	position: fixed;
+	z-index: 8000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
 }
 
-    .modalAjax .loading-icon {
-        position: relative;
-        top: 45%;
-        left: 45%;
-        color: #000;
-    }
+	.modalAjax .loading-icon {
+		position: relative;
+		top: 45%;
+		left: 45%;
+		color: #000;
+	}
 
 
-/*.body-content {
-    margin-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-*/
+ 
 .card.active {
-    background-color: var(--Cyan-color) !important;
-    color: var(--White-color) !important;
+	background-color: var(--Cyan-color) !important;
+	color: var(--White-color) !important;
 }
+
 li, .font85 {
-    font-size: 0.9em;
-} 
+	font-size: 0.9em;
+}
