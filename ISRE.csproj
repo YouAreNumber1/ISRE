@@ -2504,6 +2504,7 @@
     <Content Include="Scripts\jquery-ui-custom\LICENSE.txt" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\SearchForm.js" />
+    <Content Include="Scripts\vfs_fonts_NotoSerifTC.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
