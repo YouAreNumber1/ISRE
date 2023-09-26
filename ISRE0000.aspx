@@ -4,91 +4,6 @@
 
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-<%--    <%   
-    //// TEST 0926
-		//string colorName = ShowAssumptions.Items[ShowAssumptions.SelectedIndex].Text;
-		//Response.Write(colorName);
-		string sSelected = "";
-		string SESS_LOC = Request["SESS_LOC"] ?? "";
-		
-
-		string OBJ_NO = Request["OBJ_NO"] ?? "";
-		string ACT_TYPE = Request["ACT_TYPE"] ?? "";
-		string ACT_NAME = Request["ACT_NAME"] ?? "";
-		string ACT_HOST = Request["ACT_HOST"] ?? "";
-		string ACT_DATE_S_DATE = Request["ACT_DATE_S_DATE"] ?? "";
-		string ACT_DATE_E_DATE = Request["ACT_DATE_E_DATE"] ?? "";
-		StringBuilder sb = new StringBuilder();
-		bool bSearch = false;
-		if (SESS_LOC != "" || OBJ_NO != "" || ACT_TYPE != "" || ACT_NAME != "" || ACT_HOST != "" || ACT_DATE_S_DATE != "" || ACT_DATE_E_DATE != "")
-		{
-			bSearch = true;
-		}
-    %>
---%>
-
-
-    <%--<%: SESS_LOC  %>
-<%: OBJ_NO  %>
-<%: ACT_TYPE  %>
-<%: ACT_NAME  %>
-<%: ACT_HOST  %>
-<%: ACT_DATE_S_DATE  %>
-<%: ACT_DATE_E_DATE  %>--%>
- <%--   <%
-        if (bSearch)
-        {
-            //if (ACT_NAME != "")
-            //{
-            //	sb.Append("<h6>活動名稱 <span class='");
-            //	sb.Append("badge bg-secondary'>");
-            //	sb.Append(ACT_NAME);
-            //	sb.Append("</span></h6>");
-            //}
-            //if (OBJ_NO != "")
-            //{
-            //	sb.Append("<h6>身分別 <span class='badge bg-secondary'>");
-            //	sb.Append(OBJ_NO);
-            //	sb.Append("</span></h6>");
-            //}
-            //if (ACT_TYPE != "")
-            //{
-            //	sb.Append("<h6>活動類別 <span class='badge bg-secondary'>");
-            //	sb.Append(ACT_TYPE);
-            //	sb.Append("</span></h6>");
-            //}
-            //if (ACT_NAME != "")
-            //{
-            //	sb.Append("<h6>活動名稱 <span class='badge bg-secondary'>");
-            //	sb.Append(ACT_NAME);
-            //	sb.Append("</span></h6>");
-            //}
-            //if (ACT_HOST != "")
-            //{
-            //	sb.Append("<h6>主辦單位 <span class='badge bg-secondary'>");
-            //	sb.Append(ACT_HOST);
-            //	sb.Append("</span></h6>");
-            //}
-            //if (ACT_DATE_S_DATE != "")
-            //{
-            //	sb.Append("<h6>活動時間起日 <span class='badge bg-secondary'>");
-            //	sb.Append(ACT_DATE_S_DATE);
-            //	sb.Append("</span></h6>");
-            //}
-            //if (ACT_DATE_S_DATE != "")
-            //{
-            //	sb.Append("<h6>活動時間迄日 <span class='badge bg-secondary'>");
-            //	sb.Append(ACT_DATE_E_DATE);
-            //	sb.Append("</span></h6>");
-            //}
-        }
-    %>--%>
-
-
-
-
-
-
     <main>
         <section>
             <div class="d-flex  justify-content-between align-content-center  ">
@@ -104,7 +19,6 @@
                 </div>
             </div>
 
-
             <div id="Filter" class="collapse ">
                 <div class="card">
                     <div class="card-body  ">
@@ -119,7 +33,9 @@
                                         </div>
                                         <div class="col-8">
                                             <div class="  flex-grow-1 ">  
+                                                <%--20230923 Modification By Alex Huang --%>
                                                 <asp:DropDownList ID="SESS_LOC" runat="server" CssClass="form-control form-select"></asp:DropDownList>
+                                                <%--20230923 Modification By Alex Huang --%>
                                             </div>
                                         </div>
                                     </div>
@@ -133,8 +49,10 @@
                                             </div>
                                         </div>
                                         <div class="col-8">
-                                            <div class="  flex-grow-1 ">                
+                                            <div class="  flex-grow-1 ">       
+                                                 <%--20230923 Modification By Alex Huang --%>
                                                 <asp:DropDownList ID="OBJ_NO" runat="server" CssClass="form-control form-select"></asp:DropDownList>
+                                                 <%--20230923 Modification By Alex Huang --%>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +67,9 @@
                                         </div>
                                         <div class="col-8">
                                             <div class="  flex-grow-1 ">                                              
+                                                 <%--20230925 Modification By Alex Huang --%>
                                                 <asp:DropDownList ID="ACT_TYPE" runat="server" CssClass="form-control form-select"></asp:DropDownList>
+                                                 <%--20230925 Modification By Alex Huang --%>
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +86,9 @@
                                         </div>
                                         <div class="col-8 col-lg-10">
                                             <div class="  flex-grow-1 ">
+                                                 <%--20230925 Modification By Alex Huang --%>
                                                 <asp:TextBox ID="ACT_NAME" runat="server" CssClass="form-control"></asp:TextBox>
+                                                 <%--20230925 Modification By Alex Huang --%>
                                             </div>
                                         </div>
                                     </div>
@@ -181,8 +103,9 @@
                                         </div>
                                         <div class="col-8">
                                             <div class="  flex-grow-1 ">
-                                                <input type="text" class="form-control" name="ACT_HOST" id="ACT_HOST"
-                                                    value="<%:  Request["ACT_HOST"] %>">
+                                                 <%--20230925 Modification By Alex Huang --%>
+                                                 <asp:TextBox ID="ACT_HOST"  name="ACT_HOST" runat="server" CssClass="form-control"></asp:TextBox>                                               
+                                                 <%--20230925 Modification By Alex Huang --%>
                                             </div>
                                         </div>
                                     </div>
@@ -202,14 +125,14 @@
                                                 <div class="d-lg-flex   flex-grow-1">
                                                     <input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
                                                         class="form-control " placeholder="民國年/月/日"
-                                                        value="<%:  Request["ACT_DATE_S_DATE"] %>">
+                                                        value="<%:  Request["ACT_DATE_S_DATE"] %>" >                                                   
                                                     <input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" />
                                                     <span class="mx-1">~</span>
                                                 </div>
                                                 <div class="d-lg-flex  flex-grow-1">
                                                     <input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
                                                         class="form-control " placeholder="民國年/月/日"
-                                                        value="<%:  Request["ACT_DATE_E_DATE"] %>">
+                                                       value="<%:  Request["ACT_DATE_E_DATE"] %>" >    
                                                     <input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E" />
                                                 </div>
                                             </div>
@@ -241,16 +164,16 @@
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-center m-4">
+                    <%-- Modification date : 20230923 By Alex Huang --%>
                     <button type="button" id="BtnQuery" name="BtnQuery" class="btn btn-primary-isre px-5 text-nowrap" runat="server"                          
                         onserverclick="BtnQuery_Click">
                         查詢 <i class="fa-solid fa-magnifying-glass text-white"></i>                      
                     </button>
+                    <%-- Modification date : 20230923 By Alex Huang --%>
                 </div>
             </div>
         </section>
 
-        <asp:Literal ID="cardSearch" runat="server" />
-        
         <div 
             runat="server"
             ID="SearchCriteria"
@@ -259,16 +182,12 @@
                 <div class="badge bg-info">搜尋條件</div>
                 <h6>
                     <!--earch criteria-->
-                    <asp:Literal ID="LtlSearchCriteriaData" runat="server"></asp:Literal>
+                    <asp:Literal ID="LiteralSearchCriteriaData" runat="server"></asp:Literal>
                 </h6>
                 
             </div>
         </div>        
  
-        <asp:Literal ID="ltTable3" runat="server" />
-
-      
-
         <h5 class="my-2  text-center" runat="server" id="SearchResult">查詢結果</h5>
         <div class="  card  d-none d-lg-block ">
             <div class="card-header ">
@@ -324,8 +243,6 @@
                                     <div class="text-center">112/08/31 </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="col-12 col-lg-1 d-none d-lg-block">
@@ -377,8 +294,6 @@
         </div>
         <% } %>
 
-
-        <%-- <div id="test"  >test test</div>--%>
     </main>
 
     <script> 
@@ -393,62 +308,6 @@
             $(".collapse").on('hide.bs.collapse', function () {
                 $('#aFilter').children().addClass('fa-chevron-down').removeClass('fa-chevron-up');
             });
-
-            // event
-            //$("button").on("click", function () {
-            //    alert(1);
-            //    alert(this.id);
-            //    alert(this.name);
-            //    $("#aFilter").attr("aria-expanded", "true");
-
-            //    alert($('select[id*=ddlCityList]').val());
-            //    alert($('select[id*=ddlCityList]').find(':selected').text());
-
-            //});
-
-            //$("#Button1").on("click", function () {
-            //    //alert(1);
-            //    //alert(this.id);
-            //    //alert(this.name);
-            //    $("#aFilter").attr("aria-expanded", "true");
-
-            //    //alert($('select[id*=ddlCityList]').val());
-            //    //alert($('select[id*=ddlCityList]').find(':selected').text());
-
-            //});
-            
-
-            //$("select[id*=ddlCityList]").on("change", function () {
-            //    //alert(this.value);
-            //    var GetDdlText = $('select[id*=ddlCityList]').find(':selected').text();
-            //    if (this.value == undefined || this.value == '') {
-            //        GetDdlText = "";
-            //    }  
-            //    $('#ddlCitySelectFont').text(GetDdlText);
-
-            //});
-
-            //$("select[id*=ddlNOList]").on("change", function () {
-            //    var GetDdlText = $('select[id*=ddlNOList]').find(':selected').text();
-
-            //    if (this.value == undefined || this.value == '') {
-            //        GetDdlText = "";
-            //    }               
-            //    $('#ddlNOSelectFont').text(GetDdlText);
-            //});
-            //$("select[id*=ddlActTypeList]").on("change", function () {
-            //    var GetDdlText = $('select[id*=ddlActTypeList]').find(':selected').text();
-            //    if (this.value == undefined || this.value == '') {
-            //        GetDdlText = "";
-            //    }  
-            //    $('#ddlActTypeSelectFont').text(GetDdlText);
-            //});
-            //$("#aFilter").on("click", function () {
-
-            //    alert(1);
-            //    alert(this.);
-            //    alert(this.name);
-            //});
 
         });
     </script>

@@ -51,6 +51,15 @@ namespace ISRE
         protected global::System.Web.UI.WebControls.TextBox ACT_NAME;
 
         /// <summary>
+        /// ACT_HOST 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ACT_HOST;
+
+        /// <summary>
         /// BtnQuery 控制項。
         /// </summary>
         /// <remarks>
@@ -58,15 +67,6 @@ namespace ISRE
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton BtnQuery;
-
-        /// <summary>
-        /// cardSearch 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal cardSearch;
 
         /// <summary>
         /// SearchCriteria 控制項。
@@ -78,22 +78,13 @@ namespace ISRE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SearchCriteria;
 
         /// <summary>
-        /// LtlSearchCriteriaData 控制項。
+        /// LiteralSearchCriteriaData 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LtlSearchCriteriaData;
-
-        /// <summary>
-        /// ltTable3 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltTable3;
+        protected global::System.Web.UI.WebControls.Literal LiteralSearchCriteriaData;
 
         /// <summary>
         /// SearchResult 控制項。
