@@ -5,6 +5,7 @@
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <%--    <%   
+    //// TEST 0926
 		//string colorName = ShowAssumptions.Items[ShowAssumptions.SelectedIndex].Text;
 		//Response.Write(colorName);
 		string sSelected = "";
