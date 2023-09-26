@@ -6,19 +6,6 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 	<style>
-		.table td {
-			text-align: center;
-			vertical-align: middle;
-		}
-
-			.table td.left, th.left {
-				text-align: left;
-			}
-
-		table {
-			border-collapse: collapse;
-		}
-
 		tr.searched {
 			border: 4pt solid red;
 		}
@@ -390,7 +377,7 @@
 							<thead>
 								<tr>
 									<th>報名⽇期  </th>
-									<th>姓名  </th>
+									<th class="left">姓名  </th>
 									<th>投保單位代號<br />
 										單位名稱   </th>
 									<th>連絡電話   	</th>
@@ -809,8 +796,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
@@ -832,8 +819,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
@@ -855,8 +842,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
@@ -878,8 +865,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
@@ -902,8 +889,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
@@ -925,8 +912,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
@@ -948,8 +935,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
@@ -972,8 +959,8 @@
 										<div>0911222333</div>
 									</td>
 									<td class="left">
-				<div>gatest2039.huang@yahoo.com</div>
-</td>
+										<div>gatest2039.huang@yahoo.com</div>
+									</td>
 									<td class="left">葷食  </td>
 									<td class="left">112/05/11<br>
 										10:23</td>
@@ -1035,12 +1022,12 @@
 									</td>
 									<td class="left">
 										<div>12345678</div>
-										 
+
 									</td>
 									<td class="left">
-			 
-				<div>資訊組</div>
-</td>
+
+										<div>資訊組</div>
+									</td>
 									<td class="left">
 										<div class="mobile"><%:mobile %></div>
 									</td>
@@ -1174,33 +1161,103 @@
 
 
 	<script> 
+		var Process_Search = function (txtSearch) {
+			let target = $('tr[mobile="' + txtSearch.trim() + '"]');
+			if (target.length == 0) {  ////////// mobile not found 
+				let target2 = $('tr[email="' + txtSearch.trim() + '"]');
+				if (target2.length == 0) {///////// email not found
+					let target3 = $('tr[name="' + txtSearch.trim() + '"]');
+					if (target3.length == 0) {////// name not found 
+						return null;
+					} else { 
+						return target3;
+					}
+				}
+				else { 
+					return target2;
+				}
+			}
+			else { 
+				return target;
+			}
+		};
 
-		$(document).ready(function () {
+		var Process_Attend = function (trid) { 
+			 
+			//////// update status col and row class 
+			let trTarget = $('tr[id="' + trid + '"');
+			trTarget
+				.removeClass('table-warning')
+				.addClass('table-success')
+				.find('.attendstatus').html('<div class="badge bg-success">已報到</div>');
+			// update attend date/time
+			let date = new Date();
+			let attenddate = (date.getFullYear() - 1911)
+				+ '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+				+ '/' + date.getDate();
+			let attendtime = (date.getHours()) + ':' + ("0" + date.getUTCMinutes()).slice(-2);
+			trTarget.find('.AttendDate').html(attenddate);
+			trTarget.find('.AttendTime').html(attendtime);
+			trTarget.find('.btnAttend')
+				.addClass('disabled').removeClass('btnAttend');
 
+			///////////update summary info
+			let SumAttended = parseInt($('#spanSumAttended').text());
+			let SumUnatended = parseInt($('#spanSumUnatended').text());
+			let SumUnconfirm = parseInt($('#spanSumUnconfirm').text());
+			$('#spanSumAttended').text(SumAttended + 1); 
+			(trTarget.attr('status') == '1')
+				? $('#spanSumUnatended').text(SumUnatended - 1)
+				: $('#spanSumUnconfirm').text(SumUnconfirm - 1);
 
+			////////update last attend info 
+			$('#lastAttendant').text(trTarget.attr('name'));
+			$('#lastAttendantDateTime').text(attenddate + ' ' + attendtime);
 
+			/////// update row status 
+			trTarget.attr('status', '2');
+			$("#modalAttend").modal('hide');
+		};
 
-			$("#modalAttend").on('show.bs.modal', function () {
-				$("#modalAttend").find('#spName').text($("#modalAttend").attr('name'));
-				$("#modalAttend").find('#spEmail').text($("#modalAttend").attr('email'));
-				$("#modalAttend").find('#spMobile').text($("#modalAttend").attr('mobile'));
+		$(document).ready(function () { 
+			$("#modalAttend").on('show.bs.modal', function () { 
+				let tr = $('tr[id="' + $("#modalAttend").attr('trid') + '"');
+				$("#modalAttend").find('#spName').text(tr.attr('name'));
+				$("#modalAttend").find('#spEmail').text(tr.attr('email'));
+				$("#modalAttend").find('#spMobile').text(tr.attr('mobile'));
 			});
 			$("#modalAttend").on('hide.bs.modal', function () {
-				$("#modalAttend").removeAttr('name email mobile guid status');
+				$("#modalAttend").removeAttr(' trid ');
 			});
 
 
 			$(document).on('blur', '#scanQRcode', function (e) {
 				e.preventDefault();
-				console.log('test');
-				let divToolHeight = $('#divTool').height();
-				let target3 = $('tr[name="來賓100"]');
-				if (target3.length == 0) {////// name not found
+				let txtSearch = $('#scanQRcode').val(); 
+				if (txtSearch.trim().length == 0) return;
+				let target = Process_Search(txtSearch);
+				if (target == null) {
 					alert('Not found!'); return;
 				} else {
-					MoveTo(target3, - divToolHeight);
-					target3.find('.btnAttend').click();
+					 let divToolHeight = $('#divTool').height();
+					 MoveTo(target, - divToolHeight);
+					//target.find('.btnAttend').click();
+
+					if (target.attr('status') !='2') {
+						Process_Attend(target.attr('id') );
+					}
+					
 				}
+
+
+				//let divToolHeight = $('#divTool').height();
+				//let target3 = $('tr[name="來賓100"]');
+				//if (target3.length == 0) {////// name not found
+				//	alert('Not found!'); return;
+				//} else {
+				//	MoveTo(target3, - divToolHeight);
+				//	target3.find('.btnAttend').click();
+				//}
 			});
 
 
@@ -1253,51 +1310,54 @@
 
 			$(document).on('click', '.btnAttend', function (e) {
 				e.preventDefault();
-				$("#modalAttend").attr('name', $(this).closest('tr').attr('name'));
-				$("#modalAttend").attr('email', $(this).closest('tr').attr('email'));
-				$("#modalAttend").attr('mobile', $(this).closest('tr').attr('mobile'));
-				$("#modalAttend").attr('status', $(this).closest('tr').attr('status'));
-				$("#modalAttend").attr('guid', $(this).closest('tr').attr('id'));
+				//$("#modalAttend").attr('name', $(this).closest('tr').attr('name'));
+				//$("#modalAttend").attr('email', $(this).closest('tr').attr('email'));
+				//$("#modalAttend").attr('mobile', $(this).closest('tr').attr('mobile'));
+				//$("#modalAttend").attr('status', $(this).closest('tr').attr('status'));
+				$("#modalAttend").attr('trid', $(this).closest('tr').attr('id'));
 				$("#modalAttend").modal('show');
 			});
 
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();
-				let guid = $("#modalAttend").attr('guid');
-				let status = $("#modalAttend").attr('status');
-				let name = $("#modalAttend").attr('name');
+				let trid = $("#modalAttend").attr('trid');
+				//let status = $("#modalAttend").attr('status');
+				//let name = $("#modalAttend").attr('name');
+
+				Process_Attend(trid);
+
 				//////// update status col and row class 
-				$('#' + guid)
-					.removeClass('table-warning')
-					.addClass('table-success')
-					.find('.attendstatus').html('<div class="badge bg-success">已報到</div>');
-				// update attend date/time
-				let date = new Date();
-				let attenddate = (date.getFullYear() - 1911)
-					+ '/' + ('0' + (date.getMonth() + 1)).slice(-2)
-					+ '/' + date.getDate();
-				let attendtime = (date.getHours()) + ':' + ("0" + date.getUTCMinutes()).slice(-2);
-				$('#' + guid).find('.AttendDate').html(attenddate);
-				$('#' + guid).find('.AttendTime').html(attendtime);
-				$('#' + guid).find('.btnAttend')
-					.addClass('disabled').removeClass('btnAttend');
+				//$('#' + guid)
+				//	.removeClass('table-warning')
+				//	.addClass('table-success')
+				//	.find('.attendstatus').html('<div class="badge bg-success">已報到</div>');
+				//// update attend date/time
+				//let date = new Date();
+				//let attenddate = (date.getFullYear() - 1911)
+				//	+ '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+				//	+ '/' + date.getDate();
+				//let attendtime = (date.getHours()) + ':' + ("0" + date.getUTCMinutes()).slice(-2);
+				//$('#' + guid).find('.AttendDate').html(attenddate);
+				//$('#' + guid).find('.AttendTime').html(attendtime);
+				//$('#' + guid).find('.btnAttend')
+				//	.addClass('disabled').removeClass('btnAttend');
 
-				///////////update summary info
-				let SumAttended = parseInt($('#spanSumAttended').text());
-				let SumUnatended = parseInt($('#spanSumUnatended').text());
-				let SumUnconfirm = parseInt($('#spanSumUnconfirm').text());
-				$('#spanSumAttended').text(SumAttended + 1);
-				(status == '1')
-					? $('#spanSumUnatended').text(SumUnatended - 1)
-					: $('#spanSumUnconfirm').text(SumUnconfirm - 1);
+				/////////////update summary info
+				//let SumAttended = parseInt($('#spanSumAttended').text());
+				//let SumUnatended = parseInt($('#spanSumUnatended').text());
+				//let SumUnconfirm = parseInt($('#spanSumUnconfirm').text());
+				//$('#spanSumAttended').text(SumAttended + 1);
+				//(status == '1')
+				//	? $('#spanSumUnatended').text(SumUnatended - 1)
+				//	: $('#spanSumUnconfirm').text(SumUnconfirm - 1);
 
-				////////update last attend info
-				$('#lastAttendant').text(name);
-				$('#lastAttendantDateTime').text(attenddate + ' ' + attendtime);
+				//////////update last attend info
+				//$('#lastAttendant').text(name);
+				//$('#lastAttendantDateTime').text(attenddate + ' ' + attendtime);
 
-				/////// update row status 
-				$('#' + guid).attr('status', '2');
-				$("#modalAttend").modal('hide');
+				///////// update row status 
+				//$('#' + guid).attr('status', '2');
+				//$("#modalAttend").modal('hide');
 			});
 
 
@@ -1324,7 +1384,7 @@
 							extend: 'excel',
 							text: 'Export Excel',
 							exportOptions: {
-								columns: [0, 1, 2,3,4 ,5,6,7,8]
+								columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 							}
 						}
 					],
@@ -1340,32 +1400,41 @@
 
 			$('.btnReRegister').on('click', function (e) {
 				e.preventDefault();
-				alert('產出帶個資的報名表, 送出報到');
+				alert('產出帶個資的報名表, 送出報名');
 			});
 			$(document).on('click', '#btnSearch', function (e) {
 				e.preventDefault();
-				let divToolHeight = $('#divTool').height();
-				let txtSearch = $('#txtSearch').val();
-				if (txtSearch.trim() == '') return;
 
-				let target = $('tr[mobile="' + txtSearch.trim() + '"]');
-				if (target.length == 0) {  ////////// mobile not found 
-					let target2 = $('tr[email="' + txtSearch.trim() + '"]');
-					if (target2.length == 0) {///////// email not found
-						let target3 = $('tr[name="' + txtSearch.trim() + '"]');
-						if (target3.length == 0) {////// name not found
-							alert('Not found!'); return;
-						} else {
-							MoveTo(target3, - divToolHeight);
-						}
-					}
-					else {
-						MoveTo(target2, - divToolHeight);
-					}
-				}
-				else {
+				let txtSearch = $('#txtSearch').val();
+				if (txtSearch.trim().length == 0) return;
+				let target = Process_Search(txtSearch);
+				if (target == null) {
+					alert('Not found!'); return;
+				} else {
+					let divToolHeight = $('#divTool').height();
 					MoveTo(target, - divToolHeight);
 				}
+				return;
+
+
+				//let target = $('tr[mobile="' + txtSearch.trim() + '"]');
+				//if (target.length == 0) {  ////////// mobile not found 
+				//	let target2 = $('tr[email="' + txtSearch.trim() + '"]');
+				//	if (target2.length == 0) {///////// email not found
+				//		let target3 = $('tr[name="' + txtSearch.trim() + '"]');
+				//		if (target3.length == 0) {////// name not found
+				//			alert('Not found!'); return;
+				//		} else {
+				//			MoveTo(target3, - divToolHeight);
+				//		}
+				//	}
+				//	else {
+				//		MoveTo(target2, - divToolHeight);
+				//	}
+				//}
+				//else {
+				//	MoveTo(target, - divToolHeight);
+				//}
 			});
 		});
 
