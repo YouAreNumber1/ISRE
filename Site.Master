@@ -4,58 +4,65 @@
 
 <html lang="zh">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <meta http-equiv="X-UA-Compatible" content="Edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="Edge" />
 
-    <meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="telephone=no" />
 
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='-1'>
-    <meta http-equiv='pragma' content='no-cache'>
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='-1'>
+	<meta http-equiv='pragma' content='no-cache'>
 
 
-    <title>衛生福利部中央健康保險署-活動報名系統</title>
-   <%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
-    <script src="Scripts/jquery-3.6.1.js"></script>
-<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
-    <link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
-   <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-   <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
-   <script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>
-    <script src="Scripts/SearchForm.js"></script>
-    <script src="Scripts/Common.js"></script>
+	<title>衛生福利部中央健康保險署-活動報名系統</title>
+	<%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
+	<script src="Scripts/jquery-3.6.1.js"></script>
+	<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
+	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
+	<script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>
+	<script src="Scripts/SearchForm.js"></script>
+	<script src="Scripts/Common.js"></script>
 
-    <asp:PlaceHolder runat="server">
-            <script src="Scripts/modernizr-2.8.3.js"></script>
-    <%--    <%: Scripts.Render("~/bundles/modernizr") %>--%>
-    </asp:PlaceHolder>
-    <link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <style>
-         #backtotop {
-     position: fixed;
-   /*  display: none;*/
-     right: 10px;
-     bottom: 10px;
-     z-index: 200;
- }
+	<asp:PlaceHolder runat="server">
+		<script src="Scripts/modernizr-2.8.3.js"></script>
+		<%--    <%: Scripts.Render("~/bundles/modernizr") %>--%>
+	</asp:PlaceHolder>
+	<link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
+	<webopt:BundleReference runat="server" Path="~/Content/css" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<style>
+		.logo {
+			overflow: hidden;
+			width: 260px;
+			height: 60px;
+			background-image: url(../Content/images/Logo.png);
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
 
-    </style>
+		#backtotop {
+			position: fixed;
+			right: 10px;
+			bottom: 10px;
+			z-index: 200;
+		}
+	</style>
 </head>
-    
+
 <body>
-    
-    <div class="container pb-1
+
+	<div class="container pb-1
         navbar navbar-expand-sm  
         border border-top border-start-0 border-end-0 d-flex justify-content-between">
- 
- <%
-     string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath) ?? "";
-     if (PhysicalPath.ToUpper().Contains("ISRI"))
-     { %>
+
+		<%
+			string PhysicalPath = System.IO.Path.GetFileName(Request.PhysicalPath) ?? "";
+			if (PhysicalPath.ToUpper().Contains("ISRI"))
+			{ %>
 		<a class="logo me-2" href="/ISRI0000.ASPX"></a>
 		<div class="backend-info m-1">
 			<span>主機名稱</span>
@@ -64,19 +71,19 @@
 			<a href="#">登出</a>
 		</div>
 		<%  }
-            else
-            {
+			else
+			{
 		%>
 		<a class="logo me-2" href="/ISRE0000.ASPX"></a>
 		<%  
-            }
+			}
 		%>
 	</div>
-	 
-    
-   
-    <form runat="server">
-      <%--  <asp:ScriptManager runat="server">
+
+
+
+	<form runat="server">
+		<%--  <asp:ScriptManager runat="server">
             <Scripts> 
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
@@ -109,21 +116,21 @@
                 </div>
             </div>
         </nav>
-      --%>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <a id="backtotop" href="#" class="d-none">
-                    <i class="fa fa-3x fa-chevron-circle-up "></i>
-                </a>
-            <%--    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 應用程式</p>--%>
-            </footer>
-        </div>
-    </form>
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder>
+		--%>
+		<div class="container body-content">
+			<asp:ContentPlaceHolder ID="MainContent" runat="server">
+			</asp:ContentPlaceHolder>
+			<hr />
+			<footer>
+				<a id="backtotop" href="#" class="d-none">
+					<i class="fa fa-3x fa-chevron-circle-up "></i>
+				</a>
+				<%--    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 應用程式</p>--%>
+			</footer>
+		</div>
+	</form>
+	<asp:PlaceHolder runat="server">
+		<%: Scripts.Render("~/Scripts/bootstrap.js") %>
+	</asp:PlaceHolder>
 </body>
 </html>

@@ -39,24 +39,7 @@ label {
 .card-header {
 	background-color: var(--Ice-color);
 }
-
-
-/*
-.table-registration .note-g {
-	text-align: left;
-	white-space: nowrap;
-	font-weight: bold;
-}
-
-.table-registration td {
-	text-align: center;
-}*/
-
-/*a {
-	color: var(--Cyan-color);
-	text-decoration: none !important;
-}
-*/
+ 
 .table th {
 	text-align: center;
 	white-space: nowrap;
@@ -75,14 +58,7 @@ table {
 	border-collapse: collapse;
 }
 
-.logo {
-	overflow: hidden;
-	width: 260px;
-	height: 60px;
-	background-image: url(../Content/images/Logo.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-}
+
 
 .btn {
 	border-radius: 24px;
@@ -96,11 +72,7 @@ table {
 	background-color: #999;
 	color: #fff;
 	border: none;
-}
- 
-
-
- 
+} 
 .btn-primary-isre {
 	background-color: var(--Cyan-color) !important;
 	font-weight: normal;
