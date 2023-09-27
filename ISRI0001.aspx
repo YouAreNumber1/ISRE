@@ -42,11 +42,11 @@
                             ? Model.PUB_DATE_S 
                             : DateTime.Now )  %>" />
 							<span class="mx-2">~ </span>
-							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE" 
+							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE"
 								placeholder="民國年/月/日"
 								class="form-control mx-1 requiredInput">
 
-							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME" 
+							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME"
 								placeholder="HH:mm"
 								class="form-control mx-1 requiredInput">
 
@@ -287,7 +287,7 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
-					<button type="button" id="btn_Insert"  
+					<button type="button" id="btn_Insert"
 						guid="<%:GUID%>"
 						class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
 						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
@@ -295,10 +295,11 @@
 					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
-					<a href="#"
-						class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+					<% if (Model != null)
+						{%>
+					<a href="#" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
 
-
+					<%}  %>
 				</div>
 
 

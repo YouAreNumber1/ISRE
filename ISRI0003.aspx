@@ -12,12 +12,14 @@
 		tbody tr {
 			vertical-align: middle;
 		}
-		td.right, th.right{
-			text-align:right;
+
+		td.right, th.right {
+			text-align: right;
 		}
-		td.left, th.left{
-	text-align:left;
-}
+
+		td.left, th.left {
+			text-align: left;
+		}
 	</style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid
@@ -358,7 +360,7 @@
 									<tr class="bg-ice">
 										<th class="left ps-2">時間</th>
 										<th class="left ps-2">內容</th>
-										<th class="right pe-4">刪除</th> 
+										<th class="right pe-4">刪除</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -404,7 +406,7 @@
 									<tr>
 										<th class="left ps-2">檔名</th>
 										<th class="left ps-2">檔案大小</th>
-								 	<th class="right pe-4">刪除</th> 
+										<th class="right pe-4">刪除</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -463,8 +465,8 @@
 
 												</td>
 												<td>1.35MB </td>
-												<td class="right"> 
-														<a href="#" class="btn btn-primary-isre ">刪除</a> 
+												<td class="right">
+													<a href="#" class="btn btn-primary-isre ">刪除</a>
 												</td>
 											</tr>
 										</tbody>
@@ -615,6 +617,7 @@
 
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">複製</a>
 					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">傳送</a>
+					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">刪除</a>
 
 					<% }
 						else
@@ -647,12 +650,12 @@
 
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
-				$('#btnCopy, #btnSave, #btnRelease').addClass('d-none');
+				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').addClass('d-none');
 				$('#btnInsert, #btnCancel').removeClass('d-none');
 			});
 			$(document).on('click', '#btnCancel', function (e) {
 				e.preventDefault();
-				$('#btnCopy, #btnSave, #btnRelease').removeClass('d-none');
+				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').removeClass('d-none');
 				$('#btnInsert, #btnCancel').addClass('d-none');
 			});
 
