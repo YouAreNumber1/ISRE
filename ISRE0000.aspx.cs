@@ -30,6 +30,11 @@ namespace ISRE
         //  private readonly static string Updated_RowView = "Updated_Row";
         //  string sSelected= "";
 
+        public dynamic List_Activities = null;
+        private dynamic List_CityList1 = null;
+        private dynamic OBJ_NOList1 = null;
+        private dynamic List_ACT_TYPE1 = null;
+
         /// <summary>
         /// DropDownList class
         /// </summary>
@@ -51,18 +56,24 @@ namespace ISRE
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!CheckDBConn())
-            {
-                //Server.Transfer("~/ErrorPages/Oops.aspx");
-                // 網頁不會空白
-                Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript' defer>alert('Oops 連線失敗，請通知管理人員!');</script>");
 
-                return;
-            }    
-            
             // Creation date: 20230923 By Alex Huang
             this.BtnQuery.ServerClick += new EventHandler(BtnQuery_Click);  // 將 HTML 伺服器控制 變成 ASP.NET 伺服器控制項 加ServerClick 事件
             // Creation date: 20230923 By Alex Huang
+
+            //  Modification date : 20230926 By Alex Huang
+            if (!CheckDBConn())
+            {                
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript' defer>alert('Oops 連線失敗，請通知管理人員!');</script>");
+                return;
+            }
+            else
+            {
+                GetData();
+
+            }
+            //  Modification date : 20230926 By Alex Huang
+
 
             if (!this.IsPostBack)
             {
@@ -74,16 +85,19 @@ namespace ISRE
                 SearchResult.Visible = false;   // 查詢結果
                 SearchCriteria.Visible = false; // 搜尋條件
                 //  Modification date : 20230923 By Alex Huang
+
             }
             else
             {   
                 //  Modification date : 20230923 By Alex Huang
                 SearchResult.Visible = true;    // 查詢結果
                 SearchCriteria.Visible = true;  // 搜尋條件
-               //  Modification date : 20230923 By Alex Huang
+                //  Modification date : 20230923 By Alex Huang
             }
-
         }
+
+
+
 
         /// <summary>
         /// StaticQueryDB
@@ -95,32 +109,32 @@ namespace ISRE
         /// Modification date : 20230925
         /// Modifier :Alex Huang
         /// </remarks> 
-        protected static List<dynamic> StaticQueryDB(string SPName, string QueryMode)
-        {
-            DynamicParameters param = new DynamicParameters();
-            param.Add("@QueryMode", QueryMode, DbType.String, ParameterDirection.Input);
-            
-            try
-            {
-                List<dynamic> result = 
-                    _dbConn.Query<dynamic>(
-                        SPName,
-                        param,
-                        commandType: CommandType.StoredProcedure
-                    , commandTimeout: _ConnectionTimeout
-                   )
-                .ToList();
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex.GetBaseException();
-            }
-            finally
-            {
-                _dbConn.Close();
-            }
-        }
+        //protected static List<dynamic> StaticQueryDB(string SPName, string QueryMode)
+        //{
+        //    DynamicParameters param = new DynamicParameters();
+        //    param.Add("@QueryMode", QueryMode, DbType.String, ParameterDirection.Input);
+
+        //    try
+        //    {
+        //        List<dynamic> result = 
+        //            _dbConn.Query<dynamic>(
+        //                SPName,
+        //                param,
+        //                commandType: CommandType.StoredProcedure
+        //            , commandTimeout: _ConnectionTimeout
+        //           )
+        //        .ToList();
+        //        return result;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex.GetBaseException();
+        //    }
+        //    finally
+        //    {
+        //        _dbConn.Close();
+        //    }
+        //}
 
         /// <summary>
         /// Process_ActivityList
@@ -132,7 +146,68 @@ namespace ISRE
         /// Modification date : 20230925
         /// Modifier :Alex Huang
         /// </remarks> 
-        protected List<dynamic> Process_ActivityList(int Page = 1
+        //protected List<dynamic> Process_ActivityList(int Page = 1
+        //    , int OrderIndex = 1)
+        //{
+        //    DynamicParameters param = new DynamicParameters();
+        //    param.Add("@PageSize", _PageSize, DbType.Int16, ParameterDirection.Input);
+        //    param.Add("@Page", Page, DbType.Int16, ParameterDirection.Input);
+        //    param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
+        //    param.Add("@QueryMode", "QF", DbType.String, ParameterDirection.Input);
+
+        //    try
+        //    {
+
+        //        List<dynamic> model = _dbConn.Query<dynamic>(
+        //            SPName,
+        //            param,
+        //            commandType: CommandType.StoredProcedure
+        //            , commandTimeout: _ConnectionTimeout
+        //        )
+        //        .ToList();
+
+        //        return model;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex.GetBaseException();
+        //    }
+        //    finally
+        //    {
+        //        _dbConn.Close();
+        //    }
+        //}
+
+
+
+        /// <summary>
+        /// 取資料
+        /// </summary>
+        /// <returns>true(連線成功)/false(連線失敗)</returns>
+        /// <remarks>
+        /// Creation date: 20230927
+        /// Author : Alex Huang
+        /// </remarks>
+        private void GetData()
+        {
+            List_CityList1 = GetQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
+            OBJ_NOList1 = GetQueryDB("Home_ISRE_ACTIVITY_MAIN", "OBJ_NO");
+            List_ACT_TYPE1 = GetQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE");
+            List_Activities = GetProcess_ActivityList(1, 1);
+        }
+
+
+        /// <summary>
+        /// Process_ActivityList
+        /// </summary>
+        /// <param name="Page"></param>
+        /// <param name="OrderIndex"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Modification date : 20230925、20230927
+        /// Modifier :Alex Huang
+        /// </remarks> 
+        protected List<dynamic> GetProcess_ActivityList(int Page = 1
             , int OrderIndex = 1)
         {
             DynamicParameters param = new DynamicParameters();
@@ -154,16 +229,16 @@ namespace ISRE
 
                 return model;
             }
-            catch (Exception ex)
+            catch 
             {
-                throw ex.GetBaseException();
+                List<dynamic> result = new List<dynamic>();
+                return result;
             }
             finally
             {
                 _dbConn.Close();
             }
         }
-
 
         /// <summary>
         /// 判斷資料庫是否連線?
@@ -199,14 +274,11 @@ namespace ISRE
         /// <remarks>
         /// Creation date: 20230922 
         /// Author : Alex Huang
-        /// Modification date : 20230926
+        /// Modification date : 20230926、20230927
         /// Modifier :Alex Huang
         /// </remarks>
         private void BindDropDownList() 
         {
-            dynamic List_CityList1 = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
-            dynamic OBJ_NOList1 = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "OBJ_NO");
-            dynamic List_ACT_TYPE1 = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE");
 
             List<CboDataList> lis_DataList = new List<CboDataList>();
 
@@ -220,14 +292,17 @@ namespace ISRE
             // ddlCityList
             lis_DataList.Add(DefaultVal);
 
-            foreach (var item in List_CityList1)
-            {
-                CboDataList comObj1 = new CboDataList
-                {
-                    Cbo_Value = item.CityNo,
-                    Cbo_Name = item.CityName
-                };
-                lis_DataList.Add(comObj1);
+            if (List_CityList1 != null)
+            { 
+                 foreach (var item in List_CityList1)
+                 {
+                     CboDataList comObj1 = new CboDataList
+                     {
+                         Cbo_Value = item.CityNo,
+                         Cbo_Name = item.CityName
+                     };
+                     lis_DataList.Add(comObj1);
+                 }                       
             }
 
             SESS_LOC.DataSource = lis_DataList;
@@ -236,36 +311,47 @@ namespace ISRE
             SESS_LOC.DataBind();
 
             // ddlNOList
-            lis_DataList = new List<CboDataList>();
-            lis_DataList.Add(DefaultVal);
-
-            foreach (var item in OBJ_NOList1)
+            lis_DataList = new List<CboDataList>
             {
-                CboDataList comObj1 = new CboDataList
-                { //SerialID
-                    Cbo_Value = item.SerialID.ToString(),
-                    Cbo_Name = item.OBJ_NO_NAME
-                };
-                lis_DataList.Add(comObj1);
-            }
+                DefaultVal
+            };
 
+            if (OBJ_NOList1 != null)
+            {
+                foreach (var item in OBJ_NOList1)
+                {
+                    CboDataList comObj1 = new CboDataList
+                    { //SerialID
+                        Cbo_Value = item.SerialID.ToString(),
+                        Cbo_Name = item.OBJ_NO_NAME
+                    };
+                    lis_DataList.Add(comObj1);
+                }
+
+            }
             OBJ_NO.DataSource = lis_DataList;
             OBJ_NO.DataTextField = "Cbo_Name";
             OBJ_NO.DataValueField = "Cbo_Value";
             OBJ_NO.DataBind();
 
             // ddlActTypeList
-            lis_DataList = new List<CboDataList>();
-            lis_DataList.Add(DefaultVal);
-
-            foreach (var item in List_ACT_TYPE1)
+            lis_DataList = new List<CboDataList>
             {
-                CboDataList comObj1 = new CboDataList
-                { //SerialID
-                    Cbo_Value = item.SerialID.ToString(),
-                    Cbo_Name = item.TYPE_NAME
-                };
-                lis_DataList.Add(comObj1);
+                DefaultVal
+            };
+
+
+            if (List_ACT_TYPE1 != null)
+            {
+                foreach (var item in List_ACT_TYPE1)
+                {
+                    CboDataList comObj1 = new CboDataList
+                    { //SerialID
+                        Cbo_Value = item.SerialID.ToString(),
+                        Cbo_Name = item.TYPE_NAME
+                    };
+                    lis_DataList.Add(comObj1);
+                }
             }
 
             ACT_TYPE.DataSource = lis_DataList;
@@ -413,7 +499,6 @@ namespace ISRE
         protected void BtnQuery_Click(object sender, EventArgs e)
         {
             GetFieID();
-            //dynamic List_Activities = Process_ActivityList(1, 1);
         }
 
 

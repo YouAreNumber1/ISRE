@@ -5,11 +5,10 @@
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
-        <section>
-            
+        <section>            
             <%--20230927 By Alex Huang --%>
-            <div id="dialog" title="Basic dialog">
-                <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+            <div id="dialog" title="訊息">
+                <p>Oops 連線失敗，請通知管理人員!</p>
             </div>
             <%--20230927 By Alex Huang --%>
 
@@ -222,11 +221,12 @@
             </div>
         </div>
 
-        <% 
-			dynamic List_Activities = Process_ActivityList(1, 1);
-			foreach (var item in List_Activities)
-			{
-        %>
+        <%  
+            //dynamic List_Activities = GetProcess_ActivityList(1, 1);
+            if(List_Activities != null)
+            {
+                foreach (var item in List_Activities)
+                { %>
         <div class="border rounded my-1 py-1">
             <div class="    card m-1 border-0   ">
                 <div class=" row no-gutters  ">
@@ -300,7 +300,12 @@
             </div>
 
         </div>
-        <% } %>
+ 
+
+                <%}
+            }
+
+        %>
 
     </main>
 
