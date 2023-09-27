@@ -10,7 +10,7 @@
 			border: 4pt solid red;
 		}
 
-		 
+
 		.btn-group, .btn-group-vertical {
 			display: inline;
 		}
@@ -359,7 +359,7 @@
 					</div>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu1">未報到
+					<a class="nav-link" data-bs-toggle="tab" href="#menu1">已確認
 						  <span class="bg-warning badge  mx-1 mx-sm-2">19</span>
 					</a>
 				</li>
@@ -756,7 +756,7 @@
 								已報到 <span id="sumAttended" class="badge bg-success">24</span>
 							</button>
 							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
-								未報到 <span id="sumUnatended" class="badge bg-warning">164</span>
+								已確認 <span id="sumUnatended" class="badge bg-warning">164</span>
 							</button>
 							<button type="button" class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								未確認 <span id="sumUnconfirm" class="badge bg-danger">20</span>
@@ -764,6 +764,9 @@
 							<a href="#" id="btnView" class="btn btn-info btn-label   me-4 px-sm-4 mb-1">
 								<i class="fa-solid fa-eye-slash"></i>
 							</a>
+							<button type="button" id="btnAdd" class="btn btn-primary-isre btn-label me-4 px-sm-4 mb-1">
+								新增
+							</button>
 						</div>
 						<div id="lastAttended">
 							<div>最新報到⼈員 </div>
@@ -1018,42 +1021,29 @@
 										{
 											mobile = string.Concat("000", i.ToString());
 											mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
-											tableClass = i > 50 ? "table-warning" : "";
-											bgClass = i > 50 ? "bg-warning" : "bg-danger";
+											tableClass = i <= 50 ? "" : "table-warning";
+											bgClass = i <= 50 ? "bg-danger" : "bg-warning";
 								%>
 								<tr id="guid<%:mobile %>"
 									class="<%:tableClass %>  "
 									mobile="<%:mobile %>"
 									name="來賓<%:i %>"
 									email="guest<%:i %>.yahoo.com"
-									status="<%: i<50?  0:1 %>">
+									status="<%: i<=50?  0:1 %>">
 									<td>112/05/11</td>
-									<td class="left">
-										<div class="name">來賓<%:i %></div>
+									<td class="left name"> 來賓<%:i %>  </td>
+									<td class="left"> 12345678 </td>
+									<td class="left">  資訊組 </td>
+									<td class="left mobile"> <%:mobile %> </td>
+									<td class="left email"> guest<%:i %>.yahoo.com 
 									</td>
-									<td class="left">
-										<div>12345678</div>
-
-									</td>
-									<td class="left">
-
-										<div>資訊組</div>
-									</td>
-									<td class="left">
-										<div class="mobile"><%:mobile %></div>
-									</td>
-									<td class="left">
-										<div class="email">guest<%:i %>.yahoo.com</div>
-									</td>
-									<td class="left">
-										<div>葷食</div>
-									</td>
+									<td class="left"> 葷食 </td>
 									<td class="left">
 										<div class="attendDate"></div>
 										<div class="attendTime"></div>
 									</td>
 									<td class="attendStatus">
-										<% if (i < 50)
+										<% if (i <= 50)
 											{   %>
 										<div class="  badge <%:bgClass %> ">未確認</div>
 										<%	}
@@ -1086,26 +1076,258 @@
 
 		<!-- The Modal -->
 		<div class="modal" id="modalAttend">
-			<div class="modal-dialog">
+			<div class="modal-dialog ">
 				<div class="modal-content">
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4>報到確認</h4>
+						<%--		<h4>報到確認</h4>--%>
+						<h4 class="modal-title "></h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						<div>Name: <span id="spName"></span></div>
-						<div>Email: <span id="spEmail"></span></div>
-						<div>Mobile: <span id="spMobile"></span></div>
+						<div id="tableEdit" class="table table-borderless  modalTable modalTableEdit d-none ">
+							<%--     registration form start--%>
+
+							<div id="registrationForm">
+								<%--	<h3 class="text-center   mb-2">報名表 </h3>--%>
+
+
+
+								<div class="text-center">
+									<div class=" mx-2  form-check-inline">報名⾝分：</div>
+									<div class="form-check mx-2   form-check-inline">
+										<input type="radio" class="form-check-input" id="REG_TYPE1" name="REG_TYPE" value="1" checked>個人
+          <label class="form-check-label" for="REG_TYPE1"></label>
+									</div>
+									<div class="form-check mx-2  form-check-inline">
+										<input type="radio" class="form-check-input" id="REG_TYPE2" name="REG_TYPE" value="2">單位
+          <label class="form-check-label" for="REG_TYPE2"></label>
+									</div>
+									<div class="text-center text-danger"><span class="note">「*」</span>為必填</div>
+								</div>
+
+								<div id="cardInput" class="card border-4">
+									<div class="card-body">
+
+										<%--<div class="   row   unit   ">
+											<div class="    py-lg-3    col-lg-2  ">
+												 <label>投保單位代號</label> 
+											</div>
+											<div class="    py-lg-3   col-lg-10  ">
+												<div>
+													<input type="text" class=" form-control requiredInput" name="UNIT_NO" id="UNIT_NO">
+												</div>
+											</div>
+										</div>
+
+										<div class="   row   unit   ">
+											<div class="   py-lg-3    col-lg-2  ">
+												 <label>投保單位名稱</label> 
+											</div>
+											<div class="    py-lg-3  col-lg-10    ">
+												<div>
+													<input type="text" name="UNIT_NAME2" id="UNIT_NAME2" class=" form-control requiredInput">
+												</div>
+											</div>
+										</div>--%>
+
+
+
+										<div class="   row      ">
+											<div class="      py-lg-3   col-lg-3  ">
+												<span class="note">*</span>
+												<label>姓名</label>
+											</div>
+											<div class="  py-lg-3   col-lg-9  ">
+												<div>
+													<input type="text" name="APPLY_NAME" id="APPLY_NAME" class=" form-control requiredInput">
+												</div>
+											</div>
+										</div>
+
+
+
+
+										<div class="  row  personal    ">
+											<div class="      py-lg-3  col-lg-3    ">
+												<label>⾝分證號/居留證號</label>
+											</div>
+											<div class="   py-lg-3    col-lg-9  ">
+												<div>
+													<input type="text" name="ID_AES" id="ID_AES" class=" form-control  ">
+												</div>
+											</div>
+										</div>
+
+										<div class="  row  personal   ">
+											<div class="   py-lg-3   col-lg-3   ">
+												<label>服務單位</label>
+											</div>
+											<div class="   py-lg-3   col-lg-9 ">
+												<div>
+													<input type="text" name="UNIT_NAME"
+														id="UNIT_NAME" class=" form-control requiredInput">
+												</div>
+											</div>
+										</div>
+
+										<div class="  row     ">
+											<div class="     py-lg-3   col-lg-3    ">
+												<span class="note">*</span><label>聯絡電話</label>
+											</div>
+											<div class="    py-lg-3   col-lg-9  ">
+												<div>
+													<p class="note">＊市話或⾏動電話請務必⾄少填寫⼀項</p>
+													<input type="text" name="MOB_NUM" id="MOB_NUM" class=" form-control requiredInput" placeholder="行動電話號碼">
+													<p>格式：09XXXXXXXX</p>
+													<div class="d-flex">
+														<input type="text" size="20" maxlength="10" name="TEL_AREA" id="TEL_AREA"
+															class=" form-control requiredInput" placeholder="區碼">
+														<input type="text" name="TEL_NUM" id="TEL_NUM"
+															class=" form-control requiredInput" placeholder="室內電話號碼">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="  row     ">
+											<div class="      py-lg-3   col-lg-3    ">
+												<span class="note">*</span>
+												<label>電⼦郵件信箱</label>
+											</div>
+											<div class="    py-lg-3  col-lg-9  ">
+												<div>
+													<input type="text" id="EMAIL" name="EMAIL" class=" form-control requiredInput">
+												</div>
+											</div>
+										</div>
+										<div class="  row    personal ">
+											<div class="     py-lg-3   col-lg-3    ">
+												<label>上傳公務⼈員訓練時數</label>
+											</div>
+											<div class="    py-lg-3  col-lg-9 ">
+												<div class="form-control">
+													<div class="form-check  form-check-inline">
+														<input type="radio" class="form-check-input   " id="UPLOAD_TRAIN_HOUR1" name="UPLOAD_TRAIN_HOUR" value="Y" checked>是
+                      <label class="form-check-label" for="UPLOAD_TRAIN_HOUR1"></label>
+													</div>
+													<div class="form-check  form-check-inline">
+														<input type="radio" class="form-check-input  " id="UPLOAD_TRAIN_HOUR2" name="UPLOAD_TRAIN_HOUR" value="N">否
+                      <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
+													</div>
+
+												</div>
+											</div>
+										</div>
+										<div class="  row     ">
+											<div class="   py-lg-3   col-lg-3    ">
+												<label>餐飲</label>
+											</div>
+											<div class="    py-lg-3   col-lg-9 ">
+												<div class="form-control">
+													<div class="form-check  form-check-inline">
+														<input type="radio" class="form-check-input  " id="DIET_TEND1" name="DIET_TEND" value="1" checked>無
+                      <label class="form-check-label" for="UPLOAD_TRAIN_HOUR1"></label>
+													</div>
+													<div class="form-check  form-check-inline">
+														<input type="radio" class="form-check-input  " id="DIET_TEND2" name="DIET_TEND" value="2">葷食
+                      <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
+													</div>
+													<div class="form-check  form-check-inline">
+														<input type="radio" class="form-check-input  " id="DIET_TEND3" name="DIET_TEND" value="3">素食
+                      <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+
+
+
+
+									</div>
+								</div>
+
+								<%--  command buttons start--%>
+								<%--<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
+									<div>
+										<button type="button" id="btn_Register"
+											class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap"
+											data-target="/Session/Register">
+											送出
+										</button>
+									</div>
+
+									<div>
+										<button type="button" id="btn_Clear"
+											class="btn btn-primary-isre  px-3 mx-1 mx-md-4 px-md-4 text-nowrap">
+											清除</button>
+									</div>
+									 
+
+								</div>--%>
+
+								<%--  command buttons end--%>
+							</div>
+
+							<%-- registration form end--%>
+						</div>
+
+
+						<table id="tableConfirm" class="table table-borderless  modalTable modalTableConfirm d-none ">
+							<thead>
+								<tr>
+									<th></th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="left">
+										<span>Name: </span><span class="name"></span>
+									</td>
+
+								</tr>
+
+								<tr>
+									<td class="left">
+										<span>Email: </span><span class="email"></span>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td class="left">
+										<span>Mobile: </span><span class="mobile"></span>
+
+									</td>
+
+								</tr>
+
+							</tbody>
+						</table>
+
 					</div>
 
 					<!-- Modal footer -->
 					<div class="modal-footer d-flex justify-content-between align-items-center">
-						<button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">取消</button>
-						<button type="button" id="btnConfirm" class="btn btn-danger px-4">確認</button>
+						<button type="button" class="btn btn-light btnGroupConfirm btnGroup d-none px-4" data-bs-dismiss="modal">取消</button>
+						<button type="button" id="btnConfirm" class="btn btn-danger btnGroupConfirm btnGroup d-none px-4">確認</button>
+
+
+
+						<button type="button" class="btn btn-light btnGroupEdit btnGroupAdd btnGroup d-none px-4" data-bs-dismiss="modal">取消</button>
+						<button type="button" id="btnResend" class="btn btn-primary-isre btnGroupEdit btnGroup d-none px-4">重寄確認信</button>
+						<button type="button" id="btnDelete" class="btn btn-danger btnGroupEdit btnGroup d-none px-4">刪除</button>
+						<button type="button" id="btnSave" class="btn btn-primary btnGroupEdit btnGroup d-none px-4">儲存</button>
+
+
+						<button type="button" id="btnInsert" class="btn btn-primary btnGroupAdd btnGroup d-none px-4">新增</button>
+
+
 					</div>
 
 				</div>
@@ -1120,14 +1342,13 @@
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4>活動主題</h4>
+						<h4 class="modal-title "></h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 
 					<!-- Modal body -->
 					<div class="modal-body   table-responsive">
-
-						<table id="tablePDF" class="table table-borderless ">
+						<table id="tablePDF" class="table table-borderless modalTable modalTableQRcode d-none">
 							<thead>
 								<tr>
 									<th></th>
@@ -1193,8 +1414,9 @@
 
 					<!-- Modal footer -->
 					<div class="modal-footer d-flex justify-content-between align-items-center">
-						<button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Close</button>
-						<button type="button" id="btnPDF" class="btn btn-primary  px-4">下載 PDF</button>
+						<button type="button" class="btn btn-light px-4 btnGroup btnGroupQRcode  d-none" data-bs-dismiss="modal">Close</button>
+						<button type="button" id="btnPDF" class="btn btn-primary btnGroup btnGroupQRcode  d-none px-4">下載 PDF</button>
+
 					</div>
 
 				</div>
@@ -1239,9 +1461,9 @@
 			}
 			return null;
 		};
-		///////// Attend process
+		///////// Attend process////////// make ajax call here to connect db processing
 		var Process_Attend = function (trid) {
-			////////// make ajax call here to connect db processing
+
 			//////// after db process if successful
 			//////// update status col and row class contextual
 			let trTarget = $('tr[id="' + trid + '"');
@@ -1297,7 +1519,7 @@
 		}
 
 		let qrcode = $('#btnQRcodePDF').attr('src');
-		//console.log(qrcode);
+
 		$(document).ready(function () {
 			let status0 = $('tr[status=0]').toArray().length;
 			let status1 = $('tr[status=1]').toArray().length;
@@ -1523,13 +1745,41 @@
 
 			$("#modalAttend").on('show.bs.modal', function () {
 				let tr = $('tr[id="' + $("#modalAttend").attr('trid') + '"');
-				$("#modalAttend").find('#spName').text(tr.attr('name'));
-				$("#modalAttend").find('#spEmail').text(tr.attr('email'));
-				$("#modalAttend").find('#spMobile').text(tr.attr('mobile'));
+				let modalType = $("#modalAttend").attr('modalType');
+				if (modalType == 'Confirm') {
+					$("#modalAttend").find('.modal-dialog').removeClass('modal-lg');
+					$("#modalAttend").find(' .modalTableConfirm, .btnGroupConfirm').removeClass('d-none');
+					$("#modalAttend").find('.name').text(tr.attr('name'));
+					$("#modalAttend").find('.email').text(tr.attr('email'));
+					$("#modalAttend").find('.mobile').text(tr.attr('mobile'));
+				}
+				if (modalType == 'Edit') {
+					$("#modalAttend").find('.modal-dialog').addClass('modal-lg');
+					$("#modalAttend").find(' .modalTableEdit, .btnGroupEdit').removeClass('d-none');
+				}
+				if (modalType == 'Add') {
+					$("#modalAttend").find('.modal-dialog').addClass('modal-lg');
+					$("#modalAttend").find(' .modalTableEdit, .btnGroupAdd').removeClass('d-none');
+				}
 			});
 			$("#modalAttend").on('hide.bs.modal', function () {
-				$("#modalAttend").removeAttr(' trid ');
+				$("#modalAttend").removeAttr('modalType trid');
+				$("#modalAttend").find(' .modalTable, .btnGroup').addClass('d-none');
 			});
+
+
+			$("#modalQRcode").on('show.bs.modal', function () {
+				let modalType = $("#modalQRcode").attr('modalType');
+				if (modalType == 'QRcode') {
+					$("#modalQRcode").find('.modalTableQRcode, .btnGroupQRcode').removeClass('d-none');
+				}
+			});
+
+			$("#modalQRcode").on('hide.bs.modal', function () {
+				$("#modalQRcode").removeAttr('modalType');
+				$("#modalQRcode").find(' .modalTable, .btnGroup').addClass('d-none');
+			});
+
 
 			$(document).on('click', '#btnClear', function (e) {
 				e.preventDefault();
@@ -1541,9 +1791,10 @@
 
 			$(document).on('click', '#btnView', function (e) {
 				e.preventDefault();
+				let tableList = $('#tableList');
 				if ($(this).children().hasClass('fa-eye-slash')) {
 					$(this).children().removeClass('fa-eye-slash').addClass('fa-eye');
-					$('.name').each(function () {
+					tableList.find('.name').each(function () {
 						// get element text
 						var text = $(this).text();
 						let char1 = text.substring(0, 1);
@@ -1551,14 +1802,14 @@
 
 						$(this).text(char1 + '*' + charLast);
 					});
-					$('.mobile').each(function () {
+					tableList.find('.mobile').each(function () {
 						// get element text
 						var text = $(this).text();
 						let char3 = text.substring(0, 3);
 						let charLast3 = text.substring(text.length - 3); ///// to the end
 						$(this).text(char3 + '***' + charLast3);
 					});
-					$('.email').each(function () {
+					tableList.find('.email').each(function () {
 						// get element text
 						var text = $(this).text();
 						let char3 = text.substring(0, 3);
@@ -1568,15 +1819,15 @@
 				}
 				else {
 					$(this).children().addClass('fa-eye-slash').removeClass('fa-eye');
-					$('.name').each(function () {
+					tableList.find('.name').each(function () {
 						// get element text 
 						$(this).text($(this).closest('tr').attr('name'));
 					});
-					$('.mobile').each(function () {
+					tableList.find('.mobile').each(function () {
 						// get element text 
 						$(this).text($(this).closest('tr').attr('mobile'));
 					});
-					$('.email').each(function () {
+					tableList.find('.email').each(function () {
 						// get element text 
 						$(this).text($(this).closest('tr').attr('email'));
 					});
@@ -1584,12 +1835,25 @@
 
 
 			});
+			$(document).on('click', '.btnEdit', function (e) {
+				e.preventDefault();
+				$("#modalAttend").find('.modal-title').html('編輯報名表');
+				$("#modalAttend").attr('trid', $(this).closest('tr').attr('id'))
+					.attr('modalType', 'Edit').modal('show');
+			});
+			$(document).on('click', '#btnAdd', function (e) {
+				e.preventDefault();
+				$("#modalAttend").find('.modal-title').html('編輯報名表');
+				$("#modalAttend")
+					.attr('modalType', 'Add').modal('show');
+			});
+
 
 			$(document).on('click', '.btnAttend', function (e) {
 				e.preventDefault();
-				$("#modalAttend")
-					.attr('trid', $(this).closest('tr').attr('id'))
-					.modal('show');
+				$("#modalAttend").find('.modal-title').html('報到確認');
+				$("#modalAttend").attr('trid', $(this).closest('tr').attr('id'))
+					.attr('modalType', 'Confirm').modal('show');
 			});
 
 			$(document).on('click', '#btnConfirm', function (e) {
@@ -1601,7 +1865,8 @@
 
 			$(document).on('click', '#btnQRcodePDF', function (e) {
 				e.preventDefault();
-				$("#modalQRcode").modal('show');
+				$("#modalQRcode").find('.modal-title').html('活動主題');
+				$("#modalQRcode").attr('modalType', 'QRcode').modal('show');
 			});
 			//$('#btnOnsiteRegister').on('click', function (e) {
 			//	e.preventDefault();
@@ -1613,10 +1878,7 @@
 			//});
 
 
-			$(document).on('click', '.btnReRegister', function (e) {
-				e.preventDefault();
-				alert('產出帶個資的報名表, 送出報名');
-			});
+
 			$(document).on('click', '#btnSearch', function (e) {
 				e.preventDefault();
 				let txtSearch = $('#txtSearch').val();

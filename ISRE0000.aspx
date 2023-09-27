@@ -236,7 +236,7 @@
                                 <span class="badge bg-info">活動主題</span>
                             </span>
                             <span class="col-8 col-sm-10">
-                                <a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=b"><%:item.ACT_NAME %></a>
+                                <%:item.ACT_NAME %> 
                             </span>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
                                 <div class="d-flex">
                                    <%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
  
-                                    <a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=a"
+                                    <a href="ISRE0001.aspx?GUID=<%:item.GUID %> "
                                         class="btn btn-primary-isre text-nowrap mx-1 px-3">檢視場次<span class="d-lg-none badge bg-warning mx-1"><%:item.TotalSessionNo %></span>
 
                                     </a>
