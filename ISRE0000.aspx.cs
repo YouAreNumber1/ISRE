@@ -53,7 +53,10 @@ namespace ISRE
         {
             if (!CheckDBConn())
             {
-                Server.Transfer("~/ErrorPages/Oops.aspx");
+                //Server.Transfer("~/ErrorPages/Oops.aspx");
+                // 網頁不會空白
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript' defer>alert('Oops 連線失敗，請通知管理人員!');</script>");
+
                 return;
             }    
             
@@ -73,9 +76,7 @@ namespace ISRE
                 //  Modification date : 20230923 By Alex Huang
             }
             else
-            {
-                //Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript' defer> $('#aFilte').attr('aria-expanded', 'true');</script>");
-               
+            {   
                 //  Modification date : 20230923 By Alex Huang
                 SearchResult.Visible = true;    // 查詢結果
                 SearchCriteria.Visible = true;  // 搜尋條件
@@ -359,6 +360,48 @@ namespace ISRE
 
 
         /// <summary>
+        /// StaticQueryDB
+        /// </summary>
+        /// <param name="SPName">程序名稱</param>
+        /// <param name="QueryMode">QueryMode名稱</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Modification date : 20230925
+        /// Modifier :Alex Huang
+        /// </remarks> 
+        protected static List<dynamic> GetQueryDB(string SPName, string QueryMode)
+        {
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@QueryMode", QueryMode, DbType.String, ParameterDirection.Input);
+
+            try
+            {
+                List<dynamic> result =
+                    _dbConn.Query<dynamic>(
+                        SPName,
+                        param,
+                        commandType: CommandType.StoredProcedure
+                    , commandTimeout: _ConnectionTimeout
+                   )
+                .ToList();
+                return result;
+            }
+            //catch (Exception ex)
+            //{
+            //    throw ex.GetBaseException();
+            //}
+            catch
+            {
+                List<dynamic> result = new List<dynamic>();
+                return result;
+            }
+            finally
+            {
+                _dbConn.Close();
+            }
+        }
+
+        /// <summary>
         /// 查詢按鈕
         /// </summary>
         /// <param name="sender"></param>
@@ -370,7 +413,10 @@ namespace ISRE
         protected void BtnQuery_Click(object sender, EventArgs e)
         {
             GetFieID();
+            //dynamic List_Activities = Process_ActivityList(1, 1);
         }
+
+
 
 
 

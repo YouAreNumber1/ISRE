@@ -2211,7 +2211,6 @@
     <Content Include="DataTable\datatables.min.css" />
     <Content Include="DataTable\datatables.min.js" />
     <Content Include="Default.aspx" />
-    <Content Include="ErrorPages\Oops.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ISRE0004.aspx" />
@@ -2555,13 +2554,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ErrorPages\Oops.aspx.cs">
-      <DependentUpon>Oops.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ErrorPages\Oops.aspx.designer.cs">
-      <DependentUpon>Oops.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

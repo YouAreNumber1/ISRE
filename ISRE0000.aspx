@@ -6,6 +6,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
         <section>
+            
+            <%--20230927 By Alex Huang --%>
+            <div id="dialog" title="Basic dialog">
+                <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+            </div>
+            <%--20230927 By Alex Huang --%>
+
             <div class="d-flex  justify-content-between align-content-center  ">
                 <div class="d-none d-sm-block"></div>
                 <div>
@@ -277,7 +284,8 @@
                         <div class="row no-gutters">
                             <div class="col d-flex justify-content-around">
                                 <div class="d-flex">
-                                    <%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
+                                   <%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
+ 
                                     <a href="ISRE0001.aspx?GUID=<%:item.GUID %>&plan=a"
                                         class="btn btn-primary-isre text-nowrap mx-1 px-3">檢視場次<span class="d-lg-none badge bg-warning mx-1"><%:item.TotalSessionNo %></span>
 
@@ -308,7 +316,22 @@
             $(".collapse").on('hide.bs.collapse', function () {
                 $('#aFilter').children().addClass('fa-chevron-down').removeClass('fa-chevron-up');
             });
+            $("#dialog").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+            //$("#dialog").dialog("open");
 
+            //function Showalert() {
+            //    alert('Call JavaScript function from codebehind');
+            //}
         });
     </script>
 </asp:Content>
