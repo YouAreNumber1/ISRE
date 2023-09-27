@@ -72,12 +72,27 @@ var OrderArrow = function (oTable, oForm) {
     }
 };
 var MoveToTop = function (callback) {
+    //let url = window.location.href;
+    //console.log(url);
+    //let isri0005 = false;
+    //let target = 0;
+    //if (url.toLowerCase().indexOf('isri0005')>0) {
+    //  //  target = $('#divTool').offset().top;
+    //    isri0005 = true;
+    //}
+
+   // console.log(target);
     $('html, body').animate({
         scrollTop: 0
     }, {
         duration: 500,
         complete: function () {
             $('#backtotop').addClass('d-none');
+            //if (isri0005) {
+            //    $('html, body').animate({
+            //        scrollTop: $('#divTool').offset().top
+            //    }, 0);
+            //}
             if (callback) {
                 callback();
             }
@@ -86,7 +101,7 @@ var MoveToTop = function (callback) {
 };
 
 var MoveTo = function (target, adjustment, callback) {
-    
+     
     var scrollTop = target == null ? 0 : target.offset().top;
    
     if (adjustment != null) scrollTop += adjustment;

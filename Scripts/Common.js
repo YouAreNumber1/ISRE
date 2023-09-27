@@ -165,8 +165,8 @@ $(function () {
             }
         });
 
-        $('.footer').on('click', '#backtotop', function (e) {
-            e.preventDefault();
+        $(document).on('click', '#backtotop', function (e) {
+            e.preventDefault(); 
             MoveToTop();
         });
 

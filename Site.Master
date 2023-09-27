@@ -122,7 +122,7 @@
 			</asp:ContentPlaceHolder>
 			<hr />
 			<footer>
-				<a id="backtotop" href="#" class="d-none">
+				<a id="backtotop" href="#"  class="d-none">
 					<i class="fa fa-3x fa-chevron-circle-up "></i>
 				</a>
 				<%--    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 應用程式</p>--%>
