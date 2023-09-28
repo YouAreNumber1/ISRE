@@ -285,7 +285,7 @@
 
 
 					<div class="col-12 col-lg-3 mt-3 mt-lg-0 col-Command">
-						<div class="   d-flex align-items-center   justify-content-between mx-sm-5 mx-lg-0 ">
+						<div class="   d-flex align-items-center   justify-content-center mx-sm-5 mx-lg-0 ">
 							 
 
 								<% if (sessions.Count == 1)
@@ -311,7 +311,7 @@
 								 
 									<a guid="<%:item.GUID %>"
 										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
-										class="btn btn-primary-isre text-nowrap mx-1  ">多人報名 </a>
+										class="btn btn-primary-isre text-nowrap mx-1   ">多人報名 </a>
 								 
 								<% 	}%>
 							 
@@ -345,7 +345,7 @@
 				if (hasClassCollapse) {  /////need to  show
 					colShowSchedule.removeClass('collapse');
 					colCommand.removeClass('col-lg-3').addClass('mb-5');
-					colCommand.find('.btn').addClass('mx-4 mt-5');
+					colCommand.find('.btn').addClass('mx-md-5 mt-5');
 					MoveTo(colShowSchedule);
 					$(this).children().removeClass('fa-chevron-down').addClass('fa-chevron-up');
 				}
@@ -354,7 +354,7 @@
 					 
 					colShowSchedule.addClass('collapse');  
 					colCommand.addClass('col-lg-3 ').removeClass('mb-5');
-					colCommand.find('.btn').removeClass('mx-4 mt-5');
+					colCommand.find('.btn').removeClass('mx-md-5 mt-5');
 					$(this).children().removeClass('fa-chevron-up').addClass('fa-chevron-down');
 				} 
 			});

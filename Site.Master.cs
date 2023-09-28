@@ -11,7 +11,7 @@ namespace ISRE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+			 Page.Title = "衛生福利部中央健康保險署-活動報名系統";
+		}
     }
 }

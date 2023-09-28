@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
 	AutoEventWireup="true" CodeBehind="ISRI0006.aspx.cs"
-	Inherits="ISRE.ISRI0006" %>
+	Inherits="ISRE.ISRI0006"   %>
 
 <%--this page is for backend to edit   register --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid 
-		string ActioinName = (GUID == "") ? "新增" : "編輯";
+		//string ActioinName = (GUID == "") ? "新增" : "編輯";
 	%>
 
-
+	
 	<main aria-labelledby="title">
 		<div class=" my-2">
 
@@ -27,9 +27,7 @@
 			<div class=" col-lg-3  ">
 				⽇期 
 			</div>
-			<div class=" col-lg-1  ">
-				總場次 
-			</div>
+			 
 			<div class=" col-lg-2    ">
 				主辦單位 
 			</div>
@@ -66,18 +64,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12  col-sm-5  col-lg-1 ">
-				<div class="row  d-flex align-items-center ">
-					<span class="d-lg-none  col-3  col-sm-4  ">
-						<span class="badge bg-info">總場次</span>
-					</span>
-					<div class="col-9 col-sm-8 col-lg-12   text-center  ">
-						<div class="d-flex justify-content-lg-center">
-							<div class="badge bg-warning">5</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			 
 			<div class="col-12  col-sm-7  col-lg-2 ">
 				<div class="row  d-flex align-items-center ">
 					<div class="d-lg-none  col-3  col-sm-4   ">
@@ -110,12 +97,7 @@
 	<%--   activity info summary end--%>
 
 
-	<div class="d-flex  justify-content-center my-4">
-		<a href="#" class=" btn   btn-primary-isre mx-2 mx-sm-4">
-			<span>報到QRcode</span>
-		</a>
-		<a href="#" class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
-	</div>
+	 
 
 
 	<%--session   start  --%>
@@ -131,19 +113,19 @@
 			<div class=" col-lg-1  ">
 				場次  
 			</div>
-			<div class=" col-lg-2  ">
+			<div class=" col-lg-3  ">
 				日期時間 
 			</div>
-			<div class=" col-lg-1  ">
+			<div class=" col-lg-2  ">
 				地點 
 			</div>
-			<div class=" col-lg-1 ">
+			<div class=" col-lg-2 ">
 				主辦單位 
 			</div>
-			<div class=" col-lg-2      ">
+			<div class=" col-lg-3     ">
 				報名截⽌⽇ 
 			</div>
-			<div class=" col-lg-2     ">
+		<%--	<div class=" col-lg-2     ">
 				可報名⼈數 
 			</div>
 			<div class=" col-lg-2     ">
@@ -151,7 +133,7 @@
 			</div>
 			<div class=" col-lg-1    ">
 				尚餘名額 
-			</div>
+			</div>--%>
 
 		</div>
 	</div>
@@ -173,7 +155,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-7  col-lg-2 ">
+			<div class="col-12 col-sm-7  col-lg-3 ">
 				<div class="row  d-flex align-items-center">
 					<span class="d-lg-none   col-4 col-sm-5     ">
 						<span class="badge bg-info">日期時間</span>
@@ -183,7 +165,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-5  col-lg-1 ">
+			<div class="col-12 col-sm-5  col-lg-2 ">
 				<div class="row  d-flex align-items-center">
 					<span class="d-lg-none  col-4 col-sm-5      ">
 						<span class="badge bg-info">地點</span>
@@ -193,7 +175,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-7 col-lg-1 ">
+			<div class="col-12 col-sm-7 col-lg-2 ">
 				<div class="row  d-flex align-items-center">
 					<span class="d-lg-none    col-4 col-sm-5      ">
 						<span class="badge bg-info">主辦單位</span>
@@ -203,7 +185,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-5 col-lg-2 ">
+			<div class="col-12 col-sm-5 col-lg-3 ">
 				<div class="row  d-flex align-items-center">
 					<div class="d-lg-none   col-4 col-sm-5       ">
 						<span class="badge bg-info">報名截⽌⽇</span>
@@ -214,7 +196,7 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-sm-7 col-lg-2 ">
+			<%--<div class="col-12 col-sm-7 col-lg-2 ">
 				<div class="row  d-flex align-items-center">
 					<div class="d-lg-none   col-4 col-sm-5     ">
 						<span class="badge bg-info">可報名⼈數</span>
@@ -227,9 +209,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>--%>
 
-			<div class="col-12 col-sm-5 col-lg-2 ">
+			<%--<div class="col-12 col-sm-5 col-lg-2 ">
 				<div class="row  d-flex align-items-center">
 					<div class="d-lg-none   col-4 col-sm-5      ">
 						<span class="badge bg-info">已報名⼈數</span>
@@ -242,9 +224,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>--%>
 
-			<div class="col-12 col-sm-7 col-lg-1 ">
+			<%--<div class="col-12 col-sm-7 col-lg-1 ">
 				<div class="row  d-flex align-items-center">
 					<div class="d-lg-none   col-4 col-sm-5     ">
 						<span class="badge bg-info">尚餘名額</span>
@@ -257,7 +239,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>--%>
 		</div>
 	</div>
 
@@ -266,17 +248,17 @@
 
 
 	 
-	 <div class="card p-2  my-2  mt-4 bg-ice"> 報名表</div>
-	 
+	<%-- <div class="card p-2  my-2  mt-4 bg-ice"> 報名表</div>
+	--%> 
 			<%--     registration form start--%>
   
 
 <div id="registrationForm" class="mt-5">
-	<h3 class="text-center mt-5 mb-2">報名表 </h3>
+	<h3 class="text-center mt-5 mb-2">報到專區 </h3>
 
 
 	 
-	<div class="text-center">
+	<%--<div class="text-center">
 		<div class=" mx-2  form-check-inline">報名⾝分：</div>
 		<div class="form-check mx-2   form-check-inline">
 			<input type="radio" class="form-check-input" id="REG_TYPE1" name="REG_TYPE" value="1" checked>個人
@@ -287,12 +269,12 @@
           <label class="form-check-label" for="REG_TYPE2"></label>
 		</div>
 		<div class="text-center text-danger"><span class="note">「*」</span>為必填</div>
-	</div>
+	</div>--%>
 
 	<div id="cardInput" class="card border-4">
 		<div class="card-body">
 
-			<div class="   row   unit   ">
+<%--			<div class="   row   unit   ">
 				<div class="    py-lg-3    col-lg-2  ">
 					<span class="note">*</span><b><label>投保單位代號</label></b>
 				</div>
@@ -313,8 +295,8 @@
 					</div>
 				</div>
 			</div>
-			 
-			<div class="   row      ">
+		--%>	 
+			<%--<div class="   row      ">
 				<div class="      py-lg-3   col-lg-3  ">
 					<span class="note">*</span><b><label>姓名</label></b>
 				</div>
@@ -323,10 +305,10 @@
 						<input type="text" name="APPLY_NAME" id="APPLY_NAME" class=" form-control requiredInput">
 					</div>
 				</div>
-			</div>
+			</div>--%>
 
  
-			<div class="  row  personal    ">
+			<%--<div class="  row  personal    ">
 				<div class="      py-lg-3  col-lg-3    ">
 					<span class="note">*</span><b><label>⾝分證號/居留證號</label></b>
 				</div>
@@ -348,7 +330,7 @@
 							id="UNIT_NAME" class=" form-control requiredInput">
 					</div>
 				</div>
-			</div>
+			</div>--%>
 
 			<div class="  row     ">
 				<div class="     py-lg-3   col-lg-3    ">
@@ -368,7 +350,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="  row     ">
+			<%--<div class="  row     ">
 				<div class="      py-lg-3   col-lg-3    ">
 					<span class="note">*</span><b><label>電⼦郵件信箱</label></b>
 				</div>
@@ -425,28 +407,28 @@
 					</div>
 				</div>
 			</div>
-			 
+			 --%>
 		</div>
 	</div>
 
 	<%--  command buttons start--%>
-	<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
+	<div class="d-flex  justify-content-center mx-5 my-5">
 		<div>
 			<button type="button" id="btn_Register"
-				class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap"
+				class="btn btn-primary-isre px-3 mx-4   px-md-4 text-nowrap"
 				data-target="/Session/Register">
-				送出
+				報到
 			</button>
 		</div>
 
 		<div>
 			<button type="button" id="btn_Clear"
-				class="btn btn-primary-isre  px-3 mx-1 mx-md-4 px-md-4 text-nowrap">
+				class="btn btn-primary-isre  px-3 mx-4  px-md-4 text-nowrap">
 				清除</button>
 		</div>
-		<div>
+		<%--<div>
 			<a href="\isre0000.aspx" class="btn btn-primary-isre   mx-1 mx-md-4 px-md-4 text-nowrap">回首頁</a>
-		</div>
+		</div>--%>
 
 	</div>
 

@@ -437,7 +437,7 @@ namespace ISRE
            
             if(SearchCriteriaDatas.Trim() != string.Empty)
             {
-                result = String.Format("<span class=\"badge bg-secondary\">{0}</span>&nbsp;", SearchCriteriaDatas);
+                result = String.Format("<span class=\"badge bg-secondary  \">{0}</span>&nbsp;", SearchCriteriaDatas);
             }
 
             return result;

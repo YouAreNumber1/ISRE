@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
-	AutoEventWireup="true" CodeBehind="ISRE0004.aspx.cs"
+	AutoEventWireup="true" CodeBehind="ISRE0004-reserved.aspx.cs"
 	Inherits="ISRE.ISRE0004" %>
 
 <%--this page is for frontend activity list--%>

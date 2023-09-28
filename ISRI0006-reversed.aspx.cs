@@ -22,8 +22,9 @@ namespace ISRE
        // private string GUID = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+           
 
-        }
+		}
         protected   dynamic  Process_ActivityInfo(String GUID)
         {
             GUID = Request.QueryString["GUID"];

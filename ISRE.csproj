@@ -107,18 +107,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-grid.rtl.css" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
-    <Content Include="Content\bootstrap-utilities.css" />
-    <Content Include="Content\bootstrap-utilities.min.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
@@ -2213,11 +2201,12 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="ISRE0004.aspx" />
+    <Content Include="ISRE0004-reserved.aspx" />
     <Content Include="ISRE0000.aspx" />
     <Content Include="ISRI0003.aspx" />
     <Content Include="ISRI0004.aspx" />
-    <Content Include="ISRI0006.aspx" />
+    <Content Include="ISRE0003.aspx" />
+    <Content Include="ISRI0006-reversed.aspx" />
     <Content Include="ISRI0005.aspx" />
     <Content Include="ISRI0002.aspx" />
     <Content Include="ISRI0001.aspx" />
@@ -2426,18 +2415,7 @@
     <Content Include="Content\bootstrap.rtl.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\sweetalert2%4011.js" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -2560,12 +2538,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\EnumSelectHelper.cs" />
-    <Compile Include="ISRE0004.aspx.cs">
-      <DependentUpon>ISRE0004.aspx</DependentUpon>
+    <Compile Include="ISRE0004-reserved.aspx.cs">
+      <DependentUpon>ISRE0004-reserved.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ISRE0004.aspx.designer.cs">
-      <DependentUpon>ISRE0004.aspx</DependentUpon>
+    <Compile Include="ISRE0004-reserved.aspx.designer.cs">
+      <DependentUpon>ISRE0004-reserved.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRE0000.aspx.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
@@ -2588,12 +2566,19 @@
     <Compile Include="ISRI0004.aspx.designer.cs">
       <DependentUpon>ISRI0004.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ISRI0006.aspx.cs">
-      <DependentUpon>ISRI0006.aspx</DependentUpon>
+    <Compile Include="ISRE0003.aspx.cs">
+      <DependentUpon>ISRE0003.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ISRI0006.aspx.designer.cs">
-      <DependentUpon>ISRI0006.aspx</DependentUpon>
+    <Compile Include="ISRE0003.aspx.designer.cs">
+      <DependentUpon>ISRE0003.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI0006-reversed.aspx.cs">
+      <DependentUpon>ISRI0006-reversed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI0006-reversed.aspx.designer.cs">
+      <DependentUpon>ISRI0006-reversed.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI0005.aspx.cs">
       <DependentUpon>ISRI0005.aspx</DependentUpon>

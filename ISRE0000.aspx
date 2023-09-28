@@ -184,12 +184,15 @@
             runat="server"
             ID="SearchCriteria"
             class="card mb-2" >
-            <div class="card-body">
-                <div class="badge bg-info">搜尋條件</div>
-                <h6>
+            <div class="card-body d-flex align-items-start">
+                <div>
+ <div class="badge bg-info me-2">搜尋條件</div>
+                </div>
+               
+                <div>
                     <!--earch criteria-->
                     <asp:Literal ID="LiteralSearchCriteriaData" runat="server"></asp:Literal>
-                </h6>
+                </div>
                 
             </div>
         </div>        
