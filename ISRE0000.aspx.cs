@@ -54,6 +54,12 @@ namespace ISRE
             public string Cbo_Value { get; set; }
         }
 
+
+        /// <summary>
+        /// Page_Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -74,6 +80,7 @@ namespace ISRE
             }
             //  Modification date : 20230926 By Alex Huang
 
+            
 
             if (!this.IsPostBack)
             {
@@ -82,21 +89,23 @@ namespace ISRE
                 //  Modification date : 20230926 By Alex Huang
 
                 //  Modification date : 20230923 By Alex Huang
-                SearchResult.Visible = false;   // 查詢結果
-                SearchCriteria.Visible = false; // 搜尋條件
-                //  Modification date : 20230923 By Alex Huang
+                    SearchResult.Visible = false;   // 查詢結果
+                    SearchCriteria.Visible = false; // 搜尋條件                           
+                //  Modification date : 20230923,20230928 By Alex Huang
 
             }
             else
-            {   
-                //  Modification date : 20230923 By Alex Huang
-                SearchResult.Visible = true;    // 查詢結果
-                SearchCriteria.Visible = true;  // 搜尋條件
-                //  Modification date : 20230923 By Alex Huang
+            {
+                // Creation date: 20230928 By Alex Huang
+                var IsValueToFindWebElementValue = IsValueToFindWebElement();
+                // Creation date: 20230928 By Alex Huang
+
+                //  Modification date : 20230923,20230928 By Alex Huang
+                SearchResult.Visible = (IsValueToFindWebElementValue == true);    // 查詢結果
+                SearchCriteria.Visible = (IsValueToFindWebElementValue == true);  // 搜尋條件
+                //  Modification date : 20230923,20230928 By Alex Huang
             }
         }
-
-
 
 
         /// <summary>
@@ -485,6 +494,81 @@ namespace ISRE
             {
                 _dbConn.Close();
             }
+        }
+
+        /// <summary>
+        /// 檢查下拉、文字盒是否有值?
+        /// </summary>
+        /// <returns>ture(有值)/flase(無值)</returns>
+        /// <remarks>
+        /// Creation date: 20230928
+        /// Author : Alex Huang
+        /// </remarks>
+        private Boolean IsValueToFindWebElement()
+        {
+            //Boolean Result = false;
+            int IsValue = 0;
+
+            ContentPlaceHolder PageNow;
+
+            PageNow = (ContentPlaceHolder)Master.FindControl("MainContent");
+
+            foreach (Control myControl in PageNow.Controls)
+            {
+                if (myControl is DropDownList)
+                {
+                    DropDownList dropDownList = myControl as DropDownList;
+                    if (dropDownList != null)
+                    {
+                        var dropDownListID = dropDownList.ID;
+
+                        DropDownList ddlDept = (DropDownList)Master.FindControl("MainContent").FindControl(dropDownListID);
+
+                        var svalue = ddlDept.SelectedValue;
+
+                        if (svalue != "")
+                        {
+                            IsValue++;
+                        }
+                    }
+                }
+
+                if (myControl is TextBox)
+                {
+                    TextBox textBox = (TextBox)myControl;
+                    if (textBox != null)
+                    {
+                        var textBoxValue = textBox.Text;
+
+                        if (textBoxValue != "")
+                        {
+                            IsValue++;
+                        }
+                    }
+                }
+            }
+
+            //var tmpDate = Request.Form["ACT_DATE_S_DATE"].ToString().Length;
+
+            var tmpDate = (Request.Form["ACT_DATE_S_DATE"] == null)? 0: Request.Form["ACT_DATE_S_DATE"].ToString().Length;
+
+            if (tmpDate > 0)
+            {
+                IsValue++;
+            }
+
+            //tmpDate = Request.Form["ACT_DATE_E_DATE"].ToString().Length;
+            tmpDate = (Request.Form["ACT_DATE_E_DATE"] == null) ? 0 : Request.Form["ACT_DATE_E_DATE"].ToString().Length;
+           
+
+            if (tmpDate > 0)
+            {
+                IsValue++;
+            }
+
+            //Result = (IsValue == 0) ? false:  true;
+
+            return IsValue != 0;
         }
 
         /// <summary>
