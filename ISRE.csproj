@@ -105,7 +105,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome-free-6.4.2-web\css\all.css" />
@@ -2396,49 +2395,6 @@
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
-    <Content Include="Scripts\jquery-timepicker-addon\i18n\jquery-ui-timepicker-zh-TW.js" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui-sliderAccess.js" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui-timepicker-addon.css" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui-timepicker-addon.js" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui-timepicker-addon.min.css" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui-timepicker-addon.min.js" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\jquery-ui.min.js" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-bg_diagonals-small_50_93c3cd_40x40.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-bg_diagonals-small_75_ccd232_40x40.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-bg_dots-medium_80_ffff38_4x4.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-bg_dots-small_35_35414f_2x2.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-icons_454545_256x240.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-icons_c02669_256x240.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-icons_e1e463_256x240.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Scripts\jquery-timepicker-addon\jquery-ui\themes\hot-sneaks\jquery-ui.css" />
-    <Content Include="Scripts\jquery-timepicker-master\.gitignore" />
-    <Content Include="Scripts\jquery-timepicker-master\documentation-assets\bootstrap-datepicker.css" />
-    <Content Include="Scripts\jquery-timepicker-master\documentation-assets\bootstrap-datepicker.js" />
-    <Content Include="Scripts\jquery-timepicker-master\documentation-assets\glyphicons-halflings.png" />
-    <Content Include="Scripts\jquery-timepicker-master\documentation-assets\screenshot.png" />
-    <Content Include="Scripts\jquery-timepicker-master\documentation-assets\site.css" />
-    <Content Include="Scripts\jquery-timepicker-master\documentation-assets\site.js" />
-    <Content Include="Scripts\jquery-timepicker-master\index.html" />
-    <Content Include="Scripts\jquery-timepicker-master\jquery.timepicker.css" />
-    <Content Include="Scripts\jquery-timepicker-master\jquery.timepicker.js" />
-    <Content Include="Scripts\jquery-timepicker-master\jquery.timepicker.min.css" />
-    <Content Include="Scripts\jquery-timepicker-master\jquery.timepicker.min.js" />
-    <Content Include="Scripts\jquery-timepicker-master\rollup.config.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\jquery.timepicker.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\static\jquery.timepicker.css" />
-    <Content Include="Scripts\jquery-timepicker-master\src\testHelpers.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\timepicker\constants.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\timepicker\defaults.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\timepicker\index.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\timepicker\render.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\timepicker\rounding.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\__tests__\integration-test.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\__tests__\render-test.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\__tests__\rounding-test.js" />
-    <Content Include="Scripts\jquery-timepicker-master\src\__tests__\timepicker-test.js" />
     <Content Include="Scripts\jquery-ui-custom\AUTHORS.txt" />
     <Content Include="Scripts\jquery-ui-custom\external\jquery\jquery.js" />
     <Content Include="Scripts\jquery-ui-custom\images\ui-icons_444444_256x240.png" />
@@ -2468,13 +2424,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -2661,17 +2610,6 @@
     <Content Include="Content\fontawesome-free-6.4.2-web\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\fontawesome-free-6.4.2-web\webfonts\fa-v4compatibility.woff2" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-timepicker-master\.babelrc" />
-    <Content Include="Scripts\jquery-timepicker-master\.eslintrc.json" />
-    <Content Include="Scripts\jquery-timepicker-master\bower.json" />
-    <Content Include="Scripts\jquery-timepicker-master\jt.timepicker.jquery.json" />
-    <Content Include="Scripts\jquery-timepicker-master\LICENSE" />
-    <Content Include="Scripts\jquery-timepicker-master\package-lock.json" />
-    <Content Include="Scripts\jquery-timepicker-master\package.json" />
-    <Content Include="Scripts\jquery-timepicker-master\README.md" />
-    <Content Include="Scripts\jquery-ui-custom\jquery-ui.css.bak2" />
-    <Content Include="Scripts\jquery-ui-custom\jquery-ui.js.bak" />
-    <Content Include="Scripts\jquery-ui-custom\jquery-ui.js.bak2" />
     <Content Include="Scripts\jquery-ui-custom\package.json" />
     <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
     <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
@@ -2808,9 +2746,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\jquery-timepicker-master\src\jquery.timepicker.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
