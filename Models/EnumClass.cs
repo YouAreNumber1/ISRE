@@ -13,7 +13,7 @@ namespace ISRE
         Register_Official =10,
         [Description("已填寫報名表(線上候補"), Display(Name = "已填寫報名表(線上候補)")]
         Register_Backup = 11,
-        [Description("已完成報名(確認信)"), Display(Name = "已完成報名(確認信)")]
+        [Description("已完成報名(確認信)"), Display(Name = "已確認")]
         Register_Confirmed = 20,
         [Description("已完成報名(後臺)"), Display(Name = "已完成報名(後臺)")]
         Register_Backend = 21,
@@ -36,8 +36,28 @@ namespace ISRE
 
     }
 
-  
-     public enum Enum_REG_TYPE
+	public enum Enum_AttendCategory
+	{
+		[Description("未確認"), Display(Name = "未確認")]
+		 Unconfirm = 0,
+		[Description("已確認"), Display(Name = "已確認")]
+		 Confirmed = 1 ,
+		[Description("已報到"), Display(Name = "已報到")]
+		 Attended = 2   
+	}
+
+
+	public enum  Enum_ActivityFlow
+	{
+		[Description("活動"), Display(Name = "活動")]
+		Activity = 0,
+		[Description("場次"), Display(Name = "場次")]
+		Session = 1,
+		[Description("啟動"), Display(Name = "啟動")]
+		Activate = 2
+	}
+
+	public enum Enum_REG_TYPE
     {
         [Description("個人"), Display(Name = "單位")]
         Personal = 1,

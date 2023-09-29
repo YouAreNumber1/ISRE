@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\ISRE_IIS</_PublishTargetUrl>
-    <History>True|2023-09-28T04:09:23.9782755Z;True|2023-09-28T11:58:54.8760953+08:00;True|2023-09-27T12:54:41.9208712+08:00;</History>
+    <History>True|2023-09-29T05:23:45.4602343Z;True|2023-09-28T12:09:23.9782755+08:00;True|2023-09-28T11:58:54.8760953+08:00;True|2023-09-27T12:54:41.9208712+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -25,10 +25,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/18/2023 03:16:50</publishTime>
     </File>
     <File Include="bin/ISRE.dll">
-      <publishTime>09/28/2023 14:10:19</publishTime>
+      <publishTime>09/29/2023 13:23:39</publishTime>
     </File>
     <File Include="bin/ISRE.pdb">
-      <publishTime>09/28/2023 14:10:19</publishTime>
+      <publishTime>09/29/2023 13:23:39</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/31/2013 00:57:30</publishTime>
@@ -6742,7 +6742,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/26/2023 10:11:37</publishTime>
     </File>
     <File Include="ISRE0000.aspx">
-      <publishTime>09/28/2023 14:09:49</publishTime>
+      <publishTime>09/28/2023 17:28:33</publishTime>
     </File>
     <File Include="ISRE0001.aspx">
       <publishTime>09/28/2023 09:07:30</publishTime>
@@ -6751,7 +6751,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/26/2023 10:11:37</publishTime>
     </File>
     <File Include="ISRE0003.aspx">
-      <publishTime>09/28/2023 10:13:59</publishTime>
+      <publishTime>09/28/2023 17:27:45</publishTime>
     </File>
     <File Include="ISRE0004-reserved.aspx">
       <publishTime>09/28/2023 10:17:04</publishTime>
@@ -6763,19 +6763,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2023 15:41:07</publishTime>
     </File>
     <File Include="ISRI0001.aspx">
-      <publishTime>09/27/2023 17:55:50</publishTime>
+      <publishTime>09/28/2023 17:31:58</publishTime>
     </File>
     <File Include="ISRI0002.aspx">
       <publishTime>09/26/2023 10:11:37</publishTime>
     </File>
     <File Include="ISRI0003.aspx">
-      <publishTime>09/27/2023 17:59:35</publishTime>
+      <publishTime>09/28/2023 17:33:10</publishTime>
     </File>
     <File Include="ISRI0004.aspx">
       <publishTime>09/26/2023 10:11:37</publishTime>
     </File>
     <File Include="ISRI0005.aspx">
-      <publishTime>09/28/2023 13:09:07</publishTime>
+      <publishTime>09/28/2023 18:00:56</publishTime>
     </File>
     <File Include="ISRI0006-reversed.aspx">
       <publishTime>09/28/2023 10:17:04</publishTime>
@@ -8056,7 +8056,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/26/2023 10:11:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/27/2023 12:54:23</publishTime>
+      <publishTime>09/29/2023 13:23:42</publishTime>
     </File>
   </ItemGroup>
 </Project>

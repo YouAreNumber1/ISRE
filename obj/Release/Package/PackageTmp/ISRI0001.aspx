@@ -240,7 +240,7 @@
 					</div>
 				</div>
 
-				<div class="    row  ">
+				<%--<div class="    row  ">
 					<div class=" border  py-3   bg-ice col-lg-2">
 						<span class="note">*</span><label>建立者</label>
 					</div>
@@ -249,8 +249,8 @@
 							class="form-control requiredInput "
 							value="<%: (Model !=null &&  Model.CREATEDBY!=null ? Model.CREATEDBY  : ""  )  %>">
 					</div>
-				</div>
-				<div class="    row  ">
+				</div>--%>
+				<%--<div class="    row  ">
 					<div class=" border  py-3   bg-ice col-lg-2">
 						<span class="note">*</span><label>建立⽇期</label>
 					</div>
@@ -261,8 +261,8 @@
                           ? Model.CREATE_DATE.ToString("yyyy-MM-dd") 
                           : DateTime.Now.ToString("yyyy-MM-dd")  )  %>">
 					</div>
-				</div>
-				<div class="    row  ">
+				</div>--%>
+				<%--<div class="    row  ">
 					<div class=" border  py-3   bg-ice col-lg-2">
 						<span class="note">*</span><label>更新者</label>
 					</div>
@@ -271,8 +271,8 @@
 							class="form-control requiredInput "
 							value="<%: (Model !=null &&  Model.MODIFIEDBY!=null ? Model.MODIFIEDBY  : ""  )  %>">
 					</div>
-				</div>
-				<div class="  row  ">
+				</div>--%>
+				<%--<div class="  row  ">
 					<div class=" border  py-3  bg-ice   col-lg-2">
 						<span class="note">*</span><label>更新⽇期</label>
 					</div>
@@ -283,7 +283,7 @@
                    ? Model.TXT_DATE.ToString("yyyy-MM-dd") 
                    : DateTime.Now.ToString("yyyy-MM-dd")  )  %>">
 					</div>
-				</div>
+				</div>--%>
 
 
 				<div class="d-flex justify-content-center mt-5">

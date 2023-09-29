@@ -394,7 +394,7 @@
 				<%--  @*上傳活動資料*@--%>
 				<div class="  row     ">
 					<div class="bg-ice  py-3  col-lg-2 border  ">
-						<label>上傳活動資料</label>
+						<label>上傳資料</label>
 					</div>
 					<div class="  py-3   col-lg-10 border">
 						<div class="d-flex">

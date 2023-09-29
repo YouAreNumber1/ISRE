@@ -22,7 +22,7 @@
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid 
 		string plan = Request.QueryString["plan"] ?? "";
-		string guest = Request.QueryString["guest"] ?? "";
+		 
 	%>
 	<script src="DataTable/datatables.js"></script>
 	<script src="Scripts/vfs_fonts_NotoSerifTC.js"></script>
@@ -286,8 +286,7 @@
 
 
 			<%-- search bar start  --%>
-			<% if (plan == "b")
-				{%>
+			 
 			<h3 class="text-center mt-5  ">報到工具  </h3>
 			<div id="divTool" class="row g-1 sticky-top">
 				<div class="  col-sm-6">
@@ -321,17 +320,7 @@
 				</div>
 			</div>
 
-			<% }
-				else
-				{%>
-			<div class="d-flex mt-5">
-				<div class="text-nowrap">關鍵字：</div>
-				<input type="text" class="form-control">
-				<button class="text-nowrap btn btn-primary-isre mx-2">查詢</button>
-			</div>
-
-			<% }
-			%>
+		 
 
 			<%-- search bar end--%>
 
@@ -341,409 +330,8 @@
 
 			<h3 class="text-center mt-5  ">報到人員管理  </h3>
 
-			<% if (plan == "")
-				{%>
-			<!-- Nav tabs -->
-			<ul class="nav nav-tabs nav-justified mt-1">
-
-				<li class="nav-item  ">
-					<div class="d-flex">
-						<a class="nav-link active" data-bs-toggle="tab" href="#home">已報到
-							  <span class="btn-primary-isre badge mx-1 mx-sm-2 ">9</span>
-						</a>
-
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu1">已確認
-						  <span class="bg-warning badge  mx-1 mx-sm-2">19</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#menu2">未確認
-						  <span class="bg-danger badge  mx-1 mx-sm-2">29</span>
-					</a>
-				</li>
-
-
-			</ul>
-
-
-
-			<div class="tab-content">
-				<!-- Tab panes 已報到-->
-				<div class="tab-pane container active py-1 border" id="home">
-
-					<div class="col m-2 ">最新報到⼈員：謝銀河 112/05/11 09:31</div>
-					<div class="d-flex m-2">
-						<div class="text-nowrap">報到掃描區：</div>
-						<input type="text" class="form-control">
-					</div>
-					<div class="table-responsive">
-						<table class="table table-striped" id="tblGroup1">
-							<thead>
-								<tr>
-									<th>報名⽇期  </th>
-									<th class="left">姓名  </th>
-									<th>投保單位代號<br />
-										單位名稱   </th>
-									<th>連絡電話   	</th>
-									<th class="left">電⼦郵件  </th>
-									<th>餐飲習慣  </th>
-
-									<th>報到時間  	</th>
-									<th>編輯  </th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2023/05/11</td>
-									<td>謝銀河</td>
-									<td>12345678<br />
-										資訊組</td>
-									<td>0911222333</td>
-									<td class="left">ga.yahoo.com</td>
-									<td>葷食</td>
-
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>黃必勝</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>許明華</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>謝銀河</td>
-									<td>12345678<br />
-										資訊組</td>
-									<td>0911222333</td>
-									<td class="left">ga.yahoo.com</td>
-									<td>葷食</td>
-
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>黃必勝</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>許明華</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>謝銀河</td>
-									<td>12345678<br />
-										資訊組</td>
-									<td>0911222333</td>
-									<td class="left">ga.yahoo.com</td>
-									<td>葷食</td>
-
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>黃必勝</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>許明華</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>謝銀河</td>
-									<td>12345678<br />
-										資訊組</td>
-									<td>0911222333</td>
-									<td class="left">ga.yahoo.com</td>
-									<td>葷食</td>
-
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>黃必勝</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>許明華</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-				</div>
-
-				<!-- Tab panes 未報到-->
-				<div class="tab-pane container fade py-1 border" id="menu1">
-
-					<div class="table-responsive">
-						<table class="table table-striped" id="tblGroup2">
-							<thead>
-								<tr>
-									<th>報名⽇期  </th>
-									<th>姓名  </th>
-									<th>投保單位代號<br />
-										單位名稱   </th>
-									<th>連絡電話   	</th>
-									<th class="left">電⼦郵件  </th>
-									<th>餐飲習慣  </th>
-
-									<th>報到時間  	</th>
-									<th>編輯  </th>
-
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2023/05/11</td>
-									<td>謝銀河</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">ga.yahoo.com</td>
-									<td>葷食</td>
-
-									<td>112/05/11 10:23</td>
-									<td>
-										<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
-
-										<a href="#" class="btn btn-primary-isre text-nowrap">報到</a>
-
-									</td>
-
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>黃必勝</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
-
-										<a href="#" class="btn btn-primary-isre text-nowrap">報到</a>
-
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>許明華</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a href="" class="btn btn-primary-isre text-nowrap">編輯</a>
-
-										<a href="#" class="btn btn-primary-isre text-nowrap">報到</a>
-
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-				</div>
-
-				<!-- Tab panes 未確認-->
-				<div class="tab-pane container fade py-1 border" id="menu2">
-
-					<div class="table-responsive">
-						<table class="table table-striped" id="tblGroup3">
-							<thead>
-								<tr>
-									<th>報名⽇期  </th>
-									<th>姓名  </th>
-									<th>投保單位代號<br />
-										單位名稱   </th>
-									<th>連絡電話   	</th>
-									<th class="left">電⼦郵件  </th>
-									<th>餐飲習慣  </th>
-
-									<th>報到時間  	</th>
-									<th>編輯  </th>
-
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2023/05/11</td>
-									<td>謝銀河</td>
-									<td>12345678<br />
-										資訊組</td>
-
-									<td>0911222333</td>
-									<td class="left">ga.yahoo.com</td>
-									<td>葷食</td>
-
-									<td>112/05/11 10:23</td>
-
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>黃必勝</td>
-									<td>12345678<br />
-										資訊組</td>
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr>
-									<td>2023/05/11</td>
-									<td>許明華</td>
-									<td>12345678<br />
-										資訊組</td>
-									<td>0911222333</td>
-									<td class="left">galaxy.yahoo.com</td>
-									<td>葷食</td>
-									<td>112/05/11 10:23</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-				</div>
-			</div>
-			<%}%>
-
-
-
-
-
-
-			<% if (plan == "b")
-				{%>
+			  
+			 
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex justify-content-between align-items-center">
@@ -801,225 +389,13 @@
 								</tr>
 							</thead>
 							<tbody>
-								<% if (guest == "")
-									{%>
-								<tr class="table-success">
-									<td>2023/05/11</td>
-									<td class="left">謝銀河  </td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-success">已報到</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class="table-warning">
-									<td>2023/05/11</td>
-									<td class="left">黃必勝 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-warning">未報到</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class=" ">
-									<td>2023/05/11</td>
-									<td class="left">許明華 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-danger">未確認</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class="table-success">
-									<td>2023/05/11</td>
-									<td class="left">謝銀河 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-success">已報到</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class="table-warning">
-									<td>2023/05/11</td>
-									<td class="left">黃必勝 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-warning">未報到</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class=" ">
-									<td>2023/05/11</td>
-									<td class="left">許明華 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-danger">未確認</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class="table-success">
-									<td>2023/05/11</td>
-									<td class="left">謝銀河 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-success">已報到</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class="table-warning">
-									<td>2023/05/11</td>
-									<td class="left">黃必勝 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-warning">未報到</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<tr class=" ">
-									<td>2023/05/11</td>
-									<td class="left">許明華 
-									</td>
-									<td class="left">12345678  </td>
-									<td class="left">資訊組  </td>
-									<td class="left">
-										<div>0911222333</div>
-									</td>
-									<td class="left">
-										<div>gatest2039.huang@yahoo.com</div>
-									</td>
-									<td class="left">葷食  </td>
-									<td class="left">112/05/11<br>
-										10:23</td>
-									<td>
-										<div class="badge bg-danger">未確認</div>
-									</td>
-									<td>
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
-									</td>
-								</tr>
-								<%	}
-									else
-									{
-										int guestNo = int.Parse(guest);
+								<%  
+										 
 										string mobile6 = "096391";
 										string mobile = "";
 										string tableClass = "";
 										string bgClass = ";";
-										for (int i = 1; i <= guestNo; i++)
+										for (int i = 1; i <= 50; i++)
 										{
 											mobile = string.Concat("000", i.ToString());
 											mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
@@ -1059,12 +435,10 @@
 										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
 									</td>
 								</tr>
-								<%}
-								%>
+								<%} 	%>
 
 
-								<%
-									} %>
+								 
 							</tbody>
 
 						</table>
@@ -1073,7 +447,7 @@
 
 				</div>
 			</div>
-			<%}%>
+			 
 		</div>
 
 		<!-- The Modal -->
@@ -1095,8 +469,7 @@
 							<%--     registration form start--%>
 
 							<div id="registrationForm">
-								<%--	<h3 class="text-center   mb-2">報名表 </h3>--%>
-
+							 
 								<div class="text-center">
 									<div class=" mx-2  form-check-inline">報名⾝分：</div>
 									<div class="form-check mx-2   form-check-inline">

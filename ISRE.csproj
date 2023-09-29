@@ -105,6 +105,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-slider-11.0.2\dependencies\css\highlightjs-github-theme.css" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\highlight.min.js" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\jquery.min.js" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\modernizr.js" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dist\bootstrap-slider.js" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dist\bootstrap-slider.min.js" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dist\css\bootstrap-slider.css" />
+    <Content Include="Content\bootstrap-slider-11.0.2\dist\css\bootstrap-slider.min.css" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\js\bootstrap-slider.js" />
+    <Content Include="Content\bootstrap-slider.css" />
+    <Content Include="Scripts\bootstrap-slider.js" />
+    <Content Include="SessionInfo.html" />
+    <Content Include="ActivityInfo.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome-free-6.4.2-web\css\all.css" />
@@ -2255,6 +2268,16 @@
     <Content Include="packages\Dapper.2.0.151\lib\net5.0\Dapper.xml" />
     <Content Include="packages\Dapper.2.0.151\lib\netstandard2.0\Dapper.dll" />
     <Content Include="packages\Dapper.2.0.151\lib\netstandard2.0\Dapper.xml" />
+    <Content Include="Content\bootstrap-slider-11.0.2\scripts\build-preview.sh" />
+    <Content Include="Content\bootstrap-slider-11.0.2\scripts\release.sh" />
+    <Content Include="Content\bootstrap-slider-11.0.2\scripts\update-gh-pages.sh" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\less\bootstrap-slider.less" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\less\rules.less" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\less\variables.less" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\sass\bootstrap-slider.scss" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\sass\_mixins.scss" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\sass\_rules.scss" />
+    <Content Include="Content\bootstrap-slider-11.0.2\src\sass\_variables.scss" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />

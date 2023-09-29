@@ -296,7 +296,7 @@
 				</div>
 			</div>
 		--%>	 
-			<%--<div class="   row      ">
+			 <div class="   row      ">
 				<div class="      py-lg-3   col-lg-3  ">
 					<span class="note">*</span><b><label>姓名</label></b>
 				</div>
@@ -305,7 +305,7 @@
 						<input type="text" name="APPLY_NAME" id="APPLY_NAME" class=" form-control requiredInput">
 					</div>
 				</div>
-			</div>--%>
+			</div> 
 
  
 			<%--<div class="  row  personal    ">

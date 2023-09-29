@@ -212,7 +212,7 @@
 						</div>
 					</div>
 					<div class=" col-lg-2">
-						<div class=" text-center ">日期時間</div>
+						<div class=" text-center ">日期區間</div>
 					</div>
 					<div class=" col-lg-1">
 						<div class=" text-center ">尚餘名額</div>
