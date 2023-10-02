@@ -9,15 +9,11 @@
 	%>
 	<main>
 		<div class="my-2">
-			 	<!-- #include file="ActivityFlow.html" -->
-			<%
-				GUID = Request.QueryString["GUID"];
-				dynamic Model = Process_ActivityInfo(GUID);
-
-			%>
-
-			 <!-- #include file="ActivityInfo.html" -->
-
+			<!-- #include file="ActivityFlow.html" -->
+			  
+			<div id="ActivityInfo" runat="server">
+				<!-- #Include virtual="ActivityInfo.aspx" --> 
+			</div>
 
 
 
@@ -135,7 +131,7 @@
 							</div>
 							<div class="col-8  col-sm-7  col-lg-12    ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-primary">21</div> 
+									<div class="badge bg-primary">21</div>
 								</div>
 							</div>
 						</div>

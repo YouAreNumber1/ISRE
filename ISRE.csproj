@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActivityFlow.html" />
+    <Content Include="ActivityInfo.aspx" />
     <Content Include="RegistrationFormSetting.aspx" />
     <Content Include="RegistrationFormSetting.html" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\css\highlightjs-github-theme.css" />
@@ -2474,6 +2475,13 @@
     </Compile>
     <Compile Include="ISRE0000.aspx.designer.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityInfo.aspx.cs">
+      <DependentUpon>ActivityInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivityInfo.aspx.designer.cs">
+      <DependentUpon>ActivityInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI0003.aspx.cs">
       <DependentUpon>ISRI0003.aspx</DependentUpon>
