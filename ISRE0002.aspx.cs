@@ -108,7 +108,22 @@ namespace ISRE
 
 			return model;
 		}
-		 
+		protected dynamic Process_ActivityInfo(String GUID)
+		{
+			DynamicParameters param = new DynamicParameters();
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
+
+			dynamic model = _dbConn.Query<dynamic>(
+			"Home_ISRE_ACTIVITY_MAIN",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.FirstOrDefault();
+
+			return model;
+		}
+
 
 	}
 }

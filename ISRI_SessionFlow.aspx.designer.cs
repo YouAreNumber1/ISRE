@@ -11,7 +11,7 @@ namespace ISRE
 {
 
 
-	public partial class ActivityInfo
+	public partial class ISRI_SessionFlow
 	{
 	}
 }

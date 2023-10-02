@@ -1,7 +1,7 @@
-﻿<%--this page is for backend activity info and sesseion list--%>
+﻿ <%-- THIS IS SUB PAGE FOR ACTIVITY INFO --%>
 <%
-		string GUID = Request.QueryString["GUID"];
-        dynamic Model = Process_ActivityInfo(GUID); 
+	String Guid = Request.QueryString["GUID"];
+	ISRE.ISRE_ACTIVITY_MAIN Model = Process_ActivityInfo(Guid); 
 %>
 
 <div class="my-2">
@@ -44,7 +44,7 @@
 					</span>
 					<div class="col-9 col-sm-8 col-lg-12 ">
 						<div>
-							<%:Model.ACT_NAME %>  
+							<%:(Model == null) ? "" : Model.ACT_NAME %>
 						</div>
 					</div>
 				</div>
@@ -99,11 +99,6 @@
 		</div>
 
 	</div>
-
-
-
-
-
 
 
 </div>

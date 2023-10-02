@@ -11,12 +11,13 @@
 		<div class="my-2">
 			<!-- #include file="ActivityFlow.html" -->
 			  
+
 			<div id="ActivityInfo" runat="server">
-				<!-- #Include virtual="ActivityInfo.aspx" --> 
+				<!-- #Include virtual="ISRI_ActivityInfo.aspx" --> 
 			</div>
 
 
-
+			 
 			<%--   session list   start--%>
 			<div class="d-flex  justify-content-between  align-items-center mt-5 ">
 				<div></div>

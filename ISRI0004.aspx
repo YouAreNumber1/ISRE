@@ -15,6 +15,10 @@
 
 		<div class=" my-2 ">
 			<!-- #include file="ActivityFlow.html" -->
+
+			<div id="RegistrationFormSetting" runat="server">
+	<!-- #Include virtual="RegistrationFormSetting.aspx" -->
+</div>
 			<% 
 				dynamic Activity = Process_ActivityInfoBySession(GUID);
 			%>
@@ -38,9 +42,7 @@
 
 
 
-			<div id="RegistrationFormSetting" runat="server">
-				<!-- #Include virtual="RegistrationFormSetting.aspx" -->
-			</div>
+			
 
 
 			<div class="d-flex justify-content-center my-4">

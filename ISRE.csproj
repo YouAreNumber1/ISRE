@@ -106,7 +106,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActivityFlow.html" />
-    <Content Include="ActivityInfo.aspx" />
+    <Content Include="ISRI_SessioinInfo.aspx" />
+    <Content Include="ISRI_SessionFlow.aspx" />
+    <Content Include="ISRI_ActivityInfo.aspx" />
+    <Content Include="ISRHHHHHH.aspx" />
+    <Content Include="ISRI_RegistrationFormSetting.aspx" />
     <Content Include="RegistrationFormSetting.aspx" />
     <Content Include="RegistrationFormSetting.html" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\css\highlightjs-github-theme.css" />
@@ -2462,6 +2466,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\EnumSelectHelper.cs" />
+    <Compile Include="ISRHHHHHH.aspx.cs">
+      <DependentUpon>ISRHHHHHH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRHHHHHH.aspx.designer.cs">
+      <DependentUpon>ISRHHHHHH.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ISRE0004-reserved.aspx.cs">
       <DependentUpon>ISRE0004-reserved.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2476,12 +2487,26 @@
     <Compile Include="ISRE0000.aspx.designer.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ActivityInfo.aspx.cs">
-      <DependentUpon>ActivityInfo.aspx</DependentUpon>
+    <Compile Include="ISRI_SessioinInfo.aspx.cs">
+      <DependentUpon>ISRI_SessioinInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ActivityInfo.aspx.designer.cs">
-      <DependentUpon>ActivityInfo.aspx</DependentUpon>
+    <Compile Include="ISRI_SessioinInfo.aspx.designer.cs">
+      <DependentUpon>ISRI_SessioinInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI_SessionFlow.aspx.cs">
+      <DependentUpon>ISRI_SessionFlow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI_SessionFlow.aspx.designer.cs">
+      <DependentUpon>ISRI_SessionFlow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI_ActivityInfo.aspx.cs">
+      <DependentUpon>ISRI_ActivityInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI_ActivityInfo.aspx.designer.cs">
+      <DependentUpon>ISRI_ActivityInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI0003.aspx.cs">
       <DependentUpon>ISRI0003.aspx</DependentUpon>
@@ -2503,6 +2528,13 @@
     </Compile>
     <Compile Include="ISRE0003.aspx.designer.cs">
       <DependentUpon>ISRE0003.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI_RegistrationFormSetting.aspx.cs">
+      <DependentUpon>ISRI_RegistrationFormSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI_RegistrationFormSetting.aspx.designer.cs">
+      <DependentUpon>ISRI_RegistrationFormSetting.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrationFormSetting.aspx.cs">
       <DependentUpon>RegistrationFormSetting.aspx</DependentUpon>

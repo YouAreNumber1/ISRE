@@ -716,7 +716,9 @@
 					buttons: [
 						{
 							extend: 'excelHtml5',
-							messageTop: messageTop,
+							//messageTop: function() {
+							//	return "\r\nthis\r\nis\r\ntest";
+							//},
 							filename: '健保署報名活動',
 							text: 'Export Excel',
 							exportOptions: {

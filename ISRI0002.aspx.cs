@@ -32,13 +32,13 @@ namespace ISRE
                 RegisterMultiple = Request["RegisterMultiple"];
             } 
         }
-        protected dynamic Process_ActivityInfo(String GUID)
+        protected  ISRE_ACTIVITY_MAIN Process_ActivityInfo(String GUID)
         {
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
             param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
-            dynamic model = _dbConn.Query<dynamic>(
+			 ISRE_ACTIVITY_MAIN model = _dbConn.Query<ISRE_ACTIVITY_MAIN>(
             "Home_ISRE_ACTIVITY_MAIN",
             param,
             commandType: CommandType.StoredProcedure
