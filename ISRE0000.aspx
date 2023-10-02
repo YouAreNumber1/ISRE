@@ -123,7 +123,7 @@
 									<div class="row d-flex align-items-center p-2">
 										<div class="col-4 col-lg-2">
 											<div class="    ">
-												<label class="text-nowrap">活動時間</label>
+												<label class="text-nowrap">活動區間</label>
 											</div>
 										</div>
 										<div class="col-8 col-lg-10">
@@ -156,9 +156,9 @@
 										<div class="col-8">
 											<div class="  flex-grow-1 ">
 												<select class="form-control form-select">
-													<option>活動主題</option>
-													<option>日期時間</option>
 													<option>發布⽇期</option>
+													<option>活動主題</option>
+													<option>活動區間</option>  
 												</select>
 											</div>
 										</div>
@@ -212,7 +212,7 @@
 						</div>
 					</div>
 					<div class=" col-lg-2">
-						<div class=" text-center ">日期區間</div>
+						<div class=" text-center ">活動區間</div>
 					</div>
 					<div class=" col-lg-1">
 						<div class=" text-center ">尚餘名額</div>
@@ -251,11 +251,11 @@
 					<div class="col-12 col-lg-2 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4   col-sm-2  ">
-								<span class="badge bg-info">日期時間</span>
+								<span class="badge bg-info">活動區間</span>
 							</span>
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
-									<div class="text-center">112/08/31 </div>
+									<div class="text-center">112/08/31-112/12/31 </div>
 								</div>
 							</div>
 						</div>

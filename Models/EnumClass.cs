@@ -51,9 +51,9 @@ namespace ISRE
 	{
 		[Description("活動"), Display(Name = "活動")]
 		Activity = 0,
-		[Description("場次"), Display(Name = "場次")]
+		[Description("場次及報名表設定"), Display(Name = "場次及報名表設定")]
 		Session = 1,
-		[Description("啟動"), Display(Name = "啟動")]
+		[Description("活動上架"), Display(Name = "活動上架")]
 		Activate = 2
 	}
 

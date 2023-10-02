@@ -58,7 +58,7 @@
 					data-slider-enabled="false">
 			</div>
 
-			 
+
 
 			<% 
 				dynamic Activity = Process_ActivityInfoBySession(GUID);
@@ -90,7 +90,7 @@
 
 
 
-			<%-- search bar start  --%> 
+			<%-- search bar start  --%>
 			<h3 class="text-center mt-5  ">報到工具  </h3>
 			<div id="divTool" class="row g-1 sticky-top">
 				<div class="  col-sm-6">
@@ -124,35 +124,38 @@
 						</div>
 					</div>
 				</div>
-			</div> 
+			</div>
 			<%-- search bar end--%>
 
 
 
 
 
-			<h3 class="text-center mt-5  ">報到人員管理  </h3> 
+			<h3 class="text-center mt-5  ">報到人員管理  </h3>
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex justify-content-start align-items-center">
 						<div>
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
-								<input type="checkbox" id="chkAttended" checked value="2" 
-									class="chkAttendCategory"/>
-								<%: ISRE.Enum_AttendCategory.Attended.GetDisplayName() %> 
+								<input type="checkbox" id="chkAttended" checked
+									value="<%: (int) ISRE.Enum_AttendCategory.Attended%>"
+									class="chkAttendCategory" />
+								<%: ISRE.Enum_AttendCategory.Attended.GetDisplayName()%>
 								<span id="sumAttended" class="badge bg-success">24</span>
 							</a>
 
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
-								<input type="checkbox" id="chkConfirmed" checked value="1" 
-									class="chkAttendCategory"/>
-								<%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName() %> 
+								<input type="checkbox" id="chkConfirmed" checked
+									value="<%: (int) ISRE.Enum_AttendCategory.Confirmed%>"
+									class="chkAttendCategory" />
+								<%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName()%>
 								<span id="sumConfirmed" class="badge bg-warning">164</span>
 							</a>
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
-								<input type="checkbox" id="chkUnconfirm" checked  value="0" 
-									class="chkAttendCategory"/>
-								 <%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> 
+								<input type="checkbox" id="chkUnconfirm" checked
+									value="<%: (int) ISRE.Enum_AttendCategory.Unconfirm%>"
+									class="chkAttendCategory" />
+								<%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName()%>
 								<span id="sumUnconfirm" class="badge bg-danger">20</span>
 							</a>
 
@@ -172,7 +175,7 @@
 					</div>
 					<div id="lastAttended">
 						<div>
-							<span class="badge bg-info">最新報到⼈員</span>  
+							<span class="badge bg-info">最新報到⼈員</span>
 							<span id="lastAttendant">謝銀河</span>
 							<span id="lastAttendantDateTime">112/05/11 09:31</span>
 						</div>
@@ -205,7 +208,7 @@
 									string mobile = "";
 									string tableClass = "";
 									string bgClass = ";";
-									for (int i = 1; i <= 50; i++)
+									for (int i = 1; i <= 250; i++)
 									{
 										mobile = string.Concat("000", i.ToString());
 										mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
@@ -233,7 +236,7 @@
 									<td class="attendStatus">
 										<% if (i <= 10)
 											{   %>
-										<div class="  badge <%:bgClass %> "> <%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
+										<div class="  badge <%:bgClass %> "><%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
 										<%	}
 											else
 											{ %>
@@ -659,7 +662,7 @@
 
 			//////// after db process if successful
 			//////// update status col and row class contextual
-			let trTarget = $('tr[id="' + trid + '"'); 
+			let trTarget = $('tr[id="' + trid + '"');
 			trTarget
 				.removeClass('table-warning')
 				.addClass('table-success')
@@ -714,7 +717,13 @@
 
 		let qrcode = $('#btnQRcodePDF').attr('src');
 
-		$(document).ready(function () {
+		$(document).ready(function () {  
+			let chks = $('.chkAttendCategory'); 
+			for (var i = 0; i < chks.length; i++) { 
+				($(chks[i]).is(':checked'))
+					? $('#tableList tr[status="' + $(chks[i]).val() + '"]').removeClass('d-none')
+					: $('#tableList tr[status="' + $(chks[i]).val() + '"]').addClass('d-none');
+			}  
 			let status0 = $('tr[status=0]').toArray().length;
 			let status1 = $('tr[status=1]').toArray().length;
 			let status2 = $('tr[status=2]').toArray().length;
@@ -1131,12 +1140,12 @@
 
 			});
 
-			 
-			$(document).on('click', '.chkAttendCategory', function (e) { 
-				let btn = $(this); 
+
+			$(document).on('click', '.chkAttendCategory', function (e) {
+				let btn = $(this);
 				btn.is(':checked')
 					? $('#tableList tr[status="' + btn.val() + '"]').removeClass('d-none')
-					: $('#tableList tr[status="' + btn.val() + '"]').addClass('d-none'); 
+					: $('#tableList tr[status="' + btn.val() + '"]').addClass('d-none');
 				return;
 
 			});

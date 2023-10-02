@@ -212,11 +212,11 @@
 				<%--  @*活動說明*@--%>
 				<div class=" row    ">
 					<div class=" border py-3 bg-ice col-lg-2">
-						<span class="note">*</span><b><label>活動說明</label></b>
+						<label>活動說明</label>
 					</div>
 					<div class="border  py-3    col-lg-10">
 						<textarea name="ACT_DESC" id="ACT_DESC" rows="6"
-							class="form-control requiredInput "><%: (Model !=null &&  Model.ACT_DESC!=null 
+							class="form-control   "><%: (Model !=null &&  Model.ACT_DESC!=null 
                                                                 ? Model.ACT_DESC   : ""  )  %> </textarea>
 					</div>
 				</div>
@@ -239,7 +239,12 @@
 						</div>
 					</div>
 				</div>
+				<div class="d-flex justify-content-end ">
+					<div class="text-black-50">
+					<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
+					</div>
 
+				</div>
 				<%--<div class="    row  ">
 					<div class=" border  py-3   bg-ice col-lg-2">
 						<span class="note">*</span><label>建立者</label>

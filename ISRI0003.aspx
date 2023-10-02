@@ -35,98 +35,7 @@
 			<% 
 				dynamic Activity = Process_ActivityInfoBySession(GUID);
 			%>
-			<%-- activity info summary start --%>
-			<%-- activity info summary title start --%>
-			<div class="    card p-2  my-2 d-none d-lg-block bg-ice    ">
-				<div class="row text-center  ">
-					<div class=" col-lg-3   text-start">
-						活動主題  
-					</div>
-					<div class=" col-lg-3  ">
-						⽇期 
-					</div>
-					<div class=" col-lg-1  ">
-						總場次 
-					</div>
-					<div class=" col-lg-2    ">
-						主辦單位 
-					</div>
-					<div class=" col-lg-3   ">
-						發布⽇期 
-					</div>
-
-				</div>
-
-			</div>
-			<%-- activity info summary title end --%>
-			<%-- activity info summary content start --%>
-			<div class="    card p-2  my-2     ">
-				<div class=" row    d-flex align-items-center ">
-					<div class="col-12 col-sm-5 col-lg-3 ">
-						<div class="row   ">
-							<span class="d-lg-none col-3 col-sm-4   ">
-								<span class="badge bg-info  ">活動主題</span>
-							</span>
-							<div class="col-9 col-sm-8 col-lg-12 ">
-								<div>
-									活動主題
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-sm-7 col-lg-3 ">
-						<div class="row  d-flex align-items-center ">
-							<span class="d-lg-none  col-3 col-sm-4    ">
-								<span class="badge bg-info">⽇期</span>
-							</span>
-							<div class="col-9 col-sm-8 col-lg-12    ">
-								<div class="d-flex justify-content-lg-center">112/08/31-112/09/30 </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-5  col-lg-1 ">
-						<div class="row  d-flex align-items-center ">
-							<span class="d-lg-none  col-3  col-sm-4  ">
-								<span class="badge bg-info">總場次</span>
-							</span>
-							<div class="col-9 col-sm-8 col-lg-12   text-center  ">
-								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-warning">5</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-7  col-lg-2 ">
-						<div class="row  d-flex align-items-center ">
-							<div class="d-lg-none  col-3  col-sm-4   ">
-								<span class="badge bg-info">主辦單位</span>
-							</div>
-							<div class="col-9 col-sm-8 col-lg-12  text-center  ">
-								<div class="d-flex justify-content-lg-center">主辦單位 </div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-12  col-sm-5 col-lg-3 ">
-						<div class="row  d-flex align-items-center ">
-							<div class="d-lg-none  col-3  col-sm-4   ">
-								<span class="badge bg-info">發布⽇期</span>
-							</div>
-							<div class="col-9 col-sm-8 col-lg-12 ">
-								<div class="  text-center ">
-									<div class="d-flex justify-content-lg-center">112/08/31  </div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-
-			</div>
-			<%-- activity info summary content end --%>
-			<%--   activity info summary end--%>
-
+			 <!-- #include file="ActivityInfo.html" -->
 
 
 
@@ -611,8 +520,7 @@
 					<% if (Model != null)
 						{%>
 					<a href="#" id="btnInsert" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">新增</a>
-					<a href="#" id="btnCancel" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">取消</a>
-
+					 
 					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">儲存</a>
 
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">複製</a>
@@ -629,6 +537,7 @@
 
 					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
+					<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 mb-2 ">預覽</a>
 
 
 				</div>
@@ -651,13 +560,9 @@
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
 				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').addClass('d-none');
-				$('#btnInsert, #btnCancel').removeClass('d-none');
+				$('#btnInsert ').removeClass('d-none');
 			});
-			$(document).on('click', '#btnCancel', function (e) {
-				e.preventDefault();
-				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').removeClass('d-none');
-				$('#btnInsert, #btnCancel').addClass('d-none');
-			});
+			 
 
 		});
 

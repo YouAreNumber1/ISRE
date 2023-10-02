@@ -14,20 +14,24 @@
 	<meta http-equiv='cache-control' content='no-cache'>
 	<meta http-equiv='expires' content='-1'>
 	<meta http-equiv='pragma' content='no-cache'>
-	<title>衛生福利部中央健康保險署-活動報名系統</title> 
+	<title>衛生福利部中央健康保險署-活動報名系統</title>
 
-<%--  style first --%>
+	<%--  style first --%>
 	<link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
+	
+	<link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
 	<link href="Content/Site.css" rel="stylesheet" />
-
-	 
-	<%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
-	<script src="Scripts/jquery-3.6.1.js"></script>
-	<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
-	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
+ 	<link href="Content/bootstrap-slider.css" rel="stylesheet" />
+
+ <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+	<%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
+	<script src="Scripts/jquery-3.6.1.js"></script> 
+	<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>
 	<script src="Scripts/SearchForm.js"></script>
 	<script src="Scripts/Common.js"></script>
@@ -38,8 +42,9 @@
 	</asp:PlaceHolder>--%>
 	<script src="Scripts/bootstrap.min.js"></script>
 	<%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
-	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-	<style>
+ 	<script src="Scripts/bootstrap-slider.js"></script>
+	
+		<style>
 		.logo {
 			overflow: hidden;
 			width: 260px;
@@ -131,9 +136,9 @@
 			<a id="backtotop" href="#" class="d-none">
 				<i class="fa fa-3x fa-chevron-circle-up "></i>
 			</a>
-			<footer class="footer    Copyright d-flex justify-content-end fixed-bottom"> 
+			<footer class="footer    Copyright d-flex justify-content-end fixed-bottom">
 				<div class="text-black-50     px-2 py-1">衛生福利部中央健康保險署 Copyright &copy; 2023  All rights reserved &nbsp; Version: v2.0</div>
-				 
+
 			</footer>
 		</div>
 	</form>
