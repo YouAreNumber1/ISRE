@@ -106,6 +106,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActivityFlow.html" />
+    <Content Include="RegistrationFormSetting.aspx" />
+    <Content Include="RegistrationFormSetting.html" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\css\highlightjs-github-theme.css" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\highlight.min.js" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\jquery.min.js" />
@@ -2493,6 +2495,13 @@
     </Compile>
     <Compile Include="ISRE0003.aspx.designer.cs">
       <DependentUpon>ISRE0003.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationFormSetting.aspx.cs">
+      <DependentUpon>RegistrationFormSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationFormSetting.aspx.designer.cs">
+      <DependentUpon>RegistrationFormSetting.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI0006-reversed.aspx.cs">
       <DependentUpon>ISRI0006-reversed.aspx</DependentUpon>
