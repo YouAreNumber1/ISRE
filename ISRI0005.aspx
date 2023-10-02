@@ -2,8 +2,7 @@
 	AutoEventWireup="true" CodeBehind="ISRI0005.aspx.cs"
 	Inherits="ISRE.ISRI0005" %>
 
-<%--this page is for backend to manage   register --%>
-
+<%--this page is for backend to manage   register --%> 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 

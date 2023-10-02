@@ -49,14 +49,14 @@ namespace ISRE
 
 	public enum  Enum_ActivityFlow
 	{
-		[Description("活動"), Display(Name = "活動")]
-		Activity = 0,
-		[Description("場次"), Display(Name = "場次")]
-		Session = 1,
+		[Description("活動建立"), Display(Name = "活動建立")]
+		Activity = 1,
+		[Description("場次建立"), Display(Name = "場次建立")]
+		Session = 2,
 		[Description("報名表設定"), Display(Name = "報名表設定")]
-		RegistrationForm = 2,
+		RegistrationForm = 3,
 		[Description("活動上架"), Display(Name = "活動上架")]
-		Activate = 3
+		Activate = 4
 	}
 
 	public enum Enum_REG_TYPE

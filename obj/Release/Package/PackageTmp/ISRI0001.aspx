@@ -246,8 +246,7 @@
 				<div class="d-flex justify-content-end ">
 					<div class="text-black-50">
 					<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
-					</div>
-
+					</div> 
 				</div>
 				<%--<div class="    row  ">
 					<div class=" border  py-3   bg-ice col-lg-2">
@@ -309,6 +308,9 @@
 					<a href="#" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
 
 					<%}  %>
+
+					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>
+				
 				</div>
 
 

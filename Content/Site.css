@@ -53,15 +53,21 @@ label {
 	vertical-align: middle;
 }
 
-.table td.left, th.left {
-	text-align: left;
-}
-
+ 
 table {
 	border-collapse: collapse;
 }
 
+tbody tr {
+	vertical-align: middle;
+}
+td.right, th.right {
+	text-align: right;
+}
 
+td.left, th.left {
+	text-align: left;
+}
 
 .btn {
 	border-radius: 24px;

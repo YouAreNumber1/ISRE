@@ -116,7 +116,6 @@
     <Content Include="Content\bootstrap-slider-11.0.2\dist\css\bootstrap-slider.min.css" />
     <Content Include="Content\bootstrap-slider-11.0.2\src\js\bootstrap-slider.js" />
     <Content Include="Content\bootstrap-slider.css" />
-    <Content Include="ISRI0009.aspx" />
     <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="SessionInfo.html" />
     <Content Include="ActivityInfo.html" />
@@ -2460,13 +2459,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\EnumSelectHelper.cs" />
-    <Compile Include="ISRI0009.aspx.cs">
-      <DependentUpon>ISRI0009.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ISRI0009.aspx.designer.cs">
-      <DependentUpon>ISRI0009.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ISRE0004-reserved.aspx.cs">
       <DependentUpon>ISRE0004-reserved.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

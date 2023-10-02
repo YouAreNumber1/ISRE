@@ -5,21 +5,9 @@
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<style>
-		label {
-			background-color: var(--Ice-color) !important;
-		}
+		 
 
-		tbody tr {
-			vertical-align: middle;
-		}
-
-		td.right, th.right {
-			text-align: right;
-		}
-
-		td.left, th.left {
-			text-align: left;
-		}
+		
 	</style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid
@@ -139,13 +127,17 @@
 							<input type="text" id="REG_DATE_S" name="REG_DATE_S"
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.REG_DATE_S!=null
-                         ? Model.REG_DATE_S.ToString("yyyy-MM-dd") 
+                         ? String.Concat(
+							 int.Parse(Model.REG_DATE_S.ToString("yyyy")) -1911 ,
+							 "/", Model.REG_DATE_S.ToString("MM"), "/", Model.REG_DATE_S.ToString("dd"))
                          : ""  )  %>">
 							<span>~</span>
 							<input type="text" id="REG_DATE_E" name="REG_DATE_E"
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.REG_DATE_E!=null
-                        ? Model.REG_DATE_E.ToString("yyyy-MM-dd") 
+                        ? String.Concat(
+							 int.Parse(Model.REG_DATE_E.ToString("yyyy")) -1911 ,
+							 "/", Model.REG_DATE_E.ToString("MM"), "/", Model.REG_DATE_E.ToString("dd"))
                         : ""  )  %>">
 						</div>
 					</div>
@@ -428,9 +420,9 @@
 						<div>
 							<div>文字敘述</div>
 							<div class="d-flex  align-items-start">
-									<textarea name="CONFIRM_MAIL" id="CONFIRM_MAIL" cols="30" rows="3"
-								class="form-control   "><%: (Model !=null &&  Model.CONFIRM_MAIL!=null ? Model.CONFIRM_MAIL : "您已完成填寫『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名表，為確保為您的電子信箱填寫無誤，請您點選下方連結進行電子郵件確認(於2023/05/25 14:20前)，確認完成後方能完成報名程序。\n　　如您未進行活動報名，有可能是他人誤用（或冒用），請將這封信直接刪除即可。"  )  %></textarea>
-						<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
+								<textarea name="CONFIRM_MAIL" id="CONFIRM_MAIL" cols="30" rows="3"
+									class="form-control   "><%: (Model !=null &&  Model.CONFIRM_MAIL!=null ? Model.CONFIRM_MAIL : "您已完成填寫『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名表，為確保為您的電子信箱填寫無誤，請您點選下方連結進行電子郵件確認(112/05/25 14:20前)，確認完成後方能完成報名程序。\n　　如您未進行活動報名，有可能是他人誤用（或冒用），請將這封信直接刪除即可。"  )  %></textarea>
+								<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
 							</div>
 
 						</div>
@@ -519,7 +511,230 @@
 					</div>
 				</div>
 
-				<div class="d-flex flex-wrap  align-content-center mt-5 mb-3">
+
+
+
+
+
+
+
+
+
+				<div class="mt-5" id="registrationForm">
+
+					<h3 class="text-center">活動報名表</h3>
+					<%--<div class="card  ">
+						<div class="card-header">報名表</div>
+					</div>--%>
+
+
+					<div class="my-1 py-1">
+						<div class="d-flex justify-content-center">
+							<span>報名⾝分：</span>
+							<div class="form-check  form-check-inline">
+								<input type="radio" class="form-check-input "
+									id="REG_TYPE1" name="REG_TYPE" value="1" checked>個人
+				<label class="form-check-label" for="REG_TYPE1"></label>
+							</div>
+							<div class="form-check  form-check-inline">
+								<input type="radio" class="form-check-input "
+									id="REG_TYPE2" name="REG_TYPE" value="2">單位
+				<label class="form-check-label" for="REG_TYPE2"></label>
+							</div>
+						</div>
+
+
+						<div class="  ">
+							<div class="row my-1 py-1  border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>欄位</label>
+								</div>
+								<div class="col-2 text-nowrap text-center">
+									<label>顯示</label>
+								</div>
+								<div class="col-2  text-nowrap text-center">
+									<label>必填</label>
+								</div>
+							</div>
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8  ">
+									<label>投保單位代號</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center ">
+									<input type="checkbox">
+								</div>
+							</div>
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>醫療院所代號</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>統⼀編號</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>投保單位代號或統⼀編號</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>指定單位代號</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>單位名稱</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>⾝分證號/居留證號</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>職稱</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>製作教師研習證明</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>上傳公務⼈員訓練時數</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>參與⽅式</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>個資使⽤同意證明</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+
+
+
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>餐飲習慣</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+							<div class="row  my-1 py-1   border border-end-0 border-top-0  border-start-0 ">
+								<div class="col-8">
+									<label>備註</label>
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+								<div class="col-2 text-center">
+									<input type="checkbox">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div class="d-flex justify-content-end ">
+					<div class="text-black-50">
+						<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
+					</div>
+				</div>
+
+
+				<div class="d-flex justify-content-center flex-wrap  align-content-center mt-5 mb-3">
 
 					<% if (Model != null)
 						{%>
@@ -527,7 +742,7 @@
 
 					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">儲存</a>
 
-					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">複製</a>
+					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">複製資料</a>
 					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">傳送</a>
 					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">刪除</a>
 
