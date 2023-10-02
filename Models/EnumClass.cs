@@ -51,10 +51,12 @@ namespace ISRE
 	{
 		[Description("活動"), Display(Name = "活動")]
 		Activity = 0,
-		[Description("場次及報名表設定"), Display(Name = "場次及報名表設定")]
+		[Description("場次"), Display(Name = "場次")]
 		Session = 1,
+		[Description("報名表設定"), Display(Name = "報名表設定")]
+		RegistrationForm = 2,
 		[Description("活動上架"), Display(Name = "活動上架")]
-		Activate = 2
+		Activate = 3
 	}
 
 	public enum Enum_REG_TYPE

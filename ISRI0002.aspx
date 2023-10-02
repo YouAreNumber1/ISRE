@@ -9,7 +9,7 @@
 	%>
 	<main>
 		<div class="my-2">
-			<h3 class="text-center ">活動內容</h3>
+			 	<!-- #include file="ActivityFlow.html" -->
 			<%
 				GUID = Request.QueryString["GUID"];
 				dynamic Model = Process_ActivityInfo(GUID);

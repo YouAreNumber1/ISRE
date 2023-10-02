@@ -31,102 +31,11 @@
 
 
 		<div class=" my-2">
-			<h3 class="text-center  ">活動內容</h3>
+			<!-- #include file="ActivityFlow.html" -->
 			<% 
 				dynamic Activity = Process_ActivityInfoBySession(GUID);
 			%>
-			<%-- activity info summary start --%>
-			<%-- activity info summary title start --%>
-			<div class="    card p-2  my-2 d-none d-lg-block bg-ice    ">
-				<div class="row text-center  ">
-					<div class=" col-lg-3   text-start">
-						活動主題  
-					</div>
-					<div class=" col-lg-3  ">
-						⽇期 
-					</div>
-					<div class=" col-lg-1  ">
-						總場次 
-					</div>
-					<div class=" col-lg-2    ">
-						主辦單位 
-					</div>
-					<div class=" col-lg-3   ">
-						發布⽇期 
-					</div>
-
-				</div>
-
-			</div>
-			<%-- activity info summary title end --%>
-			<%-- activity info summary content start --%>
-			<div class="    card p-2  my-2     ">
-				<div class=" row    d-flex align-items-center ">
-					<div class="col-12 col-sm-5 col-lg-3 ">
-						<div class="row   ">
-							<span class="d-lg-none col-3 col-sm-4   ">
-								<span class="badge bg-info  ">活動主題</span>
-							</span>
-							<div class="col-9 col-sm-8 col-lg-12 ">
-								<div>
-									活動主題
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-sm-7 col-lg-3 ">
-						<div class="row  d-flex align-items-center ">
-							<span class="d-lg-none  col-3 col-sm-4    ">
-								<span class="badge bg-info">⽇期</span>
-							</span>
-							<div class="col-9 col-sm-8 col-lg-12    ">
-								<div class="d-flex justify-content-lg-center">112/08/31-112/09/30 </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-5  col-lg-1 ">
-						<div class="row  d-flex align-items-center ">
-							<span class="d-lg-none  col-3  col-sm-4  ">
-								<span class="badge bg-info">總場次</span>
-							</span>
-							<div class="col-9 col-sm-8 col-lg-12   text-center  ">
-								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-warning">5</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-7  col-lg-2 ">
-						<div class="row  d-flex align-items-center ">
-							<div class="d-lg-none  col-3  col-sm-4   ">
-								<span class="badge bg-info">主辦單位</span>
-							</div>
-							<div class="col-9 col-sm-8 col-lg-12  text-center  ">
-								<div class="d-flex justify-content-lg-center">主辦單位 </div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-12  col-sm-5 col-lg-3 ">
-						<div class="row  d-flex align-items-center ">
-							<div class="d-lg-none  col-3  col-sm-4   ">
-								<span class="badge bg-info">發布⽇期</span>
-							</div>
-							<div class="col-9 col-sm-8 col-lg-12 ">
-								<div class="  text-center ">
-									<div class="d-flex justify-content-lg-center">112/08/31  </div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-
-			</div>
-			<%-- activity info summary content end --%>
-			<%--   activity info summary end--%>
-
+			<!-- #include file="ActivityInfo.html" -->
 
 
 
@@ -518,10 +427,10 @@
 					<div class="  py-3   col-lg-10 border">
 						<div>
 							<div>文字敘述</div>
-							<textarea name="CONFIRM_MAIL" id="CONFIRM_MAIL" cols="30" rows="3"
+							<div class="d-flex  align-items-start">
+									<textarea name="CONFIRM_MAIL" id="CONFIRM_MAIL" cols="30" rows="3"
 								class="form-control   "><%: (Model !=null &&  Model.CONFIRM_MAIL!=null ? Model.CONFIRM_MAIL : "您已完成填寫『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名表，為確保為您的電子信箱填寫無誤，請您點選下方連結進行電子郵件確認(於2023/05/25 14:20前)，確認完成後方能完成報名程序。\n　　如您未進行活動報名，有可能是他人誤用（或冒用），請將這封信直接刪除即可。"  )  %></textarea>
-							<div class="d-flex">
-								<a href="#" class="btn btn-primary-isre my-2 px-4">預覽</a>
+						<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
 							</div>
 
 						</div>
@@ -534,11 +443,13 @@
 					<div class="  py-3   col-lg-10 border">
 						<div>
 							<div>文字敘述</div>
-							<textarea name="SUCCESS_MAIL" id="SUCCESS_MAIL" cols="30" rows="3"
-								class="form-control   "><%: (Model !=null &&  Model.SUCCESS_MAIL!=null ? Model.SUCCESS_MAIL : "您已完成『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
-							<div class="d-flex">
-								<a href="#" class="btn btn-primary-isre  my-2 px-4">預覽</a>
+							<div class="d-flex align-items-start">
+								<textarea name="SUCCESS_MAIL" id="SUCCESS_MAIL" cols="30" rows="3"
+									class="form-control    "><%: (Model !=null &&  Model.SUCCESS_MAIL!=null ? Model.SUCCESS_MAIL : "您已完成『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
+
+								<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -549,10 +460,11 @@
 					<div class="  py-3   col-lg-10 border">
 						<div>
 							<div>文字敘述</div>
-							<textarea name="WAIT_MAIL" id="WAIT_MAIL" cols="30" rows="3"
-								class="form-control    "><%: (Model !=null &&  Model.WAIT_MAIL!=null ? Model.WAIT_MAIL : "您已完成『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名候補，若您遞補成功將會另外發函通知，\n請密切注意您的電子郵件信箱。若無沒遞補恕不另外通知。"  )  %> </textarea>
-							<div class="d-flex">
-								<a href="#" class="btn btn-primary-isre  my-2 px-4">預覽</a>
+							<div class="d-flex align-items-start">
+								<textarea name="WAIT_MAIL" id="WAIT_MAIL" cols="30" rows="3"
+									class="form-control    "><%: (Model !=null &&  Model.WAIT_MAIL!=null ? Model.WAIT_MAIL : "您已完成『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動報名候補，若您遞補成功將會另外發函通知，\n請密切注意您的電子郵件信箱。若無沒遞補恕不另外通知。"  )  %> </textarea>
+
+								<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
 							</div>
 						</div>
 
@@ -595,40 +507,41 @@
 
 							</div>
 							<div>文字敘述</div>
-							<textarea name="REMIND_MAIL_TEXT" id="REMIND_MAIL_TEXT" cols="30" rows="3"
-								class="form-control   "><%:(Model !=null &&  Model.REMIND_MAIL_TEXT!=null 
+							<div class="d-flex align-items-start">
+								<textarea name="REMIND_MAIL_TEXT" id="REMIND_MAIL_TEXT" cols="30" rows="3"
+									class="form-control   "><%:(Model !=null &&  Model.REMIND_MAIL_TEXT!=null 
                               ? Model.REMIND_MAIL_TEXT : "『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動即將開始，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
-							<div class="d-flex">
-								<a href="#" class="btn btn-primary-isre my-2  px-4">預覽</a>
+
+								<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
 							</div>
 
 						</div>
 					</div>
 				</div>
 
-				<div class="d-flex justify-content-center mt-5 mb-3">
+				<div class="d-flex flex-wrap  align-content-center mt-5 mb-3">
 
 					<% if (Model != null)
 						{%>
-					<a href="#" id="btnInsert" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">新增</a>
-					<a href="#" id="btnCancel" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">取消</a>
+					<a href="#" id="btnInsert" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">新增</a>
 
-					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">儲存</a>
+					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">儲存</a>
 
-					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">複製</a>
-					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">傳送</a>
-					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">刪除</a>
+					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">複製</a>
+					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">傳送</a>
+					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">刪除</a>
 
 					<% }
 						else
 						{ %>
-					<a href="#" id="btnAdd" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">新增</a>
+					<a href="#" id="btnAdd" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">新增</a>
 
 					<%}%>
-					<a href="#" id="btnBack" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回前一頁</a>
+					<a href="#" id="btnBack" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">回前一頁</a>
 
-					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
+					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">回首頁</a>
 
+					<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">預覽</a>
 
 
 				</div>
@@ -651,13 +564,9 @@
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
 				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').addClass('d-none');
-				$('#btnInsert, #btnCancel').removeClass('d-none');
+				$('#btnInsert ').removeClass('d-none');
 			});
-			$(document).on('click', '#btnCancel', function (e) {
-				e.preventDefault();
-				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').removeClass('d-none');
-				$('#btnInsert, #btnCancel').addClass('d-none');
-			});
+
 
 		});
 

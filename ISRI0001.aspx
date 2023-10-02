@@ -14,7 +14,11 @@
 
 
 		<div class=" my-2">
+			
+			 	<!-- #include file="ActivityFlow.html" -->
+				
 			<%   
+
 				dynamic Model = Process_ActivityInfo(GUID);
 			%>
 			<%--  activity form starts--%>
@@ -311,6 +315,8 @@
 
 			</div>
 
+
+			 
 			<%--  activity form end--%>
 		</div>
 
@@ -420,6 +426,24 @@
 		};
 
 		$(document).ready(function () {
+			let guid = "<%:GUID%>"; 
+		 	if (guid == "") $('#flowPlaceHolder').addClass('d-none');
+
+			//$.ajax({
+			//	url: "ActivityFlow.html",
+			//	context: document.body
+			//}).done(function (response) {
+			//	//$(this).addClass("done");
+			//	console.log(response);
+			//	$('#contents').prepend(response);
+			//	$("#flowStep").slider({ 
+			//		ticks: [0, 100, 200, 300, 400],
+			//		ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+			//		ticks_snap_bounds: 30
+			//	});
+			//});
+
+
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
 				.datepicker($.datepicker.regional['zh-TW']);
 

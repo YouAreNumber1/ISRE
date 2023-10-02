@@ -29,37 +29,9 @@
 	<script src="DataTable/datatables.js"></script>
 	<script src="Scripts/vfs_fonts_NotoSerifTC.js"></script>
 	<main aria-labelledby="title">
-		<div class=" my-2">
+		<div class=" my-2"> 
 
-
-			<div class="    card p-2  my-2   d-lg-block bg-ice    ">
-				<div class="row text-center  ">
-					<div class=" col-12 text-start">
-						活動流程
-       
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="mx-5">
-				<input
-					type="text"
-					id="flowStep"
-					data-provide="slider"
-					data-slider-ticks="[1, 2, 3]"
-					data-slider-ticks-labels='["<%:ISRE.Enum_ActivityFlow.Activity.GetDisplayName() %>", "<%:ISRE.Enum_ActivityFlow.Session.GetDisplayName() %>", "<%:ISRE.Enum_ActivityFlow.Activate.GetDisplayName() %>"]'
-					<%--data-slider-min="1"
-	data-slider-max="3"
-	data-slider-step="1"--%>
-					data-slider-value="3" <%--/////////// update this value for status--%>
-					data-slider-tooltip="hide"
-					data-slider-enabled="false">
-			</div>
-
-
-
+			 	<!-- #include file="ActivityFlow.html" --> 
 			<% 
 				dynamic Activity = Process_ActivityInfoBySession(GUID);
 			%>
@@ -734,7 +706,7 @@
 
 			$(document).on('click', '#btnExportExcel', function (e) {
 				e.preventDefault();
-
+				let messageTop = 'test\r\n' +    'test32';
 				if ($.fn.dataTable.isDataTable('#tableList')) {
 					let tableExcel = $('#tableList').DataTable();
 					tableExcel.destroy();
@@ -745,6 +717,7 @@
 					buttons: [
 						{
 							extend: 'excelHtml5',
+							messageTop: messageTop,
 							filename: '健保署報名活動',
 							text: 'Export Excel',
 							exportOptions: {

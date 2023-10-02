@@ -42,7 +42,7 @@
 					<div class=" text-start">活動主題 </div>
 				</div>
 				<div class=" col-lg-3">
-					<div class=" ">⽇期</div>
+					<div class=" ">活動⽇期區間</div>
 				</div>
 				<div class=" col-lg-1">
 					<div class="   ">總場次</div>
@@ -83,7 +83,7 @@
 				<div class="col-12 col-lg-3 ">
 					<div class="row  d-flex align-items-center ">
 						<span class="d-lg-none  col-3   col-sm-2  ">
-							<span class="badge bg-info">⽇期</span>
+							<span class="badge bg-info">活動⽇期區間</span>
 						</span>
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class="d-block  d-lg-flex     justify-content-lg-center">
