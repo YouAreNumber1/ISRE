@@ -89,7 +89,7 @@ namespace ISRE
 				param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
 			}
 			 
-			param.Add("@QueryMode", "I", DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "S", DbType.String, ParameterDirection.Input);
 
 			ISRE_SESSION_REG_FORM model = _dbConn.Query<ISRE_SESSION_REG_FORM>(
 			"Session_ISRE_SESSION_REG_FORM",

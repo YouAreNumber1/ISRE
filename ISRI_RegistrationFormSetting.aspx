@@ -88,11 +88,11 @@
 			<tr>
 				<td class="left">電⼦郵件信箱</td>
 				<td>
-					<input  id="EMAIL_PERSONAL" name="EMAIL_PERSONAL" value="1"
+					<input  id="EMAIL_PERSONAL_D" name="EMAIL_PERSONAL_D" value="1"
 						type="checkbox" checked class="requiredCheck "  >
 				</td>
 				<td>
-					<input  id="EMAIL_UNIT" name="EMAIL_UNIT"  value="1"
+					<input  id="EMAIL_PERSONAL_R" name="EMAIL_PERSONAL_R"  value="1"
 						type="checkbox" checked class="requiredCheck "  >
 				</td>
 			</tr>
