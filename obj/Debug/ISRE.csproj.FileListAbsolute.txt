@@ -75,8 +75,6 @@ C:\0927\obj\Debug\ISRE.csproj.CoreCompileInputs.cache
 C:\0927\obj\Debug\ISRE.csproj.CopyComplete
 C:\0927\obj\Debug\ISRE.dll
 C:\0927\obj\Debug\ISRE.pdb
-C:\IN\ISRE0926\obj\Debug\ISRE.csproj.AssemblyReference.cache
-C:\IN\ISRE0926\obj\Debug\ISRE.csproj.CoreCompileInputs.cache
 C:\IN\ISRE0926\bin\ISRE.dll.config
 C:\IN\ISRE0926\bin\ISRE.dll
 C:\IN\ISRE0926\bin\ISRE.pdb
@@ -149,6 +147,8 @@ C:\IN\ISRE0926\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\IN\ISRE0926\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\IN\ISRE0926\bin\zh-Hant\System.Web.Optimization.resources.dll
 C:\IN\ISRE0926\bin\zh-Hant\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\IN\ISRE0926\obj\Debug\ISRE.csproj.AssemblyReference.cache
+C:\IN\ISRE0926\obj\Debug\ISRE.csproj.CoreCompileInputs.cache
 C:\IN\ISRE0926\obj\Debug\ISRE.csproj.CopyComplete
 C:\IN\ISRE0926\obj\Debug\ISRE.dll
 C:\IN\ISRE0926\obj\Debug\ISRE.pdb

@@ -15,12 +15,12 @@
 		<span>報名⾝分：</span>
 		<div class="form-check  form-check-inline">
 			<input type="radio" class="form-check-input rdoREG_TYPE"
-				   id="rdoREG_TYPE1"  value="1" checked>個人
+				   id="rdoREG_TYPE1" name="rdoREG_TYPE" value="1" checked>個人
 			<label class="form-check-label" for="rdoREG_TYPE1"></label>
 		</div>
 		<div class="form-check  form-check-inline">
 			<input type="radio" class="form-check-input rdoREG_TYPE"
-				   id="rdoREG_TYPE2"  value="2">單位
+				   id="rdoREG_TYPE2"  name="rdoREG_TYPE"  value="2">單位
 			<label class="form-check-label" for="rdoREG_TYPE2"></label>
 		</div>
 	</div>
@@ -88,12 +88,12 @@
 			<tr>
 				<td class="left">電⼦郵件信箱</td>
 				<td>
-					<input  id="EMAIL_PERSONAL_D" name="EMAIL_PERSONAL_D" value="1"
-						type="checkbox" checked class="requiredCheck "  >
+					<input  id="PERSONAL_EMAIL_D" name="PERSONAL_EMAIL_D" value="1"
+						type="checkbox" checked class="requiredCheck "   >
 				</td>
 				<td>
-					<input  id="EMAIL_PERSONAL_R" name="EMAIL_PERSONAL_R"  value="1"
-						type="checkbox" checked class="requiredCheck "  >
+					<input  id="PERSONAL_EMAIL_R" name="PERSONAL_EMAIL_R"  value="1"
+						type="checkbox" checked class="requiredCheck "   >
 				</td>
 			</tr>
 			<tr>
@@ -342,12 +342,7 @@
 		else {
 			$('#table_REG_TYPE2').removeClass('d-none');
 		}
-		$(document).on('click', '.rdoREG_TYPE', function () {
-
-			$('.table_REG_TYPE').addClass('d-none');
-			$('#table_REG_TYPE' + $(this).val()).removeClass('d-none');
-		})
-
+		
 	});
 
 </script>

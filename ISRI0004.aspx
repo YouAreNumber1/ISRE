@@ -54,14 +54,21 @@
 	</main>
 
 	<script>
+		$(document).on('click', '.rdoREG_TYPE', function (e) {  
+			$('.table_REG_TYPE').addClass('d-none');
+			$('#table_REG_TYPE' + $(this).val()).removeClass('d-none');
+		})
 
+		$(document).on('click', '.requiredCheck', function (e) {
+			e.preventDefault();
+			return;
+		})
 		$(document).ready(function () {
 			var SaveForm = function (btn) {
 				//let id = btn.attr('id');
 				let guid = btn.attr('guid');
 				let target = btn.attr('data-target');
-				let thisFormId = btn.closest('form').attr('id');
-
+				let thisFormId = btn.closest('form').attr('id'); 
 				let formData = new FormData($('#' + thisFormId).get(0));
 				formData.append('guid', guid);
 				var object = {};
