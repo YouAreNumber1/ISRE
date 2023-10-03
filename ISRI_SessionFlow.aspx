@@ -4,7 +4,7 @@
 	<h3 class="text-center  ">場次流程</h3>
 
 	<div class=" card">
-		<div class=" py-4 px-4 ms-3 ms-lg-5">
+		<div class=" py-3 px-4 ms-3 ms-lg-5">
 			<input type="hidden"
 				   id="flowStep"
 				   data-provide="slider"

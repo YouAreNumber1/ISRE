@@ -225,6 +225,7 @@
 
 		</div>
 
+
 		<!-- The Modal -->
 		<div class="modal" id="modalAttend">
 			<div class="modal-dialog ">

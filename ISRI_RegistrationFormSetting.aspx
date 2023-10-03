@@ -8,19 +8,19 @@
 	ISRE.ISRE_SESSION_MAIN Model = Process_SessionRegForm(SESSIONGUID);
 %>
 
-<h3 class="text-center">活動報名表</h3>
+<h3 class="text-center mt-5">活動報名表</h3>
 <div class="my-1 py-1">
 
 	<div class="d-flex justify-content-center">
 		<span>報名⾝分：</span>
 		<div class="form-check  form-check-inline">
 			<input type="radio" class="form-check-input rdoREG_TYPE"
-				   id="rdoREG_TYPE1" name="rdoREG_TYPE" value="1" checked>個人
+				   id="rdoREG_TYPE1"  value="1" checked>個人
 			<label class="form-check-label" for="rdoREG_TYPE1"></label>
 		</div>
 		<div class="form-check  form-check-inline">
 			<input type="radio" class="form-check-input rdoREG_TYPE"
-				   id="rdoREG_TYPE2" name="rdoREG_TYPE" value="2">單位
+				   id="rdoREG_TYPE2"  value="2">單位
 			<label class="form-check-label" for="rdoREG_TYPE2"></label>
 		</div>
 	</div>
@@ -48,11 +48,11 @@
 			<tr>
 				<td class="left">⾝分證號/居留證號</td>
 				<td>
-					<input id="ID_AES_CHK_DISPLAY" type="checkbox" class="chk_mask">
+					<input   type="checkbox" class="chk_mask">
 				</td>
 				<td>
-					<input id="ID_AES_CHK_REQUIRED" type="checkbox" class="chk_mask">
-					<input name="ID_AES_CHK_MASK" type="hidden" class="mask" />
+					<input  type="checkbox" class="chk_mask">
+				 
 				</td>
 				
 			</tr>
@@ -88,10 +88,12 @@
 			<tr>
 				<td class="left">電⼦郵件信箱</td>
 				<td>
-					<input type="checkbox" checked class="requiredCheck " disabled>
+					<input  id="EMAIL_PERSONAL" name="EMAIL_PERSONAL" value="1"
+						type="checkbox" checked class="requiredCheck "  >
 				</td>
 				<td>
-					<input type="checkbox" checked class="requiredCheck " disabled>
+					<input  id="EMAIL_UNIT" name="EMAIL_UNIT"  value="1"
+						type="checkbox" checked class="requiredCheck "  >
 				</td>
 			</tr>
 			<tr>

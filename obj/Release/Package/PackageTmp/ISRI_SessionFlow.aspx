@@ -1,20 +1,11 @@
 ﻿
 <placeholder id="flowPlaceHolder">
-	<!--<div class="    card p-2  my-2   d-lg-block bg-ice    ">
-		<div class="row text-center  ">
-			<div class=" col-12 text-start">
-				活動流程
-
-			</div>
-		</div>
-
-	</div>-->
 	 
 	<h3 class="text-center  ">場次流程</h3>
 
 	<div class=" card">
 		<div class=" py-4 px-4 ms-3 ms-lg-5">
-			<input type="text"
+			<input type="hidden"
 				   id="flowStep"
 				   data-provide="slider"
 				   data-slider-ticks="[1, 2, 3]"

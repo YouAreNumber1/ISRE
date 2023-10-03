@@ -2,56 +2,70 @@
 
 namespace ISRE
 {
-    /// <summary>
-    /// /////////// this is for update/insert
-    /// </summary>
-    public class ISRE_SESSION_REG_FORM
-    {
-            public string SESS_SEQ_NO { get; set; }
-            public string REG_TYPE        { get; set; }
-            public string CREATE_DATE { get; set; }
-            public string TXT_DATE        { get; set; }
-            public string TXT_USER_ID { get; set; }
-            public string APPLY_NAME        { get; set; }
-            public string APPLY_NAME_MASK { get; set; }
-            public string ID_AES        { get; set; }
-            public string ID_AES_MASK { get; set; }
-            public string UNIT_NAME        { get; set; }
-            public string UNIT_NAME_MASK { get; set; }
-            public string TEL_NUM        { get; set; }
-            public string TEL_NUM_MASK { get; set; }
-            public string MOB_NUM        { get; set; }
-            public string MOB_NUM_MASK { get; set; }
-            public string EMAIL        { get; set; }
-            public string EMAIL_MASK { get; set; }
-            public string TEACHER_PROOF        { get; set; }
-            public string TEACHER_PROOF_MASK { get; set; }
-            public string UPLOAD_TRAIN_HOUR        { get; set; }
-            public string UPLOAD_TRAIN_HOUR_MASK { get; set; }
-            public string ATTEND_TYPE        { get; set; } 
-            public string ATTEND_TYPE_MASK { get; set; }
-            public string PID_AGREE_PROOF        { get; set; }
-            public string PID_AGREE_PROOF_MASK { get; set; }
-            public string DIET_TEND        { get; set; }
-            public string DIET_TEND_MASK { get; set; }
-            public string BIRTH_DATE        { get; set; }
-            public string BIRTH_DATE_MASK { get; set; }
-            public string MEMO        { get; set; }
-            public string MEMO_MASK { get; set; }
-            public string UNIT_NO    { get; set; }
-            public string UNIT_NO_MASK { get; set; }
-            public string HOSP_ID        { get; set; }
-            public string HOSP_ID_MASK { get; set; }
-            public string GUI_NO        { get; set; }
-            public string GUI_NO_MASK { get; set; }
-            public string UNIT_OR_GUI_NO    { get; set; }
-            public string UNIT_OR_GUI_NO_MASK { get; set; }
-            public string SPEC_UNIT_NO        { get; set; }
-            public string SPEC_UNIT_NO_MASK { get; set; }
-            public string JOB_TITLE    { get; set; }
-            public string JOB_TITLE_MASK { get; set; }
- 
-            public string GUID { get; set; } 
+	/// <summary>
+	/// /////////// this is for update/insert
+	/// </summary>
+	public class ISRE_SESSION_REG_FORM
+	{
+		public string SESS_SEQ_NO { get; set; }
+		public string CREATE_DATE { get; set; }
+		public string TXT_DATE { get; set; }
+		public string TXT_USER_ID { get; set; }
 
-    }
+
+
+		public string JOBTITLE_PERSONAL { get; set; }
+		public string UNITNAME_PERSONAL { get; set; }
+		public string ASSIGNEDNO_PERSONAL { get; set; }
+		public string INSUREDNO_OR_GUINO_PERSONAL { get; set; }
+		public string GUINO_PERSONAL { get; set; }
+		public string HOSPNO_PERSONAL { get; set; }
+		public string INSUREDNO_PERSONAL { get; set; }
+		public string NAME_PERSONAL { get; set; }
+		public string ID_AES_PERSONAL { get; set; }
+		public string DOB_PERSONAL { get; set; }
+		public string WORK_PERSONAL { get; set; }
+		public string CONTACTNO_PERSONAL { get; set; }
+		public string EMAIL_PERSONAL { get; set; }
+		public string TEACHERPROOF_PERSONAL { get; set; }
+		public string TRAININGHOUR_PERSONAL { get; set; }
+		public string ATTEND_PERSONAL { get; set; }
+		public string PIDAGREE_PERSONAL { get; set; }
+		public string DIET_PERSONAL { get; set; }
+		public string MEMO_PERSONAL { get; set; }
+
+
+
+
+		public string JOBTITLE_UNIT { get; set; }
+		public string UNITNAME_UNIT { get; set; }
+		public string ASSIGNEDNO_UNIT { get; set; }
+		public string INSUREDNO_OR_GUINO_UNIT { get; set; }
+		public string GUINO_UNIT { get; set; }
+		public string HOSPNO_UNIT { get; set; }
+		public string INSUREDNO_UNIT { get; set; }
+		public string NAME_UNIT { get; set; }
+		public string ID_AES_UNIT { get; set; }
+		public string DOB_UNIT { get; set; }
+		public string WORK_UNIT { get; set; }
+		public string CONTACTNO_UNIT { get; set; }
+		public string EMAIL_UNIT { get; set; }
+		public string TEACHERPROOF_UNIT { get; set; }
+		public string TRAININGHOUR_UNIT { get; set; }
+		public string ATTEND_UNIT { get; set; }
+		public string PIDAGREE_UNIT { get; set; }
+		public string DIET_UNIT { get; set; }
+		public string MEMO_UNIT { get; set; }
+
+
+
+
+
+
+
+
+
+		public string GUID { get; set; }
+
+	}
 }

@@ -19,7 +19,9 @@
 
 
 		<div class=" my-2">
-
+			<div id="ISRI_SessionFlow" runat="server">
+	<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
+</div>
 			 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
@@ -128,7 +130,7 @@
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.REG_DATE_S!=null
                          ? String.Concat(
-							 int.Parse(Model.REG_DATE_S.ToString("yyyy")) -1911 ,
+							 (int.Parse(Model.REG_DATE_S.ToString("yyyy")) -1911).ToString() ,
 							 "/", Model.REG_DATE_S.ToString("MM"), "/", Model.REG_DATE_S.ToString("dd"))
                          : ""  )  %>">
 							<span>~</span>
@@ -151,21 +153,21 @@
 						<div class="d-flex">
 							<input type="text" id="CHK_DATE_S_DATE" name="CHK_DATE_S_DATE"
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_S_DATE!=null
-                     ? Model.CHK_DATE_S_DATE.ToString("yyyy-MM-dd") 
+								value="<%: (Model !=null &&  Model.CHK_DATE_S !=null
+                     ? Model.CHK_DATE_S.ToString("yyyy-MM-dd") 
                      : ""  )  %>">
 							<input type="time" id="CHK_DATE_S_TIME" name="CHK_DATE_S_TIME" placeholder="HH:mm" class="form-control mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_S_TIME!=null
-                        ? Model.CHK_DATE_S_TIME.ToString("yyyy-MM-dd")  
+								value="<%: (Model !=null &&  Model.CHK_DATE_S!=null
+                        ? Model.CHK_DATE_S.ToString("HH:mm")  
                         : ""  )  %>">
 							<span>~</span>
 							<input type="text" id="CHK_DATE_E_DATE" name="CHK_DATE_E_DATE" placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_E_DATE!=null
-                        ? Model.CHK_DATE_E_DATE.ToString("yyyy-MM-dd") 
+								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
+                        ? Model.CHK_DATE_E.ToString("yyyy-MM-dd") 
                         : ""  )  %>">
 							<input type="time" id="CHK_DATE_E_TIME" name="CHK_DATE_E_TIME" placeholder="HH:mm" class="form-control mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_E_TIME!=null
-                         ? Model.CHK_DATE_E_TIME 
+								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
+                         ? Model.CHK_DATE_E.ToString("HH:mm")  
                          : ""  )  %>">
 						</div>
 					</div>
@@ -501,8 +503,8 @@
 							<div>文字敘述</div>
 							<div class="d-flex align-items-start">
 								<textarea name="REMIND_MAIL_TEXT" id="REMIND_MAIL_TEXT" cols="30" rows="3"
-									class="form-control   "><%:(Model !=null &&  Model.REMIND_MAIL_TEXT!=null 
-                              ? Model.REMIND_MAIL_TEXT : "『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動即將開始，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
+									class="form-control   "><%:(Model !=null &&  Model.REMIND_MAIL!=null 
+                              ? Model.REMIND_MAIL : "『0524「東區第二、三類投保單位承保業務說明會」視訊會議』活動即將開始，敬請記得活動當天攜帶 QR code 報到！"  )  %> </textarea>
 
 								<a href="#" class="btn btn-primary-isre m-2 text-nowrap  px-4">預覽</a>
 							</div>

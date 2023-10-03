@@ -4,20 +4,14 @@
 
 <%--this page is for backend activity info and sesseion list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	<%
-		string GUID =   Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
-	%>
+ 
 	<main>
-		<div class="my-2">
-			 
-			 
+		<div class="my-2"> 
 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
-
-
-
+			 
 			<%--   session list   start--%>
 			<div class="d-flex  justify-content-between  align-items-center mt-5 ">
 				<div></div>
@@ -73,6 +67,7 @@
 
 			<%--session list start  --%>
 			<%  
+				string GUID =   Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
 				dynamic sessions = Process_SessionList(GUID);
 				foreach (var item in sessions)
 				{

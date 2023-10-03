@@ -1,13 +1,16 @@
 ﻿<%-- THIS IS SUB PAGE FOR SESSION REGISTRATION FORM SETTING --%>
-<h3 class="text-center">活動報名表</h3>
+
 
 <%
-	string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
-	string ActioinName = (GUID == "") ? "新增" : "編輯";
+	String SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////GUID=activity guid
+	String ActioinName = (SESSIONGUID == "") ? "新增" : "編輯";
 	string sSelected = "";
-	dynamic Model = Process_SessionRegForm(GUID);
+	ISRE.ISRE_SESSION_MAIN Model = Process_SessionRegForm(SESSIONGUID);
 %>
+
+<h3 class="text-center">活動報名表</h3>
 <div class="my-1 py-1">
+
 	<div class="d-flex justify-content-center">
 		<span>報名⾝分：</span>
 		<div class="form-check  form-check-inline">

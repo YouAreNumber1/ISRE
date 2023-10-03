@@ -3,15 +3,14 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
-using System.Web.UI;
 using Dapper;
-using System.Web.Services;
 using Newtonsoft.Json;
+using System.Web.Services;
 
 namespace ISRE
 {
 
-	public partial class ISRI0004 : Page
+	public partial class ISRI0004 : System.Web.UI.Page
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
@@ -77,7 +76,7 @@ namespace ISRE
 
 		[WebMethod]
         /////////// guid=session guid
-		protected dynamic Process_SettingForm(string GUID, ISRE_SESSION_REG_FORM rq)
+		public static  ISRE_SESSION_REG_FORM Process_SettingForm(string GUID, ISRE_SESSION_REG_FORM rq)
 		{
 			DynamicParameters param = new DynamicParameters();
 			string jsonData = JsonConvert.SerializeObject(rq);
@@ -91,8 +90,8 @@ namespace ISRE
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			param.Add("@QueryMode", "I", DbType.String, ParameterDirection.Input);
 
-			dynamic model = _dbConn.Query<dynamic>(
-			"Session_ISRE_SESSION_MAIN",
+			ISRE_SESSION_REG_FORM model = _dbConn.Query<ISRE_SESSION_REG_FORM>(
+			"Session_ISRE_SESSION_REG_FORM",
 			param,
 			commandType: CommandType.StoredProcedure
 			, commandTimeout: _ConnectionTimeout)
@@ -101,6 +100,13 @@ namespace ISRE
 			return model;
 		}
 
+		[WebMethod]
+		/////////// guid=session guid
+		public static string Process_Test()
+		{
+			string result = "here"; 
+			return result;
+		}
 
 	}
 }

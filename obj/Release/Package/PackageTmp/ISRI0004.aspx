@@ -14,33 +14,25 @@
 
 
 		<div class=" my-2 ">
+			<div id="ISRI_SessionFlow" runat="server">
+				<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
+			</div>
+
+			<div id="ActivityInfo" runat="server">
+				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
+			</div>
+
+			<div id="ISRI_SessionInfo" runat="server">
+				<!-- #Include virtual="ISRI_SessionInfo.aspx" -->
+			</div>
+
 
 
 			<div id="RegistrationFormSetting" runat="server">
-				<!-- #Include virtual="RegistrationFormSetting.aspx" -->
+				<!-- #Include virtual="ISRI_RegistrationFormSetting.aspx" -->
 			</div>
-			<% 
-				dynamic Activity = Process_ActivityInfoBySession(GUID);
-			%>
 
-
-
-
-
-			<%--session   start  --%>
-
-			<%  
-				dynamic Model = Process_Session(GUID);
-			%>
-		 
-
- 
-
-
-
-
-
-
+			 
 			<div class="d-flex justify-content-center my-4">
 
 				<button type="button" id="btn_Insert"
