@@ -14,9 +14,7 @@
 		<div class=" my-2">
 
 	<h3 class="text-center  ">活動內容</h3>
-	<% 
-		dynamic Activity = Process_ActivityInfoBySession(GUID);
-	%>
+	 
 	<%-- activity info summary start --%>
 	<%-- activity info summary title start --%>
 	<div class="    card p-2  my-2 d-none d-lg-block bg-ice    ">

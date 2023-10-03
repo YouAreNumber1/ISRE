@@ -154,16 +154,9 @@
 	</main>
 
 	<script>
-    var controllerName = $('#controllerName').val();
-    var formAction_Desktop = controllerName + "/QueryMobile";
-    var formAction_Mobile = controllerName + "/QueryMobile";
-
-
-   
-
-
+    
     $(document).ready(function () {
-        console.log("ready!");
+         
 
         $('#MainContent_test').on('click', function () {
             var postData = { User: 'JOE', Phone: '0900222333' };

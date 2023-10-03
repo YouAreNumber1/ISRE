@@ -15,11 +15,9 @@ namespace ISRE
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-        public static readonly int _PageSize = 3;
+      
 
-        private string TableName = "ISRE_ACTIVITY_MAIN"; 
-        private readonly static string SPName = "[dbo].[Home_ISRE_ACTIVITY_MAIN]"; 
-       // private string GUID = "";
+         
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -38,13 +36,13 @@ namespace ISRE
             return result;
         }
 
-        protected dynamic  Process_ActivityInfo(String GUID)
+        protected ISRE_ACTIVITY_MAIN Process_ActivityInfo(String GUID)
         { 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
             param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
-            dynamic  model = _dbConn.Query<dynamic>(
+			ISRE_ACTIVITY_MAIN model = _dbConn.Query<ISRE_ACTIVITY_MAIN>(
             "Home_ISRE_ACTIVITY_MAIN",
             param,
             commandType: CommandType.StoredProcedure

@@ -33,16 +33,15 @@ namespace ISRE
 
 
 
-        public string PUB_DATE_S_DATE { get; set; }
-        public string PUB_DATE_S_TIME { get; set; }
-        public string PUB_DATE_E_DATE { get; set; }
-        public string PUB_DATE_E_TIME { get; set; }
+        public string PUB_DATE_S  { get; set; }
+        
+        public string PUB_DATE_E  { get; set; }
+       
 
-        public string ACT_DATE_S_DATE { get; set; }
-        public string ACT_DATE_S_TIME { get; set; }
-        public string ACT_DATE_E_DATE { get; set; }
-        public string ACT_DATE_E_TIME { get; set; }
-
+        public string ACT_DATE_S  { get; set; }
+      
+        public string ACT_DATE_E { get; set; }
+        
 
 
     }

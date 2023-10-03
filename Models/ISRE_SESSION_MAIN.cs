@@ -12,18 +12,14 @@ namespace ISRE
         public string SESS_STATUS { get; set; }
         public string SESS_NO { get; set; }
         public string SESS_LOC { get; set; }
-        public string SESS_DATE_S_DATE { get; set; }
-        public string SESS_DATE_S_TIME { get; set; }
-        public string SESS_DATE_E_DATE { get; set; }
-        public string SESS_DATE_E_TIME { get; set; }
+        public DateTime SESS_DATE_S  { get; set; } 
+        public DateTime SESS_DATE_E { get; set; } 
 
-        public string REG_DATE_S { get; set; }
-        public string REG_DATE_E { get; set; }
+        public DateTime REG_DATE_S { get; set; }
+        public DateTime REG_DATE_E { get; set; }
         
-        public string CHK_DATE_S_DATE { get; set; }
-        public string CHK_DATE_S_TIME { get; set; }
-        public string CHK_DATE_E_DATE { get; set; }
-        public string CHK_DATE_E_TIME { get; set; }
+        public DateTime CHK_DATE_S  { get; set; } 
+        public DateTime CHK_DATE_E  { get; set; } 
         public string REG_MAX_COUNT { get; set; }
         public string WAIT_NAX_COUNT { get; set; }
         public string UNIT_NAX_COUNT { get; set; }
@@ -39,9 +35,9 @@ namespace ISRE
         public string WAIT_MAIL { get; set; }
         public string REMIND_MAIL { get; set; }
         public string REMIND_MAIL_ENABLE { get; set; }
-        public string REMIND_MAIL_DATE { get; set; }
-        public string REMIND_MAIL_TIME { get; set; }
-        public string TXT_DATE { get; set; }
+        public DateTime REMIND_MAIL_DATE { get; set; }
+        public DateTime REMIND_MAIL_TIME { get; set; }
+        public DateTime TXT_DATE { get; set; }
         public string TXT_USER_ID { get; set; }
          
         public string GUID { get; set; } 

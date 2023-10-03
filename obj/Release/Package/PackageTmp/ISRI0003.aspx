@@ -10,20 +10,20 @@
 		
 	</style>
 	<%
-		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid
-
-		string ActioinName = (GUID == "") ? "新增" : "編輯";
+		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////SESSIONGUID=session guid
+		 
+		string ActioinName = (SESSIONGUID == "") ? "新增" : "編輯";
 	%>
 
 	<main aria-labelledby="title">
 
 
 		<div class=" my-2">
-			<!-- #include file="ActivityFlow.html" -->
-			<% 
-				dynamic Activity = Process_ActivityInfoBySession(GUID);
-			%>
-			<!-- #include file="ActivityInfo.html" -->
+
+			 
+			<div id="ActivityInfo" runat="server">
+				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
+			</div>
 
 
 
@@ -32,7 +32,7 @@
 			<%--session   start  --%>
 			<h3 class="text-center mt-5 mb-2"><%: String.Concat(ActioinName, "場次資訊") %> </h3>
 			<%  
-				dynamic Model = Process_Session(GUID);
+				dynamic Model = Process_Session(SESSIONGUID);
 				string sSelected = "";
 			%>
 
@@ -518,14 +518,14 @@
 
 
 
- 
+
 
 
 
 
 				<div class="d-flex justify-content-end ">
 					<div class="text-black-50">
-						<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
+						<%: (SESSIONGUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
 					</div>
 				</div>
 

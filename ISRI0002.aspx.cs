@@ -16,10 +16,7 @@ namespace ISRE
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         public static readonly int _PageSize = 3;
 
-        private string TableName = "ISRE_SESSION_MAIN";
-        //  private readonly static string ControllerName = string.Concat("/Home/");
-        private readonly static string SPName = "[dbo].[SESSION_ISRE_ACTIVITY_MAIN]";
-        // private readonly static string Updated_RowView = "Updated_Row";
+        
         private string RegisterMultiple = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -106,14 +103,14 @@ namespace ISRE
         }
 
 
-        protected List<dynamic> Process_SessionList(string GUID)
+        protected List<ISRE_SESSION_MAIN> Process_SessionList(string GUID)
         {
 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
             param.Add("@QueryMode", "SessionList", DbType.String, ParameterDirection.Input);
 
-            List<dynamic> model = _dbConn.Query<dynamic>(
+            List<ISRE_SESSION_MAIN> model = _dbConn.Query<ISRE_SESSION_MAIN>(
             "Home_ISRE_ACTIVITY_MAIN",
             param,
             commandType: CommandType.StoredProcedure

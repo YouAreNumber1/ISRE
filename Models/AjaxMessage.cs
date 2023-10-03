@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace   Backend
+namespace ISRE
 {
     [Serializable]
     public class AjaxMessage

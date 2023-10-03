@@ -14,12 +14,16 @@
 
 
 		<div class=" my-2 ">
-			<!-- #include file="ActivityFlow.html" -->
+
+
+			<div id="RegistrationFormSetting" runat="server">
+				<!-- #Include virtual="RegistrationFormSetting.aspx" -->
+			</div>
 			<% 
 				dynamic Activity = Process_ActivityInfoBySession(GUID);
 			%>
 
-			<!-- #include file="ActivityInfo.html" -->
+
 
 
 
@@ -28,13 +32,9 @@
 			<%  
 				dynamic Model = Process_Session(GUID);
 			%>
-			<!-- #include file="SessionInfo.html" -->
+		 
 
-
-			<div class="mt-5">
-
-				 <!-- #include file="RegistrationFormSetting.html" -->
-			</div>
+ 
 
 
 
@@ -59,5 +59,5 @@
 
 
 	</main>
-	 
+
 </asp:Content>

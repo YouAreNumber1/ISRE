@@ -105,14 +105,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ActivityFlow.html" />
-    <Content Include="ISRI_SessioinInfo.aspx" />
+    <Content Include="ISRI_SessionInfo.aspx" />
     <Content Include="ISRI_SessionFlow.aspx" />
     <Content Include="ISRI_ActivityInfo.aspx" />
     <Content Include="ISRHHHHHH.aspx" />
     <Content Include="ISRI_RegistrationFormSetting.aspx" />
-    <Content Include="RegistrationFormSetting.aspx" />
-    <Content Include="RegistrationFormSetting.html" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\css\highlightjs-github-theme.css" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\highlight.min.js" />
     <Content Include="Content\bootstrap-slider-11.0.2\dependencies\js\jquery.min.js" />
@@ -124,8 +121,6 @@
     <Content Include="Content\bootstrap-slider-11.0.2\src\js\bootstrap-slider.js" />
     <Content Include="Content\bootstrap-slider.css" />
     <Content Include="Scripts\bootstrap-slider.js" />
-    <Content Include="SessionInfo.html" />
-    <Content Include="ActivityInfo.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome-free-6.4.2-web\css\all.css" />
@@ -2208,12 +2203,10 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="ISRE0004-reserved.aspx" />
     <Content Include="ISRE0000.aspx" />
     <Content Include="ISRI0003.aspx" />
     <Content Include="ISRI0004.aspx" />
     <Content Include="ISRE0003.aspx" />
-    <Content Include="ISRI0006-reversed.aspx" />
     <Content Include="ISRI0005.aspx" />
     <Content Include="ISRI0002.aspx" />
     <Content Include="ISRI0001.aspx" />
@@ -2473,13 +2466,6 @@
     <Compile Include="ISRHHHHHH.aspx.designer.cs">
       <DependentUpon>ISRHHHHHH.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ISRE0004-reserved.aspx.cs">
-      <DependentUpon>ISRE0004-reserved.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ISRE0004-reserved.aspx.designer.cs">
-      <DependentUpon>ISRE0004-reserved.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ISRE0000.aspx.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2487,12 +2473,12 @@
     <Compile Include="ISRE0000.aspx.designer.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ISRI_SessioinInfo.aspx.cs">
-      <DependentUpon>ISRI_SessioinInfo.aspx</DependentUpon>
+    <Compile Include="ISRI_SessionInfo.aspx.cs">
+      <DependentUpon>ISRI_SessionInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ISRI_SessioinInfo.aspx.designer.cs">
-      <DependentUpon>ISRI_SessioinInfo.aspx</DependentUpon>
+    <Compile Include="ISRI_SessionInfo.aspx.designer.cs">
+      <DependentUpon>ISRI_SessionInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI_SessionFlow.aspx.cs">
       <DependentUpon>ISRI_SessionFlow.aspx</DependentUpon>
@@ -2535,20 +2521,6 @@
     </Compile>
     <Compile Include="ISRI_RegistrationFormSetting.aspx.designer.cs">
       <DependentUpon>ISRI_RegistrationFormSetting.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrationFormSetting.aspx.cs">
-      <DependentUpon>RegistrationFormSetting.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegistrationFormSetting.aspx.designer.cs">
-      <DependentUpon>RegistrationFormSetting.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ISRI0006-reversed.aspx.cs">
-      <DependentUpon>ISRI0006-reversed.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ISRI0006-reversed.aspx.designer.cs">
-      <DependentUpon>ISRI0006-reversed.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI0005.aspx.cs">
       <DependentUpon>ISRI0005.aspx</DependentUpon>

@@ -15,13 +15,13 @@
 
 		<div class=" my-2">
 			
-			 	<!-- #include file="ActivityFlow.html" -->
+			  
 				
 			<%   
 
 				dynamic Model = Process_ActivityInfo(GUID);
 			%>
-			<%--  activity form starts--%>
+		 
 
 
 			<div class="   ">

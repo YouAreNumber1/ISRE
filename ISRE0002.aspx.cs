@@ -19,10 +19,9 @@ namespace ISRE
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         public static readonly int _PageSize = 3;
-
-        private string TableName = "ISRE_SESSION_MAIN";
+         
         //  private readonly static string ControllerName = string.Concat("/Home/");
-        private readonly static string SPName = "[dbo].[SESSION_ISRE_ACTIVITY_MAIN]";
+        
         // private readonly static string Updated_RowView = "Updated_Row";
         private string RegisterMultiple = "";
         protected void Page_Load(object sender, EventArgs e)

@@ -1,34 +1,22 @@
 ﻿using Dapper;
-using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Web;
-using System.Web.Services.Description;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ISRE
 {
-    public partial class ISRE0000 : Page
+	public partial class ISRE0000 : Page
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         public static readonly int _PageSize = 3;
-
-        private readonly static string TableName = "ISRE_ACTIVITY_MAIN";
-        //  private readonly static string ControllerName = string.Concat("/Home/");
-        private readonly static string SPName = "HOME_ISRE_ACTIVITY_MAIN";
-        //  private readonly static string Updated_RowView = "Updated_Row";
-        //  string sSelected= "";
+         
+       
 
         public dynamic List_Activities = null;
         private dynamic List_CityList1 = null;
@@ -229,8 +217,8 @@ namespace ISRE
             {
 
                 List<dynamic> model = _dbConn.Query<dynamic>(
-                    SPName,
-                    param,
+				   "HOME_ISRE_ACTIVITY_MAIN",
+					param,
                     commandType: CommandType.StoredProcedure
                     , commandTimeout: _ConnectionTimeout
                 )

@@ -1,13 +1,12 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 
 namespace ISRE
 {
-    /// <summary>
-    /// /////////// this is for update/insert
-    /// </summary>
-    public enum Enum_REG_STATUS
+	/// <summary>
+	/// /////////// this is for update/insert
+	/// </summary>
+	public enum Enum_REG_STATUS
     {
         [Description("已填寫報名表(線上正取"), Display(Name="已填寫報名表(線上正取")]
         Register_Official =10,
@@ -47,16 +46,14 @@ namespace ISRE
 	}
 
 
-	public enum  Enum_ActivityFlow
-	{
-		[Description("活動建立"), Display(Name = "活動建立")]
-		Activity = 1,
+	public enum  Enum_SessionFlow
+	{ 
 		[Description("場次建立"), Display(Name = "場次建立")]
-		Session = 2,
+		Session = 1,
 		[Description("報名表設定"), Display(Name = "報名表設定")]
-		RegistrationForm = 3,
-		[Description("活動上架"), Display(Name = "活動上架")]
-		Activate = 4
+		RegistrationForm = 2,
+		[Description("場次傳送"), Display(Name = "場次傳送")]
+		Activate = 3
 	}
 
 	public enum Enum_REG_TYPE

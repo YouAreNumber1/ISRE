@@ -2,7 +2,7 @@
 	AutoEventWireup="true" CodeBehind="ISRI0005.aspx.cs"
 	Inherits="ISRE.ISRI0005" %>
 
-<%--this page is for backend to manage   register --%> 
+<%--this page is for backend to manage   register --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
@@ -20,21 +20,18 @@
 			margin: 0 0 0 20%;
 		}
 	</style>
-	<%
-		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=session guid 
-														  //string[] stepName=Enum.GetNames(typeof(ISRE.Enum_ActivityFlow));
 
-	%>
 	<script src="DataTable/datatables.js"></script>
 	<script src="Scripts/vfs_fonts_NotoSerifTC.js"></script>
 	<main aria-labelledby="title">
-		<div class=" my-2"> 
+		<div class=" my-2">
+			<div id="ISRI_SessionFlow" runat="server">
+				<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
+			</div>
 
-			 	<!-- #include file="ActivityFlow.html" --> 
-			<% 
-				dynamic Activity = Process_ActivityInfoBySession(GUID);
-			%>
-			<!-- #include file="ActivityInfo.html" -->
+			<div id="ActivityInfo" runat="server">
+				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
+			</div>
 
 
 
@@ -52,11 +49,11 @@
 
 
 			<%--session   start  --%>
-			<%  
-				dynamic Model = Process_Session(GUID);
 
-			%>
-			<!-- #include file="SessionInfo.html" -->
+			<div id="ISRI_SessionInfo" runat="server">
+				<!-- #Include virtual="ISRI_SessionInfo.aspx" -->
+			</div>
+
 
 
 
@@ -688,13 +685,13 @@
 
 		let qrcode = $('#btnQRcodePDF').attr('src');
 
-		$(document).ready(function () {  
-			let chks = $('.chkAttendCategory'); 
-			for (var i = 0; i < chks.length; i++) { 
+		$(document).ready(function () {
+			let chks = $('.chkAttendCategory');
+			for (var i = 0; i < chks.length; i++) {
 				($(chks[i]).is(':checked'))
 					? $('#tableList tr[status="' + $(chks[i]).val() + '"]').removeClass('d-none')
 					: $('#tableList tr[status="' + $(chks[i]).val() + '"]').addClass('d-none');
-			}  
+			}
 			let status0 = $('tr[status=0]').toArray().length;
 			let status1 = $('tr[status=1]').toArray().length;
 			let status2 = $('tr[status=2]').toArray().length;
@@ -705,7 +702,7 @@
 
 			$(document).on('click', '#btnExportExcel', function (e) {
 				e.preventDefault();
-				let messageTop = 'test\r\n' +    'test32';
+				let messageTop = 'test\r\n' + 'test32';
 				if ($.fn.dataTable.isDataTable('#tableList')) {
 					let tableExcel = $('#tableList').DataTable();
 					tableExcel.destroy();
@@ -716,7 +713,9 @@
 					buttons: [
 						{
 							extend: 'excelHtml5',
-							messageTop: messageTop,
+							//messageTop: function() {
+							//	return "\r\nthis\r\nis\r\ntest";
+							//},
 							filename: '健保署報名活動',
 							text: 'Export Excel',
 							exportOptions: {

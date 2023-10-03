@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
-	AutoEventWireup="true" CodeBehind="ISRI0006.aspx.cs"
-	Inherits="ISRE.ISRI0006"   %>
+	AutoEventWireup="true" CodeBehind="ISRI0003.aspx.cs"
+	Inherits="ISRE.ISRI0003"   %>
 
 <%--this page is for backend to edit   register --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">

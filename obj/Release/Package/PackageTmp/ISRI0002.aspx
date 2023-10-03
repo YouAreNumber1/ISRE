@@ -5,19 +5,16 @@
 <%--this page is for backend activity info and sesseion list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%
-		string GUID = "";/////////GUID= activity guid
+		string GUID =   Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
 	%>
 	<main>
 		<div class="my-2">
-			 	<!-- #include file="ActivityFlow.html" -->
-			<%
-				GUID = Request.QueryString["GUID"];
-				dynamic Model = Process_ActivityInfo(GUID);
+			 
+			 
 
-			%>
-
-			 <!-- #include file="ActivityInfo.html" -->
-
+			<div id="ActivityInfo" runat="server">
+				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
+			</div>
 
 
 
@@ -135,7 +132,7 @@
 							</div>
 							<div class="col-8  col-sm-7  col-lg-12    ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-primary">21</div> 
+									<div class="badge bg-primary">21</div>
 								</div>
 							</div>
 						</div>
@@ -183,21 +180,21 @@
 							<div class="col d-flex justify-content-between">
 
 								<a guid="<%:item.GUID %>"
-									href="ISRI0003.aspx?guid=<%:item.GUID %>"
+									href="ISRI0003.aspx?SESSIONGUID=<%:item.GUID%>&GUID=<%:GUID %>"
 									class="btn btn-primary-isre text-nowrap mx-1  px-2">編輯
 									<i class="fa-solid fa-pen-to-square"></i>
 								</a>
 
 
 								<a guid="<%:item.GUID %>"
-									href="ISRI0004.aspx?guid=<%:item.GUID %>"
+									href="ISRI0004.aspx?SESSIONGUID=<%:item.GUID%>&GUID=<%:GUID %>"
 									class="btn btn-primary-isre text-nowrap mx-1  px-2 ">報名表
 									<i class="fa-solid fa-gear"></i>
 								</a>
 
 
 								<a guid="<%:item.GUID %>"
-									href="ISRI0005.aspx?guid=<%:item.GUID %>"
+									href="ISRI0005.aspx?SESSIONGUID=<%:item.GUID%>&GUID=<%:GUID %>"
 									class="btn btn-primary-isre text-nowrap mx-1  px-2">報到
 									<i class="fa-solid fa-list-check"></i>
 								</a>
