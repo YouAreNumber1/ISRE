@@ -37,14 +37,14 @@
 			<div class="d-flex justify-content-center my-4">
 
 				<button type="button" id="btn_Insert" guid="<%:SESSIONGUID %>"
-					data-target="ISRI0004.aspx/Process_Test" 
+
+					data-target="ISRI0004.aspx/Process_SettingForm" 
 					class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
 					<span>儲存</span>
 				</button>
 				<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">回前頁</a>
 
 			</div>
-
 
 
 		</div>
@@ -58,31 +58,60 @@
 
 $(document).ready(function () {
 	var SaveForm = function ( btn) { 
-		let id = btn.attr('id');
+		//let id = btn.attr('id');
 		let guid = btn.attr('guid'); 
 		let target = btn.attr('data-target'); 
-		let thisForm = btn.closest('form');
-		let thisFormId = thisForm.attr('id');
+		//let thisForm = btn.closest('form');
+		let thisFormId = btn.closest('form').attr('id');
 
-		 let data = new FormData($('#' + thisFormId).get(0));
+		let formData = new FormData($('#' + thisFormId).get(0));
+		formData.append('guid', guid);
+		var object = {};
+		formData.forEach((value, key) => {
+			// Reflect.has in favor of: object.hasOwnProperty(key)
+			if (key == "__VIEWSTATEGENERATOR" || key =="__VIEWSTATE")
+				return;
+			if (!Reflect.has(object, key)) {
+				object[key] = value;
+				return;
+			}
+			if (!Array.isArray(object[key])) {
+				object[key] = [object[key]];
+			}
+			object[key].push(value);
+		});
+		console.log(object); 
+		 var json = JSON.stringify(object); 
+		 console.log(json);
+		 
 		//let data = new FormData(thisForm).get(0);
 		// data.append('guid', guid);
-		console.log(data);
-		//var postData = { User: 'JOE', Phone: '0900222333' };
+
+		//console.log(data.entries().toString());
+		// console.log(JSON.stringify(data.entries[1]));
+		//let formData = JSON.stringify($("#" + thisFormId).serialize());
+		//console.log(formData);
+		//return;
+		//  var postData = { User: 'JOE', Phone: '0900222333' };
+		// let testdata = JSON.stringify({ 'test': 'JOE', 'Phone': '0900222333' });
+		//console.log(JSON.stringify(postData));
+		 
+
 		// return;
 		$.ajax({
 			url: target,
-			  data: data,
-			//data: JSON.stringify({ 'postData': postData }),
-		   // dataType: 'json', // 預期從server接收的資料型態
+			//data: data,
+			//data: datax,
+			data: JSON.stringify({ 'formData': json }),
+		    dataType: 'json', // 預期從server接收的資料型態
 			//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-		    //contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
+		    contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
 			type: 'POST',
-			 enctype: 'multipart/form-data',
-			 caches: false,
-			//async:true,
-		  contentType: false, // Not to set any content header  //formdata required
-		  	processData: false, // Not to process data  //formdata required
+			//  enctype: 'multipart/form-data',
+		 	caches: false,
+			async: false,
+		// contentType: false, // Not to set any content header  //formdata required
+		  //	processData: false, // Not to process data  //formdata required
 			success: function (response, textStatus, jqXHR) {
 				console.log('success');
 				var responseDOM = $(response);

@@ -56,15 +56,10 @@ namespace ISRE
 		public string PIDAGREE_UNIT { get; set; }
 		public string DIET_UNIT { get; set; }
 		public string MEMO_UNIT { get; set; }
+ 
 
-
-
-
-
-
-
-
-
+		
+		 
 		public string GUID { get; set; }
 
 	}

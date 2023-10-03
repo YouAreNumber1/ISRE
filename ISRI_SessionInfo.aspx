@@ -62,8 +62,7 @@
 					</span>
 					<div class=" col-8 col-sm-7    col-lg-12 ">
 						<div class="d-flex justify-content-lg-center">
-							4
-                   
+							 <%:Model!= null ? Model.SESS_SERIAL_NO :"" %>
 						</div>
 					</div>
 				</div>

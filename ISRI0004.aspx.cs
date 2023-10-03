@@ -6,6 +6,9 @@ using System.Linq;
 using Dapper;
 using Newtonsoft.Json;
 using System.Web.Services;
+using System.Web.Services.Protocols;
+using System.Web.Script.Services;
+using System.Collections.Generic;
 
 namespace ISRE
 {
@@ -73,21 +76,19 @@ namespace ISRE
 
 			return model;
 		}
-
+		
 		[WebMethod]
         /////////// guid=session guid
-		public static  ISRE_SESSION_REG_FORM Process_SettingForm(string GUID, ISRE_SESSION_REG_FORM rq)
+		public static  ISRE_SESSION_REG_FORM Process_SettingForm(string formData )
 		{
 			DynamicParameters param = new DynamicParameters();
-			string jsonData = JsonConvert.SerializeObject(rq);
-			dynamic InputsJSON = JsonConvert.DeserializeObject<dynamic>(jsonData);
+		//	string jsonData = JsonConvert.SerializeObject(formData);
+			dynamic InputsJSON = JsonConvert.DeserializeObject<dynamic>(formData);
 			foreach (var item in InputsJSON)
-			{ 
-					param.Add(String.Format("@{0}", item.Name), item.Value.Value, DbType.String, ParameterDirection.Input);
-				  
+			{
+				param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
 			}
-             
-			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			 
 			param.Add("@QueryMode", "I", DbType.String, ParameterDirection.Input);
 
 			ISRE_SESSION_REG_FORM model = _dbConn.Query<ISRE_SESSION_REG_FORM>(
@@ -102,7 +103,7 @@ namespace ISRE
 
 		[WebMethod]
 		/////////// guid=session guid
-		public static string Process_Test()
+		public static string Process_Test(string test)
 		{
 			string result = "here"; 
 			return result;
