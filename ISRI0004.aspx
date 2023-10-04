@@ -55,6 +55,73 @@
 	</main>
 
 	<script>
+	//	console.log("<%:SESSIONGUID%>");
+var GetForm = function () {
+	var postData = { 'GUID': '<%:SESSIONGUID%>'  };
+	//console.log(postData);
+	 
+	$.ajax({
+		url: 'ISRI0004.ASPX/Process_SessionRegForm',
+		data: JSON.stringify({ 'GUID': '<%:SESSIONGUID%>' }),
+		//dataType: 'json', // 預期從server接收的資料型態
+		//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
+		type: 'POST',
+		//  enctype: 'multipart/form-data',
+		caches: false,
+		async: false,
+		// contentType: false, // Not to set any content header  //formdata required
+		//	processData: false, // Not to process data  //formdata required
+		success: function (response, textStatus, jqXHR) {
+			console.log('success');
+			var data = response.d;
+			 console.log(response);  
+			console.log(data); 
+			let json2 = JSON.stringify(data);
+			let json3 = JSON.parse(json2);
+			console.log(json3); 
+			return;
+			 
+		//	var obj = jQuery.parseJSON(data);
+		//	console.log(obj); 
+		////	var keys = response.map(function (o) { return o.Key; });
+		//	///console.log(keys); 
+		//	let json = JSON.stringify(data); 
+
+		//	let json2 = JSON.parse(json);
+		//	console.log(json2); 
+		//	//for (var i = 0; i < data.length; i++) {
+			//	console.log(data[i].key);
+			//	console.log(data[i].value);
+			//}
+		}
+		, fail: function (jqXHR, textStatus, errorThrown) {
+			console.log('fail');
+			console.log(errorThrown);
+		}
+		, error: function (data) {
+			console.log('error');
+			console.log(data);
+			console.log(data.responseText);
+			console.log(data.status);
+			console.log(data.statusText);
+			jQuery('<div/>', {
+				id: 'errorDiv'
+			}).html(data.responseText).appendTo($('.footer')).hide();
+			var msg = $('#errorDiv').find('title').text();
+			$('#errorDiv').remove();
+			alert(msg);
+		}
+		, done: function (data) {
+			console.log('done');
+			console.log(data);
+
+		}
+
+	});
+		};
+
+
 		var SaveForm = function (btn) {
 			//let id = btn.attr('id');
 			let guid = btn.attr('guid');
@@ -145,6 +212,8 @@
 		};
 
 		$(document).ready(function () {
+			//GetForm();
+
 			let rdoValue=$('input[name="rdoREG_TYPE"]:checked').val(); 
 			$('#table_REG_TYPE' + rdoValue).removeClass('d-none');
 			 
