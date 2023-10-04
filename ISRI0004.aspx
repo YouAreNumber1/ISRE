@@ -197,7 +197,7 @@
 			};
 
 			$('#btn_Insert').on('click', function () {
-			//	SaveForm($(this));
+			 	SaveForm($(this));
 				SaveFormTest2($(this));
 			});
 
