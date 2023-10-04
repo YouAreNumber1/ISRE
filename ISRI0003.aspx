@@ -5,29 +5,90 @@
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<style>
-		 
+		.custom-file {
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			height: calc(2.25rem + 2px);
+			margin-bottom: 0;
+		}
 
-		
+		.custom-file-input {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: calc(2.25rem + 2px);
+			margin: 0;
+			opacity: 0;
+		}
+
+		.custom-file-label {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: 1;
+			height: calc(2.25rem + 2px);
+			padding: 0.375rem 0.75rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #495057;
+			background-color: #fff;
+			border: 1px solid #ced4da;
+			border-radius: 0.25rem;
+		}
+
+		.custom-control-label::before, .custom-file-label, .custom-select {
+			transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+
+		.custom-file-input:disabled, .custom-file-input[readonly] {
+			background-color: #e1e1e2;
+			opacity: 1;
+			border-color: #e1e1e2;
+		}
+
+		.custom-file-label::after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 3;
+			display: block;
+			height: 2.25rem;
+			padding: 0.375rem 0.75rem;
+			line-height: 1.5;
+			color: #fff;
+			content: "瀏覽";
+			/* background-color: #e9ecef;*/
+			background-color: var(--Cyan-color) !important;
+			border-left: inherit;
+			border-radius: 0 0.25rem 0.25rem 0;
+			cursor: pointer;
+		}
 	</style>
 	<%
 		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////SESSIONGUID=session guid
-		 
+
 		string ActioinName = (SESSIONGUID == "") ? "新增" : "編輯";
 	%>
 
 	<main aria-labelledby="title">
 
+		
 
 		<div class=" my-2">
-			
-			 
+
+
+
+
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
 
-<div id="ISRI_SessionFlow" runat="server">
-	<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
-</div>
+			<div id="ISRI_SessionFlow" runat="server">
+				<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
+			</div>
 
 
 
@@ -303,7 +364,17 @@
 						<div class="d-flex">
 							<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>
 						</div>
-						<div>
+						<div class="d-flex align-items-center form-control  border-0">
+    
+    <div class="custom-file my-2"> 
+        <input type="file" class="custom-file-input"
+               name="AttachmentCategory"
+               accept=".pdf, .xls, .xlsx, .docx, .doc">
+        <div class="  custom-file-label " for="customFile"></div>
+    </div>
+</div>
+
+						<%--<div>
 							<table class="table  ">
 								<thead>
 									<tr>
@@ -326,7 +397,7 @@
 								</tbody>
 							</table>
 
-						</div>
+						</div>--%>
 					</div>
 				</div>
 
@@ -558,7 +629,7 @@
 
 					<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">報名表設定</a>
 
-			
+
 				</div>
 
 
@@ -585,5 +656,5 @@
 
 		});
 
-	</script>
-</asp:Content>
+	</script >
+</asp: Content >
