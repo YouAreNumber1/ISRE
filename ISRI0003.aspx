@@ -19,15 +19,15 @@
 
 
 		<div class=" my-2">
-			<div id="ISRI_SessionFlow" runat="server">
-	<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
-</div>
+			
 			 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
 
-
+<div id="ISRI_SessionFlow" runat="server">
+	<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
+</div>
 
 
 
@@ -556,7 +556,9 @@
 
 					<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">預覽</a>
 
+					<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">報名表設定</a>
 
+			
 				</div>
 
 

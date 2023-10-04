@@ -1,7 +1,7 @@
 ﻿
 <placeholder id="flowPlaceHolder">
 	 
-	<h3 class="text-center  ">場次流程</h3>
+	<h3 class="text-center mt-5 ">場次流程</h3>
 
 	<div class=" card">
 		<div class=" py-3 px-4 ms-3 ms-lg-5">

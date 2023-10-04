@@ -76,7 +76,7 @@ namespace ISRE
 
 			return model;
 		}
-		
+ 
 		[WebMethod]
         /////////// guid=session guid
 		public static  ISRE_SESSION_REG_FORM Process_SettingForm(string formData )
@@ -101,13 +101,7 @@ namespace ISRE
 			return model;
 		}
 
-		[WebMethod]
-		/////////// guid=session guid
-		public static string Process_Test(string test)
-		{
-			string result = "here"; 
-			return result;
-		}
+		 
 
 	}
 }
