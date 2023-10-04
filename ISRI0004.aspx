@@ -130,7 +130,7 @@
 				});
 			};
 
-			var SaveFormTest = function (btn) {
+			var SaveFormTest2 = function (btn) {
 				//let id = btn.attr('id');
 				let guid = btn.attr('guid');
 				let target = btn.attr('data-target');
@@ -198,7 +198,7 @@
 
 			$('#btn_Insert').on('click', function () {
 			//	SaveForm($(this));
-				SaveFormTest($(this));
+				SaveFormTest2($(this));
 			});
 
 
