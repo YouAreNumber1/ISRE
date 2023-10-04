@@ -235,7 +235,7 @@
 						<div class="">
 							<span>
 								<label>說明文字：</label></span>
-							<span class="note">(必填)</span>
+						
 							<input type="text" id="OBJ_DESC" name="OBJ_DESC"
 								class="form-control requiredInput  "
 								value="<%: (Model !=null &&  Model.OBJ_DESC!=null

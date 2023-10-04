@@ -60,8 +60,8 @@ namespace ISRE
 			return model;
 		}
 
-		[WebMethod]
-		public static ISRE_SESSION_REG_FORM Process_SessionRegForm(string GUID)
+
+		protected ISRE_SESSION_REG_FORM Process_SessionRegForm(string GUID)
 		{
 			DynamicParameters param = new DynamicParameters();
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);

@@ -13,13 +13,13 @@ namespace ISRE
 		public string TXT_USER_ID { get; set; }
 
 
-		public string PERSONAL_JOBTITLE_D { get; set; }
-		public string PERSONAL_UNITNAME_D { get; set; }
-		public string PERSONAL_ASSIGNEDNO_D { get; set; }
-		public string PERSONAL_INSUREDNO_OR_GUINO_D { get; set; }
-		public string PERSONAL_GUINO_D { get; set; }
-		public string PERSONAL_HOSPNO_D { get; set; }
-		public string PERSONAL_INSUREDNO_D { get; set; }
+		//public string PERSONAL_JOBTITLE_D { get; set; }
+		//public string PERSONAL_UNITNAME_D { get; set; }
+		//public string PERSONAL_ASSIGNEDNO_D { get; set; }
+		//public string PERSONAL_INSUREDNO_OR_GUINO_D { get; set; }
+		//public string PERSONAL_GUINO_D { get; set; }
+		//public string PERSONAL_HOSPNO_D { get; set; }
+		//public string PERSONAL_INSUREDNO_D { get; set; }
 		public string PERSONAL_NAME_D { get; set; }
 		public string PERSONAL_IDAES_D { get; set; }
 		public string PERSONAL_DOB_D { get; set; }
@@ -35,13 +35,13 @@ namespace ISRE
 
 
 
-		public string PERSONAL_JOBTITLE_R { get; set; }
-		public string PERSONAL_UNITNAME_R{ get; set; }
-		public string PERSONAL_ASSIGNEDNO_R { get; set; }
-		public string PERSONAL_INSUREDNO_OR_GUINO_R { get; set; }
-		public string PERSONAL_GUINO_R { get; set; }
-		public string PERSONAL_HOSPNO_R { get; set; }
-		public string PERSONAL_INSUREDNO_R { get; set; }
+		//public string PERSONAL_JOBTITLE_R { get; set; }
+		//public string PERSONAL_UNITNAME_R{ get; set; }
+		//public string PERSONAL_ASSIGNEDNO_R { get; set; }
+		//public string PERSONAL_INSUREDNO_OR_GUINO_R { get; set; }
+		//public string PERSONAL_GUINO_R { get; set; }
+		//public string PERSONAL_HOSPNO_R { get; set; }
+		//public string PERSONAL_INSUREDNO_R { get; set; }
 		public string PERSONAL_NAME_R { get; set; }
 		public string PERSONAL_IDAES_R { get; set; }
 		public string PERSONAL_DOB_R { get; set; }

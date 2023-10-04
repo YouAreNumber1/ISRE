@@ -6,8 +6,9 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 	<%
-		String SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////GUID=activity guid
+		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////GUID=activity guid
 
+		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 
 	%>
 
@@ -15,12 +16,12 @@
 
 
 		<div class=" my-2 ">
-			
+
 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
-<div id="ISRI_SessionFlow" runat="server">
+			<div id="ISRI_SessionFlow" runat="server">
 				<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
 			</div>
 			<div id="ISRI_SessionInfo" runat="server">
@@ -42,7 +43,7 @@
 					class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
 					<span>儲存</span>
 				</button>
-				<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">回前頁</a>
+				<a href="ISRI0002.aspx?GUID=<%:GUID %>&SESSIONGUID=<%:SESSIONGUID %>" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">回前頁</a>
 
 			</div>
 
@@ -56,13 +57,14 @@
 
 	<script>
 	//	console.log("<%:SESSIONGUID%>");
-var GetForm = function () {
-	var postData = { 'GUID': '<%:SESSIONGUID%>'  };
-	//console.log(postData);
-	 
-	$.ajax({
-		url: 'ISRI0004.ASPX/Process_SessionRegForm',
-		data: JSON.stringify({ 'GUID': '<%:SESSIONGUID%>' }),
+		var GetForm = function () {
+			return;
+			var postData = { 'GUID': '<%:SESSIONGUID%>' };
+			//console.log(postData);
+
+			$.ajax({
+				url: 'ISRI0004.ASPX/Process_SessionRegForm',
+				data: JSON.stringify({ 'GUID': '<%:SESSIONGUID%>' }),
 		//dataType: 'json', // 預期從server接收的資料型態
 		//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 		contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
@@ -75,22 +77,22 @@ var GetForm = function () {
 		success: function (response, textStatus, jqXHR) {
 			console.log('success');
 			var data = response.d;
-			 console.log(response);  
-			console.log(data); 
+			console.log(response);
+			console.log(data);
 			let json2 = JSON.stringify(data);
 			let json3 = JSON.parse(json2);
-			console.log(json3); 
+			console.log(json3);
 			return;
-			 
-		//	var obj = jQuery.parseJSON(data);
-		//	console.log(obj); 
-		////	var keys = response.map(function (o) { return o.Key; });
-		//	///console.log(keys); 
-		//	let json = JSON.stringify(data); 
 
-		//	let json2 = JSON.parse(json);
-		//	console.log(json2); 
-		//	//for (var i = 0; i < data.length; i++) {
+			//	var obj = jQuery.parseJSON(data);
+			//	console.log(obj); 
+			////	var keys = response.map(function (o) { return o.Key; });
+			//	///console.log(keys); 
+			//	let json = JSON.stringify(data); 
+
+			//	let json2 = JSON.parse(json);
+			//	console.log(json2); 
+			//	//for (var i = 0; i < data.length; i++) {
 			//	console.log(data[i].key);
 			//	console.log(data[i].value);
 			//}
@@ -202,28 +204,31 @@ var GetForm = function () {
 		let CheckRules = function () {
 			let checked = $('#UNIT_INSUREDNO_R').is(":checked");
 			/////////投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀填寫
-			if (checked) { 
-				var  boxes = $('.display-1-5:checked');
+			if (checked) {
+				var boxes = $('.display-1-5:checked');
 				console.log(boxes.length);
 				if (boxes.length != 1) {
 					AlertAndMove('投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀, 也只能擇一!!', $('.display-1-5').first());
+					return -1;
 				}
-			} 
+			}
+
+			return 0;
 		};
 
 		$(document).ready(function () {
-			//GetForm();
 
-			let rdoValue=$('input[name="rdoREG_TYPE"]:checked').val(); 
+
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
 			$('#table_REG_TYPE' + rdoValue).removeClass('d-none');
-			 
+
 			$(document).on('click', '.rdoREG_TYPE', function (e) {
 				$('.table_REG_TYPE').addClass('d-none');
 				$('#table_REG_TYPE' + $(this).val()).removeClass('d-none');
 			})
 
 			$(document).on('click', '.display', function (e) {
-				var box = $(this).is(":checked"); 
+				var box = $(this).is(":checked");
 				if (!box) {
 					$(this).closest('tr').find('.required').prop('checked', false);
 				}
@@ -235,12 +240,14 @@ var GetForm = function () {
 				}
 			})
 			$('#btn_Insert').on('click', function () {
-				CheckRules();
-				return;
-			 	 SaveForm($(this)); 
+				if (CheckRules() == 0) {
+					SaveForm($(this));
+				}
+
+
 			});
 
-			 
+
 		});
 
 

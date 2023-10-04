@@ -272,11 +272,11 @@
 				<td class="left">姓名</td>
 				<td>
 					<input id="UNIT_NAME_D" name="UNIT_NAME_D" value="1" 
-						type="checkbox" class="requiredCheck display" disabled>
+						type="checkbox" checked class="requiredCheck display" disabled>
 				</td>
 				<td>
 					<input id="UNIT_NAME_R" name="UNIT_NAME_R" value="1"  
-						type="checkbox" class="requiredCheck required " disabled>
+						type="checkbox" checked class="requiredCheck required " disabled>
 				</td>
 			</tr>
 			<tr>
