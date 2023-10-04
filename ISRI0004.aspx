@@ -145,8 +145,7 @@
 		};
 
 		$(document).ready(function () {
-			let rdoValue=$('input[name="rdoREG_TYPE"]:checked').val();
-			 
+			let rdoValue=$('input[name="rdoREG_TYPE"]:checked').val(); 
 			$('#table_REG_TYPE' + rdoValue).removeClass('d-none');
 			 
 			$(document).on('click', '.rdoREG_TYPE', function (e) {
