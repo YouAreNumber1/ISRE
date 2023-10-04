@@ -6,7 +6,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<style>
 		
-.custom-file {
+/*.custom-file {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -56,13 +56,13 @@
     padding: 0.375rem 0.75rem;
     line-height: 1.5;
     color: #495057;
-    content: "瀏覽";
+    content: "瀏覽";*/
     /* background-color: #e9ecef;*/
-    background-color: gold;
+    /*background-color: gold;
     border-left: inherit;
     border-radius: 0 0.25rem 0.25rem 0;
     cursor: pointer;
-}
+}*/
 
 		
 	</style>
@@ -81,7 +81,7 @@
 
 
 
-			<div class="d-flex align-items-center form-control  border-0">
+<%--			<div class="d-flex align-items-center form-control  border-0">
 				<div class="custom-file my-2">
 
 					<input type="file" class="custom-file-input  requiredInput "
@@ -89,22 +89,9 @@
 					<div class="d-flex custom-file-label " for="customFile"></div>
 
 				</div>
-			</div>
+			</div>--%>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		   
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
@@ -385,7 +372,10 @@
 					</div>
 					<div class="  py-3   col-lg-10 border">
 						<div class="d-flex">
-							<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>- 
+						<%--	<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>--%>
+
+								<input type="file"	id="fileUpload" name="fileUpload"
+									class="form-control-file border   ">
 						</div>
 						<div>
 							<table class="table  ">
@@ -432,7 +422,9 @@
 								</div>
 
 								<div class="d-flex">
-									<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>
+							<%--		<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>--%>
+									<input id="fileRestricted" name="fileRestricted"
+										type="file" class="form-control-file border   ">
 								</div>
 								<div>
 									<table class="table  ">
