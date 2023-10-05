@@ -512,7 +512,7 @@
 			//     'timeFormat': 'H: i',
 			//     'step': 5,
 			// });
-			$(document).on('click', '#btn_Save', function (e) {
+			$(document).on('click', 'a#btn_Save', function (e) {
 				e.preventDefault();
 				var btn = $(this);
 				let thisForm = btn.closest('form');

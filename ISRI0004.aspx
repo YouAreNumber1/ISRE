@@ -132,7 +132,8 @@
 
 			});
 		};
-		var SaveForm = function (btn) {
+		 
+		var SaveForm  = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
@@ -223,7 +224,6 @@
 
 			});
 		};
-
 
 		//var SaveForm = function (btn) {
 		//	//let id = btn.attr('id');
