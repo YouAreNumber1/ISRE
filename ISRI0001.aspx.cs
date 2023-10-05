@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dapper;
+using Newtonsoft.Json;
+using System.Web.Services;
 
 namespace ISRE
 {
@@ -36,13 +38,13 @@ namespace ISRE
             return result;
         }
 
-        protected ISRE_ACTIVITY_MAIN Process_ActivityInfo(String GUID)
+        protected dynamic Process_ActivityDetail(String GUID)
         { 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
             param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
-			ISRE_ACTIVITY_MAIN model = _dbConn.Query<ISRE_ACTIVITY_MAIN>(
+			dynamic model = _dbConn.Query<dynamic>(
             "Home_ISRE_ACTIVITY_MAIN",
             param,
             commandType: CommandType.StoredProcedure
@@ -68,6 +70,29 @@ namespace ISRE
 
             return model;
         }
+		[WebMethod]
+		/////////// guid=session guid
+		public static dynamic Process_Activity( string formData, string GUID="")
+		{
+			DynamicParameters param = new DynamicParameters(); 
+			dynamic InputsJSON = JsonConvert.DeserializeObject<dynamic>(formData);
+			foreach (var item in InputsJSON)
+			{
+				param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
+			}
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", GUID !=""? "U":"C", DbType.String, ParameterDirection.Input);
 
-    }
+			dynamic model = _dbConn.Query<dynamic>(
+			"Home_ISRE_ACTIVITY_MAIN",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.FirstOrDefault();
+
+			return model;
+		}
+
+
+	}
 }

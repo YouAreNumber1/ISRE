@@ -77,18 +77,43 @@ namespace ISRE
 			return model;
 		}
  
+		//[WebMethod]
+  //      /////////// guid=session guid
+		//public static  ISRE_SESSION_REG_FORM Process_SettingForm(string formData )
+		//{
+		//	DynamicParameters param = new DynamicParameters();
+		////	string jsonData = JsonConvert.SerializeObject(formData);
+		//	dynamic InputsJSON = JsonConvert.DeserializeObject<dynamic>(formData);
+		//	foreach (var item in InputsJSON)
+		//	{
+		//		param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
+		//	}
+			 
+		//	param.Add("@QueryMode", "S", DbType.String, ParameterDirection.Input);
+
+		//	ISRE_SESSION_REG_FORM model = _dbConn.Query<ISRE_SESSION_REG_FORM>(
+		//	"Session_ISRE_SESSION_REG_FORM",
+		//	param,
+		//	commandType: CommandType.StoredProcedure
+		//	, commandTimeout: _ConnectionTimeout)
+		//	.FirstOrDefault();
+
+		//	return model;
+		//}
+
+
 		[WebMethod]
-        /////////// guid=session guid
-		public static  ISRE_SESSION_REG_FORM Process_SettingForm(string formData )
+		/////////// guid=session guid
+		public static ISRE_SESSION_REG_FORM Process_SettingForm(string GUID, string formData )
 		{
 			DynamicParameters param = new DynamicParameters();
-		//	string jsonData = JsonConvert.SerializeObject(formData);
+			//	string jsonData = JsonConvert.SerializeObject(formData);
 			dynamic InputsJSON = JsonConvert.DeserializeObject<dynamic>(formData);
 			foreach (var item in InputsJSON)
 			{
 				param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
 			}
-			 
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			param.Add("@QueryMode", "S", DbType.String, ParameterDirection.Input);
 
 			ISRE_SESSION_REG_FORM model = _dbConn.Query<ISRE_SESSION_REG_FORM>(
@@ -101,7 +126,6 @@ namespace ISRE
 			return model;
 		}
 
-		 
 
 	}
 }

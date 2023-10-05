@@ -26,10 +26,10 @@ namespace ISRE
         { 
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
-            param.Add("@QueryMode", "SessionList", DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
             dynamic  model = _dbConn.Query<dynamic>(
-            "Home_ISRE_ACTIVITY_MAIN",
+			"Home_ISRE_ACTIVITY_MAIN",
             param,
             commandType: CommandType.StoredProcedure
             , commandTimeout: _ConnectionTimeout)

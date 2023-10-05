@@ -8,10 +8,7 @@ namespace ISRE
 	public class ISRE_SESSION_REG_FORM
 	{
 		public string SESS_SEQ_NO { get; set; }
-		public string CREATE_DATE { get; set; }
-		public string TXT_DATE { get; set; }
-		public string TXT_USER_ID { get; set; }
-
+		
 
 		//public string PERSONAL_JOBTITLE_D { get; set; }
 		//public string PERSONAL_UNITNAME_D { get; set; }
@@ -98,8 +95,12 @@ namespace ISRE
 		public string UNIT_DIET_R { get; set; }
 		public string UNIT_MEMO_R { get; set; }
 
-
+		public string FILE_RESTRICTED { get; set; }
 		public string GUID { get; set; }
+		public string CREATED_BY { get; set; } 
+		public string CREATE_DATE { get; set; }
+		public string TXT_DATE { get; set; }
+		public string TXT_USER_ID { get; set; }
 
 	}
 }

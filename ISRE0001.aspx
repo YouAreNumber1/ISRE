@@ -6,6 +6,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid 
+		dynamic Model = Process_ActivityInfo(GUID);
 	%>
 	 <style>
 			.table td
@@ -21,11 +22,11 @@
 
 		<div class="">
 			<h3 class="text-center my-2">活動主題</h3>
-			<%
-
-				dynamic Activity = Process_ActivityInfo(GUID);
-			%>
-			<h5 class="text-center my-4">0524「東區第⼆、三類投保單位承保業務說明會」視訊會議</h5>
+			 
+			<h5 class="text-center my-4">
+				<%--0524「東區第⼆、三類投保單位承保業務說明會」視訊會議--%> 
+			    <%: Model == null || Model.ACT_NAME == null ? "" : Model.ACT_NAME  %>
+			</h5>
 
 
 			<%-- @*banner*@--%>
@@ -150,7 +151,7 @@
 							</span>
 							<div class="col-8    col-lg-12 ">
 								<div class="d-flex justify-content-lg-center">
-									<%:item.SESS_Serial_NO??"" %>
+									<%:item.SESS_SERIAL_NO??"" %>
 								</div>
 							</div>
 						</div>
@@ -298,7 +299,7 @@
 									{%>
 								 
 									<a guid="<%:item.GUID %>"
-										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=2"
+										href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&RegisterMultiple=2"
 										class="btn btn-danger text-nowrap mx-1  ">候補報名</a>
 								 
 								<% }
@@ -306,11 +307,11 @@
 									{ %>
 								 
 									<a guid="<%:item.GUID %>"
-										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=0"
+										href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&RegisterMultiple=0"
 										class="btn btn-primary-isre text-nowrap mx-1 ">單人報名</a>
 								 
 									<a guid="<%:item.GUID %>"
-										href="ISRE0002.aspx?guid=<%:item.GUID %>&RegisterMultiple=1"
+										href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&RegisterMultiple=1"
 										class="btn btn-primary-isre text-nowrap mx-1   ">多人報名 </a>
 								 
 								<% 	}%>

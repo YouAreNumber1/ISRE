@@ -546,7 +546,7 @@ namespace ISRE
             }
 
             //tmpDate = Request.Form["ACT_DATE_E_DATE"].ToString().Length;
-            tmpDate = (Request.Form["ACT_DATE_E_DATE"] == null) ? 0 : Request.Form["ACT_DATE_E_DATE"].ToString().Length;
+            tmpDate = (Request.Form["ACT_DATE_E"] == null) ? 0 : Request.Form["ACT_DATE_E"].ToString().Length;
            
 
             if (tmpDate > 0)

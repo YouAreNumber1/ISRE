@@ -10,19 +10,12 @@
 		string sSelected = "";
 	%>
 
-	<main aria-labelledby="title">
-
-
-		<div class=" my-2">
-			
-			  
-				
-			<%   
-
-				dynamic Model = Process_ActivityInfo(GUID);
+	<main aria-labelledby="title"> 
+		<div class=" my-2"> 
+			<%    
+				dynamic Model = Process_ActivityDetail(GUID);
 			%>
-		 
-
+			 
 
 			<div class="   ">
 				<h3 class="text-center my-2"><%: String.Concat(ActioinName, "活動資訊") %> </h3>
@@ -35,29 +28,31 @@
 						<div class="d-flex">
 							<input type="text" id="PUB_DATE_S_DATE" name="PUB_DATE_S_DATE"
 								placeholder="民國年/月/日"
+								value="<%:Model == null || Model.PUB_DATE_S==null  
+								?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
+								: string.Concat((Int32.Parse( Model.PUB_DATE_S.ToString("yyyy"))-1911),"/" , Model.PUB_DATE_S.ToString("MM"), "/", Model.PUB_DATE_S.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="PUB_DATE_S_TIME" name="PUB_DATE_S_TIME"
 								placeholder="HH:mm"
+								value="<%:Model == null || Model.PUB_DATE_S==null  
+								?   DateTime.Now.ToString("HH:mm") 
+								:    Model.PUB_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
-
-							<input type="hidden" id="PUB_DATE_S" name="PUB_DATE_S"
-								value="<%: (Model !=null &&  Model.PUB_DATE_S!=null
-                            ? Model.PUB_DATE_S 
-                            : DateTime.Now )  %>" />
 							<span class="mx-2">~ </span>
 							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE"
 								placeholder="民國年/月/日"
+								value="<%:Model == null || Model.PUB_DATE_E==null  
+								?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
+								: string.Concat((Int32.Parse( Model.PUB_DATE_E.ToString("yyyy"))-1911),"/" , Model.PUB_DATE_E.ToString("MM"), "/", Model.PUB_DATE_E.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME"
 								placeholder="HH:mm"
+								value="<%:Model == null || Model.PUB_DATE_E==null  
+								?   DateTime.Now.ToString("HH:mm") 
+								:    Model.PUB_DATE_E.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
-
-							<input type="hidden" id="PUB_DATE_E" name="PUB_DATE_E"
-								value="<%: (Model !=null &&  Model.PUB_DATE_E!=null
-                                 ? Model.PUB_DATE_E 
-                                 : DateTime.Now )  %>" />
 						</div>
 					</div>
 				</div>
@@ -71,28 +66,33 @@
 						<div class="d-flex">
 							<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 								placeholder="民國年/月/日"
+								value="<%:Model == null || Model.ACT_DATE_S==null  
+							?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
+							: string.Concat((Int32.Parse( Model.ACT_DATE_S.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_S.ToString("MM"), "/", Model.ACT_DATE_S.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="ACT_DATE_S_TIME" name="ACT_DATE_S_TIME"
 								placeholder="HH:mm"
+								value="<%:Model == null || Model.ACT_DATE_E==null  
+							?   DateTime.Now.ToString("HH:mm") 
+							:    Model.ACT_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
 
-							<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S"
-								value="<%: (Model !=null &&  Model.ACT_DATE_S!=null
-                             ? Model.ACT_DATE_S 
-                             : DateTime.Now )  %>" />
+
 							<span class="mx-2">~ </span>
 							<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 								placeholder="民國年/月/日"
+								value="<%:Model == null || Model.ACT_DATE_E==null  
+?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
+: string.Concat((Int32.Parse( Model.ACT_DATE_E.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_E.ToString("MM"), "/", Model.ACT_DATE_E.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="ACT_DATE_E_TIME" name="ACT_DATE_E_TIME"
 								placeholder="HH:mm"
+								value="<%:Model == null || Model.ACT_DATE_E==null  
+							?   DateTime.Now.ToString("HH:mm") 
+							:    Model.ACT_DATE_E.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
-							<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E"
-								value="<%: (Model !=null &&  Model.ACT_DATE_E!=null
-                            ? Model.ACT_DATE_E 
-                            : DateTime.Now )  %>" />
 						</div>
 					</div>
 				</div>
@@ -104,13 +104,20 @@
 					<div class="  py-3   col-lg-10 border">
 						<div class="form-check  form-check-inline">
 							<input type="radio" class="form-check-input requiredInput"
-								id="ACT_ENABLE1" name="ACT_ENABLE" value="1"
-								checked>啟用
+								id="ACT_ENABLE1" name="ACT_ENABLE"
+								<%: (Model != null && Model.ACT_ENABLE !=null && Model.ACT_ENABLE =="1" ) || Model==null
+							?   "checked"
+							:   ""  %>
+								value="1">啟用
                     <label class="form-check-label" for="ACT_ENABLE1"></label>
 						</div>
 						<div class="form-check  form-check-inline">
 							<input type="radio" class="form-check-input requiredInput"
-								id="ACT_ENABLE2" name="ACT_ENABLE" value="2">停用
+								id="ACT_ENABLE2" name="ACT_ENABLE"
+								<%:Model != null && Model.ACT_ENABLE !=null && Model.ACT_ENABLE =="2" 
+								?   "checked"
+								:   ""  %>
+								value="2">停用
                     <label class="form-check-label" for="ACT_ENABLE2"></label>
 						</div>
 					</div>
@@ -155,7 +162,7 @@
 						<span class="note">*</span><b><label>活動類別</label></b>
 					</div>
 					<div class="    py-3  border  col-lg-10">
-						<select name="ACT_TYPE" id="ACT_TYPE" class="form-control form-select">
+						<select name="ACT_TYPE" id="ACT_TYPE" class="form-control form-select requiredInput">
 							<option value="">請選擇</option>
 							<% 
 
@@ -177,9 +184,11 @@
 						<span class="note">*</span><b><label>主辦單位</label></b>
 					</div>
 					<div class="  border    py-3  col-lg-10">
-						<input type="text" id="ACT_HOST" name="ACT_HOST" class="form-control  requiredInput "
-							value="<%: (Model !=null &&  Model.ACT_HOST!=null
-                        ? Model.ACT_HOST   : ""  )  %>">
+						<input type="text" id="ACT_HOST" name="ACT_HOST"
+							class="form-control  requiredInput "
+							value="<%:Model != null && Model.ACT_HOST !=null   
+							?  Model.ACT_HOST 
+							:   ""  %>">
 					</div>
 				</div>
 
@@ -203,7 +212,9 @@
 					</div>
 					<div class="   border  py-3    col-lg-10">
 						<%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
-						<div class="note-b">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
+						<input type="file" id="fileUpload"  
+							class="form-control-file border   ">
+						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
 
 						<%-- @*<input type="file" class="custom-file-input  requiredInput "
                        id="ACT_IMG"
@@ -220,8 +231,7 @@
 					</div>
 					<div class="border  py-3    col-lg-10">
 						<textarea name="ACT_DESC" id="ACT_DESC" rows="6"
-							class="form-control   "><%: (Model !=null &&  Model.ACT_DESC!=null 
-                                                                ? Model.ACT_DESC   : ""  )  %> </textarea>
+							class="form-control   "><%: (Model !=null &&  Model.ACT_DESC!=null   ? Model.ACT_DESC   : ""  )  %> </textarea>
 					</div>
 				</div>
 				<%-- @*參加對象*@--%>
@@ -233,9 +243,8 @@
 
 
 						<div class="">
-							<span>
-								<label>說明文字：</label></span>
-						
+							<label>說明文字：</label>
+
 							<input type="text" id="OBJ_DESC" name="OBJ_DESC"
 								class="form-control requiredInput  "
 								value="<%: (Model !=null &&  Model.OBJ_DESC!=null
@@ -245,72 +254,35 @@
 				</div>
 				<div class="d-flex justify-content-end ">
 					<div class="text-black-50">
-					<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
-					</div> 
+						<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
+					</div>
 				</div>
-				<%--<div class="    row  ">
-					<div class=" border  py-3   bg-ice col-lg-2">
-						<span class="note">*</span><label>建立者</label>
-					</div>
-					<div class="  border  py-3     col-lg-10">
-						<input type="text" id="CREATEDBY" name="CREATEDBY"
-							class="form-control requiredInput "
-							value="<%: (Model !=null &&  Model.CREATEDBY!=null ? Model.CREATEDBY  : ""  )  %>">
-					</div>
-				</div>--%>
-				<%--<div class="    row  ">
-					<div class=" border  py-3   bg-ice col-lg-2">
-						<span class="note">*</span><label>建立⽇期</label>
-					</div>
-					<div class="  border  py-3     col-lg-10">
-						<input type="text" id="CREATE_DATE" name="CREATE_DATE"
-							class="form-control requiredInput "
-							value="<%: (Model !=null &&  Model.CREATE_DATE!=null
-                          ? Model.CREATE_DATE.ToString("yyyy-MM-dd") 
-                          : DateTime.Now.ToString("yyyy-MM-dd")  )  %>">
-					</div>
-				</div>--%>
-				<%--<div class="    row  ">
-					<div class=" border  py-3   bg-ice col-lg-2">
-						<span class="note">*</span><label>更新者</label>
-					</div>
-					<div class="  border  py-3     col-lg-10">
-						<input type="text" id="MODIFIEDBY" name="MODIFIEDBY"
-							class="form-control requiredInput "
-							value="<%: (Model !=null &&  Model.MODIFIEDBY!=null ? Model.MODIFIEDBY  : ""  )  %>">
-					</div>
-				</div>--%>
-				<%--<div class="  row  ">
-					<div class=" border  py-3  bg-ice   col-lg-2">
-						<span class="note">*</span><label>更新⽇期</label>
-					</div>
-					<div class="  border  py-3     col-lg-10">
-						<input type="text" id="TXT_DATE" name="TXT_DATE" class="form-control  requiredInput"
-							readonly
-							value="<%: (Model !=null &&  Model.TXT_DATE!=null
-                   ? Model.TXT_DATE.ToString("yyyy-MM-dd") 
-                   : DateTime.Now.ToString("yyyy-MM-dd")  )  %>">
-					</div>
-				</div>--%>
+
 
 
 				<div class="d-flex justify-content-center mt-5">
-					<button type="button" id="btn_Insert"
+					<a  href="#" id="btn_Save" guid="<%:GUID %>"
+						data-target="ISRI0001.aspx/Process_Activity"
+						class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
+						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %></span>
+					</a>
+
+<%--					<button type="button" id="btn_Insert"
 						guid="<%:GUID%>"
 						class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
 						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
-					</button>
+					</button>--%>
 					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
 						{%>
 					<a href="#" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>
 
 					<%}  %>
 
-					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>
-				
+					
 				</div>
 
 
@@ -318,7 +290,7 @@
 			</div>
 
 
-			 
+
 			<%--  activity form end--%>
 		</div>
 
@@ -332,7 +304,7 @@
 
 
 	<script> 
-		var SaveForm = function (btn) {
+		var SaveForm3 = function (btn) {
 			// return;
 			//  btn.attr('disabled', 'disabled');
 			var id = btn.attr('id');
@@ -426,10 +398,95 @@
 				}
 			});
 		};
+		var SaveForm = function (btn) {
+			let guid = btn.attr('guid');
+			let target = btn.attr('data-target');
+			let thisForm = btn.closest('form');
+			thisForm.find('.requiredCheck').prop("disabled", false);
+			///////////// collect form input collection
+			let formData = new FormData(thisForm.get(0));
+			formData.delete("__VIEWSTATEGENERATOR");
+			formData.delete("__VIEWSTATE");
+			///	console.log(formData);
+
+			////// convert formdata to jsonstring
+			var object = {};
+			formData.forEach((value, key) => {
+				// Reflect.has in favor of: object.hasOwnProperty(key) 
+				if (!Reflect.has(object, key)) {
+					object[key] = value;
+					return;
+				}
+				if (!Array.isArray(object[key])) {
+					object[key] = [object[key]];
+				}
+				object[key].push(value);
+			});
+			////////// json = formdata data in json format
+			var json = JSON.stringify(object);
+			//console.log(json);
+			//return;
+			$.ajax({
+				url: target,
+				data: JSON.stringify({ 'formData': json, 'GUID': guid  }),
+				dataType: 'json', // 預期從server接收的資料型態
+				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+				contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
+				type: 'POST',
+				caches: false,
+				async: false,
+				enctype: 'multipart/form-data',
+				// contentType: false, // Not to set any content header  //formdata required
+				//	processData: false, // Not to process data  //formdata required
+				success: function (response, textStatus, jqXHR) {
+					thisForm.find('.requiredCheck').prop("disabled", true);
+					console.log('success');
+					//var responseDOM = $(response);
+					console.log(response);
+					console.log(response.d);
+					if (response.d == null) {
+						AlertAndMove('活動新增/修改失敗!');
+					}
+					else {
+						guid == '' || guid==null
+							? AlertAndMove('活動新增成功!  下一步: 新增場次!')
+							: AlertAndMove('活動修改成功!');
+						btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled','disabled');
+					}
+
+					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
+ 
+				}
+				, fail: function (jqXHR, textStatus, errorThrown) {
+					console.log('fail');
+					console.log(errorThrown);
+				}
+				, error: function (data) {
+					console.log('error');
+					console.log(data);
+					console.log(data.responseText);
+					console.log(data.status);
+					console.log(data.statusText);
+					jQuery('<div/>', {
+						id: 'errorDiv'
+					}).html(data.responseText).appendTo($('.footer')).hide();
+					var msg = $('#errorDiv').find('title').text();
+					$('#errorDiv').remove();
+					alert(msg);
+				}
+				, done: function (data) {
+					console.log('done');
+					console.log(data);
+
+				}
+
+			});
+		};
+
 
 		$(document).ready(function () {
-			let guid = "<%:GUID%>"; 
-		 	if (guid == "") $('#flowPlaceHolder').addClass('d-none');
+			let guid = "<%:GUID%>";
+			if (guid == "") $('#flowPlaceHolder').addClass('d-none');
 
 			//$.ajax({
 			//	url: "ActivityFlow.html",
@@ -455,13 +512,13 @@
 			//     'timeFormat': 'H: i',
 			//     'step': 5,
 			// });
-			$(document).on('click', '#btn_Insert', function (e) {
+			$(document).on('click', '#btn_Save', function (e) {
 				e.preventDefault();
 				var btn = $(this);
-
-				//var requiredInput = $("#inputForm").find('.requiredInput');
-				//if (HasAllRequireValue(requiredInput) == false)
-				//    return false;
+				let thisForm = btn.closest('form');
+				var requiredInput = $(thisForm).find('.requiredInput');
+				if (HasAllRequireValue(requiredInput) == false)
+				    return false;
 				SaveForm(btn);
 			});
 		});

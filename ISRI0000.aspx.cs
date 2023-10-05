@@ -36,7 +36,7 @@ namespace ISRE
             return result;
         }
 
-        protected List<ISRE_ACTIVITY_MAIN> Process_ActivityList(int Page = 1
+        protected List<dynamic> Process_ActivityList(int Page = 1
             , int OrderIndex = 1)
         {
             DynamicParameters param = new DynamicParameters();
@@ -45,7 +45,7 @@ namespace ISRE
             param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
             param.Add("@QueryMode", "QF", DbType.String, ParameterDirection.Input);
 
-            List<ISRE_ACTIVITY_MAIN> model = _dbConn.Query<ISRE_ACTIVITY_MAIN>(
+            List<dynamic> model = _dbConn.Query<dynamic>(
 			 "Home_ISRE_ACTIVITY_MAIN",
 			param,
             commandType: CommandType.StoredProcedure

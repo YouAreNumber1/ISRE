@@ -41,8 +41,8 @@ namespace ISRE
         public DateTime REMIND_MAIL_TIME { get; set; }
         public DateTime TXT_DATE { get; set; }
         public string TXT_USER_ID { get; set; }
-         
-        public string GUID { get; set; } 
+		public string FILE_RESTRICTED { get; set; }
+		public string GUID { get; set; } 
 
     }
 }

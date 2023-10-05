@@ -131,15 +131,17 @@
 												<div class="d-lg-flex   flex-grow-1">
 													<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 														class="form-control " placeholder="民國年/月/日"
-														value="<%:  Request["ACT_DATE_S_DATE"] %>">
-													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" />
+														>
+													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" 
+														value="<%:  Request["ACT_DATE_S_DATE"] %>"/>
 													<span class="mx-1">~</span>
 												</div>
 												<div class="d-lg-flex  flex-grow-1">
 													<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 														class="form-control " placeholder="民國年/月/日"
-														value="<%:  Request["ACT_DATE_E_DATE"] %>">
-													<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E" />
+														>
+													<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E" 
+														value="<%:  Request["ACT_DATE_E_DATE"] %>"/>
 												</div>
 											</div>
 										</div>
