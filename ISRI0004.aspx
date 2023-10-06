@@ -36,7 +36,8 @@
 
 
 			<div class="d-flex justify-content-center my-4">
-				<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
+
+				<a href="#" class="btn btn-primary-isre slider2   px-3 py-2  me-5 mb-2 ">場次傳送</a>
 
 				<%--	<button type="button" id="btn_Save" guid="<%:SESSIONGUID %>"
 					data-target="ISRI0004.aspx/Process_SettingForm"
@@ -319,17 +320,9 @@
 
 		$(document).ready(function () {
 
-			//$("#flowStep").slider('destroy');
+			//
 
-			//let flowStep = $("#flowStep").slider({
-			//	ticks: [0, 100, 200, 300, 400],
-			//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-			//	ticks_snap_bounds: 30
-			//});
-			//flowStep.val(0);
-			//flowStep.slider('refresh');
-			// Without JQuery
-
+			
 
 
 
@@ -353,13 +346,51 @@
 					$(this).closest('tr').find('.display').prop('checked', true);
 				}
 			})
-			//$('#btn_Save').on('click', function () {
-			//	if (CheckRules() == 0) {
-			//		SaveForm($(this));
-			//	} 
-			//});
+			$(document).on('click', '.slider2', function (e) {
+				e.preventDefault();
+				//var val = $(this).attr('gravite');
+				//$("#flowStep").slider('destroy');
+				//return;
+				var slider = $("#flowStep");
 
-			$('#btn_Save').on('click', function () {
+				var a = function () {
+					if (slider.slider("instance")) {
+						slider.slider('destroy');
+						//slider.slider('value', 1);
+						console.log('set value');
+					} else {
+						console.log('ERROR: cannot set value prior to initialization');
+					}
+				}
+				var b = function () {
+					slider.slider();
+					console.log('initialized');
+					//slider.slider('setValue', 2);
+					slider.slider({
+	ticks: [0, 100, 200, 300, 400],
+	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+	ticks_snap_bounds: 30
+					});
+					slider.slider('refresh');
+				}
+
+				a();
+				b();
+				//a();
+				//$("#flowStep").slider('setValue',2 );
+				//let flowStep = $("#flowStep").slider({1
+//	ticks: [0, 100, 200, 300, 400],
+//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+//	ticks_snap_bounds: 30
+//});
+//flowStep.val(0);
+//flowStep.slider('refresh');
+// Without JQuery
+
+			});
+
+			$(document).on('click', '#btn_Save', function (e) {
+				e.preventDefault();
 				if (CheckRules() == 0) {
 					SaveForm($(this));
 				}

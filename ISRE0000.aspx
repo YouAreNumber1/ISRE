@@ -4,6 +4,7 @@
 
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+		<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<main>
 		<section>
 			<%--20230927 By Alex Huang --%>

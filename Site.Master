@@ -23,16 +23,16 @@
 	<link href="Content/Site.css" rel="stylesheet" />
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 	<link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
- 	<link href="Content/bootstrap-slider.css" rel="stylesheet" />
-
+ 	
  <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-
+<script src="Scripts/jquery-3.6.1.js"></script> 
+	<link href="Content/bootstrap-slider.css" rel="stylesheet" />
+	
 	<%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
-	<script src="Scripts/jquery-3.6.1.js"></script> 
+
 	<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
-	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	<script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>
+
+<%--	<script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>--%>
 	<script src="Scripts/SearchForm.js"></script>
 	<script src="Scripts/Common.js"></script>
 	<script src="Scripts/sweetalert2@11.js"></script>
@@ -41,6 +41,8 @@
 		      Scripts.Render("~/bundles/modernizr") 
 	</asp:PlaceHolder>--%>
 	<script src="Scripts/bootstrap.min.js"></script>
+	
+<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 	<%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
  
 	
@@ -142,7 +144,8 @@
 			</footer>
 		</div>
 	</form>
-		<script src="Scripts/bootstrap-slider.js"></script>
+<%--		<script src="Scripts/bootstrap-slider.js"></script>--%>
+	
 	<%--<%:<asp:PlaceHolder runat="server">
 		 Scripts.Render("~/Scripts/bootstrap.min.js") 
 	</asp:PlaceHolder>%>--%>

@@ -4,6 +4,7 @@
 
 <%--this page is for backend activity create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+ 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
