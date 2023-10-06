@@ -31,12 +31,12 @@ $(function () {
 
     // 使用者點選圖檔，程式縮圖，並轉成 Base64 的 JSON內容
     $('.UPLoader').on('change', function (e) {
-        var dataField = '#' + $(this).attr('data-bind');
-        var dataType = $(dataField).attr('data-type');
+       // var dataField = '#' + $(this).attr('data-bind');
+      //  var dataType = $(dataField).attr('data-type');
        // alert('here');
         
-         console.log(dataType);
-        if (dataType === 'img') {
+       //  console.log(dataType);
+       // if (dataType === 'img') {
            // console.log(e);
            // var fileObj = e.target.files[0];
            // console.log(fileObj);
@@ -44,16 +44,16 @@ $(function () {
            // let test = getBase64FromImageUrl(fileObj);
           //  console.log(test);
            // return;
-            ShinkImage(e, dataField);
-        } else {
-            docToURI(e, dataField);
-        }
+            ShinkImage(this,e);
+      //  } else {
+       //     docToURI(e, dataField);
+       // }
     })
 
 
     // 載入時，顯示預覽圖片
 
-    $('.DataField').off().on('change', function () {
+    $('.DataField').on('change', function () {
         preview(this);
     })
 
@@ -200,48 +200,7 @@ function PreviewImage(dataFieldEle, previewEle) {
 
     $(previewEle).attr('src', content);
 }
-
-
-function ShowBankFields(sw) {
-    var bankTw = '.BankTw';
-    var bankNTw = '.BankNotTw';
-    var dsbCls = 'w3-disabled';
-    var dsbAtr = 'disabled';
-    var psbkBtn = '#Local_Bank_Passbook_Btn';
-    var psbkIpt = '#LocalBankPassbookInput';
-
-    if (sw === 'L') {
-        $(bankNTw).attr(dsbAtr, true);
-        $(bankNTw).val('');
-        $(bankTw).attr(dsbAtr, false);
-        $(psbkBtn).removeClass(dsbCls);
-        $(psbkIpt).attr(dsbAtr, false);
-    } else {
-        $(bankTw).attr(dsbAtr, true);
-        $(bankTw).val('');
-        $(bankNTw).attr(dsbAtr, false);
-        $(psbkBtn).addClass(dsbCls);
-        $(psbkIpt).attr(dsbAtr, true);
-    }
-
-}
-
-function MyProfileUpdate_Success() {
-    //  var info = 'Attached files upload success.  \n\nProfile save success.';
-    alert('Profile has been submitted successly.');
-    //showMsgBox(info);
-}
-
-function MyProfileUpdate_Failure(data) {
-    console.log(data);
-    //console.log(data.responseText);
-    console.log($(data.responseText)[1].innerText);
-    var error = $(data.responseText)[1].innerText;
-    var info = 'Error occur while saving profile, please try again later. Message :' + error;
-    // showMsgBox(info);
-    alert(info);
-}
-
+ 
 function isImageFile(fileObj) {
     var ft = fileObj.type;
     var result = false;
@@ -252,59 +211,73 @@ function isImageFile(fileObj) {
     return result;
 }
 
-function ShinkImage(file, fieldEle) {
+function ShinkImage(obj,file) {
     console.log(file);
+    console.log($(obj).parent().parent().parent());
 
+     
     var fileObj = file.target.files[0];
     console.log(fileObj);
     var IsValidFile = isImageFile(fileObj);
     if (!IsValidFile) {
         return -1;
     }
-    var MAX_WIDTH = 800;
-    var MAX_HEIGHT = 600;
+   // var MAX_WIDTH = 800;
+    //var MAX_HEIGHT = 600;
     var canv = $('<canvas/>');
 
     var fileReader = new FileReader();
-    console.log(fileReader);
+   // console.log(fileReader);
     fileReader.onload = function (e) {
         var img = new Image();
         img.onload = function () {
-            var r_width = img.width;
-            var r_height = img.height;
-            var o_width = img.width;
-            var o_height = img.height;
+            //var r_width = img.width;
+            //var r_height = img.height;
+            //var o_width = img.width;
+            //var o_height = img.height;
 
-            if (r_width > r_height) {
-                if (r_width > MAX_WIDTH) {
-                    r_height = parseInt((MAX_WIDTH / r_width) * r_height);
-                    r_width = MAX_WIDTH;
-                }
-            } else {
-                if (r_height > MAX_HEIGHT) {
-                    r_width = parseInt((MAX_HEIGHT / r_height) * r_width);
-                    r_height = MAX_HEIGHT;
-                }
-            }
-            canv.attr('width', r_width);
-            canv.attr('height', r_height);
-            canv[0].getContext('2d').drawImage(img, 0, 0, o_width, o_height, 0, 0, r_width, r_height);
+            //if (r_width > r_height) {
+            //    if (r_width > MAX_WIDTH) {
+            //        r_height = parseInt((MAX_WIDTH / r_width) * r_height);
+            //        r_width = MAX_WIDTH;
+            //    }
+            //} else {
+            //    if (r_height > MAX_HEIGHT) {
+            //        r_width = parseInt((MAX_HEIGHT / r_height) * r_width);
+            //        r_height = MAX_HEIGHT;
+            //    }
+            //}
+            canv.attr('width', img.width);
+            canv.attr('height', img.height);
+            //canv.width = img.width;
+            //canv.height = img.height;
+            //canv[0].getContext('2d').drawImage(img, 0, 0);
+
+            canv[0].getContext('2d').drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
 
             var imgDataURL = canv[0].toDataURL(fileObj.type);
             var base64Enc = imgDataURL.split(',')[1];
             console.log(imgDataURL);
             console.log(base64Enc);
             var imgobj = ({
-                base64StringFile: base64Enc,
-                imgDataURL: imgDataURL,
-                fileName: fileObj.name,
-                fileType: fileObj.type
+                //base64StringFile: base64Enc,
+                //imgDataURL: imgDataURL,
+                FileName: fileObj.name,
+                FileType: fileObj.type,
+                FileSize: fileObj.size/1000 + ' KBytes'
             });
             console.log(imgobj);
             var jsonStr = JSON.stringify(imgobj);
-            $(fieldEle).val(jsonStr);
-            $('#ACT_IMG').val(imgDataURL);
-           $(fieldEle).trigger('change');
+            console.log(jsonStr);
+          //  $(fieldEle).val(jsonStr);
+            // $('#ACT_IMG').val(imgDataURL);
+            // $('#PrimaryPhotoFilePrev').attr('src', imgDataURL);
+            $(obj).parent().parent().parent().find('img').attr('src', imgDataURL);
+            $(obj).parent().parent().parent().find('input[type=hidden]').val(imgDataURL);
+            $(obj).parent().parent().parent().find('.imageInfo')
+                .html(jsonStr).removeClass('d-none');
+           // $(fieldEle).trigger('change');
+             
         }
         img.src = e.target.result;
     }

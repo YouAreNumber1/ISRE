@@ -6,6 +6,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid 
+		string PREVIEW = Request.QueryString["PREVIEW"] ?? "";  /////////GUID=activity guid
 		dynamic Model = Process_ActivityInfo(GUID);
 	%>
 	 <style>
@@ -18,8 +19,11 @@
 	 </style>
 	
 	<main aria-labelledby="title">
-
-
+		<% if (PREVIEW !="") { 　%>
+		<div class="card bg-danger">
+			<div class="card-body text-white text-center display-6">活動預覽</div> 
+		</div>
+		<% 　 }%>
 		<div class="">
 			<h3 class="text-center my-2">活動主題</h3>
 			 

@@ -30,10 +30,7 @@ a {
 	text-decoration: none;
 	color: var(--Cyan-color) !important;
 }
-	a.disabled {
-		background-color: var(--Ice-color) !important;
-		color: var(--Grey-color) !important;
-	}
+	　
 .note {
 	color: red;
 }
@@ -81,9 +78,9 @@ td.left, th.left {
 }
 
 .btn.disabled {
-	background-color: #999;
-	color: #fff;
-	border: none;
+	background-color: var(--Ice-color) !important;
+	color: var(--Dark-color) !important;
+	border:none;
 } 
 .btn-primary-isre {
 	background-color: var(--Cyan-color) !important;

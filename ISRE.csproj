@@ -2416,7 +2416,6 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Scripts\MyProfile.js" />
     <Content Include="Scripts\sweetalert2%4011.js" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />

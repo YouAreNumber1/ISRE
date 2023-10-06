@@ -214,38 +214,22 @@
 					</div>
 					<div class="   border  py-3    col-lg-10">
 						<%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
-					 
-						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
-						<div class="custom-file mb-3">
-							<label class="btn  btn-primary-isre px-4">
-								檔案上傳
-							<input type="file" class="d-none  UPLoader" accept=".png, .tiff, .jpg, .bmp, .jfif"
-							data-bind="PrimaryPhotoFilePath" />
-							</label>
-						</div> 
-						<div class="    previewBox">
-							<div class="  imgMask" id="PrimaryPhotoFileMask"></div>
-							<img id="PrimaryPhotoFilePrev"
-								 src="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>"
-								class=" img-fluid" 
-								data-mask="PrimaryPhotoFileMask" />
 
-						 	<input type='hidden'
-								id="PrimaryPhotoFilePath" class="DataField" 
-								data-type="img" data-viewer="PrimaryPhotoFilePrev" /> 
+						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
+						<div class="imageHolder">
+							<div class="custom-file mb-3">
+								<label class="btn  btn-primary-isre px-4">
+									檔案上傳
+									<input type="file" class="d-none imgUpload " accept=".png, .tiff, .jpg, .bmp, .jfif" />
+								</label>
+							</div>
+							<img class=" img-fluid"
+								src="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>" />
+							<div class="imageInfo d-none "></div>
+							<input type="hidden" name="ACT_IMG" id="ACT_IMG"
+								value="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>" />
 
 						</div>
-
-						<input type="hidden" name="ACT_IMG" id="ACT_IMG"  class="DataField" 
-								data-type="img" data-viewer="PrimaryPhotoFilePrev" 
-						value="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>"
-							/>
-						<%-- @*<input type="file" class="custom-file-input  requiredInput "
-                       id="ACT_IMG"
-                       name="ACT_IMG"
-                       accept="@acceptType">
-                <div class="d-flex custom-file-label " for="customFile">
-                </div>*@--%> 
 					</div>
 				</div>
 				<%--  @*活動說明*@--%>
@@ -288,23 +272,20 @@
 					<a href="#" id="btn_Save" guid="<%:GUID %>"
 						data-target="ISRI0001.aspx/Process_Activity"
 						class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
-						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %></span>
+						<span><%: (Model !=null   ?  "儲存"  : "新增活動"  ) %></span>
 					</a>
-
-					<%--					<button type="button" id="btn_Insert"
-						guid="<%:GUID%>"
-						class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
-						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
-					</button>--%>
-					<a id="btn_Preview" class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
-
+					 
+					
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
 						{%>
-					<a href="#" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+					<a target="_blank"  href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"  
+						class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
 
-					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>
+					<a href="#" id="btn_Delete"  class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+
+				<%--	<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>--%>
 
 					<%}  %>
 				</div>
@@ -312,28 +293,17 @@
 
 
 			</div>
-
-
-
-
-
-
+			 
 
 			<%--  activity form end--%>
 		</div>
-
-
-
-
-
-
-
+		  
 	</main>
 
 
 	<script> 
 
-		var SaveForm = function (btn) {
+		let SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
@@ -418,87 +388,42 @@
 			});
 		};
 
-		// Function to convert an img URL to data URL
-		function getBase64FromImageUrl(url) {
-			var img = new Image();
-			img.crossOrigin = "anonymous";
-			img.onload = function () {
-				var canvas = document.createElement("canvas");
-				canvas.width = this.width;
-				canvas.height = this.height;
-				var ctx = canvas.getContext("2d");
-				ctx.drawImage(this, 0, 0);
-				var dataURL = canvas.toDataURL("image/png");
-				return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-			};
-			img.src = url;
-		}
-		function getBase64Image(img) {
-			// Create an empty canvas element
-			var canvas = document.createElement("canvas");
-			canvas.width = img.width;
-			canvas.height = img.height;
+		 
+		let ConvertImageToBase64 = function (obj, fileObj) {
+			let canv = $('<canvas/>');
+			let imageHolder = $(obj).closest('.imageHolder');
+			let fileReader = new FileReader();
+			fileReader.onload = function (e) {
+				var img = new Image();
+				img.onload = function () {
+					canv.attr('width', img.width);
+					canv.attr('height', img.height);
 
-			// Copy the image contents to the canvas
-			var ctx = canvas.getContext("2d");
-			ctx.drawImage(img, 0, 0);
+					canv[0].getContext('2d').drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
 
-			// Get the data-URL formatted image
-			// Firefox supports PNG and JPEG. You could check img.src to
-			// guess the original format, but be aware the using "image/jpg"
-			// will re-encode the image.
-			var dataURL = canvas.toDataURL("image/png");
+					let imgDataURL = canv[0].toDataURL(fileObj.type);
+					//var base64Enc = imgDataURL.split(',')[1];
+				 
+					let imgobj = ({
+						FileName: fileObj.name,
+						FileType: fileObj.type,
+						FileSize: fileObj.size / 1000 + ' KB'
+					}); 
 
-			return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-		}
-		function getBase64FromImageUrl2(url) {
-			var img = new Image();
-			img.setAttribute('crossOrigin', 'anonymous');
-			img.onload = function () {
-				var canvas = document.createElement("canvas");
-				canvas.width = this.width;
-				canvas.height = this.height;
-				var ctx = canvas.getContext("2d");
-				ctx.drawImage(this, 0, 0);
-				var dataURL = canvas.toDataURL("image/png");
-				//alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-			};
-
-			img.src = url;
+					imageHolder.find('img').attr('src', imgDataURL);
+					imageHolder.find('input[type=hidden]').val(imgDataURL);
+					imageHolder.find('.imageInfo')
+						.html(JSON.stringify(imgobj)).removeClass('d-none');
+				}
+				img.src = e.target.result;
+			}
+			fileReader.readAsDataURL(fileObj);
 		}
 
 
+ 
 
-
-		//const convertBase64 = (file) => {
-		//	return new Promise((resolve, reject) => {
-		//		const fileReader = new FileReader();
-		//		fileReader.readAsDataURL(file);
-
-		//		fileReader.onload = () => {
-		//			resolve(fileReader.result);
-		//		};
-
-		//		fileReader.onerror = (error) => {
-		//			reject(error);
-		//		};
-		//	});
-		//};
-
-
-		//const uploadImage = async (event) => {
-		//	const file = event.target.files[0];
-		//	console.log(file);
-		//	return;
-		//	const base64 = await convertBase64(file);
-		//	//avatar.src = base64;
-		//	//textArea.innerText = base64;
-		//};
-
-		//const input = document.getElementById("selectAvatar");
-		//const avatar = document.getElementById("avatar");
-		//const textArea = document.getElementById("textAreaExample");
-
+  
 		$(document).ready(function () {
 			let guid = "<%:GUID%>";
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
@@ -510,33 +435,39 @@
 			//     'timeFormat': 'H: i',
 			//     'step': 5,
 			// });
-			$(document).on('click', 'a#btn_Preview', function (e) {
+			$(document).on('click', 'a#btn_Delete', function (e) {
 				e.preventDefault();
-				let img = $('#fileUpload');
-				console.log(img);
+				Swal.fire({
+					icon: 'question',
+					backdrop: false,
+					html: 'Are you sure?',
+					heightAuto: false,
+				}).then((result) => {
+					if (obj) {
+						//  var topMenuBarHeight = $('#topMenuBar').height();
+						// var bFileInput = obj.is('input[type=file]');
+						//var scrollTop = obj == null ? 0 : obj.offset().top;
+						//bFileInput
+						//    ? obj.parent().parent().removeClass('border-0').addClass('border-4 border-danger')
+						//    : obj.addClass('border-4 border-danger');
 
-				console.log(img.baseURI);
-				return;
-				let img64 = getBase64Image(img);
-				console.log(img64);
+						//$('html, body').animate({
+						//	scrollTop: scrollTop
+						//}, {
+						//	// duration:1000,
+						//	easing: 'swing',
+						//	complete: function () {
+						//		obj.focus();
+						//		//bFileInput
+						//		//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
+						//		//    : obj.removeClass('border-4 border-danger');
+
+						//	}
+						//});
+					}
+				});
 			});
-			$(document).on('change', '#fileUpload', function (e) {
-				uploadImage(e);
-				//console.log(e);
-				//return;
-				//let img64 = getBase64Image(e);
-				//console.log(img64);
-				//var dataField = '#' + $(this).attr('data-bind');
-				//var dataType = $(dataField).attr('data-type');
-				// alert('here');
-				//console.log(dataField);
-				// console.log(dataType);
-				//if (dataType === 'img') {
-				//	ShinkImage(e, dataField);
-				//} else {
-				//	docToURI(e, dataField);
-				//}
-			})
+		 
 			$(document).on('click', 'a#btn_Save', function (e) {
 				e.preventDefault();
 				var btn = $(this);
@@ -546,6 +477,17 @@
 					return false;
 				SaveForm(btn);
 			});
+
+			
+			$(document).on('change', '.imgUpload', function (e) {
+				var fileObj = e.target.files[0];
+				if (fileObj.type.indexOf('image') < 0) {
+					alert('Incorrect file type.');
+					return;
+				}
+				ConvertImageToBase64($(this), fileObj);
+				　
+			})
 		});
 
 	</script>
