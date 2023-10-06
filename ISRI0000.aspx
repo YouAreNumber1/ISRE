@@ -173,54 +173,8 @@
 		<% } %>
 	</main>
 
-	<script>
-
-		$(document).ready(function () {
-
-
-			$('#MainContent_test').on('click', function () {
-				var postData = { User: 'JOE', Phone: '0900222333' };
-				alert('readt');
-
-				var url = "https://localhost:44396/Default.aspx/GetData";
-				alert(url);
-				$.ajax({
-					type: "POST",
-					url: url,
-					// url: "https://localhost:44396/Default.aspx/GetData",
-					data: "{postData:'1'}",
-					//  data: JSON.stringify({ 'postData': postData }),
-					contentType: "application/json; charset=utf-8",
-					dataType: "json",
-					success: function (data) {
-						console.log(data.d);
-						//alert(data);
-					}
-				});
-			});
-			var SearchResult = $('#SearchResult');
-			var thisForm = SearchResult.closest('form');
-			//SearchResult.parent().find('form');
-
-			//$(thisForm)
-			//    .attr('data-ajax', 'true')
-			//    .attr('data-ajax-method', 'GET')
-			//    .attr('data-ajax-mode', 'replace')
-			//    .attr('data-ajax-update', '#SearchResult')
-			//    ;
-
-			//var w = $(window).width();
-			//var actionUrl = (w <= 576) ? formAction_Mobile : formAction_Desktop;
-			//$("#clientScreenWidth").val(w);
-			/////////// event handler
-			////////// must be on last
-			//console.log(thisForm);
-			// alert('here');
-			// thisForm.attr('action', actionUrl).submit();
-			//  thisForm.submit();
-
-			$("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['zh-TW']);
-
+	<script> 
+		$(document).ready(function () { 
 			$(".collapse").on('show.bs.collapse', function () {
 				$('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');
 			});

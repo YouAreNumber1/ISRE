@@ -18,21 +18,21 @@
 
 	<%--  style first --%>
 	<link href="Content/bootstrap.min.css" rel="stylesheet" />
-	
+
 	<link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
 	<link href="Content/Site.css" rel="stylesheet" />
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 	<link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
- 	
- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<script src="Scripts/jquery-3.6.1.js"></script> 
+
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<script src="Scripts/jquery-3.6.1.js"></script>
 	<link href="Content/bootstrap-slider.css" rel="stylesheet" />
-	
+
 	<%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
 
 	<%--    <link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
 
-<%--	<script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>--%>
+	<%--	<script src="Scripts/jquery-timepicker-master/jquery.timepicker.js"></script>--%>
 	<script src="Scripts/SearchForm.js"></script>
 	<script src="Scripts/Common.js"></script>
 	<script src="Scripts/sweetalert2@11.js"></script>
@@ -41,12 +41,12 @@
 		      Scripts.Render("~/bundles/modernizr") 
 	</asp:PlaceHolder>--%>
 	<script src="Scripts/bootstrap.min.js"></script>
-	
-<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
+
+	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 	<%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
- 
-	
-		<style>
+
+
+	<style>
 		.logo {
 			overflow: hidden;
 			width: 260px;
@@ -139,13 +139,17 @@
 				<i class="fa fa-3x fa-chevron-circle-up "></i>
 			</a>
 			<footer class="footer    Copyright d-flex justify-content-end fixed-bottom">
+
+				<div class="toast mb-2 centered text-center bg-dark text-white" role="alert">
+					<div class=" toast-body">test</div>
+				</div>
 				<div class="text-black-50     px-2 py-1">衛生福利部中央健康保險署 Copyright &copy; 2023  All rights reserved &nbsp; Version: v2.0</div>
 
 			</footer>
 		</div>
 	</form>
-<%--		<script src="Scripts/bootstrap-slider.js"></script>--%>
-	
+	<%--		<script src="Scripts/bootstrap-slider.js"></script>--%>
+
 	<%--<%:<asp:PlaceHolder runat="server">
 		 Scripts.Render("~/Scripts/bootstrap.min.js") 
 	</asp:PlaceHolder>%>--%>

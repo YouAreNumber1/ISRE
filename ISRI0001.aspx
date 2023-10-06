@@ -274,18 +274,20 @@
 						class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
 						<span><%: (Model !=null   ?  "儲存"  : "新增活動"  ) %></span>
 					</a>
-					 
-					
+
+
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
 						{%>
-					<a target="_blank"  href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"  
+					<a target="_blank" href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
 						class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
 
-					<a href="#" id="btn_Delete"  class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+					<a href="#" id="btn_Delete"
+						data-target="ISRI0001.aspx/Delete_Activity"
+						guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
 
-				<%--	<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>--%>
+					<%--	<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>--%>
 
 					<%}  %>
 				</div>
@@ -293,11 +295,11 @@
 
 
 			</div>
-			 
+
 
 			<%--  activity form end--%>
 		</div>
-		  
+
 	</main>
 
 
@@ -329,7 +331,7 @@
 			});
 			////////// json = formdata data in json format
 			var json = JSON.stringify(object);
-			//console.log(json);
+			console.log(json);
 			//return;
 			$.ajax({
 				url: target,
@@ -388,7 +390,7 @@
 			});
 		};
 
-		 
+
 		let ConvertImageToBase64 = function (obj, fileObj) {
 			let canv = $('<canvas/>');
 			let imageHolder = $(obj).closest('.imageHolder');
@@ -403,12 +405,12 @@
 
 					let imgDataURL = canv[0].toDataURL(fileObj.type);
 					//var base64Enc = imgDataURL.split(',')[1];
-				 
+
 					let imgobj = ({
 						FileName: fileObj.name,
 						FileType: fileObj.type,
 						FileSize: fileObj.size / 1000 + ' KB'
-					}); 
+					});
 
 					imageHolder.find('img').attr('src', imgDataURL);
 					imageHolder.find('input[type=hidden]').val(imgDataURL);
@@ -421,9 +423,77 @@
 		}
 
 
- 
+		let DeleteActivity = function (btn) {
 
-  
+			let guid = btn.attr('guid');
+			let target = btn.attr('data-target');
+			console.log(guid);
+			console.log(target);
+			-
+				$.ajax({
+					url: target,
+					data: JSON.stringify({ 'GUID': guid }),
+					dataType: 'json', // 預期從server接收的資料型態
+					//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+					contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
+					type: 'POST',
+					caches: false,
+					async: false,
+					enctype: 'multipart/form-data',
+					// contentType: false, // Not to set any content header  //formdata required
+					//	processData: false, // Not to process data  //formdata required
+					success: function (response, textStatus, jqXHR) {
+						console.log('success');
+						//var responseDOM = $(response);
+						console.log(response);
+						console.log(response.d);
+						if (response.d == null) {
+							AlertAndMove('活動新增/修改失敗!');
+						}
+						else {
+							console.log(response.d);
+							ShowToast('活動刪除成功!');
+							$(document).delay(500).queue(function () { 
+								$(document).dequeue();
+								window.location = 'ISRI0000.ASPX';
+							});
+							//window.location = 'ISRI0000.ASPX';
+							//guid == '' || guid == null
+							//	? AlertAndMove('活動新增成功!  下一步: 新增場次!')
+							//	: AlertAndMove('活動修改成功!');
+							//btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
+						}
+
+						//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
+
+					}
+					, fail: function (jqXHR, textStatus, errorThrown) {
+						console.log('fail');
+						console.log(errorThrown);
+					}
+					, error: function (data) {
+						console.log('error');
+						console.log(data);
+						console.log(data.responseText);
+						console.log(data.status);
+						console.log(data.statusText);
+						jQuery('<div/>', {
+							id: 'errorDiv'
+						}).html(data.responseText).appendTo($('.footer')).hide();
+						var msg = $('#errorDiv').find('title').text();
+						$('#errorDiv').remove();
+						alert(msg);
+					}
+					, done: function (data) {
+						console.log('done');
+						console.log(data);
+
+					}
+
+				});
+		};
+
+
 		$(document).ready(function () {
 			let guid = "<%:GUID%>";
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
@@ -437,37 +507,25 @@
 			// });
 			$(document).on('click', 'a#btn_Delete', function (e) {
 				e.preventDefault();
+
 				Swal.fire({
-					icon: 'question',
-					backdrop: false,
-					html: 'Are you sure?',
-					heightAuto: false,
+					title: "Are you sure?",
+					text: "刪除活動將無法還原!",
+					showDenyButton: true,
+					showCancelButton: false,
+					confirmButtonText: 'Yes',
+					denyButtonText: 'No',
 				}).then((result) => {
-					if (obj) {
-						//  var topMenuBarHeight = $('#topMenuBar').height();
-						// var bFileInput = obj.is('input[type=file]');
-						//var scrollTop = obj == null ? 0 : obj.offset().top;
-						//bFileInput
-						//    ? obj.parent().parent().removeClass('border-0').addClass('border-4 border-danger')
-						//    : obj.addClass('border-4 border-danger');
-
-						//$('html, body').animate({
-						//	scrollTop: scrollTop
-						//}, {
-						//	// duration:1000,
-						//	easing: 'swing',
-						//	complete: function () {
-						//		obj.focus();
-						//		//bFileInput
-						//		//    ? obj.parent().parent().removeClass('border-4 border-danger').addClass('border-0')
-						//		//    : obj.removeClass('border-4 border-danger');
-
-						//	}
-						//});
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						DeleteActivity($(this));
+						//Swal.fire('Saved!', '', 'success')
+					} else if (result.isDenied) {
+						//Swal.fire('Changes are not saved', '', 'info')
 					}
 				});
 			});
-		 
+
 			$(document).on('click', 'a#btn_Save', function (e) {
 				e.preventDefault();
 				var btn = $(this);
@@ -478,7 +536,7 @@
 				SaveForm(btn);
 			});
 
-			
+
 			$(document).on('change', '.imgUpload', function (e) {
 				var fileObj = e.target.files[0];
 				if (fileObj.type.indexOf('image') < 0) {
@@ -486,7 +544,7 @@
 					return;
 				}
 				ConvertImageToBase64($(this), fileObj);
-				　
+
 			})
 		});
 

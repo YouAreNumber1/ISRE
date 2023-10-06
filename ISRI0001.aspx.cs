@@ -93,6 +93,22 @@ namespace ISRE
 			return model;
 		}
 
+		[WebMethod]
+		public static dynamic Delete_Activity( string GUID = "")
+		{
+			DynamicParameters param = new DynamicParameters(); 
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode",  "D", DbType.String, ParameterDirection.Input);
+
+			dynamic model = _dbConn.Query<dynamic>(
+			"Home_ISRE_ACTIVITY_MAIN",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.FirstOrDefault();
+
+			return model;
+		}
 
 	}
 }
