@@ -4,7 +4,7 @@
 
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-		<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<main>
 		<section>
 			<%--20230927 By Alex Huang --%>
@@ -131,18 +131,16 @@
 											<div class="d-lg-flex">
 												<div class="d-lg-flex   flex-grow-1">
 													<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
-														class="form-control " placeholder="民國年/月/日"
-														>
-													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" 
-														value="<%:  Request["ACT_DATE_S_DATE"] %>"/>
+														class="form-control " placeholder="民國年/月/日">
+													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S"
+														value="<%:  Request["ACT_DATE_S_DATE"] %>" />
 													<span class="mx-1">~</span>
 												</div>
 												<div class="d-lg-flex  flex-grow-1">
 													<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
-														class="form-control " placeholder="民國年/月/日"
-														>
-													<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E" 
-														value="<%:  Request["ACT_DATE_E_DATE"] %>"/>
+														class="form-control " placeholder="民國年/月/日">
+													<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E"
+														value="<%:  Request["ACT_DATE_E_DATE"] %>" />
 												</div>
 											</div>
 										</div>
@@ -161,7 +159,7 @@
 												<select class="form-control form-select">
 													<option>發布⽇期</option>
 													<option>活動主題</option>
-													<option>活動區間</option>  
+													<option>活動區間</option>
 												</select>
 											</div>
 										</div>
@@ -209,12 +207,12 @@
 		<div class="  card  d-none d-lg-block ">
 			<div class="card-header ">
 				<div class="row no-gutters  ">
-					<div class=" col-lg-5">
+					<div class=" col-lg-4">
 						<div class=" ">
 							活動主題
 						</div>
 					</div>
-					<div class=" col-lg-2">
+					<div class=" col-lg-3">
 						<div class=" text-center ">活動區間</div>
 					</div>
 					<div class=" col-lg-1">
@@ -241,24 +239,35 @@
 		<div class="border rounded my-1 py-1">
 			<div class="    card m-1 border-0   ">
 				<div class=" row no-gutters  ">
-					<div class="col-12 col-lg-5 ">
+					<div class="col-12 col-lg-4 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none col-4 col-sm-2   ">
 								<span class="badge bg-info">活動主題</span>
 							</span>
 							<span class="col-8 col-sm-10">
-								<%:item.ACT_NAME %> 
+								<%:(item == null || item.ACT_NAME ==null) ? "" : item.ACT_NAME %>
+							 
 							</span>
 						</div>
 					</div>
-					<div class="col-12 col-lg-2 ">
+					<div class="col-12 col-lg-3 ">
 						<div class="row no-gutters">
 							<span class="d-lg-none  col-4   col-sm-2  ">
 								<span class="badge bg-info">活動區間</span>
 							</span>
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
-									<div class="text-center">112/08/31-112/12/31 </div>
+									<div class="text-center">
+
+										<%:item == null || item.ACT_DATE_S==null  
+										? ""
+										: string.Concat((Int32.Parse( item.ACT_DATE_S.ToString("yyyy"))-1911),"/" , item.ACT_DATE_S.ToString("MM"), "/", item.ACT_DATE_S.ToString("dd"))%>
+
+										<span>-</span>
+										<%:item == null || item.ACT_DATE_E==null  
+										? ""
+										: string.Concat((Int32.Parse( item.ACT_DATE_E.ToString("yyyy"))-1911),"/" , item.ACT_DATE_E.ToString("MM"), "/", item.ACT_DATE_E.ToString("dd"))%>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -286,7 +295,13 @@
 							</div>
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
-									<div class="text-center">112/08/31 </div>
+									<div class="text-center">
+											<%:item == null || item.ACT_DATE_S==null  
+				? ""
+				: string.Concat((Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd"))%>
+
+										
+									</div>
 								</div>
 							</div>
 						</div>
@@ -322,9 +337,9 @@
 	<script> 
 		$(document).ready(function () {
 			$(document).on('click', '#btnClear', function () {
-				$(this).closest('section').find('input, select').each(function () { 
+				$(this).closest('section').find('input, select').each(function () {
 					$(this).val('');
-				}); 
+				});
 			});
 			$("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['zh-TW']);
 

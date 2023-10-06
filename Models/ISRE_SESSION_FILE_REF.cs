@@ -11,7 +11,7 @@ namespace ISRE
             public string SESS_SYS_FILENAME { get; set; }  
             public string SESS_ORI_FILENAME { get; set; }
             public string FILE_CAT { get; set; }
-            public string TXT_DATE { get; set; }
+            public DateTime TXT_DATE { get; set; }
             public string TXT_USER_ID { get; set; }
      
 

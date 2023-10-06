@@ -11,8 +11,8 @@ namespace ISRE
             public string SESS_SEQ_NO { get; set; }
             public string REG_STATUS { get; set; }
             public string REG_TYPE { get; set; }
-            public string CREATE_DATE { get; set; }
-            public string TXT_DATE { get; set; }
+            public DateTime CREATE_DATE { get; set; }
+            public DateTime TXT_DATE { get; set; }
             public string TXT_USER_ID { get; set; }
             public string APPLY_NAME { get; set; }
             public string ID_AES { get; set; }
@@ -25,7 +25,7 @@ namespace ISRE
             public string ATTEND_TYPE { get; set; }
             public string PID_AGREE_PROOF { get; set; }
             public string DIET_TEND { get; set; }
-            public string BIRTH_DATE { get; set; }
+            public DateTime BIRTH_DATE { get; set; }
             public string MEMO { get; set; }
             public string UNIT_NO { get; set; }
             public string HOSP_ID { get; set; }

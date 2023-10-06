@@ -98,8 +98,8 @@ namespace ISRE
 		public string FILE_RESTRICTED { get; set; }
 		public string GUID { get; set; }
 		public string CREATED_BY { get; set; } 
-		public string CREATE_DATE { get; set; }
-		public string TXT_DATE { get; set; }
+		public DateTime CREATE_DATE { get; set; }
+		public DateTime TXT_DATE { get; set; }
 		public string TXT_USER_ID { get; set; }
 
 	}

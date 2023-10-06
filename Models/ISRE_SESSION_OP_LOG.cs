@@ -8,8 +8,8 @@ namespace ISRE
     public class ISRE_SESSION_OP_LOG
     { 
         public string ACT_ENABLE { get; set; }
-        public string PUB_DATE_S { get; set; }
-        public string PUB_DATE_E { get; set; }
+        public DateTime PUB_DATE_S { get; set; }
+        public DateTime PUB_DATE_E { get; set; }
         public string USER_ID { get; set; }
         public string AGENT_ID { get; set; }
         public string ACT_STATUS { get; set; }
@@ -22,8 +22,8 @@ namespace ISRE
         public string ACT_HOST { get; set; }
         public string ACT_CO_HOST { get; set; }
         public string ACT_CONTACT_INFO { get; set; }
-        public string CREATE_DATE { get; set; }
-        public string TXT_DATE { get; set; }
+        public DateTime CREATE_DATE { get; set; }
+        public DateTime TXT_DATE { get; set; }
         public string TXT_USER_ID { get; set; }
         public string GUID { get; set; } 
 

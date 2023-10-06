@@ -1,7 +1,8 @@
-﻿ <%-- THIS IS SUB PAGE FOR ACTIVITY INFO --%>
+﻿<%-- THIS IS SUB PAGE FOR ACTIVITY INFO --%>
 <%
 	String Guid = Request.QueryString["GUID"];
 	ISRE.ISRE_ACTIVITY_MAIN Model = Process_ActivityInfo(Guid); 
+
 %>
 
 <div class="my-2">
@@ -44,7 +45,7 @@
 					</span>
 					<div class="col-9 col-sm-8 col-lg-12 ">
 						<div>
-							<%:(Model == null) ? "" : Model.ACT_NAME %>
+							<%:(Model == null || Model.ACT_NAME==null) ? "" : Model.ACT_NAME %>
 						</div>
 					</div>
 				</div>
@@ -77,7 +78,9 @@
 						<span class="badge bg-info">主辦單位</span>
 					</div>
 					<div class="col-9 col-sm-8 col-lg-12  text-center  ">
-						<div class="d-flex justify-content-lg-center">DB 主辦單位 </div>
+						<div class="d-flex justify-content-lg-center">
+							<%:(Model == null || Model.ACT_HOST==null) ? "" : Model.ACT_HOST %>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -89,7 +92,10 @@
 					</div>
 					<div class="col-9 col-sm-8 col-lg-12 ">
 						<div class="  text-center ">
-							<div class="d-flex justify-content-lg-center">112/08/31  </div>
+							<div   class="d-flex justify-content-lg-center ">
+								<%:  String.Concat((Int32.Parse(Model.PUB_DATE_S.ToString("yyyy")) - 1911), "/", Model.PUB_DATE_S.ToString("MM"), "/", Model.PUB_DATE_S.ToString("dd"))
+								%>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -104,9 +110,7 @@
 </div>
 
 
-
-
-
+ 
 
 
 

@@ -2,6 +2,7 @@
 <%
 	String SessionGUID = Request.QueryString["SessionGUID"];
 	ISRE.ISRE_SESSION_MAIN Model = Process_SessionInfo(SessionGUID); 
+     ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
 %>
 
 <div class="my-2">
@@ -73,7 +74,11 @@
 						<span class="badge bg-info">日期時間</span>
 					</span>
 					<div class=" col-8 col-sm-7    col-lg-12  text-center  ">
-						<div class="d-flex justify-content-lg-center">112/08/31 </div>
+						<div class="d-flex justify-content-lg-center"> 
+						 <%:Model == null ||  Model.SESS_DATE_S.GetHashCode()==0 
+							? "" : Model.SESS_DATE_S.ToString("yyyy")	 %>
+					  
+						</div>
 					</div>
 				</div>
 			</div>

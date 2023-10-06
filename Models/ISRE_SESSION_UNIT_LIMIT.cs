@@ -12,7 +12,7 @@ namespace ISRE
         public string UNIT_NO { get; set; }
         public string UNIT_NAME { get; set; }
         public string UNIT_MAX_COUNT { get; set; }
-        public string TXT_DATE { get; set; }
+        public DateTime TXT_DATE { get; set; }
         public string TXT_USER_ID { get; set; }
          
         public string GUID { get; set; } 

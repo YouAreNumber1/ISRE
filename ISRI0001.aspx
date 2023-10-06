@@ -75,7 +75,7 @@
 
 							<input type="time" id="ACT_DATE_S_TIME" name="ACT_DATE_S_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.ACT_DATE_E==null  
+								value="<%:Model == null || Model.ACT_DATE_S==null  
 							?   DateTime.Now.ToString("HH:mm") 
 							:    Model.ACT_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
@@ -193,7 +193,18 @@
 							:   ""  %>">
 					</div>
 				</div>
-
+				<div class="  row   ">
+					<div class="  border  bg-ice   py-3  col-lg-2">
+						<label>協辦單位</label>
+					</div>
+					<div class="  border    py-3  col-lg-10">
+						<input type="text" id="ACT_CO_HOST" name="ACT_CO_HOST"
+							class="form-control    "
+							value="<%:Model != null && Model.ACT_CO_HOST !=null   
+						?  Model.ACT_CO_HOST 
+						:   ""  %>">
+					</div>
+				</div>
 				<%-- @*活動主題*@--%>
 				<div class="  row   ">
 					<div class="  border  bg-ice   py-3  col-lg-2">
@@ -213,7 +224,6 @@
 						<label>視覺圖檔</label>
 					</div>
 					<div class="   border  py-3    col-lg-10">
-						<%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
 
 						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
 						<div class="imageHolder">
@@ -260,6 +270,21 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="  row   ">
+					<div class="  border  bg-ice   py-3  col-lg-2">
+						<label>洽詢專線</label>
+					</div>
+					<div class="  border    py-3  col-lg-10">
+						<input type="text" id="ACT_CONTACT_INFO" name="ACT_CONTACT_INFO"
+							class="form-control    "
+							value="<%:Model != null && Model.ACT_CONTACT_INFO !=null   
+					?  Model.ACT_CONTACT_INFO
+					:   ""  %>">
+					</div>
+				</div>
+
+
 				<div class="d-flex justify-content-end ">
 					<div class="text-black-50">
 						<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
@@ -269,6 +294,11 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
+
+					<a id="btn_Preview" target="_blank" href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
+						class="btn btn-primary-isre text-nowrap <%:GUID==""? "d-none":"" %>  px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
+
+
 					<a href="#" id="btn_Save" guid="<%:GUID %>"
 						data-target="ISRI0001.aspx/Process_Activity"
 						class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
@@ -280,9 +310,7 @@
 
 					<% if (Model != null)
 						{%>
-					<a target="_blank" href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
-						class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
-
+					
 					<a href="#" id="btn_Delete"
 						data-target="ISRI0001.aspx/Delete_Activity"
 						guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
@@ -331,7 +359,7 @@
 			});
 			////////// json = formdata data in json format
 			var json = JSON.stringify(object);
-			console.log(json);
+			//console.log(json);
 			//return;
 			$.ajax({
 				url: target,
@@ -347,10 +375,15 @@
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
 					thisForm.find('.requiredCheck').prop("disabled", true);
-					console.log('success');
-					//var responseDOM = $(response);
-					console.log(response);
-					console.log(response.d);
+					console.log('success'); 
+					//console.log(response);
+					//console.log(response.d);
+					//console.log(response.d.key['GUID']);
+					 var keys = response.d.map(function (o) { return o.Key; });
+					//console.log(keys);
+					var GUID = response.d[keys.indexOf("GUID")].Value;
+					//console.log(GUID);
+					//console.log($('#btn_Preview').attr('href'));
 					if (response.d == null) {
 						AlertAndMove('活動新增/修改失敗!');
 					}
@@ -358,11 +391,14 @@
 						guid == '' || guid == null
 							? AlertAndMove('活動新增成功!  下一步: 新增場次!')
 							: AlertAndMove('活動修改成功!');
-						btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
-					}
+						if (guid == '' || guid == null) {  ////////新增
+							$('#btn_Preview').removeClass('d-none');
+							let href = $('#btn_Preview').attr('href');
+							$('#btn_Preview').attr('href', href + GUID);
+							btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
 
-					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
-
+						}
+					} 
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -453,7 +489,7 @@
 						else {
 							console.log(response.d);
 							ShowToast('活動刪除成功!');
-							$(document).delay(500).queue(function () { 
+							$(document).delay(500).queue(function () {
 								$(document).dequeue();
 								window.location = 'ISRI0000.ASPX';
 							});
