@@ -31,7 +31,10 @@
 
 			<%-- @*banner*@--%>
 			<div class="text-center">
-				<img src="https://localhost:444/images/even-banner-img.png" alt="" width="100%">
+					<img alt="" width="100%" class="img-fluid"
+					 src="<%: (Model !=null &&  Model.ACT_IMG!=null  ) ? Model.ACT_IMG   : ""   %>" />
+				
+		<%--		<img src="https://localhost:444/images/even-banner-img.png" alt="" width="100%">--%>
 			</div>
 
 			<%-- @*活動說明*@--%>

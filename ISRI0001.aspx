@@ -4,19 +4,20 @@
 
 <%--this page is for backend activity create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<script src="Scripts/MyProfile.js"></script>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
 		string sSelected = "";
 	%>
 
-	<main aria-labelledby="title"> 
-		<div class=" my-2"> 
+	<main aria-labelledby="title">
+		<div class=" my-2">
 			<%    
 				dynamic Model = Process_ActivityDetail(GUID);
 			%>
-			 
+
 
 			<div class="   ">
 				<h3 class="text-center my-2"><%: String.Concat(ActioinName, "活動資訊") %> </h3>
@@ -213,16 +214,38 @@
 					</div>
 					<div class="   border  py-3    col-lg-10">
 						<%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
-						<input type="file" id="fileUpload"  
-							class="form-control-file border   ">
+					 
 						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
+						<div class="custom-file mb-3">
+							<label class="btn  btn-primary-isre px-4">
+								檔案上傳
+							<input type="file" class="d-none  UPLoader" accept=".png, .tiff, .jpg, .bmp, .jfif"
+							data-bind="PrimaryPhotoFilePath" />
+							</label>
+						</div> 
+						<div class="    previewBox">
+							<div class="  imgMask" id="PrimaryPhotoFileMask"></div>
+							<img id="PrimaryPhotoFilePrev"
+								 src="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>"
+								class=" img-fluid" 
+								data-mask="PrimaryPhotoFileMask" />
 
+						 	<input type='hidden'
+								id="PrimaryPhotoFilePath" class="DataField" 
+								data-type="img" data-viewer="PrimaryPhotoFilePrev" /> 
+
+						</div>
+
+						<input type="hidden" name="ACT_IMG" id="ACT_IMG"  class="DataField" 
+								data-type="img" data-viewer="PrimaryPhotoFilePrev" 
+						value="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>"
+							/>
 						<%-- @*<input type="file" class="custom-file-input  requiredInput "
                        id="ACT_IMG"
                        name="ACT_IMG"
                        accept="@acceptType">
                 <div class="d-flex custom-file-label " for="customFile">
-                </div>*@--%>
+                </div>*@--%> 
 					</div>
 				</div>
 				<%--  @*活動說明*@--%>
@@ -262,33 +285,37 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
-					<a  href="#" id="btn_Save" guid="<%:GUID %>"
+					<a href="#" id="btn_Save" guid="<%:GUID %>"
 						data-target="ISRI0001.aspx/Process_Activity"
 						class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
 						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %></span>
 					</a>
 
-<%--					<button type="button" id="btn_Insert"
+					<%--					<button type="button" id="btn_Insert"
 						guid="<%:GUID%>"
 						class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
 						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
 					</button>--%>
-					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
+					<a id="btn_Preview" class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
+
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
 						{%>
 					<a href="#" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+
 					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>
 
 					<%}  %>
-
-					
 				</div>
 
 
 
 			</div>
+
+
+
+
 
 
 
@@ -305,100 +332,7 @@
 
 
 	<script> 
-		var SaveForm3 = function (btn) {
-			// return;
-			//  btn.attr('disabled', 'disabled');
-			var id = btn.attr('id');
-			var guid = btn.attr('guid');
-			var target = btn.attr('data-target');
-			var thisForm = btn.closest('form');
-			// thisForm.attr('enctype', 'multipart/form-data');
-			console.log(thisForm);
-			let thisFormId = thisForm.attr('id');
-			//let formElement = document.querySelector("form");
-			//let formData = new FormData(formElement);
-			//console.log(formData);
 
-			//  console.log(id);
-			//  console.log(target);
-
-			////////// customer form data
-			// $("#inputForm :input").prop("disabled", false);
-			var data = new FormData($('#' + thisFormId).get(0));
-			//  let data = new FormData();
-			//   var data = new FormData(thisForm.get(0));
-			data.append('guid', guid);
-			console.log(data);
-			return;
-			$.ajax({
-				url: target,
-				data: data,
-				//  dataType: 'json', // 預期從server接收的資料型態
-				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-				//   contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
-				type: 'POST',
-				enctype: 'multipart/form-data',
-				caches: false,
-				contentType: false, // Not to set any content header  //formdata required
-				processData: false, // Not to process data  //formdata required
-				success: function (response, textStatus, jqXHR) {
-					//   alert('here');
-
-					var responseDOM = $(response);
-					var QueryMode = responseDOM.attr('QueryMode');
-					var IsSuccess = responseDOM.attr('IsSuccess');
-
-					if (QueryMode == 'U') {
-						ShowToast('活動修改成功!');
-					}
-					else {
-						ShowToast('活動新增成功!');
-					}
-
-					//   console.log(EMAIL);
-					//var responseDOM = $(response);
-					//var tableRow = responseDOM.find('tr').get(0);
-					//history.replaceState(null, null, ' ');
-					//var IsSuccess = $(tableRow).attr('IsSuccess');
-					//var Message = $(tableRow).attr('Message');
-					//  if (IsSuccess == "Y") {   ////no  error
-					//   var id = $(tableRow).attr('id');
-					//////////// table view update , only returned one record in table view , get(0)=get 1st element
-					//   $('tr[id="' + id + '"').after(tableRow.outerHTML).remove();
-					//////// return to list page
-					//  ShowToast(Message);
-					//    CancelOperation(oPageLayout);
-					//     btn.removeAttr('disabled');
-					//  }
-					//   else if (IsSuccess == "N") {   //////////error
-					//   console.log('error');
-					//  alert(Message);
-					//   btn.removeAttr('disabled');
-					//   }
-				}
-				, fail: function (jqXHR, textStatus, errorThrown) {
-					console.log('fail');
-					console.log(errorThrown);
-				}
-				, error: function (data) {
-					console.log('error');
-					console.log(data);
-					console.log(data.responseText);
-					console.log(data.status);
-					console.log(data.statusText);
-					jQuery('<div/>', {
-						id: 'errorDiv'
-					}).html(data.responseText).appendTo($('.footer')).hide();
-					var msg = $('#errorDiv').find('title').text();
-					$('#errorDiv').remove();
-					//alert(msg);
-				}
-				, done: function (data) {
-					console.log('done');
-					console.log(data);
-				}
-			});
-		};
 		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
@@ -429,7 +363,7 @@
 			//return;
 			$.ajax({
 				url: target,
-				data: JSON.stringify({ 'formData': json, 'GUID': guid  }),
+				data: JSON.stringify({ 'formData': json, 'GUID': guid }),
 				dataType: 'json', // 預期從server接收的資料型態
 				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 				contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
@@ -449,14 +383,14 @@
 						AlertAndMove('活動新增/修改失敗!');
 					}
 					else {
-						guid == '' || guid==null
+						guid == '' || guid == null
 							? AlertAndMove('活動新增成功!  下一步: 新增場次!')
 							: AlertAndMove('活動修改成功!');
-						btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled','disabled');
+						btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
 					}
 
 					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
- 
+
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -484,26 +418,89 @@
 			});
 		};
 
+		// Function to convert an img URL to data URL
+		function getBase64FromImageUrl(url) {
+			var img = new Image();
+			img.crossOrigin = "anonymous";
+			img.onload = function () {
+				var canvas = document.createElement("canvas");
+				canvas.width = this.width;
+				canvas.height = this.height;
+				var ctx = canvas.getContext("2d");
+				ctx.drawImage(this, 0, 0);
+				var dataURL = canvas.toDataURL("image/png");
+				return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+			};
+			img.src = url;
+		}
+		function getBase64Image(img) {
+			// Create an empty canvas element
+			var canvas = document.createElement("canvas");
+			canvas.width = img.width;
+			canvas.height = img.height;
+
+			// Copy the image contents to the canvas
+			var ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0);
+
+			// Get the data-URL formatted image
+			// Firefox supports PNG and JPEG. You could check img.src to
+			// guess the original format, but be aware the using "image/jpg"
+			// will re-encode the image.
+			var dataURL = canvas.toDataURL("image/png");
+
+			return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+		}
+		function getBase64FromImageUrl2(url) {
+			var img = new Image();
+			img.setAttribute('crossOrigin', 'anonymous');
+			img.onload = function () {
+				var canvas = document.createElement("canvas");
+				canvas.width = this.width;
+				canvas.height = this.height;
+				var ctx = canvas.getContext("2d");
+				ctx.drawImage(this, 0, 0);
+				var dataURL = canvas.toDataURL("image/png");
+				//alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+			};
+
+			img.src = url;
+		}
+
+
+
+
+		//const convertBase64 = (file) => {
+		//	return new Promise((resolve, reject) => {
+		//		const fileReader = new FileReader();
+		//		fileReader.readAsDataURL(file);
+
+		//		fileReader.onload = () => {
+		//			resolve(fileReader.result);
+		//		};
+
+		//		fileReader.onerror = (error) => {
+		//			reject(error);
+		//		};
+		//	});
+		//};
+
+
+		//const uploadImage = async (event) => {
+		//	const file = event.target.files[0];
+		//	console.log(file);
+		//	return;
+		//	const base64 = await convertBase64(file);
+		//	//avatar.src = base64;
+		//	//textArea.innerText = base64;
+		//};
+
+		//const input = document.getElementById("selectAvatar");
+		//const avatar = document.getElementById("avatar");
+		//const textArea = document.getElementById("textAreaExample");
 
 		$(document).ready(function () {
 			let guid = "<%:GUID%>";
-			if (guid == "") $('#flowPlaceHolder').addClass('d-none');
-
-			//$.ajax({
-			//	url: "ActivityFlow.html",
-			//	context: document.body
-			//}).done(function (response) {
-			//	//$(this).addClass("done");
-			//	console.log(response);
-			//	$('#contents').prepend(response);
-			//	$("#flowStep").slider({ 
-			//		ticks: [0, 100, 200, 300, 400],
-			//		ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-			//		ticks_snap_bounds: 30
-			//	});
-			//});
-
-
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
 				.datepicker($.datepicker.regional['zh-TW']);
 
@@ -513,13 +510,40 @@
 			//     'timeFormat': 'H: i',
 			//     'step': 5,
 			// });
+			$(document).on('click', 'a#btn_Preview', function (e) {
+				e.preventDefault();
+				let img = $('#fileUpload');
+				console.log(img);
+
+				console.log(img.baseURI);
+				return;
+				let img64 = getBase64Image(img);
+				console.log(img64);
+			});
+			$(document).on('change', '#fileUpload', function (e) {
+				uploadImage(e);
+				//console.log(e);
+				//return;
+				//let img64 = getBase64Image(e);
+				//console.log(img64);
+				//var dataField = '#' + $(this).attr('data-bind');
+				//var dataType = $(dataField).attr('data-type');
+				// alert('here');
+				//console.log(dataField);
+				// console.log(dataType);
+				//if (dataType === 'img') {
+				//	ShinkImage(e, dataField);
+				//} else {
+				//	docToURI(e, dataField);
+				//}
+			})
 			$(document).on('click', 'a#btn_Save', function (e) {
 				e.preventDefault();
 				var btn = $(this);
 				let thisForm = btn.closest('form');
 				var requiredInput = $(thisForm).find('.requiredInput');
 				if (HasAllRequireValue(requiredInput) == false)
-				    return false;
+					return false;
 				SaveForm(btn);
 			});
 		});

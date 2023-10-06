@@ -43,7 +43,7 @@ namespace ISRE
             param.Add("@PageSize", _PageSize, DbType.Int16, ParameterDirection.Input);
             param.Add("@Page", Page, DbType.Int16, ParameterDirection.Input);
             param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
-            param.Add("@QueryMode", "QF", DbType.String, ParameterDirection.Input);
+            param.Add("@QueryMode", "QB", DbType.String, ParameterDirection.Input);
 
             List<dynamic> model = _dbConn.Query<dynamic>(
 			 "Home_ISRE_ACTIVITY_MAIN",
