@@ -93,8 +93,8 @@
 					<div class="col-9 col-sm-8 col-lg-12 ">
 						<div class="  text-center ">
 							<div   class="d-flex justify-content-lg-center ">
-								<%:  String.Concat((Int32.Parse(Model.PUB_DATE_S.ToString("yyyy")) - 1911), "/", Model.PUB_DATE_S.ToString("MM"), "/", Model.PUB_DATE_S.ToString("dd"))
-								%>
+							 <%:Model == null || Model.PUB_DATE_S.GetHashCode()==0 
+							 ? "" : String.Concat(  (Int32.Parse(Model.PUB_DATE_S.ToString("yyyy")) - 1911), "/", Model.PUB_DATE_S.ToString("MM"), "/", Model.PUB_DATE_S.ToString("dd") ) %>
 							</div>
 						</div>
 					</div>

@@ -4,7 +4,9 @@
 
 <%--this page is for backend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+<% 
+	 ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
+%>
 	<main>
 		<section class="mb-2 my-2">
 			<div class="d-flex  justify-content-between align-items-center  ">
@@ -88,7 +90,7 @@
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class="d-block  d-lg-flex     justify-content-lg-center">
 								<div class=" ">
-									<%:item == null || item.ACT_DATE_S==null  
+									<%:item == null || item.ACT_DATE_S.GetHashCode()==0 
 								?  ""
 								: string.Concat(
 									(Int32.Parse( item.ACT_DATE_S.ToString("yyyy"))-1911),"/" , item.ACT_DATE_S.ToString("MM"), "/", item.ACT_DATE_S.ToString("dd")
@@ -141,7 +143,7 @@
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class=" d-block  d-lg-flex   justify-content-lg-center">
 								<div class="  ">
-									<%:item == null || item.PUB_DATE_S==null  
+									<%:item == null || item.PUB_DATE_S.GetHashCode()==0 
 								?  ""
 								: string.Concat(
 									(Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd")

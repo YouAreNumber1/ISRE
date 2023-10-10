@@ -42,7 +42,6 @@
 	</asp:PlaceHolder>--%>
 	<script src="Scripts/bootstrap.min.js"></script>
 
-	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 	<%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
 
 

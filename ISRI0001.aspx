@@ -5,11 +5,12 @@
 <%--this page is for backend activity create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	<script src="Scripts/MyProfile.js"></script>
+	 
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
 		string sSelected = "";
+		 ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
 	%>
 
 	<main aria-labelledby="title">
@@ -30,28 +31,28 @@
 						<div class="d-flex">
 							<input type="text" id="PUB_DATE_S_DATE" name="PUB_DATE_S_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.PUB_DATE_S==null  
+								value="<%:Model == null || Model.PUB_DATE_S.GetHashCode()==0 
 								?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 								: string.Concat((Int32.Parse( Model.PUB_DATE_S.ToString("yyyy"))-1911),"/" , Model.PUB_DATE_S.ToString("MM"), "/", Model.PUB_DATE_S.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="PUB_DATE_S_TIME" name="PUB_DATE_S_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.PUB_DATE_S==null  
+								value="<%:Model == null || Model.PUB_DATE_S.GetHashCode()==0  
 								?   DateTime.Now.ToString("HH:mm") 
 								:    Model.PUB_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
 							<span class="mx-2">~ </span>
 							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.PUB_DATE_E==null  
+								value="<%:Model == null || Model.PUB_DATE_E.GetHashCode()==0 
 								?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 								: string.Concat((Int32.Parse( Model.PUB_DATE_E.ToString("yyyy"))-1911),"/" , Model.PUB_DATE_E.ToString("MM"), "/", Model.PUB_DATE_E.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.PUB_DATE_E==null  
+								value="<%:Model == null || Model.PUB_DATE_E.GetHashCode()==0 
 								?   DateTime.Now.ToString("HH:mm") 
 								:    Model.PUB_DATE_E.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
@@ -68,14 +69,14 @@
 						<div class="d-flex">
 							<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.ACT_DATE_S==null  
+								value="<%:Model == null || Model.ACT_DATE_S.GetHashCode()==0   
 							?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 							: string.Concat((Int32.Parse( Model.ACT_DATE_S.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_S.ToString("MM"), "/", Model.ACT_DATE_S.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="ACT_DATE_S_TIME" name="ACT_DATE_S_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.ACT_DATE_S==null  
+								value="<%:Model == null || Model.ACT_DATE_S.GetHashCode()==0 
 							?   DateTime.Now.ToString("HH:mm") 
 							:    Model.ACT_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
@@ -84,14 +85,14 @@
 							<span class="mx-2">~ </span>
 							<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.ACT_DATE_E==null  
+								value="<%:Model == null || Model.ACT_DATE_E.GetHashCode()==0  
 ?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 : string.Concat((Int32.Parse( Model.ACT_DATE_E.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_E.ToString("MM"), "/", Model.ACT_DATE_E.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="ACT_DATE_E_TIME" name="ACT_DATE_E_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.ACT_DATE_E==null  
+								value="<%:Model == null || Model.ACT_DATE_E.GetHashCode()==0 
 							?   DateTime.Now.ToString("HH:mm") 
 							:    Model.ACT_DATE_E.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">

@@ -5,7 +5,10 @@
 
 <%--this page is for frontend  session  registration--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+	<% 
+	 /////if not dynamic model, use GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
+	 //////if dynamic need to use ==null to check null date
+%>
 	<main>
 		<%
 			string GUID = Request.QueryString["GUID"];///GUID= activity guid 
@@ -64,11 +67,11 @@
 						</span>
 						<div class="col-8 col-lg-12    ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-								<%:Model == null || Model.ACT_DATE_S==null  
+								<%:Model == null || Model.ACT_DATE_S==null
 									? "" 
 									: string.Concat((Int32.Parse( Model.ACT_DATE_S.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_S.ToString("MM"), "/", Model.ACT_DATE_S.ToString("dd"))%> 
 									- 
-									<%:Model == null || Model.ACT_DATE_S==null  
+									<%:Model == null || Model.ACT_DATE_E.GetHashCode()==0  
 									? "" 
 									: string.Concat((Int32.Parse( Model.ACT_DATE_E.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_E.ToString("MM"), "/", Model.ACT_DATE_E.ToString("dd"))%>
 							</div>
@@ -172,7 +175,7 @@
 						<div class="col-8 col-lg-12  ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
 
-								<%:Model == null || Model.SESS_DATE_S==null  
+								<%:Model == null || Model.SESS_DATE_S==null
 								? "" 
 								: Model.SESS_DATE_S.ToString("yyyy-MM-dd") %>
 							</div>

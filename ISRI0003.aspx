@@ -5,6 +5,8 @@
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 		<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	
+	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 	<style>
 		
 /*.custom-file {
@@ -141,25 +143,35 @@
 						<div class="d-flex">
 							<input type="text" id="SESS_DATE_S_DATE" name="SESS_DATE_S_DATE"
 								class="form-control mx-1 requiredInput"
+								value="<%:Model == null || Model.SESS_DATE_S.GetHashCode()==0 
+								?  ""
+								: string.Concat((Int32.Parse( Model.SESS_DATE_S.ToString("yyyy"))-1911),"/" , Model.SESS_DATE_S.ToString("MM"), "/", Model.SESS_DATE_S.ToString("dd"))%>"
 								placeholder="民國年/月/日">
+							
 							<input type="time" id="SESS_DATE_S_TIME" name="SESS_DATE_S_TIME"
 								placeholder="HH:mm"
+								value="<%:Model == null || Model.SESS_DATE_S.GetHashCode()==0  
+								?   "" 
+								:    Model.SESS_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
-							<input type="hidden" id="SESS_DATE_S" name="SESS_DATE_S"
-								value="<%: (Model !=null &&  Model.SESS_DATE_S!=null
-                      ? Model.SESS_DATE_S 
-                      : DateTime.Now )  %>" />
+							 	
+
 							<span>~ </span>
+
 							<input type="text" id="SESS_DATE_E_DATE" name="SESS_DATE_E_DATE"
 								class="form-control mx-1 requiredInput"
+								value="<%:Model == null || Model.SESS_DATE_E.GetHashCode()==0 
+								?  ""
+								: string.Concat((Int32.Parse( Model.SESS_DATE_E.ToString("yyyy"))-1911),"/" , Model.SESS_DATE_E.ToString("MM"), "/", Model.SESS_DATE_E.ToString("dd"))%>"
+							
 								placeholder="民國年/月/日">
 
 							<input type="time" id="SESS_DATE_E_TIME" name="SESS_DATE_E_TIME"
+								value="<%:Model == null || Model.SESS_DATE_S.GetHashCode()==0  
+								?   "" 
+								:    Model.SESS_DATE_E.ToString("HH:mm")  %>"
 								placeholder="HH:mm" class="form-control mx-1 requiredInput">
-							<input type="hidden" id="SESS_DATE_E" name="SESS_DATE_E"
-								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null
-                         ? Model.SESS_DATE_E 
-                         : DateTime.Now )  %>" />
+							 
 						</div>
 					</div>
 				</div>

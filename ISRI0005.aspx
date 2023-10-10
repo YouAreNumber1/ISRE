@@ -4,7 +4,8 @@
 
 <%--this page is for backend to manage   register --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+	
+	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 
 	<style>
 		tr.searched {

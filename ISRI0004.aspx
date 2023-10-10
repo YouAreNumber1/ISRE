@@ -4,7 +4,8 @@
 
 <%--this page is for backend to manage frontend registration form (show/required) --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+	
+	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 	<%
 		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////GUID=activity guid
 
