@@ -15,6 +15,15 @@ namespace ISRE
 	{
 
 		/// <summary>
+		/// ISRI_SessionFlow control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl ISRI_SessionFlow;
+
+		/// <summary>
 		/// SESS_LOC control.
 		/// </summary>
 		/// <remarks>

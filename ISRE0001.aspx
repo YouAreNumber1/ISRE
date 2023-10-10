@@ -24,6 +24,12 @@
 			<div class="card-body text-white text-center display-6">活動預覽</div>
 		</div>
 		<% 　 }%>
+
+					<div id="ISRI_SessionFlow" runat="server">
+	<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
+</div>
+
+
 		<div class="">
 			<h3 class="text-center my-2">活動主題</h3>
 

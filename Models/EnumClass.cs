@@ -55,7 +55,17 @@ namespace ISRE
 		[Description("場次傳送"), Display(Name = "場次傳送")]
 		Activate = 3
 	}
-
+	public enum Enum_RegistrationFlow
+	{
+		[Description("選擇活動"), Display(Name = "選擇活動")]
+		Activity = 1,
+		[Description("選擇場次"), Display(Name = "選擇場次")]
+		Session = 2,
+		[Description("填寫報名表"), Display(Name = "填寫報名表")]
+		Registration = 3,
+		[Description("完成報名"), Display(Name = "完成報名")]
+		RegistrationComplete = 4
+	}
 	public enum Enum_REG_TYPE
     {
         [Description("個人"), Display(Name = "單位")]

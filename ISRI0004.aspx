@@ -271,38 +271,39 @@
 				e.preventDefault();
 				
 			//	myslider.slider();
-				var a = function () {
-					if (myslider.slider("instance")) {
-						myslider.slider('destroy');
-						//slider.slider('value', 1);
-						console.log('set value');
-					} else {
-						console.log('ERROR: cannot set value prior to initialization');
-						myslider.slider('destroy');
-					}
-				}
-				var b = function () {
-					//return;
-					myslider.slider();
-					console.log('initialized');
-					 slider.slider();
-					//slider.slider('setValue', 3).slider("disable");
-					//slider.slider('setValue', 2);
-					//slider.slider({
-					//	ticks: [0, 100, 200, 300, 400],
-					//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-					//	ticks_snap_bounds: 30
-					//});
-					//slider.slider('refresh');
-				}
+				//var a = function () {
+				//	if (myslider.slider("instance")) {
+				//		myslider.slider('destroy');
+				//		//slider.slider('value', 1);
+				//		console.log('set value');
+				//	} else {
+				//		console.log('ERROR: cannot set value prior to initialization');
+				//		myslider.slider('destroy');
+				//	}
+				//}
+				//var b = function () {
+				//	//return;
+				//	myslider.slider();
+				//	console.log('initialized');
+				//	 slider.slider();
+				//	//slider.slider('setValue', 3).slider("disable");
+				//	//slider.slider('setValue', 2);
+				//	//slider.slider({
+				//	//	ticks: [0, 100, 200, 300, 400],
+				//	//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+				//	//	ticks_snap_bounds: 30
+				//	//});
+				//	//slider.slider('refresh');
+				//}
 
 			///	a();
 			//	b();
 		///		a();
 				var myslider = $("#flowStep");
-				myslider.slider('destroy');
-				myslider.slider();
-				myslider.slider('setValue', 3).slider("disable");
+			//	myslider.slider('destroy');
+			//	myslider.slider();
+				myslider.slider('setValue', 3);
+				//.slider("disable");
 				return; 
 			});
 

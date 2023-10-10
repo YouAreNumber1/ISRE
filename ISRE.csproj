@@ -106,6 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ISRI_RegistrationFlow.aspx" />
     <Content Include="ISRI_SessionInfo.aspx" />
     <Content Include="ISRI_SessionFlow.aspx" />
     <Content Include="ISRI_ActivityInfo.aspx" />
@@ -2475,6 +2476,13 @@
     </Compile>
     <Compile Include="ISRE0000.aspx.designer.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI_RegistrationFlow.aspx.cs">
+      <DependentUpon>ISRI_RegistrationFlow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI_RegistrationFlow.aspx.designer.cs">
+      <DependentUpon>ISRI_RegistrationFlow.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI_SessionInfo.aspx.cs">
       <DependentUpon>ISRI_SessionInfo.aspx</DependentUpon>

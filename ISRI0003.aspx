@@ -675,9 +675,10 @@
 			 
 				e.preventDefault();
 				var slider = $("#flowStep");
-				slider.slider('destroy');
-				slider.slider();
-				slider.slider('setValue', 3).slider("disable");
+				//slider.slider('destroy');
+				//slider.slider();
+				slider.slider('setValue', 3);
+				//.slider("disable");
 				return; 
 			});
 		});

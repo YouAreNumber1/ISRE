@@ -18,7 +18,9 @@
 			//dynamic Model = Process_ActivityInfo(GUID);
 			dynamic Model = Process_SessionInfo(SESSIONGUID);
 		%>
-
+		<div id="ISRI_SessionFlow" runat="server">
+	<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
+</div>
 		<h3 class="text-center my-2">活動內容</h3>
 
 		<%-- activity info summary title start --%>

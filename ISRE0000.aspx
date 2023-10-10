@@ -14,6 +14,9 @@
 			</div>
 			<%--20230927 By Alex Huang --%>
 
+				<div id="ISRI_SessionFlow" runat="server">
+		<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
+	</div>
 			<div class="d-flex  justify-content-between align-content-center  ">
 				<div class="d-none d-sm-block"></div>
 				<div>
