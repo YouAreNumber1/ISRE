@@ -4,7 +4,8 @@
 
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	 <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script> 
+	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script> 
 	 
 	<style>
 		

@@ -1,4 +1,5 @@
-﻿	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
+﻿<link href="Content/bootstrap-slider-11.0.2/dist/css/bootstrap-slider.css" rel="stylesheet" />	
+<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
 <placeholder id="flowPlaceHolder">
 
 	<h3 class="text-center mt-5 ">場次流程</h3>

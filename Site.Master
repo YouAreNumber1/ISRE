@@ -21,12 +21,12 @@
 
 	<link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
 	<link href="Content/Site.css" rel="stylesheet" />
-	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
-	<link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />
+<%--	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />--%>
+<%--	<link href="Scripts/jquery-timepicker-master/jquery.timepicker.min.css" rel="stylesheet" />--%>
 
 	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<script src="Scripts/jquery-3.6.1.js"></script>
-	<link href="Content/bootstrap-slider.css" rel="stylesheet" />
+<%--	<link href="Content/bootstrap-slider.css" rel="stylesheet" />--%>
 
 	<%-- <script src="Scripts/jquery-3.7.1.min.js"></script>--%>
 
