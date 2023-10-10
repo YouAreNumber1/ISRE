@@ -6,8 +6,11 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <% 
 	 ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
-%>
+%><script src="Scripts/bootstrap-datepicker.js"></script>
+ 	<script src="Scripts/bootstrap-datepicker.zh-TW.min.js"></script> 
 	<main>
+		
+		<input type="date" id="testDate"/>
 		<section class="mb-2 my-2">
 			<div class="d-flex  justify-content-between align-items-center  ">
 				<div class="d-none d-sm-block"></div>
@@ -177,6 +180,21 @@
 
 	<script> 
 		$(document).ready(function () { 
+			//$('#testDate').datepicker({
+			//	language: 'zh-TW'
+			//});
+
+			$("#testDate").datepicker({
+				format: "twy-mm-dd",
+				language: "zh-TW",
+				showOnFocus: false,
+				todayHighlight: true
+			}).on("show", function (e) {
+				$("div.box").css({ minHeight: "480px" });
+			}).on("hide", function (e) {
+				$("div.box").css({ minHeight: "auto" });
+			});
+
 			$(".collapse").on('show.bs.collapse', function () {
 				$('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');
 			});

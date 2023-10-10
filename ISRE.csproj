@@ -121,6 +121,8 @@
     <Content Include="Content\bootstrap-slider-11.0.2\dist\css\bootstrap-slider.min.css" />
     <Content Include="Content\bootstrap-slider-11.0.2\src\js\bootstrap-slider.js" />
     <Content Include="Content\bootstrap-slider.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.zh-TW.min.js" />
     <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

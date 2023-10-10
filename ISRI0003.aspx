@@ -4,9 +4,11 @@
 
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-		<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	
+	 
 	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
+	 <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	
+	
 	<style>
 		
 /*.custom-file {
@@ -622,6 +624,7 @@
 
 
 				<div class="d-flex justify-content-center flex-wrap  align-content-center mt-5 mb-3">
+	<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">場次預覽</a>
 
 					<% if (Model != null)
 						{%>
@@ -643,8 +646,7 @@
 
 					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">回首頁</a>
 
-					<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">預覽</a>
-
+				
 					<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">報名表設定</a>
 
 			
@@ -671,7 +673,15 @@
 				$('#btnInsert ').removeClass('d-none');
 			});
 
-
+			$(document).on('click', '#btnPreview', function (e) {
+			 
+				e.preventDefault();
+				var slider = $("#flowStep");
+				slider.slider('destroy');
+				slider.slider();
+				slider.slider('setValue', 3).slider("disable");
+				return; 
+			});
 		});
 
 	</script>

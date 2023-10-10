@@ -269,45 +269,11 @@
 			})
 			$(document).on('click', '.slider2', function (e) {
 				e.preventDefault();
-				//var val = $(this).attr('gravite');
-				//$("#flowStep").slider('destroy');
-				//return;
 				var slider = $("#flowStep");
-
-				var a = function () {
-					if (slider.slider("instance")) {
-						slider.slider('destroy');
-						//slider.slider('value', 1);
-						console.log('set value');
-					} else {
-						console.log('ERROR: cannot set value prior to initialization');
-					}
-				}
-				var b = function () {
-					slider.slider();
-					console.log('initialized');
-					//slider.slider('setValue', 2);
-					slider.slider({
-	ticks: [0, 100, 200, 300, 400],
-	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-	ticks_snap_bounds: 30
-					});
-					slider.slider('refresh');
-				}
-
-				a();
-				b();
-				//a();
-				//$("#flowStep").slider('setValue',2 );
-				//let flowStep = $("#flowStep").slider({1
-//	ticks: [0, 100, 200, 300, 400],
-//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-//	ticks_snap_bounds: 30
-//});
-//flowStep.val(0);
-//flowStep.slider('refresh');
-// Without JQuery
-
+				slider.slider('destroy');
+				slider.slider();
+				slider.slider('setValue', 3).slider("disable");
+				return; 
 			});
 
 			$(document).on('click', '#btn_Save', function (e) {
