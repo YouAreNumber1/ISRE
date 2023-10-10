@@ -4,11 +4,8 @@
 
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+	 <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script> 
 	 
-	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
-	 <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	
-	
 	<style>
 		
 /*.custom-file {

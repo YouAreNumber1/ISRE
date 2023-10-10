@@ -4,8 +4,8 @@
 
 <%--this page is for backend to manage frontend registration form (show/required) --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	
-	<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
+		<%-- <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>--%>
+	 
 	<%
 		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////GUID=activity guid
 
@@ -269,10 +269,40 @@
 			})
 			$(document).on('click', '.slider2', function (e) {
 				e.preventDefault();
-				var slider = $("#flowStep");
-				slider.slider('destroy');
-				slider.slider();
-				slider.slider('setValue', 3).slider("disable");
+				
+			//	myslider.slider();
+				var a = function () {
+					if (myslider.slider("instance")) {
+						myslider.slider('destroy');
+						//slider.slider('value', 1);
+						console.log('set value');
+					} else {
+						console.log('ERROR: cannot set value prior to initialization');
+						myslider.slider('destroy');
+					}
+				}
+				var b = function () {
+					//return;
+					myslider.slider();
+					console.log('initialized');
+					 slider.slider();
+					//slider.slider('setValue', 3).slider("disable");
+					//slider.slider('setValue', 2);
+					//slider.slider({
+					//	ticks: [0, 100, 200, 300, 400],
+					//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+					//	ticks_snap_bounds: 30
+					//});
+					//slider.slider('refresh');
+				}
+
+			///	a();
+			//	b();
+		///		a();
+				var myslider = $("#flowStep");
+				myslider.slider('destroy');
+				myslider.slider();
+				myslider.slider('setValue', 3).slider("disable");
 				return; 
 			});
 
