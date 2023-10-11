@@ -215,16 +215,14 @@
 
 
 	<script> 
-
-		$(document).ready(function () {
-
-			$(document).on('click', '#btn_Clear', function (e) {
+		$(function () {
+$(document).on('click', '#btn_Clear', function (e) {
 				$('#cardInput').find('input[type=text]').val('');
 			});
 
-
-
+			 
 		});
+ 
 
 	</script>
 </asp:Content>

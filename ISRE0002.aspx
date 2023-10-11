@@ -7,7 +7,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 
-<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 
 	<% 
 /////if not dynamic model, use GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
@@ -374,17 +374,7 @@
 						</div>
 						<%}%>
 
-						<%--						<div class="  row  personal    ">
-							<div class="      py-lg-3  col-lg-3    ">
-								<span class="note">*</span><b><label>⾝分證號/居留證號</label></b>
-							</div>
-							<div class="   py-lg-3    col-lg-9  ">
-								<div>
-									<input type="text" name="ID_AES" id="ID_AES" class=" form-control requiredInput">
-									<p class="note-r">(若需登錄公務⼈員教育訓練時數，請填寫本項資料)</p>
-								</div>
-							</div>
-						</div>--%>
+
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_WORK_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_WORK_R != null) ? true : false; %>
 						<% if (bDisplay)
@@ -407,17 +397,7 @@
 							</div>
 						</div>
 						<%}%>
-						<%--<div class="  row  personal   ">
-							<div class="   py-lg-3   col-lg-3   ">
-								<span class="note">*</span><b><label>服務單位</label></b>
-							</div>
-							<div class="   py-lg-3   col-lg-9 ">
-								<div>
-									<input type="text" name="UNIT_NAME"
-										id="UNIT_NAME" class=" form-control requiredInput">
-								</div>
-							</div>
-						</div>--%>
+
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_CONTACTNO_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_CONTACTNO_R != null) ? true : false; %>
@@ -456,24 +436,7 @@
 						</div>
 						<%}%>
 
-						<%--<div class="  row     ">
-							<div class="     py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>聯絡電話</label></b>
-							</div>
-							<div class="    py-lg-3   col-lg-9  ">
-								<div>
-									<p class="note">＊市話或⾏動電話請務必⾄少填寫⼀項</p>
-									<input type="text" name="MOB_NUM" id="MOB_NUM" class=" form-control requiredInput" placeholder="行動電話號碼">
-									<p>格式：09XXXXXXXX</p>
-									<div class="d-flex">
-										<input type="text" size="20" maxlength="10" name="TEL_AREA" id="TEL_AREA"
-											class=" form-control requiredInput" placeholder="區碼">
-										<input type="text" name="TEL_NUM" id="TEL_NUM"
-											class=" form-control requiredInput" placeholder="室內電話號碼">
-									</div>
-								</div>
-							</div>
-						</div>--%>
+
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_EMAIL_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_EMAIL_R != null) ? true : false; %>
@@ -506,23 +469,7 @@
 						</div>
 						<%}%>
 
-						<%--<div class="  row     ">
-							<div class="      py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>電⼦郵件信箱</label></b>
-							</div>
-							<div class="    py-lg-3  col-lg-9  ">
-								<div>
-									<input type="text" id="EMAIL" name="EMAIL" class=" form-control requiredInput">
-									<p class="note font85">
-										1.請正確填寫以利確認信寄達，並請
-                  於 2 小時內完成信件內點選連結驗證，未於時限內確認則取消報名。
-						<br>
-										2.若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
-                  ，本署的回信可能被移⾄垃圾信件，或無法寄達，敬請留意。
-									</p>
-								</div>
-							</div>
-						</div>--%>
+
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_TEACHERPROOF_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_TEACHERPROOF_R != null) ? true : false; %>
 						<% if (bDisplay)
@@ -539,13 +486,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TEACHERPROOF_D1" name="PERSONAL_TEACHERPROOF_D" value="1" checked>是
+											id="PERSONAL_TEACHERPROOF_D1" name="PERSONAL_TEACHERPROOF_D" value="Y" checked>是
 							<label class="form-check-label" for="PERSONAL_TEACHERPROOF_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TEACHERPROOF_D2" name="PERSONAL_TEACHERPROOF_D" value="2">否
+											id="PERSONAL_TEACHERPROOF_D2" name="PERSONAL_TEACHERPROOF_D" value="N">否
 							<label class="form-check-label" for="PERSONAL_TEACHERPROOF_D2"></label>
 									</div>
 								</div>
@@ -571,13 +518,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 											<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TRAININGHOUR_D1" name="PERSONAL_TRAININGHOUR_D" value="1" checked>是
+											id="PERSONAL_TRAININGHOUR_D1" name="PERSONAL_TRAININGHOUR_D" value="Y" checked>是
 										<label class="form-check-label" for="PERSONAL_TRAININGHOUR_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 											<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TRAININGHOUR_D2" name="PERSONAL_TRAININGHOUR_D" value="2">否
+											id="PERSONAL_TRAININGHOUR_D2" name="PERSONAL_TRAININGHOUR_D" value="N">否
 										<label class="form-check-label" for="PERSONAL_TRAININGHOUR_D2"></label>
 									</div>
 								</div>
@@ -585,24 +532,6 @@
 						</div>
 						<%}%>
 
-						<%--	<div class="  row    personal ">
-							<div class="     py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>上傳公務⼈員訓練時數</label></b>
-							</div>
-							<div class="    py-lg-3  col-lg-9 ">
-								<div class="form-control">
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input  requiredInput" id="UPLOAD_TRAIN_HOUR1" name="UPLOAD_TRAIN_HOUR" value="Y" checked>是
-                  <label class="form-check-label" for="UPLOAD_TRAIN_HOUR1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="UPLOAD_TRAIN_HOUR2" name="UPLOAD_TRAIN_HOUR" value="N">否
-                  <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
-									</div>
-
-								</div>
-							</div>
-						</div>--%>
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_ATTEND_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_ATTEND_R != null) ? true : false; %>
@@ -620,13 +549,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_ATTEND_D1" name="PERSONAL_ATTEND_D" value="1" checked>是
+											id="PERSONAL_ATTEND_D1" name="PERSONAL_ATTEND_D" value="Y" checked>是
 							<label class="form-check-label" for="PERSONAL_ATTEND_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_ATTEND_D2" name="PERSONAL_ATTEND_D" value="2">否
+											id="PERSONAL_ATTEND_D2" name="PERSONAL_ATTEND_D" value="N">否
 							<label class="form-check-label" for="PERSONAL_ATTEND_D2"></label>
 									</div>
 								</div>
@@ -650,13 +579,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_PIDAGREE_D1" name="PERSONAL_PIDAGREE_D" value="1" checked>是
+											id="PERSONAL_PIDAGREE_D1" name="PERSONAL_PIDAGREE_D" value="Y" checked>是
 				<label class="form-check-label" for="PERSONAL_PIDAGREE_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_PIDAGREE_D2" name="PERSONAL_PIDAGREE_D" value="2">否
+											id="PERSONAL_PIDAGREE_D2" name="PERSONAL_PIDAGREE_D" value="N">否
 				<label class="form-check-label" for="PERSONAL_PIDAGREE_D2"></label>
 									</div>
 								</div>
@@ -726,29 +655,6 @@
 							</div>
 						</div>
 						<%}%>
-
-						<%--<div class="  row     ">
-							<div class="   py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>餐飲</label></b>
-							</div>
-							<div class="    py-lg-3   col-lg-9 ">
-								<div class="form-control">
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="DIET_TEND1" name="DIET_TEND" value="1" checked>無
-                  <label class="form-check-label" for="UPLOAD_TRAIN_HOUR1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="DIET_TEND2" name="DIET_TEND" value="2">葷食
-                  <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="DIET_TEND3" name="DIET_TEND" value="3">素食
-                  <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
-									</div>
-
-								</div>
-							</div>
-						</div>--%>
 					</div>
 
 
@@ -761,12 +667,12 @@
 
 
 						<%  bDisplay = (FormModel != null
-																	&& (FormModel.UNIT_INSUREDNO_D != null
-																	|| FormModel.UNIT_HOSPNO_D != null
-																	|| FormModel.UNIT_GUINO_D != null
-																	|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																	|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																	? true : false; %>
+																										&& (FormModel.UNIT_INSUREDNO_D != null
+																										|| FormModel.UNIT_HOSPNO_D != null
+																										|| FormModel.UNIT_GUINO_D != null
+																										|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																										|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																										? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -776,19 +682,19 @@
 									{ %> <span class="note">*</span> <% }  %>
 								<% if (FormModel.UNIT_INSUREDNO_D != null)
 									{ %> <b>
-									<label>投保單位代號</label></b> <% }  %>
+										<label>投保單位代號</label></b> <% }  %>
 								<% if (FormModel.UNIT_HOSPNO_D != null)
 									{ %> <b>
-									<label>醫療院所代號</label></b> <% }  %>
+										<label>醫療院所代號</label></b> <% }  %>
 								<% if (FormModel.UNIT_GUINO_D != null)
 									{ %> <b>
-									<label>統⼀編號</label></b> <% }  %>
+										<label>統⼀編號</label></b> <% }  %>
 								<% if (FormModel.UNIT_INSUREDNO_OR_GUINO_D != null)
 									{ %> <b>
-									<label>投保單位代號或統⼀編號</label></b> <% }  %>
+										<label>投保單位代號或統⼀編號</label></b> <% }  %>
 								<% if (FormModel.UNIT_ASSIGNEDNO_D != null)
 									{ %> <b>
-									<label>指定單位代號</label></b> <% }  %>
+										<label>指定單位代號</label></b> <% }  %>
 							</div>
 							<div class="  py-lg-3   col-lg-9  ">
 								<div>
@@ -803,27 +709,6 @@
 						<%}%>
 
 
-						<%--<div class="   row   unit   ">
-							<div class="    py-lg-3    col-lg-2  ">
-								<span class="note">*</span><b><label>投保單位代號</label></b>
-							</div>
-							<div class="    py-lg-3   col-lg-10  ">
-								<div>
-									<input type="text" class=" form-control requiredInput" name="UNIT_NO" id="UNIT_NO">
-								</div>
-							</div>
-						</div>
-
-						<div class="   row   unit   ">
-							<div class="   py-lg-3    col-lg-2  ">
-								<span class="note">*</span><b><label>投保單位名稱</label></b>
-							</div>
-							<div class="    py-lg-3  col-lg-10    ">
-								<div>
-									<input type="text" name="UNIT_NAME2" id="UNIT_NAME2" class=" form-control requiredInput">
-								</div>
-							</div>
-						</div>--%>
 
 
 						<%  bDisplay = (FormModel != null && FormModel.UNIT_UNITNAME_D != null) ? true : false; %>
@@ -897,28 +782,7 @@
 						<%}%>
 
 
-						<%--<div class="   row      ">
-							<div class="      py-lg-3   col-lg-3  ">
-								<span class="note">*</span><b><label>姓名</label></b>
-							</div>
-							<div class="  py-lg-3   col-lg-9  ">
-								<div>
-									<input type="text" name="APPLY_NAME" id="APPLY_NAME" class=" form-control requiredInput">
-								</div>
-							</div>
-						</div>
 
-						<div class="  row  personal    ">
-							<div class="      py-lg-3  col-lg-3    ">
-								<span class="note">*</span><b><label>⾝分證號/居留證號</label></b>
-							</div>
-							<div class="   py-lg-3    col-lg-9  ">
-								<div>
-									<input type="text" name="ID_AES" id="ID_AES" class=" form-control requiredInput">
-									<p class="note-r">(若需登錄公務⼈員教育訓練時數，請填寫本項資料)</p>
-								</div>
-							</div>
-						</div>--%>
 
 						<%  bDisplay = (FormModel != null && FormModel.UNIT_JOBTITLE_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_JOBTITLE_R != null) ? true : false; %>
@@ -1028,13 +892,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TEACHERPROOF_D1" name="UNIT_TEACHERPROOF_D" value="1" checked>是
+											id="UNIT_TEACHERPROOF_D1" name="UNIT_TEACHERPROOF_D" value="Y" checked>是
 				<label class="form-check-label" for="UNIT_TEACHERPROOF_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TEACHERPROOF_D2" name="UNIT_TEACHERPROOF_D" value="2">否
+											id="UNIT_TEACHERPROOF_D2" name="UNIT_TEACHERPROOF_D" value="N">否
 				<label class="form-check-label" for="UNIT_TEACHERPROOF_D2"></label>
 									</div>
 								</div>
@@ -1060,85 +924,20 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TRAININGHOUR_D1" name="UNIT_TRAININGHOUR_D" value="1" checked>是
+											id="UNIT_TRAININGHOUR_D1" name="UNIT_TRAININGHOUR_D" value="Y" checked>是
 							<label class="form-check-label" for="UNIT_TRAININGHOUR_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TRAININGHOUR_D2" name="UNIT_TRAININGHOUR_D" value="2">否
+											id="UNIT_TRAININGHOUR_D2" name="UNIT_TRAININGHOUR_D" value="N">否
 							<label class="form-check-label" for="UNIT_TRAININGHOUR_D2"></label>
 									</div>
 								</div>
 							</div>
 						</div>
 						<%}%>
-						<%--<div class="  row  personal   ">
-							<div class="   py-lg-3   col-lg-3   ">
-								<span class="note">*</span><b><label>服務單位</label></b>
-							</div>
-							<div class="   py-lg-3   col-lg-9 ">
-								<div>
-									<input type="text" name="UNIT_NAME"
-										id="UNIT_NAME" class=" form-control requiredInput">
-								</div>
-							</div>
-						</div>
 
-						<div class="  row     ">
-							<div class="     py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>聯絡電話</label></b>
-							</div>
-							<div class="    py-lg-3   col-lg-9  ">
-								<div>
-									<p class="note">＊市話或⾏動電話請務必⾄少填寫⼀項</p>
-									<input type="text" name="MOB_NUM" id="MOB_NUM" class=" form-control requiredInput" placeholder="行動電話號碼">
-									<p>格式：09XXXXXXXX</p>
-									<div class="d-flex">
-										<input type="text" size="20" maxlength="10" name="TEL_AREA" id="TEL_AREA"
-											class=" form-control requiredInput" placeholder="區碼">
-										<input type="text" name="TEL_NUM" id="TEL_NUM"
-											class=" form-control requiredInput" placeholder="室內電話號碼">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="  row     ">
-							<div class="      py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>電⼦郵件信箱</label></b>
-							</div>
-							<div class="    py-lg-3  col-lg-9  ">
-								<div>
-									<input type="text" id="EMAIL" name="EMAIL" class=" form-control requiredInput">
-									<p class="note font85">
-										1.請正確填寫以利確認信寄達，並請
-                              於 2 小時內完成信件內點選連結驗證，未於時限內確認則取消報名。
-									<br>
-										2.若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
-                              ，本署的回信可能被移⾄垃圾信件，或無法寄達，敬請留意。
-									</p>
-								</div>
-							</div>
-						</div> 
-
-						<div class="  row    personal ">
-							<div class="     py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>上傳公務⼈員訓練時數</label></b>
-							</div>
-							<div class="    py-lg-3  col-lg-9 ">
-								<div class="form-control">
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input  requiredInput" id="UPLOAD_TRAIN_HOUR1" name="UPLOAD_TRAIN_HOUR" value="Y" checked>是
-                              <label class="form-check-label" for="UPLOAD_TRAIN_HOUR1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="UPLOAD_TRAIN_HOUR2" name="UPLOAD_TRAIN_HOUR" value="N">否
-                              <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
-									</div>
-
-								</div>
-							</div>
-						</div>--%>
 
 
 
@@ -1158,13 +957,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="1" checked>是
+											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="Y" checked>是
 							<label class="form-check-label" for="UNIT_ATTEND_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="2">否
+											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="N">否
 							<label class="form-check-label" for="UNIT_ATTEND_D2"></label>
 									</div>
 								</div>
@@ -1188,13 +987,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_PIDAGREE_D1" name="UNIT_PIDAGREE_D" value="1" checked>是
+											id="UNIT_PIDAGREE_D1" name="UNIT_PIDAGREE_D" value="Y" checked>是
 				<label class="form-check-label" for="UNIT_PIDAGREE_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_PIDAGREE_D2" name="UNIT_PIDAGREE_D" value="2">否
+											id="UNIT_PIDAGREE_D2" name="UNIT_PIDAGREE_D" value="N">否
 				<label class="form-check-label" for="UNIT_PIDAGREE_D2"></label>
 									</div>
 								</div>
@@ -1263,30 +1062,6 @@
 							</div>
 						</div>
 						<%}%>
-
-
-						<%--<div class="  row     ">
-							<div class="   py-lg-3   col-lg-3    ">
-								<span class="note">*</span><b><label>餐飲</label></b>
-							</div>
-							<div class="    py-lg-3   col-lg-9 ">
-								<div class="form-control">
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="DIET_TEND1" name="DIET_TEND" value="1" checked>無
-                              <label class="form-check-label" for="UPLOAD_TRAIN_HOUR1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="DIET_TEND2" name="DIET_TEND" value="2">葷食
-                              <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input requiredInput" id="DIET_TEND3" name="DIET_TEND" value="3">素食
-                              <label class="form-check-label" for="UPLOAD_TRAIN_HOUR2"></label>
-									</div>
-
-								</div>
-							</div>
-						</div>--%>
 					</div>
 
 
@@ -1358,6 +1133,28 @@
 			<% }  %>
 		</div>
 
+
+		<div class="card d-none" id="cardResult">
+			<div class="card-header">報名填表完成清單</div>
+			<div class="card-body">
+<div class="table-responsive">
+			<table id="tableResult" class="table ">
+				<thead>
+					<tr>
+						<th class="name-td">姓名</th>
+						<th>連絡電話</th>
+						<th>電⼦郵件</th>
+						<th>報名時間</th>
+					</tr>
+				</thead>
+				<tbody>
+					 
+				</tbody>
+			</table>
+		</div>
+			</div>
+		</div>
+		
 		<%-- registration form end--%>
 	</main>
 
@@ -1366,7 +1163,7 @@
 
 
 	<script> 
- var SaveForm = function (btn) {
+		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
@@ -1407,8 +1204,26 @@
 				// contentType: false, // Not to set any content header  //formdata required
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
-					//thisForm.find('.requiredCheck').prop("disabled", true);
-					//console.log('success');
+					console.log(response);
+					var keys = response.d.map(function (o) { return o.Key; });
+					var NAME = response.d[keys.indexOf("NAME")].Value;
+					var CONTACTNO = response.d[keys.indexOf("CONTACTNO")].Value;
+					var EMAIL = response.d[keys.indexOf("EMAIL")].Value;
+					var CREATEDAT = response.d[keys.indexOf("CREATEDAT")].Value;
+					const d = new Date();
+					console.log(d.getDate());
+					console.log("<%:RegisterMultiple　%>");
+					if ("<%:RegisterMultiple　%>" == '1') //// multiple register
+					{
+						$('#btnRegister').removeClass('disabled');
+						//console.log(response.d);
+						$('#cardResult').removeClass('d-none').find('tbody')
+							.append('<tr><td>' + NAME + '</td><td>' + CONTACTNO + '</td><td>' + EMAIL + '</td><td>' + d.toLocaleString() + '</td></tr>');
+
+					}
+					else {  ///////// signle register
+						AlertAndMove('資料送出成功!  請 check email並確認');
+					}
 					////var responseDOM = $(response);
 					//console.log(response);
 					//console.log(response.d);
@@ -1459,9 +1274,9 @@
 		};
 
 		$(function () {
-			
-		 //   $("#PERSONAL_DOB_D").datepicker($.datepicker.regional['zh-TW']);
-			 
+
+			//   $("#PERSONAL_DOB_D").datepicker($.datepicker.regional['zh-TW']);
+
 			$('#PERSONAL_DOB_D').datepicker($.extend({}, $.datepicker.regional['zh-TW'], {
 				yearRange: "1942:2012"
 			}));
@@ -1472,7 +1287,7 @@
 
 
 			$(document).on('click', 'input[name="rdoREG_TYPE"]', function (e) {
-				 
+
 				$('.table_REG_TYPE').addClass('d-none');
 				$('#table_REG_TYPE' + $(this).val()).removeClass('d-none');
 			})
@@ -1487,18 +1302,20 @@
 
 			$(document).on('click', '#btnRegister', function (e) {
 				e.preventDefault();
+
 				var btn = $(this);
 				let thisForm = btn.closest('form');
 				var requiredInput = $(thisForm).find('.table_REG_TYPE:visible').find('.requiredInput');
-				console.log(requiredInput);
-				 
+				//console.log(requiredInput);
+
 				if (HasAllRequireValue(requiredInput) == false)
 					return false;
+				btn.addClass('disabled');
 				SaveForm($(this));
 			});
 
 		});
-		 
+
 
 	</script>
 </asp:Content>

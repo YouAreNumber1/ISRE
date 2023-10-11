@@ -110,7 +110,7 @@ namespace ISRE
 
 		[WebMethod]
 		/////////// guid=session guid
-		public static ISRE_SESSION_REG Process_RegisterForm(string GUID, string formData)
+		public static dynamic Process_RegisterForm(string GUID, string formData)
 		{
 			DynamicParameters param = new DynamicParameters();
 			//	string jsonData = JsonConvert.SerializeObject(formData);
@@ -122,7 +122,7 @@ namespace ISRE
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			param.Add("@QueryMode", "Register", DbType.String, ParameterDirection.Input);
 
-			ISRE_SESSION_REG model = _dbConn.Query<ISRE_SESSION_REG>(
+			dynamic model = _dbConn.Query<dynamic>(
 			"Session_ISRE_SESSION_REG_FORM",
 			param,
 			commandType: CommandType.StoredProcedure

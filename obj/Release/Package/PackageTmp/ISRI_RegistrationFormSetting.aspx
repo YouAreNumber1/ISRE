@@ -412,11 +412,4 @@
 	</table>
  
 </div>
-<script>
-	 
-	  
-	 
-
-
-
-</script>
+ 

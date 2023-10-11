@@ -178,9 +178,9 @@
 		<% } %>
 	</main>
 
-	<script> 
-		$(document).ready(function () { 
-			 
+	<script>  
+
+		$(function () {
 
 			$(".collapse").on('show.bs.collapse', function () {
 				$('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');

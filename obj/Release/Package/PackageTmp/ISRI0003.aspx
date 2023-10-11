@@ -659,9 +659,8 @@
 		</div>
 	</main>
 	<script> 
-
-		$(document).ready(function () {
-			$("#SESS_DATE_S_DATE, #SESS_DATE_E_DATE,#REG_DATE_S, #REG_DATE_E, #CHK_DATE_S_DATE, #CHK_DATE_E_DATE, #REMIND_MAIL_DATE, #sch_s_datepicker")
+		$(function () {
+$("#SESS_DATE_S_DATE, #SESS_DATE_E_DATE,#REG_DATE_S, #REG_DATE_E, #CHK_DATE_S_DATE, #CHK_DATE_E_DATE, #REMIND_MAIL_DATE, #sch_s_datepicker")
 				.datepicker($.datepicker.regional['zh-TW']);
 
 
@@ -681,7 +680,10 @@
 				//.slider("disable");
 				return; 
 			});
+		 
 		});
+
+		 
 
 	</script>
 </asp:Content>

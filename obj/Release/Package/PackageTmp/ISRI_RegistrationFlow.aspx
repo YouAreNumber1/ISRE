@@ -6,15 +6,15 @@
 	<h3 class="text-center mt-5 ">報名流程</h3>
 
 	<div class=" card">
-		<div class=" py-3 ps-2 ms-3 ms-lg-5">
+		<div class=" py-3 ps-2 ps-sm-4 ms-3 ms-lg-5">
 			<input id="flowStep"
 				data-slider-value="1"
 				data-provide="slider"
-				data-slider-ticks-labels='["選擇<br/>活動"
-				,"選擇<br/>場次"
-				,"填寫<br />報名單"
-				,"Email<br />確認"
-				,"報名<br />完成"]'
+				data-slider-ticks-labels='["<%:ISRE.Enum_RegistrationFlow.Activity.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.Session.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.Registration.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.EmailConfirm.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.RegistrationComplete.GetDisplayName() %>"]'
 				data-slider-ticks="[1, 2, 3,4,5]"
 				data-slider-enabled="false" />
 		</div>
@@ -25,10 +25,9 @@
 
 
 	<script>
-		 
-		$(document).ready(function () {
-			let w = window.innerWidth;
-			console.log(w);
+		$(function () {
+			 let w = window.innerWidth;
+			//console.log(w);
 			if (w >= 768) {
 				$('.slider-tick-label-container').find('.slider-tick-label').each(function (index) {
 					//$(this).remove();
@@ -41,6 +40,7 @@
 			if (sLocation.indexOf("0001") > 0) $("#flowStep").slider('setValue', 2);
 			if (sLocation.indexOf("0002") > 0) $("#flowStep").slider('setValue', 3);
 		});
+		 
 
 
 
