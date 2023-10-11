@@ -4,6 +4,9 @@
 
 <%--this page is for backend session create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script> 
+	 
 	<style>
 		
 /*.custom-file {
@@ -140,25 +143,35 @@
 						<div class="d-flex">
 							<input type="text" id="SESS_DATE_S_DATE" name="SESS_DATE_S_DATE"
 								class="form-control mx-1 requiredInput"
+								value="<%:Model == null || Model.SESS_DATE_S.GetHashCode()==0 
+								?  ""
+								: string.Concat((Int32.Parse( Model.SESS_DATE_S.ToString("yyyy"))-1911),"/" , Model.SESS_DATE_S.ToString("MM"), "/", Model.SESS_DATE_S.ToString("dd"))%>"
 								placeholder="民國年/月/日">
+							
 							<input type="time" id="SESS_DATE_S_TIME" name="SESS_DATE_S_TIME"
 								placeholder="HH:mm"
+								value="<%:Model == null || Model.SESS_DATE_S.GetHashCode()==0  
+								?   "" 
+								:    Model.SESS_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
-							<input type="hidden" id="SESS_DATE_S" name="SESS_DATE_S"
-								value="<%: (Model !=null &&  Model.SESS_DATE_S!=null
-                      ? Model.SESS_DATE_S 
-                      : DateTime.Now )  %>" />
+							 	
+
 							<span>~ </span>
+
 							<input type="text" id="SESS_DATE_E_DATE" name="SESS_DATE_E_DATE"
 								class="form-control mx-1 requiredInput"
+								value="<%:Model == null || Model.SESS_DATE_E.GetHashCode()==0 
+								?  ""
+								: string.Concat((Int32.Parse( Model.SESS_DATE_E.ToString("yyyy"))-1911),"/" , Model.SESS_DATE_E.ToString("MM"), "/", Model.SESS_DATE_E.ToString("dd"))%>"
+							
 								placeholder="民國年/月/日">
 
 							<input type="time" id="SESS_DATE_E_TIME" name="SESS_DATE_E_TIME"
+								value="<%:Model == null || Model.SESS_DATE_S.GetHashCode()==0  
+								?   "" 
+								:    Model.SESS_DATE_E.ToString("HH:mm")  %>"
 								placeholder="HH:mm" class="form-control mx-1 requiredInput">
-							<input type="hidden" id="SESS_DATE_E" name="SESS_DATE_E"
-								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null
-                         ? Model.SESS_DATE_E 
-                         : DateTime.Now )  %>" />
+							 
 						</div>
 					</div>
 				</div>
@@ -609,6 +622,7 @@
 
 
 				<div class="d-flex justify-content-center flex-wrap  align-content-center mt-5 mb-3">
+	<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">場次預覽</a>
 
 					<% if (Model != null)
 						{%>
@@ -630,8 +644,7 @@
 
 					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">回首頁</a>
 
-					<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-5 m-2 ">預覽</a>
-
+				
 					<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">報名表設定</a>
 
 			
@@ -658,7 +671,16 @@
 				$('#btnInsert ').removeClass('d-none');
 			});
 
-
+			$(document).on('click', '#btnPreview', function (e) {
+			 
+				e.preventDefault();
+				var slider = $("#flowStep");
+				//slider.slider('destroy');
+				//slider.slider();
+				slider.slider('setValue', 3);
+				//.slider("disable");
+				return; 
+			});
 		});
 
 	</script>

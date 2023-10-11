@@ -4,8 +4,8 @@
 
 <%--this page is for backend to manage frontend registration form (show/required) --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-		<%-- <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>--%>
-	 
+	<%-- <script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>--%>
+
 	<%
 		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////GUID=activity guid
 
@@ -38,19 +38,13 @@
 
 			<div class="d-flex justify-content-center my-4">
 
-				<a href="#" class="btn btn-primary-isre slider2   px-3 py-2  me-5 mb-2 ">場次傳送</a>
+				<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
 
-				<%--	<button type="button" id="btn_Save" guid="<%:SESSIONGUID %>"
+				<a href="#" id="btnSave" guid="<%:SESSIONGUID %>"
 					data-target="ISRI0004.aspx/Process_SettingForm"
 					class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
 					<span>儲存</span>
-				</button>--%>
-
-				<button type="button" id="btn_Save" guid="<%:SESSIONGUID %>"
-					data-target="ISRI0004.aspx/Process_SettingForm"
-					class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
-					<span>儲存</span>
-				</button>
+				</a>
 				<a href="ISRI0002.aspx?GUID=<%:GUID %>&SESSIONGUID=<%:SESSIONGUID %>" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">回前頁</a>
 
 			</div>
@@ -134,8 +128,8 @@
 
 			});
 		};
-		 
-		var SaveForm  = function (btn) {
+
+		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
@@ -227,7 +221,7 @@
 			});
 		};
 
-		 
+
 
 		let CheckRules = function () {
 			let checked = $('#UNIT_INSUREDNO_R').is(":checked");
@@ -244,8 +238,8 @@
 			return 0;
 		};
 
-		$(document).ready(function () {
- 
+
+		$(function () {
 
 			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
 			$('#table_REG_TYPE' + rdoValue).removeClass('d-none');
@@ -267,53 +261,24 @@
 					$(this).closest('tr').find('.display').prop('checked', true);
 				}
 			})
-			$(document).on('click', '.slider2', function (e) {
-				e.preventDefault();
-				
-			//	myslider.slider();
-				//var a = function () {
-				//	if (myslider.slider("instance")) {
-				//		myslider.slider('destroy');
-				//		//slider.slider('value', 1);
-				//		console.log('set value');
-				//	} else {
-				//		console.log('ERROR: cannot set value prior to initialization');
-				//		myslider.slider('destroy');
-				//	}
-				//}
-				//var b = function () {
-				//	//return;
-				//	myslider.slider();
-				//	console.log('initialized');
-				//	 slider.slider();
-				//	//slider.slider('setValue', 3).slider("disable");
-				//	//slider.slider('setValue', 2);
-				//	//slider.slider({
-				//	//	ticks: [0, 100, 200, 300, 400],
-				//	//	ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-				//	//	ticks_snap_bounds: 30
-				//	//});
-				//	//slider.slider('refresh');
-				//}
+			//$(document).on('click', '.slider2', function (e) {
+			//	e.preventDefault(); 
+			//	var myslider = $("#flowStep"); 
+			//	myslider.slider('setValue', 3); 
+			//	return; 
+			//});
 
-			///	a();
-			//	b();
-		///		a();
-				var myslider = $("#flowStep");
-			//	myslider.slider('destroy');
-			//	myslider.slider();
-				myslider.slider('setValue', 3);
-				//.slider("disable");
-				return; 
-			});
-
-			$(document).on('click', '#btn_Save', function (e) {
+			$(document).on('click', '#btnSave', function (e) {
 				e.preventDefault();
 				if (CheckRules() == 0) {
 					SaveForm($(this));
 				}
 			});
+
+
 		});
+
+
 
 
 

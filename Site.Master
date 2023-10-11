@@ -87,7 +87,7 @@
 			else
 			{
 		%>
-		<a class="logo me-2" href="/ISRE0000.ASPX"></a>
+		<a class="logo ms-2" href="/ISRE0000.ASPX"></a>
 		<%  
 			}
 		%>

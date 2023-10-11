@@ -312,15 +312,17 @@
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
-						{%>
+						{  if (Model==null || Model.TotalSessionNo==null ||  Model.TotalSessionNo==0) {  %>
+							<a href="#" id="btn_Delete"
+							data-target="ISRI0001.aspx/Delete_Activity"
+							guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+						<%} else { %>
+						<a  title="這活動有場次" 
+						   class="btn   btn-primary-isre  text-nowrap   disabled  px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
 					
-					<a href="#" id="btn_Delete"
-						data-target="ISRI0001.aspx/Delete_Activity"
-						guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
-
-					<%--	<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>--%>
-
-					<%}  %>
+						<%}   
+							} 
+					 %>
 				</div>
 
 
@@ -532,9 +534,8 @@
 				});
 		};
 
-
-		$(document).ready(function () {
-			let guid = "<%:GUID%>";
+		$(function () {
+let guid = "<%:GUID%>";
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
 				.datepicker($.datepicker.regional['zh-TW']);
 
@@ -585,7 +586,10 @@
 				ConvertImageToBase64($(this), fileObj);
 
 			})
+			 
 		});
+
+		 
 
 	</script>
 </asp:Content>

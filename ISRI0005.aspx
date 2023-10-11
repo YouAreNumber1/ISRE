@@ -4,13 +4,17 @@
 
 <%--this page is for backend to manage   register --%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	
- 
+
+
 	<style>
 		tr.searched {
 			border: 4pt solid red;
 		}
 
+		tr.trHeader td {
+			background-color: #ccc;
+			font-weight: bold;
+		}
 
 		.btn-group, .btn-group-vertical {
 			display: inline;
@@ -25,7 +29,7 @@
 	<script src="Scripts/vfs_fonts_NotoSerifTC.js"></script>
 	<main aria-labelledby="title">
 		<div class=" my-2">
-			
+
 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
@@ -38,13 +42,13 @@
 					class="btn btn-primary-isre mx-2 mx-sm-4 ">
 					報到QRcode  
 				</button>
-				 
+
 				<a href="#" id="btnExportExcel"
 					class="btn btn-primary-isre mx-2  mx-sm-4">匯出報名清單</a>
 			</div>
 
- 
-<div id="ISRI_SessionFlow" runat="server">
+
+			<div id="ISRI_SessionFlow" runat="server">
 				<!-- #Include virtual="ISRI_SessionFlow.aspx" -->
 			</div>
 			<div id="ISRI_SessionInfo" runat="server">
@@ -130,7 +134,7 @@
 								<i class="fa-solid fa-eye-slash  "></i>
 							</a>
 
-							<a class="btn  btn-primary-isre  btn-label me-2  mb-1">
+							<a href="#" id="btnRefresh" class="btn  btn-primary-isre  btn-label me-2  mb-1">
 								<i class="fa fa-rotate fa fa-2"></i>
 							</a>
 
@@ -150,8 +154,18 @@
 					<div class="table-responsive">
 						<table id="tableList" class="table  table-sm">
 							<thead>
-								<tr>
-									<th>報名⽇期  </th>
+								<tr class="d-none">
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<%--<th>報名⽇期  </th>
 									<th class="left">姓名 </th>
 									<th class="left">投保單位代號 
 									</th>
@@ -163,10 +177,91 @@
 									<th class="left">餐飲習慣</th>
 									<th class="left">報到時間  	</th>
 									<th>報到狀態<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> </th>
-									<th>編輯/報到</th>
+									<th>編輯/報到</th>--%>
 								</tr>
 							</thead>
 							<tbody>
+								<tr class="d-none">
+									<td>活動名稱 : 中區0511場次_"網路服務E把罩”視訊說明會-2  </td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr class="d-none">
+									<td>⽇期: 112/08/31-112/09/30   </td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr class="d-none">
+									<td>場次 :3  </td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr class="d-none">
+									<td>日期時間: 09:00-17:00  </td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+								<tr class="d-none">
+									<td></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td class="left"></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+
+								<tr class="trHeader">
+									<td>報名⽇期  </td>
+									<td class="left">姓名 </td>
+									<td class="left">投保單位代號 
+									</td>
+									<td class="left">
+										<div>單位名稱  </div>
+									</td>
+									<td class="left">連絡電話 </td>
+									<td class="left">電⼦郵件</td>
+									<td class="left">餐飲習慣</td>
+									<td class="left">報到時間  	</td>
+									<td>報到狀態<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> </td>
+									<td>編輯/報到</td>
+								</tr>
+
+
+
 								<%  
 
 									string mobile6 = "096391";
@@ -683,8 +778,9 @@
 
 		let qrcode = $('#btnQRcodePDF').attr('src');
 
-		$(document).ready(function () {
-			let chks = $('.chkAttendCategory');
+
+		$(function () {
+let chks = $('.chkAttendCategory');
 			for (var i = 0; i < chks.length; i++) {
 				($(chks[i]).is(':checked'))
 					? $('#tableList tr[status="' + $(chks[i]).val() + '"]').removeClass('d-none')
@@ -1111,6 +1207,7 @@
 
 
 			$(document).on('click', '.chkAttendCategory', function (e) {
+				e.preventDefault();
 				let btn = $(this);
 				btn.is(':checked')
 					? $('#tableList tr[status="' + btn.val() + '"]').removeClass('d-none')
@@ -1119,8 +1216,16 @@
 
 			});
 
-
+			$(document).on('click', '#btnRefresh', function (e) {
+				e.preventDefault();
+				let btn = $(this);
+				btn.closest('form').submit(); 
+			});
+		
+			 
 		});
+
+	 
 
 	</script>
 </asp:Content>

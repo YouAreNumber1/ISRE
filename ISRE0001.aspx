@@ -349,14 +349,8 @@
 		<%--  session list end  --%>
 	</main>
 	<script> 
-
-		$(document).ready(function () {
-
-			$('#btnMore').on('click', function () {
-				this.remove();
-			});
-
-			$('.btn-showSchedule').on('click', function (e) {
+		$(function () {
+$('.btn-showSchedule').on('click', function (e) {
 				e.preventDefault();
 				let sessionRow = $(this).closest('.session');
 				let colShowSchedule = sessionRow.find('.showSchedule');
@@ -380,8 +374,10 @@
 			});
 
 
-
+			 
 		});
+
+		 
 
 	</script>
 </asp:Content>

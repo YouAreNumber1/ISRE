@@ -57,14 +57,16 @@ namespace ISRE
 	}
 	public enum Enum_RegistrationFlow
 	{
-		[Description("選擇活動"), Display(Name = "選擇活動")]
+		[Description("選擇活動"), Display(Name = "選擇<br>活動")]
 		Activity = 1,
-		[Description("選擇場次"), Display(Name = "選擇場次")]
+		[Description("選擇場次"), Display(Name = "選擇<br>場次")]
 		Session = 2,
-		[Description("填寫報名表"), Display(Name = "填寫報名表")]
+		[Description("填寫報名表"), Display(Name = "填寫<br>報名表")]
 		Registration = 3,
-		[Description("完成報名"), Display(Name = "完成報名")]
-		RegistrationComplete = 4
+		[Description("Email確認"), Display(Name = "Email<br>確認")]
+		EmailConfirm = 4,
+		[Description("報名完成"), Display(Name = "報名<br>完成")]
+		RegistrationComplete = 5
 	}
 	public enum Enum_REG_TYPE
     {

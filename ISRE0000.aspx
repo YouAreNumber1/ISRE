@@ -339,8 +339,8 @@
 	</main>
 
 	<script> 
-		$(document).ready(function () {
-			$(document).on('click', '#btnClear', function () {
+		$(function () {
+$(document).on('click', '#btnClear', function () {
 				$(this).closest('section').find('input, select').each(function () {
 					$(this).val('');
 				});
@@ -370,6 +370,8 @@
 			//function Showalert() {
 			//    alert('Call JavaScript function from codebehind');
 			//}
+			 
 		});
+		 
 	</script>
 </asp:Content>

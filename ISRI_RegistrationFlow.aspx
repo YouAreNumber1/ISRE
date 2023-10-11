@@ -6,15 +6,16 @@
 	<h3 class="text-center mt-5 ">報名流程</h3>
 
 	<div class=" card">
-		<div class=" py-3 px-4 ms-3 ms-lg-5">
+		<div class=" py-3 ps-2 ps-sm-4 ms-3 ms-lg-5">
 			<input id="flowStep"
 				data-slider-value="1"
 				data-provide="slider"
-				data-slider-ticks-labels='["<%:ISRE.Enum_RegistrationFlow.Activity.GetDescription() %>"
-				,"<%:ISRE.Enum_RegistrationFlow.Session.GetDescription() %>"
-				,"<%:ISRE.Enum_RegistrationFlow.Registration.GetDescription() %>"
-				,"<%:ISRE.Enum_RegistrationFlow.RegistrationComplete.GetDescription() %>"]'
-				data-slider-ticks="[1, 2, 3,4]"
+				data-slider-ticks-labels='["<%:ISRE.Enum_RegistrationFlow.Activity.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.Session.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.Registration.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.EmailConfirm.GetDisplayName() %>"
+				,"<%:ISRE.Enum_RegistrationFlow.RegistrationComplete.GetDisplayName() %>"]'
+				data-slider-ticks="[1, 2, 3,4,5]"
 				data-slider-enabled="false" />
 		</div>
 
@@ -24,13 +25,22 @@
 
 
 	<script>
-		 
-		$(document).ready(function () {
+		$(function () {
+			 let w = window.innerWidth;
+			//console.log(w);
+			if (w >= 768) {
+				$('.slider-tick-label-container').find('.slider-tick-label').each(function (index) {
+					//$(this).remove();
+					$(this).html(($(this).html().replace('<br>', '')));
+					//console.log($(this).html().replace('<br>',''));
+				}) 
+			}
 			let sLocation = window.location.href; 
 			if (sLocation.indexOf("0000") > 0) $("#flowStep").slider('setValue', 1);
 			if (sLocation.indexOf("0001") > 0) $("#flowStep").slider('setValue', 2);
 			if (sLocation.indexOf("0002") > 0) $("#flowStep").slider('setValue', 3);
 		});
+		 
 
 
 

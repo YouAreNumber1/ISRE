@@ -4,18 +4,23 @@
 
 <%--this page is for backend activity create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
+	
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	 
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
 		string sSelected = "";
+		 ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
 	%>
 
-	<main aria-labelledby="title"> 
-		<div class=" my-2"> 
+	<main aria-labelledby="title">
+		<div class=" my-2">
 			<%    
 				dynamic Model = Process_ActivityDetail(GUID);
 			%>
-			 
+
 
 			<div class="   ">
 				<h3 class="text-center my-2"><%: String.Concat(ActioinName, "活動資訊") %> </h3>
@@ -28,28 +33,28 @@
 						<div class="d-flex">
 							<input type="text" id="PUB_DATE_S_DATE" name="PUB_DATE_S_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.PUB_DATE_S==null  
+								value="<%:Model == null || Model.PUB_DATE_S.GetHashCode()==0 
 								?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 								: string.Concat((Int32.Parse( Model.PUB_DATE_S.ToString("yyyy"))-1911),"/" , Model.PUB_DATE_S.ToString("MM"), "/", Model.PUB_DATE_S.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="PUB_DATE_S_TIME" name="PUB_DATE_S_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.PUB_DATE_S==null  
+								value="<%:Model == null || Model.PUB_DATE_S.GetHashCode()==0  
 								?   DateTime.Now.ToString("HH:mm") 
 								:    Model.PUB_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
 							<span class="mx-2">~ </span>
 							<input type="text" id="PUB_DATE_E_DATE" name="PUB_DATE_E_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.PUB_DATE_E==null  
+								value="<%:Model == null || Model.PUB_DATE_E.GetHashCode()==0 
 								?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 								: string.Concat((Int32.Parse( Model.PUB_DATE_E.ToString("yyyy"))-1911),"/" , Model.PUB_DATE_E.ToString("MM"), "/", Model.PUB_DATE_E.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="PUB_DATE_E_TIME" name="PUB_DATE_E_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.PUB_DATE_E==null  
+								value="<%:Model == null || Model.PUB_DATE_E.GetHashCode()==0 
 								?   DateTime.Now.ToString("HH:mm") 
 								:    Model.PUB_DATE_E.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
@@ -66,14 +71,14 @@
 						<div class="d-flex">
 							<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.ACT_DATE_S==null  
+								value="<%:Model == null || Model.ACT_DATE_S.GetHashCode()==0   
 							?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 							: string.Concat((Int32.Parse( Model.ACT_DATE_S.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_S.ToString("MM"), "/", Model.ACT_DATE_S.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="ACT_DATE_S_TIME" name="ACT_DATE_S_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.ACT_DATE_E==null  
+								value="<%:Model == null || Model.ACT_DATE_S.GetHashCode()==0 
 							?   DateTime.Now.ToString("HH:mm") 
 							:    Model.ACT_DATE_S.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
@@ -82,14 +87,14 @@
 							<span class="mx-2">~ </span>
 							<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 								placeholder="民國年/月/日"
-								value="<%:Model == null || Model.ACT_DATE_E==null  
+								value="<%:Model == null || Model.ACT_DATE_E.GetHashCode()==0  
 ?  string.Concat((Int32.Parse(DateTime.Now.ToString("yyyy"))-1911),"/" , DateTime.Now.ToString("MM"), "/", DateTime.Now.ToString("dd"))
 : string.Concat((Int32.Parse( Model.ACT_DATE_E.ToString("yyyy"))-1911),"/" , Model.ACT_DATE_E.ToString("MM"), "/", Model.ACT_DATE_E.ToString("dd"))%>"
 								class="form-control mx-1 requiredInput">
 
 							<input type="time" id="ACT_DATE_E_TIME" name="ACT_DATE_E_TIME"
 								placeholder="HH:mm"
-								value="<%:Model == null || Model.ACT_DATE_E==null  
+								value="<%:Model == null || Model.ACT_DATE_E.GetHashCode()==0 
 							?   DateTime.Now.ToString("HH:mm") 
 							:    Model.ACT_DATE_E.ToString("HH:mm")  %>"
 								class="form-control mx-1 requiredInput">
@@ -191,7 +196,18 @@
 							:   ""  %>">
 					</div>
 				</div>
-
+				<div class="  row   ">
+					<div class="  border  bg-ice   py-3  col-lg-2">
+						<label>協辦單位</label>
+					</div>
+					<div class="  border    py-3  col-lg-10">
+						<input type="text" id="ACT_CO_HOST" name="ACT_CO_HOST"
+							class="form-control    "
+							value="<%:Model != null && Model.ACT_CO_HOST !=null   
+						?  Model.ACT_CO_HOST 
+						:   ""  %>">
+					</div>
+				</div>
 				<%-- @*活動主題*@--%>
 				<div class="  row   ">
 					<div class="  border  bg-ice   py-3  col-lg-2">
@@ -211,17 +227,22 @@
 						<label>視覺圖檔</label>
 					</div>
 					<div class="   border  py-3    col-lg-10">
-						<%-- @*<button class="btn btn-primary-isre">檔案上傳</button>*@--%>
-						<input type="file" id="fileUpload"  
-							class="form-control-file border   ">
-						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
 
-						<%-- @*<input type="file" class="custom-file-input  requiredInput "
-                       id="ACT_IMG"
-                       name="ACT_IMG"
-                       accept="@acceptType">
-                <div class="d-flex custom-file-label " for="customFile">
-                </div>*@--%>
+						<div class="note">上傳圖檔⼤⼩請勿超過2M，⻑寬比例在16:9~32:9較佳</div>
+						<div class="imageHolder">
+							<div class="custom-file mb-3">
+								<label class="btn  btn-primary-isre px-4">
+									檔案上傳
+									<input type="file" class="d-none imgUpload " accept=".png, .tiff, .jpg, .bmp, .jfif" />
+								</label>
+							</div>
+							<img class=" img-fluid"
+								src="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>" />
+							<div class="imageInfo d-none "></div>
+							<input type="hidden" name="ACT_IMG" id="ACT_IMG"
+								value="<%: (Model !=null &&  Model.ACT_IMG!=null  )  ? Model.ACT_IMG   : ""  %>" />
+
+						</div>
 					</div>
 				</div>
 				<%--  @*活動說明*@--%>
@@ -252,6 +273,21 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="  row   ">
+					<div class="  border  bg-ice   py-3  col-lg-2">
+						<label>洽詢專線</label>
+					</div>
+					<div class="  border    py-3  col-lg-10">
+						<input type="text" id="ACT_CONTACT_INFO" name="ACT_CONTACT_INFO"
+							class="form-control    "
+							value="<%:Model != null && Model.ACT_CONTACT_INFO !=null   
+					?  Model.ACT_CONTACT_INFO
+					:   ""  %>">
+					</div>
+				</div>
+
+
 				<div class="d-flex justify-content-end ">
 					<div class="text-black-50">
 						<%: (GUID == "") ? "Created By:" : "Modified By:" %> <span>A111888 王⼩明</span>
@@ -261,28 +297,30 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
-					<a  href="#" id="btn_Save" guid="<%:GUID %>"
+
+					<a id="btn_Preview" target="_blank" href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
+						class="btn btn-primary-isre text-nowrap <%:GUID==""? "d-none":"" %>  px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
+
+
+					<a href="#" id="btn_Save" guid="<%:GUID %>"
 						data-target="ISRI0001.aspx/Process_Activity"
 						class="    px-4 py-2  me-5 mb-2 text-nowrap  btn-primary-isre btn ">
-						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %></span>
+						<span><%: (Model !=null   ?  "儲存"  : "新增活動"  ) %></span>
 					</a>
 
-<%--					<button type="button" id="btn_Insert"
-						guid="<%:GUID%>"
-						class="   px-sm-4 py-2  me-md-5 mb-2 text-nowrap  btn-primary-isre btn ">
-						<span><%: (Model !=null   ?  "儲存"  : "新增"  ) %> </span>
-					</button>--%>
-					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</button>
+
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
 						{%>
-					<a href="#" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
-					<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>
+					
+					<a href="#" id="btn_Delete"
+						data-target="ISRI0001.aspx/Delete_Activity"
+						guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+
+					<%--	<button class="btn btn-primary-isre text-nowrap   px-sm-4 py-2  me-md-5 mb-2 ">活動上架</button>--%>
 
 					<%}  %>
-
-					
 				</div>
 
 
@@ -290,115 +328,15 @@
 			</div>
 
 
-
 			<%--  activity form end--%>
 		</div>
-
-
-
-
-
-
 
 	</main>
 
 
 	<script> 
-		var SaveForm3 = function (btn) {
-			// return;
-			//  btn.attr('disabled', 'disabled');
-			var id = btn.attr('id');
-			var guid = btn.attr('guid');
-			var target = btn.attr('data-target');
-			var thisForm = btn.closest('form');
-			// thisForm.attr('enctype', 'multipart/form-data');
-			console.log(thisForm);
-			let thisFormId = thisForm.attr('id');
-			//let formElement = document.querySelector("form");
-			//let formData = new FormData(formElement);
-			//console.log(formData);
 
-			//  console.log(id);
-			//  console.log(target);
-
-			////////// customer form data
-			// $("#inputForm :input").prop("disabled", false);
-			var data = new FormData($('#' + thisFormId).get(0));
-			//  let data = new FormData();
-			//   var data = new FormData(thisForm.get(0));
-			data.append('guid', guid);
-			console.log(data);
-			return;
-			$.ajax({
-				url: target,
-				data: data,
-				//  dataType: 'json', // 預期從server接收的資料型態
-				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-				//   contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
-				type: 'POST',
-				enctype: 'multipart/form-data',
-				caches: false,
-				contentType: false, // Not to set any content header  //formdata required
-				processData: false, // Not to process data  //formdata required
-				success: function (response, textStatus, jqXHR) {
-					//   alert('here');
-
-					var responseDOM = $(response);
-					var QueryMode = responseDOM.attr('QueryMode');
-					var IsSuccess = responseDOM.attr('IsSuccess');
-
-					if (QueryMode == 'U') {
-						ShowToast('活動修改成功!');
-					}
-					else {
-						ShowToast('活動新增成功!');
-					}
-
-					//   console.log(EMAIL);
-					//var responseDOM = $(response);
-					//var tableRow = responseDOM.find('tr').get(0);
-					//history.replaceState(null, null, ' ');
-					//var IsSuccess = $(tableRow).attr('IsSuccess');
-					//var Message = $(tableRow).attr('Message');
-					//  if (IsSuccess == "Y") {   ////no  error
-					//   var id = $(tableRow).attr('id');
-					//////////// table view update , only returned one record in table view , get(0)=get 1st element
-					//   $('tr[id="' + id + '"').after(tableRow.outerHTML).remove();
-					//////// return to list page
-					//  ShowToast(Message);
-					//    CancelOperation(oPageLayout);
-					//     btn.removeAttr('disabled');
-					//  }
-					//   else if (IsSuccess == "N") {   //////////error
-					//   console.log('error');
-					//  alert(Message);
-					//   btn.removeAttr('disabled');
-					//   }
-				}
-				, fail: function (jqXHR, textStatus, errorThrown) {
-					console.log('fail');
-					console.log(errorThrown);
-				}
-				, error: function (data) {
-					console.log('error');
-					console.log(data);
-					console.log(data.responseText);
-					console.log(data.status);
-					console.log(data.statusText);
-					jQuery('<div/>', {
-						id: 'errorDiv'
-					}).html(data.responseText).appendTo($('.footer')).hide();
-					var msg = $('#errorDiv').find('title').text();
-					$('#errorDiv').remove();
-					//alert(msg);
-				}
-				, done: function (data) {
-					console.log('done');
-					console.log(data);
-				}
-			});
-		};
-		var SaveForm = function (btn) {
+		let SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
@@ -428,7 +366,7 @@
 			//return;
 			$.ajax({
 				url: target,
-				data: JSON.stringify({ 'formData': json, 'GUID': guid  }),
+				data: JSON.stringify({ 'formData': json, 'GUID': guid }),
 				dataType: 'json', // 預期從server接收的資料型態
 				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 				contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
@@ -440,22 +378,30 @@
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
 					thisForm.find('.requiredCheck').prop("disabled", true);
-					console.log('success');
-					//var responseDOM = $(response);
-					console.log(response);
-					console.log(response.d);
+					console.log('success'); 
+					//console.log(response);
+					//console.log(response.d);
+					//console.log(response.d.key['GUID']);
+					 var keys = response.d.map(function (o) { return o.Key; });
+					//console.log(keys);
+					var GUID = response.d[keys.indexOf("GUID")].Value;
+					//console.log(GUID);
+					//console.log($('#btn_Preview').attr('href'));
 					if (response.d == null) {
 						AlertAndMove('活動新增/修改失敗!');
 					}
 					else {
-						guid == '' || guid==null
+						guid == '' || guid == null
 							? AlertAndMove('活動新增成功!  下一步: 新增場次!')
 							: AlertAndMove('活動修改成功!');
-						btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled','disabled');
-					}
+						if (guid == '' || guid == null) {  ////////新增
+							$('#btn_Preview').removeClass('d-none');
+							let href = $('#btn_Preview').attr('href');
+							$('#btn_Preview').attr('href', href + GUID);
+							btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
 
-					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
- 
+						}
+					} 
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -484,25 +430,111 @@
 		};
 
 
+		let ConvertImageToBase64 = function (obj, fileObj) {
+			let canv = $('<canvas/>');
+			let imageHolder = $(obj).closest('.imageHolder');
+			let fileReader = new FileReader();
+			fileReader.onload = function (e) {
+				var img = new Image();
+				img.onload = function () {
+					canv.attr('width', img.width);
+					canv.attr('height', img.height);
+
+					canv[0].getContext('2d').drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
+
+					let imgDataURL = canv[0].toDataURL(fileObj.type);
+					//var base64Enc = imgDataURL.split(',')[1];
+
+					let imgobj = ({
+						FileName: fileObj.name,
+						FileType: fileObj.type,
+						FileSize: fileObj.size / 1000 + ' KB'
+					});
+
+					imageHolder.find('img').attr('src', imgDataURL);
+					imageHolder.find('input[type=hidden]').val(imgDataURL);
+					imageHolder.find('.imageInfo')
+						.html(JSON.stringify(imgobj)).removeClass('d-none');
+				}
+				img.src = e.target.result;
+			}
+			fileReader.readAsDataURL(fileObj);
+		}
+
+
+		let DeleteActivity = function (btn) {
+
+			let guid = btn.attr('guid');
+			let target = btn.attr('data-target');
+			console.log(guid);
+			console.log(target);
+			-
+				$.ajax({
+					url: target,
+					data: JSON.stringify({ 'GUID': guid }),
+					dataType: 'json', // 預期從server接收的資料型態
+					//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+					contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
+					type: 'POST',
+					caches: false,
+					async: false,
+					enctype: 'multipart/form-data',
+					// contentType: false, // Not to set any content header  //formdata required
+					//	processData: false, // Not to process data  //formdata required
+					success: function (response, textStatus, jqXHR) {
+						console.log('success');
+						//var responseDOM = $(response);
+						console.log(response);
+						console.log(response.d);
+						if (response.d == null) {
+							AlertAndMove('活動新增/修改失敗!');
+						}
+						else {
+							console.log(response.d);
+							ShowToast('活動刪除成功!');
+							$(document).delay(500).queue(function () {
+								$(document).dequeue();
+								window.location = 'ISRI0000.ASPX';
+							});
+							//window.location = 'ISRI0000.ASPX';
+							//guid == '' || guid == null
+							//	? AlertAndMove('活動新增成功!  下一步: 新增場次!')
+							//	: AlertAndMove('活動修改成功!');
+							//btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
+						}
+
+						//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
+
+					}
+					, fail: function (jqXHR, textStatus, errorThrown) {
+						console.log('fail');
+						console.log(errorThrown);
+					}
+					, error: function (data) {
+						console.log('error');
+						console.log(data);
+						console.log(data.responseText);
+						console.log(data.status);
+						console.log(data.statusText);
+						jQuery('<div/>', {
+							id: 'errorDiv'
+						}).html(data.responseText).appendTo($('.footer')).hide();
+						var msg = $('#errorDiv').find('title').text();
+						$('#errorDiv').remove();
+						alert(msg);
+					}
+					, done: function (data) {
+						console.log('done');
+						console.log(data);
+
+					}
+
+				});
+		};
+
+
 		$(document).ready(function () {
 			let guid = "<%:GUID%>";
-			if (guid == "") $('#flowPlaceHolder').addClass('d-none');
-
-			//$.ajax({
-			//	url: "ActivityFlow.html",
-			//	context: document.body
-			//}).done(function (response) {
-			//	//$(this).addClass("done");
-			//	console.log(response);
-			//	$('#contents').prepend(response);
-			//	$("#flowStep").slider({ 
-			//		ticks: [0, 100, 200, 300, 400],
-			//		ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-			//		ticks_snap_bounds: 30
-			//	});
-			//});
-
-
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
 				.datepicker($.datepicker.regional['zh-TW']);
 
@@ -512,15 +544,47 @@
 			//     'timeFormat': 'H: i',
 			//     'step': 5,
 			// });
-			$(document).on('click', '#btn_Save', function (e) {
+			$(document).on('click', 'a#btn_Delete', function (e) {
+				e.preventDefault();
+
+				Swal.fire({
+					title: "Are you sure?",
+					text: "刪除活動將無法還原!",
+					showDenyButton: true,
+					showCancelButton: false,
+					confirmButtonText: 'Yes',
+					denyButtonText: 'No',
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						DeleteActivity($(this));
+						//Swal.fire('Saved!', '', 'success')
+					} else if (result.isDenied) {
+						//Swal.fire('Changes are not saved', '', 'info')
+					}
+				});
+			});
+
+			$(document).on('click', 'a#btn_Save', function (e) {
 				e.preventDefault();
 				var btn = $(this);
 				let thisForm = btn.closest('form');
 				var requiredInput = $(thisForm).find('.requiredInput');
 				if (HasAllRequireValue(requiredInput) == false)
-				    return false;
+					return false;
 				SaveForm(btn);
 			});
+
+
+			$(document).on('change', '.imgUpload', function (e) {
+				var fileObj = e.target.files[0];
+				if (fileObj.type.indexOf('image') < 0) {
+					alert('Incorrect file type.');
+					return;
+				}
+				ConvertImageToBase64($(this), fileObj);
+
+			})
 		});
 
 	</script>

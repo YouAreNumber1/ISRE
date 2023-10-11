@@ -4,8 +4,13 @@
 
 <%--this page is for backend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+<% 
+	 ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
+%> 
+  
 	<main>
+		
+	 
 		<section class="mb-2 my-2">
 			<div class="d-flex  justify-content-between align-items-center  ">
 				<div class="d-none d-sm-block"></div>
@@ -52,7 +57,7 @@
 				</div>
 				<div class=" col-lg-2 ">
 					發布⽇期 
-					<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> 
+					<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i>
 				</div>
 				<div class=" col-lg-2">
 					<div class="   ">編輯/管理</div>
@@ -63,9 +68,9 @@
 		</div>
 
 		<% 
-           dynamic List_Activities =  Process_ActivityList(  1,    1);  
-             foreach (var item in List_Activities) 
-           { 
+			dynamic Model = Process_ActivityList(1, 1);
+			foreach (var item in Model)
+			{
 		%>
 
 		<div class="    card p-2  my-2   ">
@@ -76,7 +81,7 @@
 							<span class="badge bg-info">活動主題</span>
 						</span>
 						<span class="col-9 col-sm-10 col-lg-12 ">
-							<%:item.ACT_NAME %>  
+							<%:(item == null || item.ACT_NAME ==null) ? "" : item.ACT_NAME %>
 						</span>
 					</div>
 				</div>
@@ -87,7 +92,17 @@
 						</span>
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class="d-block  d-lg-flex     justify-content-lg-center">
-								<div class=" ">112/08/31- 112/08/31</div>
+								<div class=" ">
+									<%:item == null || item.ACT_DATE_S.GetHashCode()==0 
+								?  ""
+								: string.Concat(
+									(Int32.Parse( item.ACT_DATE_S.ToString("yyyy"))-1911),"/" , item.ACT_DATE_S.ToString("MM"), "/", item.ACT_DATE_S.ToString("dd")
+									," ~ "
+									,(Int32.Parse( item.ACT_DATE_E.ToString("yyyy"))-1911),"/" , item.ACT_DATE_E.ToString("MM"), "/", item.ACT_DATE_E.ToString("dd")
+									)
+								
+									%> 
+								</div>
 							</div>
 						</div>
 
@@ -101,7 +116,9 @@
 						</div>
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class=" d-block  d-lg-flex   justify-content-lg-center">
-								<div class="badge bg-warning">12</div>
+								<div class="badge bg-warning">
+									<%: item.TotalSessionNo%>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -113,7 +130,9 @@
 						</div>
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class="d-block  d-lg-flex   justify-content-lg-center">
-								<div class=" ">健保署</div>
+								<div class=" ">
+									<%:(item == null || item.ACT_HOST ==null) ? "" : item.ACT_HOST %>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -126,7 +145,14 @@
 						</span>
 						<div class="col-9 col-sm-10 col-lg-12 ">
 							<div class=" d-block  d-lg-flex   justify-content-lg-center">
-								<div class="  ">112/08/31 </div>
+								<div class="  ">
+									<%:item == null || item.PUB_DATE_S.GetHashCode()==0 
+								?  ""
+								: string.Concat(
+									(Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd")
+									 ) 
+									%>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -139,8 +165,7 @@
 							<i class="fa-solid fa-pen-to-square"></i>
 						</a>
 						<a href="ISRI0002.aspx?GUID=<%:item.GUID %>"
-							class="btn btn-primary-isre text-nowrap px-4 px-lg-2 ">
-							場次 
+							class="btn btn-primary-isre text-nowrap px-4 px-lg-2 ">場次 
 							<i class="fa-solid fa-bars-progress"></i>
 						</a>
 					</div>
@@ -153,64 +178,20 @@
 		<% } %>
 	</main>
 
-	<script>
-    
-    $(document).ready(function () {
-         
+	<script> 
+		$(document).ready(function () { 
+			 
 
-        $('#MainContent_test').on('click', function () {
-            var postData = { User: 'JOE', Phone: '0900222333' };
-            alert('readt');
-          
-            var url = "https://localhost:44396/Default.aspx/GetData";
-            alert(url);
-            $.ajax({
-                type: "POST",
-                url: url,
-             // url: "https://localhost:44396/Default.aspx/GetData",
-                data: "{postData:'1'}", 
-              //  data: JSON.stringify({ 'postData': postData }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    console.log(data.d);
-                    //alert(data);
-                }
-            });
-        });
-        var SearchResult = $('#SearchResult');
-        var thisForm = SearchResult.closest('form');
-        //SearchResult.parent().find('form');
+			$(".collapse").on('show.bs.collapse', function () {
+				$('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');
+			});
 
-        //$(thisForm)
-        //    .attr('data-ajax', 'true')
-        //    .attr('data-ajax-method', 'GET')
-        //    .attr('data-ajax-mode', 'replace')
-        //    .attr('data-ajax-update', '#SearchResult')
-        //    ;
+			$(".collapse").on('hide.bs.collapse', function () {
+				$('#aFilter').children().addClass('fa-chevron-down').removeClass('fa-chevron-up');
+			});
+		});
 
-        //var w = $(window).width();
-        //var actionUrl = (w <= 576) ? formAction_Mobile : formAction_Desktop;
-        //$("#clientScreenWidth").val(w);
-        /////////// event handler
-        ////////// must be on last
-        //console.log(thisForm);
-       // alert('here');
-       // thisForm.attr('action', actionUrl).submit();
-      //  thisForm.submit();
 
-        $("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['zh-TW']);
-
-        $(".collapse").on('show.bs.collapse', function () {
-            $('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');
-        });
-
-        $(".collapse").on('hide.bs.collapse', function () {
-            $('#aFilter').children().addClass('fa-chevron-down').removeClass('fa-chevron-up');
-        });
-    });
-
-     
 
 	</script>
 </asp:Content>

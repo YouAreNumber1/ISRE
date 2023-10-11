@@ -9905,6 +9905,7 @@ function Datepicker() {
 			// > this are in the previous century,
 			// string value starting with "+" for current year + value
 		minDate: null, // The earliest selectable date, or null for no limit
+		//minDate: '01/01/1950', 
 		maxDate: null, // The latest selectable date, or null for no limit
 		duration: "fast", // Duration of display/closure
 		beforeShowDay: null, // Function that takes a date and returns an array with
@@ -11913,7 +11914,9 @@ $.extend( Datepicker.prototype, {
 				yearSplit = years.split( ":" );
 				currentYear = new Date().getFullYear();
 				minYear = parseInt( yearSplit[ 0 ], 10 );
-				maxYear = parseInt( yearSplit[ 1 ], 10 );
+				maxYear = parseInt(yearSplit[1], 10);
+				console.log(minYear);
+				console.log(maxYear);
 				if ( yearSplit[ 0 ].match( /[+\-].*/ ) ) {
 					minYear += currentYear;
 				}

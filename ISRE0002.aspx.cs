@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -98,6 +100,30 @@ namespace ISRE
 
 			dynamic model = _dbConn.Query<dynamic>(
 			"Home_ISRE_ACTIVITY_MAIN",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.FirstOrDefault();
+
+			return model;
+		}
+
+		[WebMethod]
+		/////////// guid=session guid
+		public static ISRE_SESSION_REG Process_RegisterForm(string GUID, string formData)
+		{
+			DynamicParameters param = new DynamicParameters();
+			//	string jsonData = JsonConvert.SerializeObject(formData);
+			dynamic InputsJSON = JsonConvert.DeserializeObject<dynamic>(formData);
+			foreach (var item in InputsJSON)
+			{
+				param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
+			}
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "Register", DbType.String, ParameterDirection.Input);
+
+			ISRE_SESSION_REG model = _dbConn.Query<ISRE_SESSION_REG>(
+			"Session_ISRE_SESSION_REG_FORM",
 			param,
 			commandType: CommandType.StoredProcedure
 			, commandTimeout: _ConnectionTimeout)

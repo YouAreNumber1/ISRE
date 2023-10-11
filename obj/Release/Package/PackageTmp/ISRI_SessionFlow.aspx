@@ -1,24 +1,19 @@
-﻿<placeholder id="flowPlaceHolder">
+﻿<link href="Content/bootstrap-slider-11.0.2/dist/css/bootstrap-slider.css" rel="stylesheet" />	
+<script src="Content/bootstrap-slider-11.0.2/dist/bootstrap-slider.js"></script>
+<placeholder id="flowPlaceHolder">
 
 	<h3 class="text-center mt-5 ">場次流程</h3>
 
 	<div class=" card">
 		<div class=" py-3 px-4 ms-3 ms-lg-5">
-			<input type="hidden"
-				id="flowStep"
-				triggerchangeevent="true"
+			<input id="flowStep"
+				data-slider-value="2"
 				data-provide="slider"
-				data-slider-ticks="[1, 2, 3]"
 				data-slider-ticks-labels='["<%:ISRE.Enum_SessionFlow.Session.GetDescription() %>",
 				"<%:ISRE.Enum_SessionFlow.RegistrationForm.GetDescription() %>",
 				"<%:ISRE.Enum_SessionFlow.Activate.GetDescription() %>"]'
-				data-slider-value="1"
-				data-slider-tooltip="hide"
-				<%-- data-slider-enabled="false"--%>>
-
-
-
-			 
+				data-slider-ticks="[1, 2, 3]"
+				data-slider-enabled="false" />
 		</div>
 
 	</div>
