@@ -418,17 +418,17 @@
 
 								<div>⾏動電話格式：09XXXXXXXX</div>
 								<div>
-									<input type="text" placeholder="行動電話號碼"
+									<input type="number" placeholder="行動電話號碼"
 										name="PERSONAL_CONTACTNO_D" id="PERSONAL_CONTACTNO_D"
 										class=" form-control
 									<%:(bRequired)  ? "requiredInput":"" %>
 								">
 									<div>市話</div>
 									<div class="d-flex">
-										<input type="text" size="20" maxlength="10"
+										<input type="number" size="20" maxlength="10"
 											name="PERSONAL_AREACODE_D" id="PERSONAL_AREACODE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
-										<input type="text" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
+										<input type="number" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
 									</div>
 								</div>
@@ -667,12 +667,12 @@
 
 
 						<%  bDisplay = (FormModel != null
-																										&& (FormModel.UNIT_INSUREDNO_D != null
-																										|| FormModel.UNIT_HOSPNO_D != null
-																										|| FormModel.UNIT_GUINO_D != null
-																										|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																										|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																										? true : false; %>
+																																																																							&& (FormModel.UNIT_INSUREDNO_D != null
+																																																																							|| FormModel.UNIT_HOSPNO_D != null
+																																																																							|| FormModel.UNIT_GUINO_D != null
+																																																																							|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																																																																							|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																																																																							? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -826,17 +826,17 @@
 
 								<div>⾏動電話格式：09XXXXXXXX</div>
 								<div>
-									<input type="text" placeholder="行動電話號碼"
+									<input type="number" placeholder="行動電話號碼"
 										name="UNIT_CONTACTNO_D" id="UNIT_CONTACTNO_D"
 										class=" form-control
 									<%:(bRequired)  ? "requiredInput":"" %>
 								">
 									<div>市話</div>
 									<div class="d-flex">
-										<input type="text" size="20" maxlength="10"
+										<input type="number" size="20" maxlength="10"
 											name="UNIT_AREACODE_D" id="UNIT_AREACODE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
-										<input type="text" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
+										<input type="number" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
 									</div>
 								</div>
@@ -1137,24 +1137,23 @@
 		<div class="card d-none" id="cardResult">
 			<div class="card-header">報名填表完成清單</div>
 			<div class="card-body">
-<div class="table-responsive">
-			<table id="tableResult" class="table ">
-				<thead>
-					<tr>
-						<th class="name-td">姓名</th>
-						<th>連絡電話</th>
-						<th>電⼦郵件</th>
-						<th>報名時間</th>
-					</tr>
-				</thead>
-				<tbody>
-					 
-				</tbody>
-			</table>
-		</div>
+				<div class="table-responsive">
+					<table id="tableResult" class="table ">
+						<thead>
+							<tr>
+								<th class="name-td">姓名</th>
+								<th>連絡電話</th>
+								<th>電⼦郵件</th>
+								<th>報名時間</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-		
+
 		<%-- registration form end--%>
 	</main>
 
@@ -1204,48 +1203,32 @@
 				// contentType: false, // Not to set any content header  //formdata required
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
-					console.log(response);
+					///console.log(response);
+					///// dynamic model returned
 					var keys = response.d.map(function (o) { return o.Key; });
 					var NAME = response.d[keys.indexOf("NAME")].Value;
+
+					let char1 = NAME.substring(0, 1);
+					let charLast = NAME.substring(NAME.length - 1); ///// to the end
+
+
 					var CONTACTNO = response.d[keys.indexOf("CONTACTNO")].Value;
 					var EMAIL = response.d[keys.indexOf("EMAIL")].Value;
-					var CREATEDAT = response.d[keys.indexOf("CREATEDAT")].Value;
-					const d = new Date();
-					console.log(d.getDate());
-					console.log("<%:RegisterMultiple　%>");
+					//var CREATEDAT = response.d[keys.indexOf("CREATEDAT")].Value;
+					const today = new Date();
+
 					if ("<%:RegisterMultiple　%>" == '1') //// multiple register
 					{
 						$('#btnRegister').removeClass('disabled');
 						//console.log(response.d);
+						ShowToast('資料送出成功!');
 						$('#cardResult').removeClass('d-none').find('tbody')
-							.append('<tr><td>' + NAME + '</td><td>' + CONTACTNO + '</td><td>' + EMAIL + '</td><td>' + d.toLocaleString() + '</td></tr>');
-
+							.append('<tr><td>' + char1 + '○' + charLast + '</td><td>' + CONTACTNO + '</td><td>' + EMAIL + '</td><td>' + today.toLocaleString() + '</td></tr>');
+						$("html, body").animate({ scrollTop: $(document).height() }, 500);
 					}
 					else {  ///////// signle register
 						AlertAndMove('資料送出成功!  請 check email並確認');
 					}
-					////var responseDOM = $(response);
-					//console.log(response);
-					//console.log(response.d);
-					//if (response.d == null) {
-					//	console.log('nogood');
-					//}
-					//else {
-					//	AlertAndMove('報名表設定成功!  下一步: 場次傳送!');
-					//}
-
-					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
-
-					//$("#flowStep").attr('data-slider-value', 2);
-					//$("#flowStep").attr('data-slider-value', 2);
-					//$("#flowStep").slider('refresh');
-					//$('#flowStep').slider('setValue', 2);
-					//$("#flowStep").slider().slider("value").val(2);
-					//$("#flowStep").slider({
-					//	value : 2
-					//});
-					//$('#flowStep').val(3);
-					//$('#flowStep').slider('refresh');
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -1271,6 +1254,109 @@
 				}
 
 			});
+		};
+
+		var EmailCheck = function () {
+			console.log('EmailCheck');
+			let emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				var result = $('#PERSONAL_EMAIL_D').val().match(emailPattern);
+				if (result == null) {
+					AlertAndMove('Email not valid!', $('#PERSONAL_EMAIL_D'));
+					return false;
+				}
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				var result = $('#UNIT_EMAIL_D').val().match(emailPattern);
+				if (result == null) {
+					AlertAndMove('Email not valid!', $('#UNIT_EMAIL_D'));
+					return false;
+				}
+			}
+			return true;
+		};
+		var MobileCheck = function () {
+			////////// MOBILE NO
+			console.log('MobileCheck');
+			let mobilePattern = /^09\d{2}-?\d{3}-?\d{3}$/;
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				if ($('#PERSONAL_CONTACTNO_D').val().trim() != '') {
+					var result = $('#PERSONAL_CONTACTNO_D').val().match(mobilePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('手機 not valid!', $('#PERSONAL_CONTACTNO_D'));
+						return false;
+					} 
+				} 
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				if ($('#UNIT_CONTACTNO_D').val().trim() != '') {
+					var result = $('#UNIT_CONTACTNO_D').val().match(mobilePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('手機 not valid!', $('#UNIT_CONTACTNO_D'));
+						return false;
+					}
+				} 
+			}
+			return true;
+		};
+		var TelphoneCheck = function () {
+			console.log('TelphoneCheck');
+			////////// Telphone NO
+			//let areacodePattern = /(\d{2,3}-?|\(\d{2,3}\))/;
+			let areacodePattern = /\d{2,3}/;
+			let telphonePattern = /\d{3,4}-?\d{4}/;
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				if ($('#PERSONAL_AREACODE_D').val().trim() != ''  ) { 
+					var result = $('#PERSONAL_AREACODE_D').val().match(areacodePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('區碼 not valid!', $('#PERSONAL_AREACODE_D'));
+						return false;
+					}
+				} 
+				if (  $('#PERSONAL_TELPHONE_D').val().trim() != '') { 
+					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern); 
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('市話 not valid!', $('#PERSONAL_TELPHONE_D'));
+						return false;
+					}
+				} 
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				if ($('#UNIT_AREACODE_D').val().trim() != ''  ) { 
+					var result = $('#UNIT_AREACODE_D').val().match(areacodePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('區碼 not valid!', $('#UNIT_AREACODE_D'));
+						return false;
+					}
+				} 
+				if ( $('#UNIT_TELPHONE_D').val().trim() != '') { 
+					var result = $('#UNIT_TELPHONE_D').val().match(telphonePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('市話 not valid!', $('#UNIT_TELPHONE_D'));
+						return false;
+					}
+				} 
+			}
+			return true;
 		};
 
 		$(function () {
@@ -1306,10 +1392,25 @@
 				var btn = $(this);
 				let thisForm = btn.closest('form');
 				var requiredInput = $(thisForm).find('.table_REG_TYPE:visible').find('.requiredInput');
-				//console.log(requiredInput);
 
+				/// check required
 				if (HasAllRequireValue(requiredInput) == false)
 					return false;
+				////////// MOBILE NO
+				if (MobileCheck() == false) return false;
+
+				if (TelphoneCheck() == false) return false;
+
+				///// check email reg exp
+				if (EmailCheck() == false) return false;
+
+
+
+
+
+
+
+
 				btn.addClass('disabled');
 				SaveForm($(this));
 			});

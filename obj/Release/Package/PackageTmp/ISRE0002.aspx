@@ -7,7 +7,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 
-<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 
 	<% 
 /////if not dynamic model, use GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
@@ -374,7 +374,7 @@
 						</div>
 						<%}%>
 
-						 
+
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_WORK_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_WORK_R != null) ? true : false; %>
 						<% if (bDisplay)
@@ -397,7 +397,7 @@
 							</div>
 						</div>
 						<%}%>
-						 
+
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_CONTACTNO_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_CONTACTNO_R != null) ? true : false; %>
@@ -418,17 +418,17 @@
 
 								<div>⾏動電話格式：09XXXXXXXX</div>
 								<div>
-									<input type="text" placeholder="行動電話號碼"
+									<input type="number" placeholder="行動電話號碼"
 										name="PERSONAL_CONTACTNO_D" id="PERSONAL_CONTACTNO_D"
 										class=" form-control
 									<%:(bRequired)  ? "requiredInput":"" %>
 								">
 									<div>市話</div>
 									<div class="d-flex">
-										<input type="text" size="20" maxlength="10"
+										<input type="number" size="20" maxlength="10"
 											name="PERSONAL_AREACODE_D" id="PERSONAL_AREACODE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
-										<input type="text" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
+										<input type="number" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
 									</div>
 								</div>
@@ -436,7 +436,7 @@
 						</div>
 						<%}%>
 
-						 
+
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_EMAIL_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_EMAIL_R != null) ? true : false; %>
@@ -469,7 +469,7 @@
 						</div>
 						<%}%>
 
-						 
+
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_TEACHERPROOF_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_TEACHERPROOF_R != null) ? true : false; %>
 						<% if (bDisplay)
@@ -532,7 +532,7 @@
 						</div>
 						<%}%>
 
-						 
+
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_ATTEND_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_ATTEND_R != null) ? true : false; %>
 						<% if (bDisplay)
@@ -655,7 +655,6 @@
 							</div>
 						</div>
 						<%}%>
-						 
 					</div>
 
 
@@ -668,12 +667,12 @@
 
 
 						<%  bDisplay = (FormModel != null
-																	&& (FormModel.UNIT_INSUREDNO_D != null
-																	|| FormModel.UNIT_HOSPNO_D != null
-																	|| FormModel.UNIT_GUINO_D != null
-																	|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																	|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																	? true : false; %>
+																																																																							&& (FormModel.UNIT_INSUREDNO_D != null
+																																																																							|| FormModel.UNIT_HOSPNO_D != null
+																																																																							|| FormModel.UNIT_GUINO_D != null
+																																																																							|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																																																																							|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																																																																							? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -683,19 +682,19 @@
 									{ %> <span class="note">*</span> <% }  %>
 								<% if (FormModel.UNIT_INSUREDNO_D != null)
 									{ %> <b>
-									<label>投保單位代號</label></b> <% }  %>
+										<label>投保單位代號</label></b> <% }  %>
 								<% if (FormModel.UNIT_HOSPNO_D != null)
 									{ %> <b>
-									<label>醫療院所代號</label></b> <% }  %>
+										<label>醫療院所代號</label></b> <% }  %>
 								<% if (FormModel.UNIT_GUINO_D != null)
 									{ %> <b>
-									<label>統⼀編號</label></b> <% }  %>
+										<label>統⼀編號</label></b> <% }  %>
 								<% if (FormModel.UNIT_INSUREDNO_OR_GUINO_D != null)
 									{ %> <b>
-									<label>投保單位代號或統⼀編號</label></b> <% }  %>
+										<label>投保單位代號或統⼀編號</label></b> <% }  %>
 								<% if (FormModel.UNIT_ASSIGNEDNO_D != null)
 									{ %> <b>
-									<label>指定單位代號</label></b> <% }  %>
+										<label>指定單位代號</label></b> <% }  %>
 							</div>
 							<div class="  py-lg-3   col-lg-9  ">
 								<div>
@@ -709,7 +708,7 @@
 						</div>
 						<%}%>
 
-						 
+
 
 
 						<%  bDisplay = (FormModel != null && FormModel.UNIT_UNITNAME_D != null) ? true : false; %>
@@ -783,7 +782,7 @@
 						<%}%>
 
 
-					 
+
 
 						<%  bDisplay = (FormModel != null && FormModel.UNIT_JOBTITLE_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_JOBTITLE_R != null) ? true : false; %>
@@ -827,17 +826,17 @@
 
 								<div>⾏動電話格式：09XXXXXXXX</div>
 								<div>
-									<input type="text" placeholder="行動電話號碼"
+									<input type="number" placeholder="行動電話號碼"
 										name="UNIT_CONTACTNO_D" id="UNIT_CONTACTNO_D"
 										class=" form-control
 									<%:(bRequired)  ? "requiredInput":"" %>
 								">
 									<div>市話</div>
 									<div class="d-flex">
-										<input type="text" size="20" maxlength="10"
+										<input type="number" size="20" maxlength="10"
 											name="UNIT_AREACODE_D" id="UNIT_AREACODE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
-										<input type="text" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
+										<input type="number" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
 									</div>
 								</div>
@@ -938,7 +937,7 @@
 							</div>
 						</div>
 						<%}%>
-						 
+
 
 
 
@@ -1063,7 +1062,6 @@
 							</div>
 						</div>
 						<%}%>
-						 
 					</div>
 
 
@@ -1135,6 +1133,27 @@
 			<% }  %>
 		</div>
 
+
+		<div class="card d-none" id="cardResult">
+			<div class="card-header">報名填表完成清單</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table id="tableResult" class="table ">
+						<thead>
+							<tr>
+								<th class="name-td">姓名</th>
+								<th>連絡電話</th>
+								<th>電⼦郵件</th>
+								<th>報名時間</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
 		<%-- registration form end--%>
 	</main>
 
@@ -1143,7 +1162,7 @@
 
 
 	<script> 
- var SaveForm = function (btn) {
+		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
@@ -1184,30 +1203,32 @@
 				// contentType: false, // Not to set any content header  //formdata required
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
-					//thisForm.find('.requiredCheck').prop("disabled", true);
-					//console.log('success');
-					////var responseDOM = $(response);
-					//console.log(response);
-					//console.log(response.d);
-					//if (response.d == null) {
-					//	console.log('nogood');
-					//}
-					//else {
-					//	AlertAndMove('報名表設定成功!  下一步: 場次傳送!');
-					//}
+					///console.log(response);
+					///// dynamic model returned
+					var keys = response.d.map(function (o) { return o.Key; });
+					var NAME = response.d[keys.indexOf("NAME")].Value;
 
-					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
+					let char1 = NAME.substring(0, 1);
+					let charLast = NAME.substring(NAME.length - 1); ///// to the end
 
-					//$("#flowStep").attr('data-slider-value', 2);
-					//$("#flowStep").attr('data-slider-value', 2);
-					//$("#flowStep").slider('refresh');
-					//$('#flowStep').slider('setValue', 2);
-					//$("#flowStep").slider().slider("value").val(2);
-					//$("#flowStep").slider({
-					//	value : 2
-					//});
-					//$('#flowStep').val(3);
-					//$('#flowStep').slider('refresh');
+
+					var CONTACTNO = response.d[keys.indexOf("CONTACTNO")].Value;
+					var EMAIL = response.d[keys.indexOf("EMAIL")].Value;
+					//var CREATEDAT = response.d[keys.indexOf("CREATEDAT")].Value;
+					const today = new Date();
+
+					if ("<%:RegisterMultiple　%>" == '1') //// multiple register
+					{
+						$('#btnRegister').removeClass('disabled');
+						//console.log(response.d);
+						ShowToast('資料送出成功!');
+						$('#cardResult').removeClass('d-none').find('tbody')
+							.append('<tr><td>' + char1 + '○' + charLast + '</td><td>' + CONTACTNO + '</td><td>' + EMAIL + '</td><td>' + today.toLocaleString() + '</td></tr>');
+						$("html, body").animate({ scrollTop: $(document).height() }, 500);
+					}
+					else {  ///////// signle register
+						AlertAndMove('資料送出成功!  請 check email並確認');
+					}
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -1235,10 +1256,113 @@
 			});
 		};
 
+		var EmailCheck = function () {
+			console.log('EmailCheck');
+			let emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				var result = $('#PERSONAL_EMAIL_D').val().match(emailPattern);
+				if (result == null) {
+					AlertAndMove('Email not valid!', $('#PERSONAL_EMAIL_D'));
+					return false;
+				}
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				var result = $('#UNIT_EMAIL_D').val().match(emailPattern);
+				if (result == null) {
+					AlertAndMove('Email not valid!', $('#UNIT_EMAIL_D'));
+					return false;
+				}
+			}
+			return true;
+		};
+		var MobileCheck = function () {
+			////////// MOBILE NO
+			console.log('MobileCheck');
+			let mobilePattern = /^09\d{2}-?\d{3}-?\d{3}$/;
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				if ($('#PERSONAL_CONTACTNO_D').val().trim() != '') {
+					var result = $('#PERSONAL_CONTACTNO_D').val().match(mobilePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('手機 not valid!', $('#PERSONAL_CONTACTNO_D'));
+						return false;
+					} 
+				} 
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				if ($('#UNIT_CONTACTNO_D').val().trim() != '') {
+					var result = $('#UNIT_CONTACTNO_D').val().match(mobilePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('手機 not valid!', $('#UNIT_CONTACTNO_D'));
+						return false;
+					}
+				} 
+			}
+			return true;
+		};
+		var TelphoneCheck = function () {
+			console.log('TelphoneCheck');
+			////////// Telphone NO
+			//let areacodePattern = /(\d{2,3}-?|\(\d{2,3}\))/;
+			let areacodePattern = /\d{2,3}/;
+			let telphonePattern = /\d{3,4}-?\d{4}/;
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				if ($('#PERSONAL_AREACODE_D').val().trim() != ''  ) { 
+					var result = $('#PERSONAL_AREACODE_D').val().match(areacodePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('區碼 not valid!', $('#PERSONAL_AREACODE_D'));
+						return false;
+					}
+				} 
+				if (  $('#PERSONAL_TELPHONE_D').val().trim() != '') { 
+					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern); 
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('市話 not valid!', $('#PERSONAL_TELPHONE_D'));
+						return false;
+					}
+				} 
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				if ($('#UNIT_AREACODE_D').val().trim() != ''  ) { 
+					var result = $('#UNIT_AREACODE_D').val().match(areacodePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('區碼 not valid!', $('#UNIT_AREACODE_D'));
+						return false;
+					}
+				} 
+				if ( $('#UNIT_TELPHONE_D').val().trim() != '') { 
+					var result = $('#UNIT_TELPHONE_D').val().match(telphonePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('市話 not valid!', $('#UNIT_TELPHONE_D'));
+						return false;
+					}
+				} 
+			}
+			return true;
+		};
+
 		$(function () {
-			
-		 //   $("#PERSONAL_DOB_D").datepicker($.datepicker.regional['zh-TW']);
-			 
+
+			//   $("#PERSONAL_DOB_D").datepicker($.datepicker.regional['zh-TW']);
+
 			$('#PERSONAL_DOB_D').datepicker($.extend({}, $.datepicker.regional['zh-TW'], {
 				yearRange: "1942:2012"
 			}));
@@ -1249,7 +1373,7 @@
 
 
 			$(document).on('click', 'input[name="rdoREG_TYPE"]', function (e) {
-				 
+
 				$('.table_REG_TYPE').addClass('d-none');
 				$('#table_REG_TYPE' + $(this).val()).removeClass('d-none');
 			})
@@ -1264,18 +1388,35 @@
 
 			$(document).on('click', '#btnRegister', function (e) {
 				e.preventDefault();
+
 				var btn = $(this);
 				let thisForm = btn.closest('form');
 				var requiredInput = $(thisForm).find('.table_REG_TYPE:visible').find('.requiredInput');
-				console.log(requiredInput);
-				 
+
+				/// check required
 				if (HasAllRequireValue(requiredInput) == false)
 					return false;
+				////////// MOBILE NO
+				if (MobileCheck() == false) return false;
+
+				if (TelphoneCheck() == false) return false;
+
+				///// check email reg exp
+				if (EmailCheck() == false) return false;
+
+
+
+
+
+
+
+
+				btn.addClass('disabled');
 				SaveForm($(this));
 			});
 
 		});
-		 
+
 
 	</script>
 </asp:Content>
