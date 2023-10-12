@@ -302,9 +302,9 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
-
-					<a id="btn_Preview" target="_blank" href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
-						class="btn btn-primary-isre text-nowrap <%:GUID==""? "d-none":"" %>  px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
+					<%--預覽 start from ISRe0000.aspx?preview=guid--%>
+					<a id="btn_Preview" target="_blank" href="ISRE0000.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
+						class="btn btn-primary-isre text-nowrap <%:GUID==""? "d-none":"" %>  px-sm-4 py-2  me-md-5 mb-2 ">預覽</a>
 
 
 					<a href="#" id="btn_Save" guid="<%:GUID %>"

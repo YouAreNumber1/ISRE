@@ -7,7 +7,12 @@
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 	
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	 
+	 <style>
+			.note
+			{
+				color:red;
+			}
+	 </style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
@@ -297,9 +302,9 @@
 
 
 				<div class="d-flex justify-content-center mt-5">
-
-					<a id="btn_Preview" target="_blank" href="ISRE0001.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
-						class="btn btn-primary-isre text-nowrap <%:GUID==""? "d-none":"" %>  px-sm-4 py-2  me-md-5 mb-2 ">活動預覽</a>
+					<%--預覽 start from ISRe0000.aspx?preview=guid--%>
+					<a id="btn_Preview" target="_blank" href="ISRE0000.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
+						class="btn btn-primary-isre text-nowrap <%:GUID==""? "d-none":"" %>  px-sm-4 py-2  me-md-5 mb-2 ">預覽</a>
 
 
 					<a href="#" id="btn_Save" guid="<%:GUID %>"
@@ -549,12 +554,13 @@ let guid = "<%:GUID%>";
 				e.preventDefault();
 
 				Swal.fire({
-					title: "Are you sure?",
-					text: "刪除活動將無法還原!",
+					title: "確定刪除此活動?",
+					icon: 'question',
+					//text: "刪除活動將無法還原!",
 					showDenyButton: true,
 					showCancelButton: false,
-					confirmButtonText: 'Yes',
-					denyButtonText: 'No',
+					confirmButtonText: '確定',
+					denyButtonText: '取消',
 				}).then((result) => {
 					/* Read more about isConfirmed, isDenied below */
 					if (result.isConfirmed) {

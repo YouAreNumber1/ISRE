@@ -8,6 +8,7 @@
  	ISRE.ISRE_SESSION_REG_FORM Model = Process_SessionRegForm(SESSIONGUID);
 %>
  
+<input type="file" />
 <h3 class="text-center mt-5">活動報名表</h3>
 <div class="my-1 py-1">
 

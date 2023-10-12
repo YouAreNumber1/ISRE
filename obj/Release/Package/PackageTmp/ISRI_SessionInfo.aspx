@@ -28,10 +28,7 @@
 				主辦單位
        
 			</div>
-			<div class=" col-lg-2      ">
-				上傳單位限定資料
-       
-			</div>
+			 
 			<div class=" col-lg-1      ">
 				報名截⽌⽇
        
@@ -102,18 +99,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-5 col-lg-2 ">
-				<div class="row  d-flex align-items-center">
-					<div class="d-lg-none   col-4 col-sm-5       ">
-						<span class="badge bg-info">上傳單位限定資料</span>
-					</div>
-					<div class=" col-8 col-sm-7    col-lg-12  text-center  ">
-						<div class="d-flex justify-content-lg-center">
-							 <%:Model == null || Model.FILE_RESTRICTED==null  ? "" : Model.FILE_RESTRICTED %>
-						</div>
-					</div>
-				</div>
-			</div>
+			 
 			<div class="col-12 col-sm-5 col-lg-1 ">
 				<div class="row  d-flex align-items-center">
 					<div class="d-lg-none   col-4 col-sm-5       ">

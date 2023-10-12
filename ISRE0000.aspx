@@ -4,8 +4,14 @@
 
 <%--this page is for frontend activity list--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
-		<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<%
+
+		string PREVIEW = Request.QueryString["PREVIEW"] ?? "";  /////////GUID=activity guid
+
+	%>
+
+	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<main>
 		<section>
 			<%--20230927 By Alex Huang --%>
@@ -14,7 +20,7 @@
 			</div>
 			<%--20230927 By Alex Huang --%>
 
-			 
+
 			<div class="d-flex  justify-content-between align-content-center  ">
 				<div class="d-none d-sm-block"></div>
 				<div>
@@ -298,11 +304,9 @@
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-											<%:item == null || item.ACT_DATE_S==null  
+										<%:item == null || item.ACT_DATE_S==null  
 				? ""
 				: string.Concat((Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd"))%>
-
-										
 									</div>
 								</div>
 							</div>
@@ -338,13 +342,15 @@
 
 	<script> 
 		$(function () {
-$(document).on('click', '#btnClear', function () {
+			$("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['zh-TW']);
+
+
+			$(document).on('click', '#btnClear', function () {
 				$(this).closest('section').find('input, select').each(function () {
 					$(this).val('');
 				});
 			});
-			$("#ACT_DATE_S_DATE, #ACT_DATE_E_DATE").datepicker($.datepicker.regional['zh-TW']);
-
+			
 			$(".collapse").on('show.bs.collapse', function () {
 				$('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');
 			});
@@ -368,8 +374,8 @@ $(document).on('click', '#btnClear', function () {
 			//function Showalert() {
 			//    alert('Call JavaScript function from codebehind');
 			//}
-			 
+
 		});
-		 
+
 	</script>
 </asp:Content>

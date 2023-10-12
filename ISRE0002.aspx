@@ -13,6 +13,9 @@
 		.note {
 			color: red;
 		}
+		.blue{
+			color:blue;
+		}
 	</style>
 	<% 
 /////if not dynamic model, use GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
@@ -418,10 +421,10 @@
 							<div class="  py-lg-3   col-lg-9  ">
 								<% if (bRequired)
 									{ %>
-								<div class="note">市話或⾏動電話請務必⾄少填寫⼀項</div>
+								<div class="blue">市話或⾏動電話請務必⾄少填寫⼀項</div>
 								<% }  %>
 
-								<div>⾏動電話格式：09XXXXXXXX</div>
+								<div class="blue">⾏動電話格式：09XXXXXXXX</div>
 								<div>
 									<input type="number" placeholder="行動電話號碼"
 										name="PERSONAL_CONTACTNO_D" id="PERSONAL_CONTACTNO_D"
@@ -463,11 +466,11 @@
 										class=" form-control
 							<%:(bRequired)  ? "requiredInput":"" %>
 						">
-									<div class="note font85">
+									<div class="blue font85">
 										1. 請正確填寫以利確認信寄達，並請
 										於 2 小時內完成信件內點選連結驗證，未於時限內確認則取消報名。
 									</div>
-									<div class="note font85">
+									<div class="blue font85">
 										2. 若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
 ，本署的回信可能被移⾄垃圾信件，或無法寄達，敬請留意。
 									</div>
@@ -789,7 +792,7 @@
 										name="UNIT_IDAES_D" id="UNIT_IDAES_D"
 										class=" form-control
 					<%:(bRequired)  ? "requiredInput":"" %> 	">
-									<div>(若需登錄公務⼈員教育訓練時數，或製作教師研習證明，請填寫本項資料)</div>
+									<div class="note">(若需登錄公務⼈員教育訓練時數，或製作教師研習證明，請填寫本項資料)</div>
 								</div>
 							</div>
 						</div>
@@ -835,10 +838,10 @@
 							<div class="  py-lg-3   col-lg-9  ">
 								<% if (bRequired)
 									{ %>
-								<div class="note">市話或⾏動電話請務必⾄少填寫⼀項</div>
+								<div class="blue">市話或⾏動電話請務必⾄少填寫⼀項</div>
 								<% }  %>
 
-								<div>⾏動電話格式：09XXXXXXXX</div>
+								<div class="blue">⾏動電話格式：09XXXXXXXX</div>
 								<div>
 									<input type="number" placeholder="行動電話號碼"
 										name="UNIT_CONTACTNO_D" id="UNIT_CONTACTNO_D"
@@ -879,11 +882,11 @@
 										class=" form-control
 							<%:(bRequired)  ? "requiredInput":"" %>
 						">
-									<div class="note font85">
+									<div class="blue font85">
 										1.請正確填寫以利確認信寄達，並請
 										於 2 小時內完成信件內點選連結驗證，未於時限內確認則取消報名。
 									</div>
-									<div class="note font85">
+									<div class="blue font85">
 										2.若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
 ，本署的回信可能被移⾄垃圾信件，或無法寄達，敬請留意。
 									</div>
@@ -1005,13 +1008,13 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="1" checked>視訊
+											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="1"  >視訊
 							<label class="form-check-label" for="UNIT_ATTEND_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="2">否
+											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="2">現場
 							<label class="form-check-label" for="UNIT_ATTEND_D2"></label>
 									</div>
 								</div>
@@ -1129,6 +1132,12 @@
 
 			<%--  command buttons start--%>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
+				
+				<a href="#" id="btnSendMail" guid="<%:SESSIONGUID %>"
+				data-target="ISRe0002.aspx/Process_SendMail"
+				class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap">email
+</a>
+				
 				<div>
 					<a href="#" id="btnRegister"
 						guid="<%:SESSIONGUID %>"
@@ -1180,8 +1189,54 @@
 
 
 	<script> 
+		//////////// TAKE REG GUID
+		var SendMail = function (GUID) {   
+			$.ajax({
+				url: "ISRE0002.aspx/Process_RegisterConfirmMail",
+				data: JSON.stringify({ 'GUID': GUID }),
+				dataType: 'json', // 預期從server接收的資料型態
+				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+				contentType: 'application/json; charset=utf-8', // 要送到server的資料型態, webform required
+				type: 'POST',
+				caches: false,
+				async: false,
+				enctype: 'multipart/form-data',
+				// contentType: false, // Not to set any content header  //formdata required
+				//	processData: false, // Not to process data  //formdata required
+				success: function (response, textStatus, jqXHR) {
+					///console.log(response);
+					///// dynamic model returned
+					 
+		}
+		, fail: function (jqXHR, textStatus, errorThrown) {
+			console.log('fail');
+			console.log(errorThrown);
+		}
+		, error: function (data) {
+			console.log('error');
+			console.log(data);
+			console.log(data.responseText);
+			console.log(data.status);
+			console.log(data.statusText);
+			jQuery('<div/>', {
+				id: 'errorDiv'
+			}).html(data.responseText).appendTo($('.footer')).hide();
+			var msg = $('#errorDiv').find('title').text();
+			$('#errorDiv').remove();
+			alert(msg);
+		}
+		, done: function (data) {
+			console.log('done');
+			console.log(data);
+
+		}
+
+	});
+		};
+
+	
 		var SaveForm = function (btn) {
-			let guid = btn.attr('guid');
+			let guid = btn.attr('guid');	//// TAKE SESSION GUID
 			let target = btn.attr('data-target');
 			let thisForm = btn.closest('form');
 			thisForm.find('.requiredCheck').prop("disabled", false);
@@ -1232,7 +1287,7 @@
 
 					var CONTACTNO = response.d[keys.indexOf("CONTACTNO")].Value;
 					var EMAIL = response.d[keys.indexOf("EMAIL")].Value;
-					//var CREATEDAT = response.d[keys.indexOf("CREATEDAT")].Value;
+					var GUID = response.d[keys.indexOf("GUID")].Value;
 					const today = new Date();
 
 					if ("<%:RegisterMultiple　%>" == '1') //// multiple register
@@ -1247,6 +1302,7 @@
 					else {  ///////// signle register
 						AlertAndMove('資料送出成功!  請 check email並確認');
 					}
+					SendMail(GUID);
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -1377,6 +1433,58 @@
 			return true;
 		};
 
+		var IDCheck = function () { 
+			//////////製作教師研習證明 or 上傳公務⼈員訓練時數 check=yes then ⾝分證號/居留證號 must fill
+			/// and 個資使⽤同意證明 must be yes
+			console.log('TelphoneCheck');
+			////////// Telphone NO
+			//let areacodePattern = /(\d{2,3}-?|\(\d{2,3}\))/;
+			let areacodePattern = /\d{2,3}/;
+			let telphonePattern = /\d{3,4}-?\d{4}/;
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
+
+			if (rdoValue == '1')  //// personal
+			{
+				if ($('#PERSONAL_AREACODE_D').val().trim() != '') {
+					var result = $('#PERSONAL_AREACODE_D').val().match(areacodePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('區碼 not valid!', $('#PERSONAL_AREACODE_D'));
+						return false;
+					}
+				}
+				if ($('#PERSONAL_TELPHONE_D').val().trim() != '') {
+					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('市話 not valid!', $('#PERSONAL_TELPHONE_D'));
+						return false;
+					}
+				}
+			}
+			if (rdoValue == '2')  //// unit
+			{
+				if ($('#UNIT_AREACODE_D').val().trim() != '') {
+					var result = $('#UNIT_AREACODE_D').val().match(areacodePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('區碼 not valid!', $('#UNIT_AREACODE_D'));
+						return false;
+					}
+				}
+				if ($('#UNIT_TELPHONE_D').val().trim() != '') {
+					var result = $('#UNIT_TELPHONE_D').val().match(telphonePattern);
+					console.log(result);
+					if (result == null) {
+						AlertAndMove('市話 not valid!', $('#UNIT_TELPHONE_D'));
+						return false;
+					}
+				}
+			}
+			return true;
+		};
+
+
 		$(function () {
 
 			//   $("#PERSONAL_DOB_D").datepicker($.datepicker.regional['zh-TW']);
@@ -1421,18 +1529,17 @@
 
 				///// check email reg exp
 				if (EmailCheck() == false) return false;
-
-
-
-
-
-
-
-
+				 
 				btn.addClass('disabled');
-				SaveForm($(this));
+				SaveForm(btn);
 			});
+			$(document).on('click', '#btnSendMail', function (e) {
+				e.preventDefault();
 
+				var btn = $(this);
+				  
+				SendMail(btn);
+			});
 		});
 
 

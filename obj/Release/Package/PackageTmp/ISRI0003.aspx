@@ -67,7 +67,10 @@
     cursor: pointer;
 }*/
 
-		
+		.note
+{
+	color:red;
+}
 	</style>
 	<%
 		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////SESSIONGUID=session guid
@@ -417,7 +420,7 @@
 					</div>
 				</div>
 
-				<div class="  row     ">
+				<%--<div class="  row     ">
 					<div class=" bg-ice   py-3  col-lg-2 border  ">
 						<label>上傳單位限定資料</label>
 					</div>
@@ -435,7 +438,7 @@
 								</div>
 
 								<div class="d-flex">
-							<%--		<a href="#" class="btn btn-primary-isre px-5">選擇檔案</a>--%>
+							 
 									<input id="fileRestricted" name="fileRestricted"
 										type="file" class="form-control-file border   ">
 								</div>
@@ -469,7 +472,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>--%>
 
 				<div class="  row     ">
 					<div class="bg-ice   py-3  col-lg-2 border  ">
