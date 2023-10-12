@@ -9,6 +9,11 @@
 
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 
+	<style>
+		.note {
+			color: red;
+		}
+	</style>
 	<% 
 /////if not dynamic model, use GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
 //////if dynamic need to use ==null to check null date
@@ -343,8 +348,8 @@
 									<input type="text"
 										name="PERSONAL_IDAES_D" id="PERSONAL_IDAES_D"
 										class=" form-control
-								<%:(bRequired)  ? "requiredInput":"" %>
-							">
+								<%:(bRequired)  ? "requiredInput":"" %> 	">
+									<div class="note">(若需登錄公務⼈員教育訓練時數，或製作教師研習證明，請填寫本項資料)</div>
 								</div>
 							</div>
 						</div>
@@ -430,6 +435,8 @@
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
 										<input type="number" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
+										<input type="number" name="PERSONAL_EXT_D" id="PERSONAL_EXT_D"
+											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
 									</div>
 								</div>
 							</div>
@@ -457,11 +464,11 @@
 							<%:(bRequired)  ? "requiredInput":"" %>
 						">
 									<div class="note font85">
-										1.請正確填寫以利確認信寄達，並請
+										1. 請正確填寫以利確認信寄達，並請
 										於 2 小時內完成信件內點選連結驗證，未於時限內確認則取消報名。
 									</div>
 									<div class="note font85">
-										2.若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
+										2. 若您使⽤免費信箱（例如：QQ、iCloud、pchome 信箱等）
 ，本署的回信可能被移⾄垃圾信件，或無法寄達，敬請留意。
 									</div>
 								</div>
@@ -533,35 +540,6 @@
 						<%}%>
 
 
-						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_ATTEND_D != null) ? true : false; %>
-						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_ATTEND_R != null) ? true : false; %>
-						<% if (bDisplay)
-							{%>
-						<div class="   row      ">
-							<div class=" py-lg-3   col-lg-3  ">
-								<% if (bRequired)
-									{ %> <span class="note">*</span> <% }  %>
-								<b>
-									<label>參與⽅式</label></b>
-							</div>
-							<div class="  py-lg-3   col-lg-9  ">
-								<div class="form-control">
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input  
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_ATTEND_D1" name="PERSONAL_ATTEND_D" value="Y" checked>是
-							<label class="form-check-label" for="PERSONAL_ATTEND_D1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_ATTEND_D2" name="PERSONAL_ATTEND_D" value="N">否
-							<label class="form-check-label" for="PERSONAL_ATTEND_D2"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<%}%>
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_PIDAGREE_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_PIDAGREE_R != null) ? true : false; %>
@@ -593,6 +571,37 @@
 						</div>
 						<%}%>
 
+
+
+						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_ATTEND_D != null) ? true : false; %>
+						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_ATTEND_R != null) ? true : false; %>
+						<% if (bDisplay)
+							{%>
+						<div class="   row      ">
+							<div class=" py-lg-3   col-lg-3  ">
+								<% if (bRequired)
+									{ %> <span class="note">*</span> <% }  %>
+								<b>
+									<label>參與⽅式</label></b>
+							</div>
+							<div class="  py-lg-3   col-lg-9  ">
+								<div class="form-control">
+									<div class="form-check  form-check-inline">
+										<input type="radio" class="form-check-input  
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_ATTEND_D1" name="PERSONAL_ATTEND_D" value="1">視訊
+							<label class="form-check-label" for="PERSONAL_ATTEND_D1"></label>
+									</div>
+									<div class="form-check  form-check-inline">
+										<input type="radio" class="form-check-input
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_ATTEND_D2" name="PERSONAL_ATTEND_D" value="2">現場
+							<label class="form-check-label" for="PERSONAL_ATTEND_D2"></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<%}%>
 
 
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_DIET_D != null) ? true : false; %>
@@ -663,16 +672,21 @@
 
 
 
+
+
+
+
+
+
 					<div id="table_REG_TYPE2" class=" d-none  table_REG_TYPE ">
 
-
 						<%  bDisplay = (FormModel != null
-																																																																							&& (FormModel.UNIT_INSUREDNO_D != null
-																																																																							|| FormModel.UNIT_HOSPNO_D != null
-																																																																							|| FormModel.UNIT_GUINO_D != null
-																																																																							|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																																																																							|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																																																																							? true : false; %>
+																&& (FormModel.UNIT_INSUREDNO_D != null
+																|| FormModel.UNIT_HOSPNO_D != null
+																|| FormModel.UNIT_GUINO_D != null
+																|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -774,8 +788,8 @@
 									<input type="text"
 										name="UNIT_IDAES_D" id="UNIT_IDAES_D"
 										class=" form-control
-					<%:(bRequired)  ? "requiredInput":"" %>
-				">
+					<%:(bRequired)  ? "requiredInput":"" %> 	">
+									<div>(若需登錄公務⼈員教育訓練時數，或製作教師研習證明，請填寫本項資料)</div>
 								</div>
 							</div>
 						</div>
@@ -838,6 +852,8 @@
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
 										<input type="number" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
 											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
+										<input type="number" name="UNIT_EXT_D" id="UNIT_EXT_D"
+											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
 									</div>
 								</div>
 							</div>
@@ -941,35 +957,6 @@
 
 
 
-						<%  bDisplay = (FormModel != null && FormModel.UNIT_ATTEND_D != null) ? true : false; %>
-						<% 	bRequired = (FormModel != null && FormModel.UNIT_ATTEND_R != null) ? true : false; %>
-						<% if (bDisplay)
-							{%>
-						<div class="   row      ">
-							<div class=" py-lg-3   col-lg-3  ">
-								<% if (bRequired)
-									{ %> <span class="note">*</span> <% }  %>
-								<b>
-									<label>參與⽅式</label></b>
-							</div>
-							<div class="  py-lg-3   col-lg-9  ">
-								<div class="form-control">
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input  
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="Y" checked>是
-							<label class="form-check-label" for="UNIT_ATTEND_D1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="N">否
-							<label class="form-check-label" for="UNIT_ATTEND_D2"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<%}%>
 
 						<%  bDisplay = (FormModel != null && FormModel.UNIT_PIDAGREE_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_PIDAGREE_R != null) ? true : false; %>
@@ -995,6 +982,37 @@
 					<%:(bRequired)  ? "requiredInput":"" %>"
 											id="UNIT_PIDAGREE_D2" name="UNIT_PIDAGREE_D" value="N">否
 				<label class="form-check-label" for="UNIT_PIDAGREE_D2"></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<%}%>
+
+
+						<%  bDisplay = (FormModel != null && FormModel.UNIT_ATTEND_D != null) ? true : false; %>
+						<% 	bRequired = (FormModel != null && FormModel.UNIT_ATTEND_R != null) ? true : false; %>
+						<% if (bDisplay)
+							{%>
+						<div class="   row      ">
+							<div class=" py-lg-3   col-lg-3  ">
+								<% if (bRequired)
+									{ %> <span class="note">*</span> <% }  %>
+								<b>
+									<label>參與⽅式</label></b>
+							</div>
+							<div class="  py-lg-3   col-lg-9  ">
+								<div class="form-control">
+									<div class="form-check  form-check-inline">
+										<input type="radio" class="form-check-input  
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="1" checked>視訊
+							<label class="form-check-label" for="UNIT_ATTEND_D1"></label>
+									</div>
+									<div class="form-check  form-check-inline">
+										<input type="radio" class="form-check-input
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="2">否
+							<label class="form-check-label" for="UNIT_ATTEND_D2"></label>
 									</div>
 								</div>
 							</div>
@@ -1294,8 +1312,8 @@
 					if (result == null) {
 						AlertAndMove('手機 not valid!', $('#PERSONAL_CONTACTNO_D'));
 						return false;
-					} 
-				} 
+					}
+				}
 			}
 			if (rdoValue == '2')  //// unit
 			{
@@ -1306,7 +1324,7 @@
 						AlertAndMove('手機 not valid!', $('#UNIT_CONTACTNO_D'));
 						return false;
 					}
-				} 
+				}
 			}
 			return true;
 		};
@@ -1320,41 +1338,41 @@
 
 			if (rdoValue == '1')  //// personal
 			{
-				if ($('#PERSONAL_AREACODE_D').val().trim() != ''  ) { 
+				if ($('#PERSONAL_AREACODE_D').val().trim() != '') {
 					var result = $('#PERSONAL_AREACODE_D').val().match(areacodePattern);
 					console.log(result);
 					if (result == null) {
 						AlertAndMove('區碼 not valid!', $('#PERSONAL_AREACODE_D'));
 						return false;
 					}
-				} 
-				if (  $('#PERSONAL_TELPHONE_D').val().trim() != '') { 
-					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern); 
+				}
+				if ($('#PERSONAL_TELPHONE_D').val().trim() != '') {
+					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern);
 					console.log(result);
 					if (result == null) {
 						AlertAndMove('市話 not valid!', $('#PERSONAL_TELPHONE_D'));
 						return false;
 					}
-				} 
+				}
 			}
 			if (rdoValue == '2')  //// unit
 			{
-				if ($('#UNIT_AREACODE_D').val().trim() != ''  ) { 
+				if ($('#UNIT_AREACODE_D').val().trim() != '') {
 					var result = $('#UNIT_AREACODE_D').val().match(areacodePattern);
 					console.log(result);
 					if (result == null) {
 						AlertAndMove('區碼 not valid!', $('#UNIT_AREACODE_D'));
 						return false;
 					}
-				} 
-				if ( $('#UNIT_TELPHONE_D').val().trim() != '') { 
+				}
+				if ($('#UNIT_TELPHONE_D').val().trim() != '') {
 					var result = $('#UNIT_TELPHONE_D').val().match(telphonePattern);
 					console.log(result);
 					if (result == null) {
 						AlertAndMove('市話 not valid!', $('#UNIT_TELPHONE_D'));
 						return false;
 					}
-				} 
+				}
 			}
 			return true;
 		};

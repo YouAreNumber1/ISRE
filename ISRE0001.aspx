@@ -25,9 +25,7 @@
 		</div>
 		<% 　 }%>
 
-					<div id="ISRI_SessionFlow" runat="server">
-	<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
-</div>
+					 
 
 
 		<div class="">

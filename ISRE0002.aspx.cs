@@ -119,6 +119,7 @@ namespace ISRE
 			{
 				param.Add(String.Format("@{0}", item.Name), item.Value.ToString(), DbType.String, ParameterDirection.Input);
 			}
+			param.Add("@REG_Status", ((int) Enum_RegistrationFlow.Registration).ToString(), DbType.String, ParameterDirection.Input);
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			param.Add("@QueryMode", "Register", DbType.String, ParameterDirection.Input);
 

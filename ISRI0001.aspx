@@ -7,7 +7,12 @@
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 	
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	 
+	 <style>
+			.note
+			{
+				color:red;
+			}
+	 </style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
@@ -549,12 +554,13 @@ let guid = "<%:GUID%>";
 				e.preventDefault();
 
 				Swal.fire({
-					title: "Are you sure?",
-					text: "刪除活動將無法還原!",
+					title: "確定刪除此活動?",
+					icon: 'question',
+					//text: "刪除活動將無法還原!",
 					showDenyButton: true,
 					showCancelButton: false,
-					confirmButtonText: 'Yes',
-					denyButtonText: 'No',
+					confirmButtonText: '確定',
+					denyButtonText: '取消',
 				}).then((result) => {
 					/* Read more about isConfirmed, isDenied below */
 					if (result.isConfirmed) {

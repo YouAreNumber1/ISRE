@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\ISRE_IIS</_PublishTargetUrl>
-    <History>True|2023-10-03T02:31:28.5196168Z;True|2023-10-03T09:45:56.5935032+08:00;True|2023-10-02T12:00:59.0180756+08:00;True|2023-10-02T09:02:01.1563444+08:00;True|2023-09-29T13:23:45.4602343+08:00;True|2023-09-28T12:09:23.9782755+08:00;True|2023-09-28T11:58:54.8760953+08:00;True|2023-09-27T12:54:41.9208712+08:00;</History>
+    <History>True|2023-10-12T01:31:19.0793248Z;True|2023-10-12T09:04:56.0010459+08:00;True|2023-10-03T10:31:28.5196168+08:00;True|2023-10-03T09:45:56.5935032+08:00;True|2023-10-02T12:00:59.0180756+08:00;True|2023-10-02T09:02:01.1563444+08:00;True|2023-09-29T13:23:45.4602343+08:00;True|2023-09-28T12:09:23.9782755+08:00;True|2023-09-28T11:58:54.8760953+08:00;True|2023-09-27T12:54:41.9208712+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -31,10 +31,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/18/2023 03:16:50</publishTime>
     </File>
     <File Include="bin/ISRE.dll">
-      <publishTime>10/11/2023 18:11:55</publishTime>
+      <publishTime>10/12/2023 09:31:15</publishTime>
     </File>
     <File Include="bin/ISRE.pdb">
-      <publishTime>10/11/2023 18:11:55</publishTime>
+      <publishTime>10/12/2023 09:31:15</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/31/2013 00:57:30</publishTime>
