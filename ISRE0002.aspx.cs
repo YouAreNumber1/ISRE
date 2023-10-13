@@ -89,13 +89,13 @@ namespace ISRE
 		//}
 
 
-		protected dynamic Process_ActivityInfo(String GUID="")
+		protected ISRE_ACTIVITY_MAIN Process_ActivityInfo(String GUID="")
 		{
 			DynamicParameters param = new DynamicParameters();
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
-			dynamic model = _dbConn.Query<dynamic>(
+			ISRE_ACTIVITY_MAIN model = _dbConn.Query<ISRE_ACTIVITY_MAIN>(
 			"Home_ISRE_ACTIVITY_MAIN",
 			param,
 			commandType: CommandType.StoredProcedure
@@ -135,20 +135,24 @@ namespace ISRE
 		/////////// guid=Session_ISRE_SESSION_REG guid
 		public static void Process_RegisterConfirmMail(string GUID)
 		{
+			string SenderEmailAccount = ConfigurationManager.AppSettings["SenderEmailAccount"];
+			string SenderEmailPassword = ConfigurationManager.AppSettings["SenderEmailPassword"];
+
+			string ClientHost = ConfigurationManager.AppSettings["ClientHost"];
+			 
+			string WebAppHost = ConfigurationManager.AppSettings["WebAppHost"];
 
 			dynamic Model =   Process_RegisterInfo(GUID);
 
-			string Account = "youarenumber1@gmail.com";
-			string Password = "mrztencqvewsbxgm";
-
-			SmtpClient client = new SmtpClient();
-			client.Host = "smtp.gmail.com";
-			client.Port = 587;
-			client.Credentials = new NetworkCredential(Account, Password);
+			SmtpClient client = new SmtpClient(); 
+			client.Host = ClientHost;
+			client.Port = 587; 
+			client.Credentials = new NetworkCredential(SenderEmailAccount, SenderEmailPassword); 
 			client.EnableSsl = true;
 
+
 			MailMessage mail = new MailMessage();
-			mail.From = new MailAddress(Account);
+			mail.From = new MailAddress(SenderEmailAccount);
 			mail.To.Add("youarenumber218015@gmail.com");
 			mail.To.Add("scott.lin@iisigroup.com");
 			mail.Subject = Model.ACT_NAME??"" + "成功通知";
@@ -163,7 +167,9 @@ namespace ISRE
 			//////////////// customize
 			sb.Append("請點選此連結完成電子郵件確認的動作, 完成報名程序.<br>");
 			sb.Append("<br>");
-			sb.Append("<a href=https://localhost:44348/isre0004.aspx?GUID=");
+			sb.Append("<a href=");
+			sb.Append(WebAppHost);
+			sb.Append("isre0004.aspx?GUID=");
 			sb.Append(  GUID  );
 			sb.Append("&confirmkey=");
 			sb.Append(Model.CONFIRMKEY);

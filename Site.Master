@@ -123,7 +123,7 @@
 		<div class="container body-content">
 			<asp:ContentPlaceHolder ID="MainContent" runat="server">
 			</asp:ContentPlaceHolder>
-			<hr />
+		<%--	<hr />--%>
 
 
 
@@ -135,7 +135,7 @@
 
 			<footer class="footer    Copyright d-flex justify-content-end fixed-bottom">
 
-				<div class="toast mb-2 centered text-center bg-dark text-white" role="alert">
+				<div class="toast mb-4 centered text-center bg-dark text-white" role="alert">
 					<div class=" toast-body">test</div>
 				</div>
 				<div class="text-black-50     px-2 py-1">衛生福利部中央健康保險署 Copyright &copy; 2023  All rights reserved &nbsp; Version: v2.0</div>

@@ -33,6 +33,10 @@
 		<div id="ISRI_SessionFlow" runat="server">
 			<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 		</div>
+
+
+	 
+
 		<h3 class="text-center my-2">活動內容</h3>
 
 		<%-- activity info summary title start --%>
@@ -188,10 +192,13 @@
 						</span>
 						<div class="col-8 col-lg-12  ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-
-								<%:Model == null || Model.SESS_DATE_S==null
-								? "" 
-								: Model.SESS_DATE_S.ToString("yyyy-MM-dd") %>
+								 <%:Model == null || Model.SESS_DATE_S==null  
+								? ""
+								: string.Concat((Int32.Parse( Model.SESS_DATE_S.ToString("yyyy"))-1911)
+								,"/" , Model.SESS_DATE_S.ToString("MM")
+								, "/", Model.SESS_DATE_S.ToString("dd") 
+								) 
+								%> 
 							</div>
 						</div>
 					</div>
@@ -221,7 +228,9 @@
 							<span class="badge bg-info">地點</span>
 						</span>
 						<div class="col-8  col-lg-12     ">
-							<div class="d-block d-lg-flex justify-content-lg-center">台北市 </div>
+							<div class="d-block d-lg-flex justify-content-lg-center">
+								<%: (Model !=null &&  Model.CityName!=null ? Model.CityName   : ""  )  %>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -231,7 +240,15 @@
 							<span class="badge bg-info">報名截⽌⽇</span>
 						</div>
 						<div class="col-8  col-lg-12    ">
-							<div class="d-block d-lg-flex justify-content-lg-center">112/08/31  </div>
+							<div class="d-block d-lg-flex justify-content-lg-center">
+							 <%:Model == null || Model.REG_DATE_E==null  
+							? ""
+							: string.Concat((Int32.Parse( Model.REG_DATE_E.ToString("yyyy"))-1911)
+							,"/" , Model.REG_DATE_E.ToString("MM")
+							, "/", Model.REG_DATE_E.ToString("dd") 
+							) 
+							%>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1523,17 +1540,19 @@
 
 				///// check email reg exp
 				if (EmailCheck() == false) return false;
+
 				 
 				btn.addClass('disabled');
-				SaveForm(btn);
-			});
-			$(document).on('click', '#btnSendMail', function (e) {
-				e.preventDefault();
+				showModalAjax();
 
-				var btn = $(this);
-				  
-				SendMail(btn);
+				$(document).delay(500).queue(function () {
+					$(document).dequeue();
+					SaveForm(btn);
+				});
+
+				 
 			});
+			 
 		});
 
 

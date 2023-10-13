@@ -12,6 +12,7 @@ using System.Text;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Security.Principal;
 
 namespace ISRE
 {
@@ -58,7 +59,7 @@ namespace ISRE
 
 
 		[WebMethod]
-		/////////// guid=session guid
+		///////////  guid=Session_ISRE_SESSION_REG guid
 		public static dynamic Process_Confirm(string GUID, string CONFIRMKEY)
 		{
 			DynamicParameters param = new DynamicParameters();
@@ -79,29 +80,31 @@ namespace ISRE
 
 			if (model.ROWCOUNTNO >0)
 			{
-				Process_RegisterSuccessMail(GUID);
+				Process_SendSuccessMail(GUID);
 			}
 			return model;
 		}
 
 		[WebMethod]
 		/////////// guid=Session_ISRE_SESSION_REG guid
-		public static void Process_RegisterSuccessMail(string GUID)
+		public static void Process_SendSuccessMail(string GUID)
 		{
+			string SenderEmailAccount = ConfigurationManager.AppSettings["SenderEmailAccount"];
+			string SenderEmailPassword = ConfigurationManager.AppSettings["SenderEmailPassword"];
+
+			string ClientHost = ConfigurationManager.AppSettings["ClientHost"];
+			 
 
 			dynamic Model = Process_RegisterInfo(GUID);
-
-			string Account = "youarenumber1@gmail.com";
-			string Password = "mrztencqvewsbxgm";
-
-			SmtpClient client = new SmtpClient();
-			client.Host = "smtp.gmail.com";
-			client.Port = 587;
-			client.Credentials = new NetworkCredential(Account, Password);
+			 
+			SmtpClient client = new SmtpClient(); 
+			client.Host = ClientHost;
+			client.Port = 587; 
+			client.Credentials = new NetworkCredential(SenderEmailAccount, SenderEmailPassword); 
 			client.EnableSsl = true;
 
 			MailMessage mail = new MailMessage();
-			mail.From = new MailAddress(Account);
+			mail.From = new MailAddress(SenderEmailAccount);
 			mail.To.Add("youarenumber218015@gmail.com");
 			mail.To.Add("scott.lin@iisigroup.com");
 			mail.Subject = Model.ACT_NAME ?? "" + "成功通知";

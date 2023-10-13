@@ -1,10 +1,11 @@
 ﻿<%-- THIS IS SUB PAGE FOR ACTIVITY INFO --%>
 <%
+
 	String Guid = Request.QueryString["GUID"];
 	ISRE.ISRE_ACTIVITY_MAIN Model = Process_ActivityInfo(Guid); 
 
 %>
-
+ 
 <div class="my-2">
 
 	<h3 class="text-center mt-3 ">活動內容</h3>
@@ -12,17 +13,16 @@
 	<div class="    card p-2  my-2 d-none d-lg-block bg-ice    ">
 		<div class="row text-center  ">
 			<div class=" col-lg-3   text-start">
-				活動主題
-       
+				活動主題 
 			</div>
 			<div class=" col-lg-3  ">
-				⽇期
-       
+				⽇期 
 			</div>
-			<div class=" col-lg-1  ">
-				總場次
-       
+			 
+			<div class=" col-lg-1  "> 
+				總場次 
 			</div>
+		 
 			<div class=" col-lg-2    ">
 				主辦單位
        

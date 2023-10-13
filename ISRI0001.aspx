@@ -579,7 +579,15 @@ let guid = "<%:GUID%>";
 				var requiredInput = $(thisForm).find('.requiredInput');
 				if (HasAllRequireValue(requiredInput) == false)
 					return false;
-				SaveForm(btn);
+
+				 
+				showModalAjax();
+
+				$(document).delay(500).queue(function () {
+					$(document).dequeue();
+					SaveForm(btn);
+				});
+				 
 			});
 
 
