@@ -125,7 +125,7 @@ namespace ISRE
 			sb.Append(Model.SESS_DATE_S ?? "");
 			sb.Append("<br>");
 			sb.Append("活動地點: ");
-			sb.Append(Model.SESS_LOC ?? "");
+			sb.Append(Model.CityName ?? "");
 			sb.Append("<br>");
 
 
