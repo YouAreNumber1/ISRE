@@ -115,28 +115,18 @@ var HasAllRequireValue = function (requiredInputsCollection) {
 
 
 var showModalAjax = function () {
-    $('#ModalAjaxHolder').removeClass('d-none');
-
-   // return;
-    //console.log('showModalAjax'); 
-   // $('#ModalAjaxHolder').removeClass('modalAjax').empty();
-    //$('#ModalAjaxHolder').empty().addClass('modalAjax')
-    //    .append('<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon color-isre"></i>');
-    return;
-        //jQuery('<div/>', {
-        //    class: 'modalAjax'
-        //}).append('<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon text-primary"></i>')
-        //    .appendTo($('#ModalAjaxHolder')).show();
+    
+   $('#ModalAjaxHolder').empty().addClass('modalAjax')
+       .append('<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon color-isre"></i>');
+    
     };
     var hideModalAjax = function () {
-        console.log('hideModalAjax');
-        $('#ModalAjaxHolder').addClass('d-none');
-       // $('#ModalAjaxHolder').removeClass('modalAjax').empty() ;
+        console.log('hideModalAjax'); 
+         $('#ModalAjaxHolder').removeClass('modalAjax').empty() ;
     };
     var removeModalAjax = function () {
-        console.log('remove');
-        $('#ModalAjaxHolder').addClass('d-none');
-       // $('#ModalAjaxHolder').removeClass('modalAjax').empty() ;
+        console.log('remove'); 
+         $('#ModalAjaxHolder').removeClass('modalAjax').empty() ;
     };
 $(function () {
    

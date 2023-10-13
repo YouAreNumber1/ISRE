@@ -65,6 +65,9 @@ namespace ISRE
 		 
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input); 
 			param.Add("@CONFIRMKEY", CONFIRMKEY, DbType.String, ParameterDirection.Input);
+			param.Add("@REG_STATUS", ((int) ISRE.Enum_RegistrationFlow.EmailConfirm).ToString(), DbType.String, ParameterDirection.Input);
+
+			 
 			param.Add("@QueryMode", "CONFIRM", DbType.String, ParameterDirection.Input);
 
 			dynamic model = _dbConn.Query<dynamic>(

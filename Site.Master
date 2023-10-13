@@ -130,12 +130,8 @@
 			<a id="backtotop" href="#" class="d-none">
 				<i class="fa fa-3x fa-chevron-circle-up "></i>
 			</a>
+			<div id="ModalAjaxHolder" class=" h-100 d-flex justify-content-center align-items-center "> </div> 
 			 
-			<div id="ModalAjaxHolder" class="d-none modalAjax h-100 d-flex justify-content-center align-items-center ">
-				<div class="me-5">
-					<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon color-isre  "></i>
-				</div>
-			</div>
 
 			<footer class="footer    Copyright d-flex justify-content-end fixed-bottom">
 
