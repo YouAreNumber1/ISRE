@@ -13,8 +13,9 @@
 		.note {
 			color: red;
 		}
-		.blue{
-			color:blue;
+
+		.blue {
+			color: blue;
 		}
 	</style>
 	<% 
@@ -35,7 +36,7 @@
 		</div>
 
 
-	 
+
 
 		<h3 class="text-center my-2">活動內容</h3>
 
@@ -192,13 +193,13 @@
 						</span>
 						<div class="col-8 col-lg-12  ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-								 <%:Model == null || Model.SESS_DATE_S==null  
+								<%:Model == null || Model.SESS_DATE_S==null  
 								? ""
 								: string.Concat((Int32.Parse( Model.SESS_DATE_S.ToString("yyyy"))-1911)
 								,"/" , Model.SESS_DATE_S.ToString("MM")
 								, "/", Model.SESS_DATE_S.ToString("dd") 
 								) 
-								%> 
+								%>
 							</div>
 						</div>
 					</div>
@@ -241,13 +242,13 @@
 						</div>
 						<div class="col-8  col-lg-12    ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-							 <%:Model == null || Model.REG_DATE_E==null  
+								<%:Model == null || Model.REG_DATE_E==null  
 							? ""
 							: string.Concat((Int32.Parse( Model.REG_DATE_E.ToString("yyyy"))-1911)
 							,"/" , Model.REG_DATE_E.ToString("MM")
 							, "/", Model.REG_DATE_E.ToString("dd") 
 							) 
-							%>
+								%>
 							</div>
 						</div>
 					</div>
@@ -444,19 +445,25 @@
 								<div class="blue">⾏動電話格式：09XXXXXXXX</div>
 								<div>
 									<input type="number" placeholder="行動電話號碼"
-										name="PERSONAL_CONTACTNO_D" id="PERSONAL_CONTACTNO_D"
+										name="PERSONAL_MOBILE_D" id="PERSONAL_MOBILE_D"
 										class=" form-control
 									<%:(bRequired)  ? "requiredInput":"" %>
 								">
 									<div>市話</div>
-									<div class="d-flex">
-										<input type="number" size="20" maxlength="10"
-											name="PERSONAL_AREACODE_D" id="PERSONAL_AREACODE_D"
-											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
-										<input type="number" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
-											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
-										<input type="number" name="PERSONAL_EXT_D" id="PERSONAL_EXT_D"
-											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
+									<div class="row g-1">
+										<div class="col-3 col-md-2">
+											<input type="number" size="20" maxlength="10"
+												name="PERSONAL_AREACODE_D" id="PERSONAL_AREACODE_D"
+												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
+										</div>
+										<div class="col-6  col-md-6">
+											<input type="number" name="PERSONAL_TELPHONE_D" id="PERSONAL_TELPHONE_D"
+												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
+										</div>
+										<div class="col-3 col-md-4">
+											<input type="number" name="PERSONAL_EXT_D" id="PERSONAL_EXT_D"
+												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -513,14 +520,18 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TEACHERPROOF_D1" name="PERSONAL_TEACHERPROOF_D" value="Y" checked>是
-							<label class="form-check-label" for="PERSONAL_TEACHERPROOF_D1"></label>
+											id="PERSONAL_TEACHERPROOF_D1" name="PERSONAL_TEACHERPROOF_D"
+											value="<%: (int)ISRE.Enum_YesNo.Yes %>" checked>
+										<%: ISRE.Enum_YesNo.Yes.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_TEACHERPROOF_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TEACHERPROOF_D2" name="PERSONAL_TEACHERPROOF_D" value="N">否
-							<label class="form-check-label" for="PERSONAL_TEACHERPROOF_D2"></label>
+											id="PERSONAL_TEACHERPROOF_D2" name="PERSONAL_TEACHERPROOF_D"
+											value="<%: (int)ISRE.Enum_YesNo.No %>">
+										<%: ISRE.Enum_YesNo.No.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_TEACHERPROOF_D2"></label>
 									</div>
 								</div>
 							</div>
@@ -544,14 +555,18 @@
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
-											<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TRAININGHOUR_D1" name="PERSONAL_TRAININGHOUR_D" value="Y" checked>是
+				<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_TRAININGHOUR_D1" name="PERSONAL_TRAININGHOUR_D"
+											value="<%: (int)ISRE.Enum_YesNo.Yes %>" checked>
+										<%: ISRE.Enum_YesNo.Yes.GetDisplayName() %>
 										<label class="form-check-label" for="PERSONAL_TRAININGHOUR_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-											<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_TRAININGHOUR_D2" name="PERSONAL_TRAININGHOUR_D" value="N">否
+				<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_TRAININGHOUR_D2" name="PERSONAL_TRAININGHOUR_D"
+											value="<%: (int)ISRE.Enum_YesNo.No %>">
+										<%: ISRE.Enum_YesNo.No.GetDisplayName() %>
 										<label class="form-check-label" for="PERSONAL_TRAININGHOUR_D2"></label>
 									</div>
 								</div>
@@ -576,15 +591,19 @@
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
-					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_PIDAGREE_D1" name="PERSONAL_PIDAGREE_D" value="Y" checked>是
-				<label class="form-check-label" for="PERSONAL_PIDAGREE_D1"></label>
+										<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_PIDAGREE_D1" name="PERSONAL_PIDAGREE_D"
+											value="<%: (int)ISRE.Enum_YesNo.Yes %>" checked>
+										<%: ISRE.Enum_YesNo.Yes.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_PIDAGREE_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_PIDAGREE_D2" name="PERSONAL_PIDAGREE_D" value="N">否
-				<label class="form-check-label" for="PERSONAL_PIDAGREE_D2"></label>
+										<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_PIDAGREE_D2" name="PERSONAL_PIDAGREE_D"
+											value="<%: (int)ISRE.Enum_YesNo.No %>">
+										<%: ISRE.Enum_YesNo.No.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_PIDAGREE_D2"></label>
 									</div>
 								</div>
 							</div>
@@ -607,17 +626,22 @@
 							<div class="  py-lg-3   col-lg-9  ">
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input  
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_ATTEND_D1" name="PERSONAL_ATTEND_D" value="1">視訊
-							<label class="form-check-label" for="PERSONAL_ATTEND_D1"></label>
+										<input type="radio" class="form-check-input
+					<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_ATTEND_D2" name="PERSONAL_ATTEND_D"
+											value="<%: (int) ISRE.Enum_Attend.OnSite %>">
+										<%: ISRE.Enum_Attend.OnSite.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_ATTEND_D2"></label>
 									</div>
 									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_ATTEND_D2" name="PERSONAL_ATTEND_D" value="2">現場
-							<label class="form-check-label" for="PERSONAL_ATTEND_D2"></label>
+										<input type="radio" class="form-check-input  
+					<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_ATTEND_D1" name="PERSONAL_ATTEND_D"
+											value="<%: (int) ISRE.Enum_Attend.Online %>">
+										<%: ISRE.Enum_Attend.Online.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_ATTEND_D1"></label>
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -639,21 +663,27 @@
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
-				<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_DIET_D1" name="PERSONAL_DIET_D" value="1" checked>無
+										<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_DIET_D1" name="PERSONAL_DIET_D"
+											value="<%: (int) ISRE.Enum_Diet.None  %>" checked>
+										<%: ISRE.Enum_Diet.None.GetDisplayName() %>
 										<label class="form-check-label" for="PERSONAL_DIET_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-				<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_DIET_D2" name="PERSONAL_DIET_D" value="2">葷食
+										<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_DIET_D2" name="PERSONAL_DIET_D"
+											value="<%: (int) ISRE.Enum_Diet.Meat  %>">
+										<%: ISRE.Enum_Diet.Meat.GetDisplayName() %>
 										<label class="form-check-label" for="PERSONAL_DIET_D2"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-<%:(bRequired)  ? "requiredInput":"" %>"
-											id="PERSONAL_DIET_D3" name="PERSONAL_DIET_D" value="3">素食
-									<label class="form-check-label" for="PERSONAL_DIET_D3"></label>
+										<%:(bRequired)  ? "requiredInput":"" %>"
+											id="PERSONAL_DIET_D3" name="PERSONAL_DIET_D"
+											value="<%: (int) ISRE.Enum_Diet.Vegetarian  %>">
+										<%: ISRE.Enum_Diet.Vegetarian.GetDisplayName() %>
+										<label class="form-check-label" for="PERSONAL_DIET_D3"></label>
 									</div>
 								</div>
 							</div>
@@ -675,11 +705,9 @@
 							</div>
 							<div class="  py-lg-3   col-lg-9  ">
 								<div class=" ">
-									<input type="text"
+									<textarea
 										name="PERSONAL_MEMO_D" id="PERSONAL_MEMO_D"
-										class=" form-control
-									<%:(bRequired)  ? "requiredInput":"" %>
-								">
+										class=" form-control <%:(bRequired)  ? "requiredInput":"" %>"></textarea>
 								</div>
 							</div>
 						</div>
@@ -701,12 +729,12 @@
 					<div id="table_REG_TYPE2" class=" d-none  table_REG_TYPE ">
 
 						<%  bDisplay = (FormModel != null
-																&& (FormModel.UNIT_INSUREDNO_D != null
-																|| FormModel.UNIT_HOSPNO_D != null
-																|| FormModel.UNIT_GUINO_D != null
-																|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																? true : false; %>
+																									&& (FormModel.UNIT_INSUREDNO_D != null
+																									|| FormModel.UNIT_HOSPNO_D != null
+																									|| FormModel.UNIT_GUINO_D != null
+																									|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																									|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																									? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -861,20 +889,26 @@
 								<div class="blue">⾏動電話格式：09XXXXXXXX</div>
 								<div>
 									<input type="number" placeholder="行動電話號碼"
-										name="UNIT_CONTACTNO_D" id="UNIT_CONTACTNO_D"
+										name="UNIT_MOBILE_D" id="UNIT_MOBILE_D"
 										class=" form-control
 									<%:(bRequired)  ? "requiredInput":"" %>
 								">
 									<div>市話</div>
-									<div class="d-flex">
-										<input type="number" size="20" maxlength="10"
-											name="UNIT_AREACODE_D" id="UNIT_AREACODE_D"
-											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
-										<input type="number" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
-											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
-										<input type="number" name="UNIT_EXT_D" id="UNIT_EXT_D"
-											class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
-									</div>
+									<div class="row g-1">
+										<div class="col-3 col-md-2">
+											<input type="number" size="20" maxlength="10"
+												name="UNIT_AREACODE_D" id="UNIT_AREACODE_D"
+												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="區碼">
+										</div>
+										<div class="col-6  col-md-6">
+											<input type="number" name="UNIT_TELPHONE_D" id="UNIT_TELPHONE_D"
+												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="室內電話號碼">
+										</div>
+										<div class="col-3 col-md-4">
+											<input type="number" name="UNIT_EXT_D" id="UNIT_EXT_D"
+												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
+										</div>
+									</div> 
 								</div>
 							</div>
 						</div>
@@ -927,15 +961,19 @@
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
-					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TEACHERPROOF_D1" name="UNIT_TEACHERPROOF_D" value="Y" checked>是
-				<label class="form-check-label" for="UNIT_TEACHERPROOF_D1"></label>
+				<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_TEACHERPROOF_D1" name="UNIT_TEACHERPROOF_D"
+											value="<%: (int)ISRE.Enum_YesNo.Yes %>" checked>
+										<%: ISRE.Enum_YesNo.Yes.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_TEACHERPROOF_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TEACHERPROOF_D2" name="UNIT_TEACHERPROOF_D" value="N">否
-				<label class="form-check-label" for="UNIT_TEACHERPROOF_D2"></label>
+				<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_TEACHERPROOF_D2" name="UNIT_TEACHERPROOF_D"
+											value="<%: (int)ISRE.Enum_YesNo.No %>">
+										<%: ISRE.Enum_YesNo.No.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_TEACHERPROOF_D2"></label>
 									</div>
 								</div>
 							</div>
@@ -960,14 +998,18 @@
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TRAININGHOUR_D1" name="UNIT_TRAININGHOUR_D" value="Y" checked>是
-							<label class="form-check-label" for="UNIT_TRAININGHOUR_D1"></label>
+											id="UNIT_TRAININGHOUR_D1" name="UNIT_TRAININGHOUR_D"
+											value="<%: (int)ISRE.Enum_YesNo.Yes %>" checked>
+										<%: ISRE.Enum_YesNo.Yes.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_TRAININGHOUR_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_TRAININGHOUR_D2" name="UNIT_TRAININGHOUR_D" value="N">否
-							<label class="form-check-label" for="UNIT_TRAININGHOUR_D2"></label>
+											id="UNIT_TRAININGHOUR_D2" name="UNIT_TRAININGHOUR_D"
+											value="<%: (int)ISRE.Enum_YesNo.No %>">
+										<%: ISRE.Enum_YesNo.No.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_TRAININGHOUR_D2"></label>
 									</div>
 								</div>
 							</div>
@@ -993,15 +1035,19 @@
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
-					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_PIDAGREE_D1" name="UNIT_PIDAGREE_D" value="Y" checked>是
-				<label class="form-check-label" for="UNIT_PIDAGREE_D1"></label>
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_PIDAGREE_D1" name="UNIT_PIDAGREE_D"
+											value="<%: (int)ISRE.Enum_YesNo.Yes %>" checked>
+										<%: ISRE.Enum_YesNo.Yes.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_PIDAGREE_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-					<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_PIDAGREE_D2" name="UNIT_PIDAGREE_D" value="N">否
-				<label class="form-check-label" for="UNIT_PIDAGREE_D2"></label>
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_PIDAGREE_D2" name="UNIT_PIDAGREE_D"
+											value="<%: (int)ISRE.Enum_YesNo.No %>">
+										<%: ISRE.Enum_YesNo.No.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_PIDAGREE_D2"></label>
 									</div>
 								</div>
 							</div>
@@ -1023,17 +1069,22 @@
 							<div class="  py-lg-3   col-lg-9  ">
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
-										<input type="radio" class="form-check-input  
-								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D" value="1"  >視訊
-							<label class="form-check-label" for="UNIT_ATTEND_D1"></label>
-									</div>
-									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
 								<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D" value="2">現場
-							<label class="form-check-label" for="UNIT_ATTEND_D2"></label>
+											id="UNIT_ATTEND_D2" name="UNIT_ATTEND_D"
+											value="<%: (int) ISRE.Enum_Attend.OnSite %>">
+										<%: ISRE.Enum_Attend.OnSite.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_ATTEND_D2"></label>
 									</div>
+									<div class="form-check  form-check-inline">
+										<input type="radio" class="form-check-input  
+								<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_ATTEND_D1" name="UNIT_ATTEND_D"
+											value="<%: (int) ISRE.Enum_Attend.Online %>">
+										<%: ISRE.Enum_Attend.Online.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_ATTEND_D1"></label>
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -1056,21 +1107,27 @@
 								<div class="form-control">
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input  
-				<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_DIET_D1" name="UNIT_DIET_D" value="1" checked>無
+									<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_DIET_D1" name="UNIT_DIET_D"
+											value="<%: (int) ISRE.Enum_Diet.None  %>" checked>
+										<%: ISRE.Enum_Diet.None.GetDisplayName() %>
 										<label class="form-check-label" for="UNIT_DIET_D1"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-				<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_DIET_D2" name="UNIT_DIET_D" value="2">葷食
+							<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_DIET_D2" name="UNIT_DIET_D"
+											value="<%: (int) ISRE.Enum_Diet.Meat  %>">
+										<%: ISRE.Enum_Diet.Meat.GetDisplayName() %>
 										<label class="form-check-label" for="UNIT_DIET_D2"></label>
 									</div>
 									<div class="form-check  form-check-inline">
 										<input type="radio" class="form-check-input
-<%:(bRequired)  ? "requiredInput":"" %>"
-											id="UNIT_DIET_D3" name="UNIT_DIET_D" value="3">素食
-									<label class="form-check-label" for="UNIT_DIET_D3"></label>
+							<%:(bRequired)  ? "requiredInput":"" %>"
+											id="UNIT_DIET_D3" name="UNIT_DIET_D"
+											value="<%: (int) ISRE.Enum_Diet.Vegetarian  %>">
+										<%: ISRE.Enum_Diet.Vegetarian.GetDisplayName() %>
+										<label class="form-check-label" for="UNIT_DIET_D3"></label>
 									</div>
 								</div>
 							</div>
@@ -1091,11 +1148,10 @@
 							</div>
 							<div class="  py-lg-3   col-lg-9  ">
 								<div class=" ">
-									<input type="text"
+									<textarea
 										name="UNIT_MEMO_D" id="UNIT_MEMO_D"
-										class=" form-control
-									<%:(bRequired)  ? "requiredInput":"" %>
-								">
+										class=" form-control <%:(bRequired)  ? "requiredInput":"" %>"></textarea>
+
 								</div>
 							</div>
 						</div>
@@ -1149,7 +1205,7 @@
 
 			<%--  command buttons start--%>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-				 
+
 				<div>
 					<a href="#" id="btnRegister"
 						guid="<%:SESSIONGUID %>"
@@ -1202,7 +1258,7 @@
 
 	<script> 
 		//////////// TAKE REG GUID
-		var SendMail = function (GUID) {   
+		var SendMail = function (GUID) {
 			$.ajax({
 				url: "ISRE0002.aspx/Process_RegisterConfirmMail",
 				data: JSON.stringify({ 'GUID': GUID }),
@@ -1218,34 +1274,34 @@
 				success: function (response, textStatus, jqXHR) {
 					///console.log(response);
 					///// dynamic model returned
-					 
-		}
-		, fail: function (jqXHR, textStatus, errorThrown) {
-			console.log('fail');
-			console.log(errorThrown);
-		}
-		, error: function (data) {
-			console.log('error');
-			console.log(data);
-			console.log(data.responseText);
-			console.log(data.status);
-			console.log(data.statusText);
-			jQuery('<div/>', {
-				id: 'errorDiv'
-			}).html(data.responseText).appendTo($('.footer')).hide();
-			var msg = $('#errorDiv').find('title').text();
-			$('#errorDiv').remove();
-			alert(msg);
-		}
-		, done: function (data) {
-			console.log('done');
-			console.log(data);
 
-		}
+				}
+				, fail: function (jqXHR, textStatus, errorThrown) {
+					console.log('fail');
+					console.log(errorThrown);
+				}
+				, error: function (data) {
+					console.log('error');
+					console.log(data);
+					console.log(data.responseText);
+					console.log(data.status);
+					console.log(data.statusText);
+					jQuery('<div/>', {
+						id: 'errorDiv'
+					}).html(data.responseText).appendTo($('.footer')).hide();
+					var msg = $('#errorDiv').find('title').text();
+					$('#errorDiv').remove();
+					alert(msg);
+				}
+				, done: function (data) {
+					console.log('done');
+					console.log(data);
 
-	});
+				}
+
+			});
 		};
-		 
+
 		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');	//// TAKE SESSION GUID
 			let target = btn.attr('data-target');
@@ -1287,7 +1343,7 @@
 				// contentType: false, // Not to set any content header  //formdata required
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
-					///console.log(response);
+					 console.log(response.d);
 					///// dynamic model returned
 					var keys = response.d.map(function (o) { return o.Key; });
 					var NAME = response.d[keys.indexOf("NAME")].Value;
@@ -1295,8 +1351,17 @@
 					let char1 = NAME.substring(0, 1);
 					let charLast = NAME.substring(NAME.length - 1); ///// to the end
 
+					var MOBILE = response.d[keys.indexOf("MOBILE")].Value;
+					var AREACODE = response.d[keys.indexOf("AREACODE")].Value;
+					var TELPHONE = response.d[keys.indexOf("TELPHONE")].Value;
+					var EXT = response.d[keys.indexOf("EXT")].Value;
+					let Phone = AREACODE == null || AREACODE == '' ? '' : AREACODE;
+					Phone = Phone == null || Phone == '' ? TELPHONE : Phone + '-' + TELPHONE;
+					Phone = Phone == null || Phone == '' ? EXT : Phone + '-' + EXT;
+					let contactNo = MOBILE == null || MOBILE == '' ? '' : MOBILE;
+					contactNo = contactNo == null || contactNo == '' ? Phone : MOBILE + '<br>' + Phone;
 
-					var CONTACTNO = response.d[keys.indexOf("CONTACTNO")].Value;
+
 					var EMAIL = response.d[keys.indexOf("EMAIL")].Value;
 					var GUID = response.d[keys.indexOf("GUID")].Value;
 					const today = new Date();
@@ -1307,7 +1372,7 @@
 						//console.log(response.d);
 						ShowToast('資料送出成功!');
 						$('#cardResult').removeClass('d-none').find('tbody')
-							.append('<tr><td>' + char1 + '○' + charLast + '</td><td>' + CONTACTNO + '</td><td>' + EMAIL + '</td><td>' + today.toLocaleString() + '</td></tr>');
+							.append('<tr><td>' + char1 + '○' + charLast + '</td><td>' + contactNo + '</td><td>' + EMAIL + '</td><td>' + today.toLocaleString() + '</td></tr>');
 						$("html, body").animate({ scrollTop: $(document).height() }, 500);
 					}
 					else {  ///////// signle register
@@ -1373,22 +1438,22 @@
 
 			if (rdoValue == '1')  //// personal
 			{
-				if ($('#PERSONAL_CONTACTNO_D').val().trim() != '') {
-					var result = $('#PERSONAL_CONTACTNO_D').val().match(mobilePattern);
+				if ($('#PERSONAL_MOBILE_D').val().trim() != '') {
+					var result = $('#PERSONAL_MOBILE_D').val().match(mobilePattern);
 					console.log(result);
 					if (result == null) {
-						AlertAndMove('手機 not valid!', $('#PERSONAL_CONTACTNO_D'));
+						AlertAndMove('手機 not valid!', $('#PERSONAL_MOBILE_D'));
 						return false;
 					}
 				}
 			}
 			if (rdoValue == '2')  //// unit
 			{
-				if ($('#UNIT_CONTACTNO_D').val().trim() != '') {
-					var result = $('#UNIT_CONTACTNO_D').val().match(mobilePattern);
+				if ($('#UNIT_MOBILE_D').val().trim() != '') {
+					var result = $('#UNIT_MOBILE_D').val().match(mobilePattern);
 					console.log(result);
 					if (result == null) {
-						AlertAndMove('手機 not valid!', $('#UNIT_CONTACTNO_D'));
+						AlertAndMove('手機 not valid!', $('#UNIT_MOBILE_D'));
 						return false;
 					}
 				}
@@ -1444,7 +1509,7 @@
 			return true;
 		};
 
-		var IDCheck = function () { 
+		var IDCheck = function () {
 			//////////製作教師研習證明 or 上傳公務⼈員訓練時數 check=yes then ⾝分證號/居留證號 must fill
 			/// and 個資使⽤同意證明 must be yes
 			console.log('TelphoneCheck');
@@ -1541,7 +1606,7 @@
 				///// check email reg exp
 				if (EmailCheck() == false) return false;
 
-				 
+
 				btn.addClass('disabled');
 				showModalAjax();
 
@@ -1550,9 +1615,9 @@
 					SaveForm(btn);
 				});
 
-				 
+
 			});
-			 
+
 		});
 
 

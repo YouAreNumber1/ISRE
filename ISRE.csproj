@@ -106,6 +106,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ISRE0006.aspx" />
+    <Content Include="ISRE0005.aspx" />
     <Content Include="ISRE0004.aspx" />
     <Content Include="ISRI_RegistrationFlow.aspx" />
     <Content Include="ISRI_SessionInfo.aspx" />
@@ -2464,6 +2466,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\EnumSelectHelper.cs" />
+    <Compile Include="ISRE0006.aspx.cs">
+      <DependentUpon>ISRE0006.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRE0006.aspx.designer.cs">
+      <DependentUpon>ISRE0006.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRE0005.aspx.cs">
+      <DependentUpon>ISRE0005.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRE0005.aspx.designer.cs">
+      <DependentUpon>ISRE0005.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ISRE0004.aspx.cs">
       <DependentUpon>ISRE0004.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -8,22 +8,31 @@ namespace ISRE
 	/// </summary>
 	public enum Enum_REG_STATUS
     {
-        [Description("已填寫報名表(線上正取"), Display(Name="已填寫報名表(線上正取")]
-        Register_Official =10,
-        [Description("已填寫報名表(線上候補"), Display(Name = "已填寫報名表(線上候補)")]
-        Register_Backup = 11,
-        [Description("已完成報名(確認信)"), Display(Name = "已確認")]
-        Register_Confirmed = 20,
-        [Description("已完成報名(後臺)"), Display(Name = "已完成報名(後臺)")]
-        Register_Backend = 21,
-        [Description("已報到(掃碼、線上)"), Display(Name = "已報到(掃碼、線上)")]
-        CheckIn_Frontend = 30,
-        [Description("已報到(負責人)"), Display(Name = "已報到(負責人)")]
-        CheckIn_Backend = 31,
-        [Description("取消報名(線上)"), Display(Name = "取消報名(線上)")]
-        Cancel_Frontend = 40,
-        [Description("取消報名(後臺)"), Display(Name = "取消報名(後臺)")]
-        Cancel_Backend = 41
+		[Description("已報到(掃碼、線上)"), Display(Name = "已報到(掃碼、線上)")]
+		CheckIn_Mail = 5,
+		[Description("已報到(負責人)"), Display(Name = "已報到(負責人)")]
+		CheckIn_Backend = 6,
+		[Description("取消報名(線上)"), Display(Name = "取消報名(線上)")]
+		Cancel_Mail = 7,
+		[Description("取消報名(後臺)"), Display(Name = "取消報名(後臺)")]
+		Cancel_Backend = 8,
+
+	    //[Description("已填寫報名表(線上正取"), Display(Name="已填寫報名表(線上正取")]
+     //   Register_Official =10,
+     //   [Description("已填寫報名表(線上候補"), Display(Name = "已填寫報名表(線上候補)")]
+     //   Register_Backup = 11,
+     //   [Description("已完成報名(確認信)"), Display(Name = "已確認")]
+     //   Register_Confirmed = 20,
+     //   [Description("已完成報名(後臺)"), Display(Name = "已完成報名(後臺)")]
+     //   Register_Backend = 21,
+        //[Description("已報到(掃碼、線上)"), Display(Name = "已報到(掃碼、線上)")]
+        //CheckIn_Frontend = 30,
+        //[Description("已報到(負責人)"), Display(Name = "已報到(負責人)")]
+        //CheckIn_Backend = 31,
+        //[Description("取消報名(線上)"), Display(Name = "取消報名(線上)")]
+        //Cancel_Frontend = 40,
+        //[Description("取消報名(後臺)"), Display(Name = "取消報名(後臺)")]
+        //Cancel_Backend = 41
 //        10:已填寫報名表(線上正取)
 //11:已填寫報名表(線上候補)
 //20:已完成報名(確認信)
@@ -97,11 +106,27 @@ namespace ISRE
     }
 
 
+	public enum Enum_Attend
+	{
+		[Description("現場參與"), Display(Name = "現場參與")]
+		OnSite = 1,
+		[Description("線上參與"), Display(Name = "線上參與")]
+		Online = 2 
+	}
 
 
 
+	public enum Enum_Diet
+	{
+		[Description("無"), Display(Name = "無")]
+		None = 1,
+		[Description("葷食"), Display(Name = "葷食")]
+		Meat = 2,
+		[Description("素食"), Display(Name = "素食")]
+		Vegetarian = 3
+	}
 
-	 
+
 
 
 
@@ -117,9 +142,9 @@ namespace ISRE
     }
     public enum Enum_YesNo
     {
-        [Description("Yes"), Display(Name = "Yes")]
+        [Description("是"), Display(Name = "是")]
         Yes = 1,
-        [Description("No"), Display(Name = "No")]
+        [Description("否"), Display(Name = "否")]
         No = 2 
     }
     public enum Enum_OBJ_NO

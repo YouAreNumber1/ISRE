@@ -25,7 +25,7 @@
 		</div>
 		<% 　 }%>
 
-					 
+
 
 
 		<div class="">
@@ -41,8 +41,6 @@
 			<div class="text-center">
 				<img alt="" width="100%" class="img-fluid"
 					src="<%: (Model !=null &&  Model.ACT_IMG!=null  ) ? Model.ACT_IMG   : ""   %>" />
-
-				<%--		<img src="https://localhost:444/images/even-banner-img.png" alt="" width="100%">--%>
 			</div>
 
 			<%-- @*活動說明*@--%>
@@ -74,7 +72,6 @@
 					參加對象 
 				</div>
 				<div class="my-2   font85  px-3">
-					<%--	花蓮縣及台東縣⼆、三類投保單位業務承辦⼈員--%>
 					<%: (Model !=null &&  Model.OBJ_DESC!=null
                      ? Model.OBJ_DESC   : ""  )  %>
 				</div>
@@ -105,8 +102,8 @@
 						<div class="">
 							<span class="badge bg-info">洽詢專線</span>
 						</div>
-						<div class="ms-2"><%--03-8332111轉1002梁⼩姐 (東區業務組承保服務科)--%>
-							<%: (Model !=null &&  Model.ACT_CONTACT_INFO!=null ? Model.ACT_CONTACT_INFO   : ""  )  %> 
+						<div class="ms-2">
+							<%: (Model !=null &&  Model.ACT_CONTACT_INFO!=null ? Model.ACT_CONTACT_INFO   : ""  )  %>
 						</div>
 					</div>
 				</div>
@@ -169,7 +166,7 @@
 						</span>
 						<div class="col-8    col-lg-12 ">
 							<div class="d-flex justify-content-lg-center">
-								<%:item.SESS_SERIAL_NO??"" %>
+								<%: (item !=null &&  item.SESS_SERIAL_NO!=null ? item.SESS_SERIAL_NO   : ""  )  %>
 							</div>
 						</div>
 					</div>
@@ -180,7 +177,19 @@
 							<span class="badge bg-info">日期時間</span>
 						</span>
 						<div class="col-8 col-lg-12   ">
-							<div class="d-flex justify-content-lg-center">112/08/31 09:00-15:30</div>
+							<div class="d-flex justify-content-lg-center">
+								<%:item == null || item.SESS_DATE_S==null  
+			? ""
+			: string.Concat((Int32.Parse( item.SESS_DATE_S.ToString("yyyy"))-1911)
+			,"/" , item.SESS_DATE_S.ToString("MM")
+			, "/", item.SESS_DATE_S.ToString("dd")
+			, " ", item.SESS_DATE_S.ToString("HH")
+			, ":", item.SESS_DATE_S.ToString("mm")
+			, "-", item.SESS_DATE_E.ToString("HH")
+			, ":", item.SESS_DATE_E.ToString("mm")
+			) 
+								%>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -190,7 +199,9 @@
 							<span class="badge bg-info">地點</span>
 						</span>
 						<div class="col-8 col-lg-12     ">
-							<div class="d-flex justify-content-lg-center">台北市 </div>
+							<div class="d-flex justify-content-lg-center">
+								<%: (item !=null &&  item.CityName!=null ? item.CityName   : ""  )  %>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -200,7 +211,15 @@
 							<span class="badge bg-info">報名截⽌⽇</span>
 						</div>
 						<div class="col-8 col-lg-12   ">
-							<div class="d-flex justify-content-lg-center">112/08/31  </div>
+							<div class="d-flex justify-content-lg-center">
+								<%:item == null || item.REG_DATE_E==null  
+	? ""
+	: string.Concat((Int32.Parse( item.REG_DATE_E.ToString("yyyy"))-1911)
+	,"/" , item.REG_DATE_E.ToString("MM")
+	, "/", item.REG_DATE_E.ToString("dd") 
+	) 
+								%>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -348,7 +367,7 @@
 	</main>
 	<script> 
 		$(function () {
-$('.btn-showSchedule').on('click', function (e) {
+			$('.btn-showSchedule').on('click', function (e) {
 				e.preventDefault();
 				let sessionRow = $(this).closest('.session');
 				let colShowSchedule = sessionRow.find('.showSchedule');
@@ -372,10 +391,10 @@ $('.btn-showSchedule').on('click', function (e) {
 			});
 
 
-			 
+
 		});
 
-		 
+
 
 	</script>
 </asp:Content>

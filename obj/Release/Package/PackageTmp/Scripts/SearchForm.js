@@ -124,6 +124,8 @@ var MoveTo = function (target, adjustment, callback) {
 var ShowToast = function (msg) {
     $(".toast-body").empty().append(msg);
     $(".toast").toast({ delay: 2000 }).toast('show');
+ 
+
 }
 
  

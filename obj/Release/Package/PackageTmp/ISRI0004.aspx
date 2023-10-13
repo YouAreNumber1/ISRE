@@ -269,10 +269,19 @@
 			//});
 
 			$(document).on('click', '#btnSave', function (e) {
-				e.preventDefault();
-				if (CheckRules() == 0) {
-					SaveForm($(this));
-				}
+				e.preventDefault(); 
+				if (CheckRules() != 0) {
+					return false;
+				} 
+				var btn = $(this);
+			 
+				showModalAjax();
+
+				$(document).delay(500).queue(function () {
+					$(document).dequeue();
+					SaveForm(btn);
+				});
+				 
 			});
 
 

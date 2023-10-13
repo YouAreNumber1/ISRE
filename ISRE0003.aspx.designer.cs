@@ -11,7 +11,7 @@ namespace ISRE
 {
 
 
-	public partial class ISRI0006
+	public partial class ISRE0003
 	{
 	}
 }

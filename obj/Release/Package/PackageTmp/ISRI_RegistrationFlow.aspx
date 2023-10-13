@@ -39,6 +39,9 @@
 			if (sLocation.indexOf("0000") > 0) $("#flowStep").slider('setValue', 1);
 			if (sLocation.indexOf("0001") > 0) $("#flowStep").slider('setValue', 2);
 			if (sLocation.indexOf("0002") > 0) $("#flowStep").slider('setValue', 3);
+			if (sLocation.indexOf("0004") > 0) $("#flowStep").slider('setValue', 4);
+			if (sLocation.indexOf("0005") > 0) $("#flowStep").slider('setValue', 5);
+			if (sLocation.indexOf("0006") > 0) $("#flowStep").slider('setValue', 5);
 		});
 		 
 

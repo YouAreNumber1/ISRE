@@ -21,11 +21,11 @@
 
 	<link href="Content/fontawesome-free-6.4.2-web/css/all.css" rel="stylesheet" />
 	<link href="Content/Site.css" rel="stylesheet" />
-  
-	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-	<script src="Scripts/jquery-3.6.1.js"></script> 
 
-	  
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<script src="Scripts/jquery-3.6.1.js"></script>
+
+
 	<script src="Scripts/SearchForm.js"></script>
 	<script src="Scripts/Common.js"></script>
 	<script src="Scripts/sweetalert2@11.js"></script>
@@ -123,16 +123,19 @@
 		<div class="container body-content">
 			<asp:ContentPlaceHolder ID="MainContent" runat="server">
 			</asp:ContentPlaceHolder>
-			<hr />
+		<%--	<hr />--%>
 
 
 
 			<a id="backtotop" href="#" class="d-none">
 				<i class="fa fa-3x fa-chevron-circle-up "></i>
 			</a>
+			<div id="ModalAjaxHolder" class=" h-100 d-flex justify-content-center align-items-center "> </div> 
+			 
+
 			<footer class="footer    Copyright d-flex justify-content-end fixed-bottom">
 
-				<div class="toast mb-2 centered text-center bg-dark text-white" role="alert">
+				<div class="toast mb-4 centered text-center bg-dark text-white" role="alert">
 					<div class=" toast-body">test</div>
 				</div>
 				<div class="text-black-50     px-2 py-1">衛生福利部中央健康保險署 Copyright &copy; 2023  All rights reserved &nbsp; Version: v2.0</div>
