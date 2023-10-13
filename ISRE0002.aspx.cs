@@ -1,21 +1,15 @@
 ﻿using Dapper;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Dynamic;
 using System.Linq;
 using System.Net.Mail;
 using System.Net;
-using System.Reflection;
 using System.Text;
-using System.Web;
 using System.Web.Services;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ISRE
 {
@@ -169,17 +163,18 @@ namespace ISRE
 			//////////////// customize
 			sb.Append("請點選此連結完成電子郵件確認的動作, 完成報名程序.<br>");
 			sb.Append("<br>");
-			sb.Append("<a href=isre0003.aspx?comfirm=" );
+			sb.Append("<a href=https://localhost:44348/isre0004.aspx?GUID=");
 			sb.Append(  GUID  );
-			sb.Append(">isre0003.aspx?comfirm=");
-			sb.Append(GUID);
+			sb.Append("&confirmkey=");
+			sb.Append(Model.CONFIRMKEY);
+			sb.Append(">點此確認"); 
 			sb.Append("</a>");
 			sb.Append("<br>");
 
 			/////////////////////end of customize
 			sb.Append("<br>");
 			sb.Append("※本郵件由系統自動傳送, 請勿回覆此郵件."); 
-			sb.Append( "<br>");
+			sb.Append("<br><br>");
 			sb.Append("衛生福利部中央健康保險署 敬上"); 
  
 			mail.Body = sb.ToString();
@@ -204,81 +199,7 @@ namespace ISRE
 		}
 
 
-		[WebMethod]
-		/////////// guid=Session_ISRE_SESSION_REG guid
-		public static void Process_RegisterSuccessMail(string GUID)
-		{
-
-			dynamic Model = Process_RegisterInfo(GUID);
-
-			string Account = "youarenumber1@gmail.com";
-			string Password = "mrztencqvewsbxgm";
-
-			SmtpClient client = new SmtpClient();
-			client.Host = "smtp.gmail.com";
-			client.Port = 587;
-			client.Credentials = new NetworkCredential(Account, Password);
-			client.EnableSsl = true;
-
-			MailMessage mail = new MailMessage();
-			mail.From = new MailAddress(Account);
-			mail.To.Add("youarenumber218015@gmail.com");
-			mail.To.Add("scott.lin@iisigroup.com");
-			mail.Subject = Model.ACT_NAME ?? "" + "成功通知";
-			mail.SubjectEncoding = Encoding.UTF8;
-			mail.IsBodyHtml = true;
-			/////////// MAIL BODY
-			StringBuilder sb = new StringBuilder();
-			sb.Append(Model.NAME ?? "");
-			sb.Append(" 您好 :<br><br>");
-			sb.Append(Model.CONFIRM_MAIL ?? "");
-			sb.Append("<br><br>");
-			sb.Append("以下為您的資料<br>");
-			sb.Append("<br>");
-			sb.Append("報名序號: ");
-			sb.Append(Model.SESS_SEQ_NO ?? "");
-			sb.Append("<br>");
-			sb.Append("活動日期: ");
-			sb.Append(Model.SESS_DATE_S ?? "");
-			sb.Append("<br>");
-			sb.Append("活動地點: ");
-			sb.Append(Model.SESS_LOC ?? "");
-			sb.Append("<br>");
-
-
-			sb.Append("視訊連結: ");
-			sb.Append(Model.VIDEO_LINK ?? "");
-			sb.Append("<br>");
-			sb.Append("線上報到連結: ");
-			sb.Append("s3943823");
-			sb.Append("<br>");
-			sb.Append("報到條碼: ");
-			sb.Append("s3943823");
-			sb.Append("<br>");
-			mail.Body = sb.ToString();
-			mail.BodyEncoding = Encoding.UTF8;
-
-
-
-			//Attachment attachment = new Attachment(@"C:\fakepath\test.txt");
-			//mail.Attachments.Add(attachment);
-
-			try
-			{
-				client.Send(mail);
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-			finally
-			{
-				//attachment.Dispose();
-				mail.Dispose();
-				client.Dispose();
-			}
-		}
-
+		
 		[WebMethod]
 		/////////// guid=Session_ISRE_SESSION_REG guid
 		public static void Process_RegisterBackUpMail(string GUID)

@@ -97,20 +97,21 @@ td.left, th.left {
 }
  
 .modalAjax {
-	display: none;
+	/*display: none;*/
 	position: fixed;
 	z-index: 8000;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
+	/*border:solid 2px blue;*/
 }
 
 	.modalAjax .loading-icon {
-		position: relative;
-		top: 45%;
-		left: 45%;
-		color: #000;
+		/*position: relative;*/
+		/*top: 45%;
+		left: 45%;*/
+		/*color: #000;*/
 	}
 
 

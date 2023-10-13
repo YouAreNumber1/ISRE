@@ -4,15 +4,14 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dapper;
 
 namespace ISRE
 {
-    
-    public partial class ISRE0001 : Page
+
+	public partial class ISRE0001 : Page
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);

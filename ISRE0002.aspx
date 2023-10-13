@@ -1132,12 +1132,7 @@
 
 			<%--  command buttons start--%>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-				
-				<a href="#" id="btnSendMail" guid="<%:SESSIONGUID %>"
-				data-target="ISRe0002.aspx/Process_SendMail"
-				class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap">email
-</a>
-				
+				 
 				<div>
 					<a href="#" id="btnRegister"
 						guid="<%:SESSIONGUID %>"
@@ -1233,8 +1228,7 @@
 
 	});
 		};
-
-	
+		 
 		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');	//// TAKE SESSION GUID
 			let target = btn.attr('data-target');

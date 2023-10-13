@@ -115,19 +115,28 @@ var HasAllRequireValue = function (requiredInputsCollection) {
 
 
 var showModalAjax = function () {
+    $('#ModalAjaxHolder').removeClass('d-none');
+
+   // return;
     //console.log('showModalAjax'); 
-        jQuery('<div/>', {
-            class: 'modalAjax'
-        }).append('<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon text-primary"></i>')
-            .appendTo($('.footer')).show();
+   // $('#ModalAjaxHolder').removeClass('modalAjax').empty();
+    //$('#ModalAjaxHolder').empty().addClass('modalAjax')
+    //    .append('<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon color-isre"></i>');
+    return;
+        //jQuery('<div/>', {
+        //    class: 'modalAjax'
+        //}).append('<i class="fa fa-spinner fa-spin fa-5x fa-fw loading-icon text-primary"></i>')
+        //    .appendTo($('#ModalAjaxHolder')).show();
     };
     var hideModalAjax = function () {
         console.log('hideModalAjax');
-        $('.modalAjax').hide();
+        $('#ModalAjaxHolder').addClass('d-none');
+       // $('#ModalAjaxHolder').removeClass('modalAjax').empty() ;
     };
     var removeModalAjax = function () {
         console.log('remove');
-        $('.modalAjax').remove();
+        $('#ModalAjaxHolder').addClass('d-none');
+       // $('#ModalAjaxHolder').removeClass('modalAjax').empty() ;
     };
 $(function () {
    
