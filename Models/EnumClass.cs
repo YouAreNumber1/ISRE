@@ -79,7 +79,7 @@ namespace ISRE
 	}
 	public enum Enum_REG_TYPE
     {
-        [Description("個人"), Display(Name = "單位")]
+        [Description("個人"), Display(Name = "個人")]
         Personal = 1,
         [Description("單位"), Display(Name = "單位")]
         Unit = 2  

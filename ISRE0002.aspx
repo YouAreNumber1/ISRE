@@ -314,12 +314,14 @@
 				<div class=" mx-2  form-check-inline">報名⾝分：</div>
 				<div class="form-check mx-2   form-check-inline">
 					<input type="radio" class="form-check-input  "
-						id="rdoREG_TYPE1" name="rdoREG_TYPE" value="1" checked>個人
+						id="rdoREG_TYPE1" name="rdoREG_TYPE" value="1" checked>
+					<%: ISRE.Enum_REG_TYPE.Personal.GetDisplayName() %>
                   <label class="form-check-label" for="rdoREG_TYPE1"></label>
 				</div>
 				<div class="form-check mx-2  form-check-inline">
 					<input type="radio" class="form-check-input  "
-						id="rdoREG_TYPE2" name="rdoREG_TYPE" value="2">單位
+						id="rdoREG_TYPE2" name="rdoREG_TYPE" value="2">
+					<%: ISRE.Enum_REG_TYPE.Unit.GetDisplayName() %>
                   <label class="form-check-label" for="rdoREG_TYPE2"></label>
 				</div>
 				<div class="text-center text-danger"><span class="note">「*」</span>為必填</div>
