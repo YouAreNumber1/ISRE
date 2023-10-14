@@ -4,9 +4,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Net.Mail;
-using System.Net;
-using System.Text;
 using System.Web.Services;
 using System.Web.UI;
 
@@ -17,7 +14,7 @@ namespace ISRE
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-		public bool bCheckIn = false;
+		public int iCheckIn = 0;
 		
 		protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,13 +23,17 @@ namespace ISRE
 				string GUID = Request["GUID"] ?? "";
 				string CHECKINKEY = Request["CHECKINKEY"] ?? "";
 				dynamic Model= Process_RegisterInfo(GUID);
-				if (Model != null && Model.REG_STATUS
+
+				if (Model == null)
+				{
+					iCheckIn = -1;  ////////// user not found
+				}
+				else if ( Model.REG_STATUS
 					== ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
 				{
-					bCheckIn = true;
+					iCheckIn = 1;  ////////// checked in
 				} 
-			}
-			 
+			} 
 		}
 
 		private static dynamic Process_RegisterInfo(string GUID = "")

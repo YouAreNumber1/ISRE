@@ -10,24 +10,23 @@
 		string CONFIRMKEY = Request["CONFIRMKEY"] ?? "";
 
 	%>
-	 
-	 
+
+
 	<main>
-		<section >
+		<section>
 			<div id="ISRI_SessionFlow" runat="server">
 				<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 			</div>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-				<% if (!bConfirmed)
+				<% if (iConfirmed == 0)
 					{  %>
-
 				<a href="#" id="btnConfirm" guid="<%: GUID %>" confirmkey="<%: CONFIRMKEY %>"
 					data-target="ISRE0004.aspx/Process_Confirm"
 					class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap">確認</a>
 				<% }
 					else
 					{  %>
-				<a class="btn btn-primary disabled">已確認</a>
+				<a class="btn btn-primary disabled"><%: iConfirmed==1? "已確認" : "使用者不存在" %></a>
 
 				<% } %>
 			</div>
@@ -81,13 +80,13 @@
 		//	});
 		//};
 
-		var SaveForm = function (btn) { 
-			 
+		var SaveForm = function (btn) {
+
 			let GUID = btn.attr('GUID');	//// TAKE  reg GUID
 			let CONFIRMKEY = btn.attr('CONFIRMKEY');	//// TAKE  reg GUID
 			let target = btn.attr('data-target');
-			 
-			 
+
+
 			$.ajax({
 				url: target,
 				data: JSON.stringify({ 'GUID': GUID, 'CONFIRMKEY': CONFIRMKEY }),
@@ -105,18 +104,25 @@
 					///// dynamic model returned
 					var keys = response.d.map(function (o) { return o.Key; });
 					//console.log(keys);
-					var ROWCOUNTNO = response.d[keys.indexOf("ROWCOUNTNO")].Value;
-					//console.log(ROWCOUNTNO);
-					if (ROWCOUNTNO > 0) {
-						$("#flowStep").slider('setValue', 5);
-						btn.removeAttr('id guid confirmkey').addClass('disabled');
-						//SendMail(GUID);
-						AlertAndMove('確認成功!  請 check email for more information!');
+					let UserFound = response.d[keys.indexOf("UserFound")].Value;
+					let UserStatus = response.d[keys.indexOf("UserStatus")].Value;
+					let UserStatusAfter = response.d[keys.indexOf("UserStatusAfter")].Value;
+
+					if (UserFound > 0) {
+						if (UserStatus == UserStatusAfter) {
+							AlertAndMove('已確認!');
+						}
+						else {
+							$("#flowStep").slider('setValue', 5);
+							btn.removeAttr('id guid confirmkey').addClass('disabled');
+							//SendMail(GUID);
+							AlertAndMove('確認成功!  請 check email for more information!');
+						} 
 					}
-					else { 
-						AlertAndMove('確認失敗!');
+					else {
+						AlertAndMove('使用者不存在!');
 					}
-  
+
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -143,24 +149,24 @@
 
 			});
 		};
-		 
+
 		$(function () {
 
-			if ("<%:bConfirmed%>" == 'True') {
+			if ("<%:iConfirmed%>" == 1) {
 				$("#flowStep").slider('setValue', 5);
 			}
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();
-				
+
 				var btn = $(this);
 				btn.addClass('disabled');
 				showModalAjax();
-				 
+
 				$(document).delay(500).queue(function () {
 					$(document).dequeue();
-					 SaveForm(btn);
+					SaveForm(btn);
 				});
-				
+
 			});
 		});
 

@@ -17,7 +17,7 @@ namespace ISRE
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-		public bool bConfirmed = false;
+		public int iConfirmed = 0;
 		
 		protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,11 +27,14 @@ namespace ISRE
 				string GUID = Request["GUID"] ?? "";
 				string CONFIRMKEY = Request["CONFIRMKEY"] ?? "";
 				dynamic Model= Process_RegisterInfo(GUID);
-				if (Model!=null && Model.REG_STATUS
+				if (Model == null )
+				{
+					iConfirmed = -1;  ////////// user not found
+				}
+				else if ( Model.REG_STATUS
 					==((int) ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 				{
-					 
-					bConfirmed = true;
+					iConfirmed = 1;  ////////// confirmed
 				} 
 			}
 			 
@@ -75,7 +78,10 @@ namespace ISRE
 			, commandTimeout: _ConnectionTimeout)
 			.FirstOrDefault();
 
-			if (model.ROWCOUNTNO >0)
+			if (model.UserFound > 0 
+				&&  model.UserStatus.ToString() == ((int)ISRE.Enum_RegistrationFlow.Registration).ToString()
+				&& model.UserStatusAfter.ToString() == ((int) ISRE.Enum_RegistrationFlow.EmailConfirm).ToString()
+				)
 			{
 				Process_SendSuccessMail(GUID);
 			}
