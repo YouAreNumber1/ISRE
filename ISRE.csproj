@@ -2213,7 +2213,7 @@
     <Content Include="ISRE0000.aspx" />
     <Content Include="ISRI0003.aspx" />
     <Content Include="ISRI0004.aspx" />
-    <Content Include="ISRE0003.aspx" />
+    <Content Include="ISRE0003notused.aspx" />
     <Content Include="ISRI0005.aspx" />
     <Content Include="ISRI0002.aspx" />
     <Content Include="ISRI0001.aspx" />
@@ -2543,12 +2543,12 @@
     <Compile Include="ISRI0004.aspx.designer.cs">
       <DependentUpon>ISRI0004.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ISRE0003.aspx.cs">
-      <DependentUpon>ISRE0003.aspx</DependentUpon>
+    <Compile Include="ISRE0003notused.aspx.cs">
+      <DependentUpon>ISRE0003notused.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ISRE0003.aspx.designer.cs">
-      <DependentUpon>ISRE0003.aspx</DependentUpon>
+    <Compile Include="ISRE0003notused.aspx.designer.cs">
+      <DependentUpon>ISRE0003notused.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI_RegistrationFormSetting.aspx.cs">
       <DependentUpon>ISRI_RegistrationFormSetting.aspx</DependentUpon>

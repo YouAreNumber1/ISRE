@@ -224,16 +224,16 @@
 
 
 		let CheckRules = function () {
-			let checked = $('#UNIT_INSUREDNO_R').is(":checked");
+			//let checked = $('#UNIT_INSUREDNO_R').is(":checked");
 			/////////投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀填寫
-			if (checked) {
+			//if (checked) {
 				var boxes = $('.display-1-5:checked');
-				console.log(boxes.length);
+				///console.log(boxes.length);
 				if (boxes.length != 1) {
 					AlertAndMove('投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀, 也只能擇一!!', $('.display-1-5').first());
 					return -1;
 				}
-			}
+			//}
 
 			return 0;
 		};
