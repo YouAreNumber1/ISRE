@@ -151,9 +151,11 @@
 		};
 
 		$(function () {
-
 			if ("<%:iConfirmed%>" == 1) {
 				$("#flowStep").slider('setValue', 5);
+			}
+			if ("<%:iConfirmed%>" == -1) {
+				$("#flowStep").slider('setValue', 1);
 			}
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();

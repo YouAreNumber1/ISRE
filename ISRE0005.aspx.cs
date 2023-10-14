@@ -73,10 +73,7 @@ namespace ISRE
 			, commandTimeout: _ConnectionTimeout)
 			.FirstOrDefault();
 
-			if (model.ROWCOUNTNO >0)
-			{
-				//Process_SendSuccessMail(GUID);
-			}
+			 
 			return model;
 		}
 

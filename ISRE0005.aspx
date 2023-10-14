@@ -74,7 +74,7 @@
 						}
 						else { 
 							btn.removeAttr('id guid CHECKINKEY').addClass('disabled');
-							//SendMail(GUID);
+							 
 							AlertAndMove('報到成功!');
 						}
 					}
@@ -120,7 +120,12 @@
 		};
 		 
 		$(function () {
- 
+			if ("<%:iCheckIn%>" == 1) {
+			$("#flowStep").slider('setValue', 5);
+}
+			if ("<%:iCheckIn%>" == -1) {
+				$("#flowStep").slider('setValue', 1);
+			}
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();
 				
