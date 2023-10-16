@@ -132,49 +132,7 @@ namespace ISRE
         //        _dbConn.Close();
         //    }
         //}
-
-        /// <summary>
-        /// Process_ActivityList
-        /// </summary>
-        /// <param name="Page"></param>
-        /// <param name="OrderIndex"></param>
-        /// <returns></returns>
-        /// <remarks>
-        /// Modification date : 20230925
-        /// Modifier :Alex Huang
-        /// </remarks> 
-        //protected List<dynamic> Process_ActivityList(int Page = 1
-        //    , int OrderIndex = 1)
-        //{
-        //    DynamicParameters param = new DynamicParameters();
-        //    param.Add("@PageSize", _PageSize, DbType.Int16, ParameterDirection.Input);
-        //    param.Add("@Page", Page, DbType.Int16, ParameterDirection.Input);
-        //    param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
-        //    param.Add("@QueryMode", "QF", DbType.String, ParameterDirection.Input);
-
-        //    try
-        //    {
-
-        //        List<dynamic> model = _dbConn.Query<dynamic>(
-        //            SPName,
-        //            param,
-        //            commandType: CommandType.StoredProcedure
-        //            , commandTimeout: _ConnectionTimeout
-        //        )
-        //        .ToList();
-
-        //        return model;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex.GetBaseException();
-        //    }
-        //    finally
-        //    {
-        //        _dbConn.Close();
-        //    }
-        //}
-
+ 
 
 
         /// <summary>
@@ -200,17 +158,26 @@ namespace ISRE
         /// <param name="Page"></param>
         /// <param name="OrderIndex"></param>
         /// <returns></returns>
-        /// <remarks>
+        /// <remarks> no paging
         /// Modification date : 20230925、20230927
         /// Modifier :Alex Huang
         /// </remarks> 
-        protected List<dynamic> GetProcess_ActivityList(int Page = 1
-            , int OrderIndex = 1)
+        protected List<dynamic> GetProcess_ActivityList(
+            int OrderIndex = 1, int Page = 1)
         {
             DynamicParameters param = new DynamicParameters();
-            param.Add("@PageSize", _PageSize, DbType.Int16, ParameterDirection.Input);
-            param.Add("@Page", Page, DbType.Int16, ParameterDirection.Input);
-            param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
+			param.Add("@OBJ_NO", SESS_LOC.SelectedValue, DbType.String, ParameterDirection.Input);
+			param.Add("@OBJ_NO", OBJ_NO.SelectedValue, DbType.String, ParameterDirection.Input);
+			param.Add("@ACT_TYPE", ACT_TYPE.SelectedValue, DbType.String, ParameterDirection.Input);
+
+			param.Add("@ACT_NAME", ACT_NAME.Text, DbType.String, ParameterDirection.Input);
+			param.Add("@ACT_HOST", ACT_HOST.Text, DbType.String, ParameterDirection.Input); 
+         //   param.Add("@ACT_DATE_S", ACT_DATE_S.Text, DbType.String, ParameterDirection.Input);
+		//	param.Add("@ACT_DATE_E", ACT_DATE_E.Text, DbType.String, ParameterDirection.Input);
+
+
+
+			param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
             param.Add("@QueryMode", "QF", DbType.String, ParameterDirection.Input);
 
             try

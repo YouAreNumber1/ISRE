@@ -578,8 +578,10 @@
 
 					<% if (Model != null)
 						{%>
-					<%-- <a href="#" id="btnInsert" class="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">新增</a>2--%>
-					<asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " OnClick="btnInsert_Click" />
+					<a   id="btn_Preview" target="_blank" href="ISRE0000.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
+						class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2   ">預覽</a>
+
+				    <asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " OnClick="btnInsert_Click" />
 					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">儲存</a>
 
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">複製資料</a>
@@ -596,8 +598,7 @@
 
 					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2 ">回首頁</a>
 
-					<a href="#" id="btnPreview" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2 d-none ">預覽</a>
-
+					
 					<a href="#" id="btn_RegistrationFormSetting" class="btn btn-primary-isre   text-nowrap px-sm-4 py-2  me-md-4 m-2  d-none">報名表設定</a>
 
 				</div>

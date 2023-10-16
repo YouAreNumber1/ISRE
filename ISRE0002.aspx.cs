@@ -153,9 +153,9 @@ namespace ISRE
 
 			MailMessage mail = new MailMessage();
 			mail.From = new MailAddress(SenderEmailAccount);
-			mail.To.Add("youarenumber218015@gmail.com");
-			mail.To.Add("scott.lin@iisigroup.com");
-			mail.Subject = Model.ACT_NAME??"" + "成功通知";
+			mail.To.Add("iisiisr007@gmail.com");
+	 
+			mail.Subject =string.Concat( Model.ACT_NAME??"" , "確認通知");
 			mail.SubjectEncoding = Encoding.UTF8;
 			mail.IsBodyHtml = true;
 			/////////// MAIL BODY

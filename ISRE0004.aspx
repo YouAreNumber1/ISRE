@@ -116,7 +116,7 @@
 							$("#flowStep").slider('setValue', 5);
 							btn.removeAttr('id guid confirmkey').addClass('disabled');
 							//SendMail(GUID);
-							AlertAndMove('確認成功!  請 check email for more information!');
+							AlertAndMove('確認成功!  請收電郵獲取有關活動相關資訊!');
 						} 
 					}
 					else {

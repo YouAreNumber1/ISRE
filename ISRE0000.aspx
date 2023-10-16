@@ -148,7 +148,7 @@
 												<div class="d-lg-flex   flex-grow-1">
 													<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 														class="form-control " placeholder="民國年/月/日">
-													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S"
+													<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S"  
 														value="<%:  Request["ACT_DATE_S_DATE"] %>" />
 													<span class="mx-1">~</span>
 												</div>
@@ -156,6 +156,7 @@
 													<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 														class="form-control " placeholder="民國年/月/日">
 													<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E"
+														 
 														value="<%:  Request["ACT_DATE_E_DATE"] %>" />
 												</div>
 											</div>
@@ -201,7 +202,7 @@
 				</div>
 			</div>
 		</section>
-
+		<input type="hidden" id="OrderIndex" name="OrderIndex" value="-4"  runat="server"/>
 		<div
 			runat="server"
 			id="SearchCriteria"
