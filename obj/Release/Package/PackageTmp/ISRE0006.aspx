@@ -18,16 +18,16 @@
 				<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 			</div>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-				<% if (!bCancelled)
+				<% if (iCancelled==0)
 					{  %>
 
 				<a href="#" id="btnConfirm" guid="<%: GUID %>" CANCELKEY="<%: CANCELKEY %>"
 					data-target="ISRE0006.aspx/Process_Confirm"
-					class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap">取消</a>
+					class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap">取消報名</a>
 				<% }
 					else
 					{  %>
-				<a class="btn btn-primary disabled">已取消</a>
+				<a class="btn btn-primary disabled"><%: iCancelled==1? "已取消" : "使用者不存在" %></a>
 
 				<% } %>
 			</div>
@@ -60,18 +60,24 @@
 					///console.log(response);
 					///// dynamic model returned
 					var keys = response.d.map(function (o) { return o.Key; });
-					//console.log(keys);
-					var ROWCOUNTNO = response.d[keys.indexOf("ROWCOUNTNO")].Value;
-					//console.log(ROWCOUNTNO);
-					if (ROWCOUNTNO > 0) {
-						 
-						btn.removeAttr('id guid CANCELKEY').addClass('disabled');
-						//SendMail(GUID);
-						AlertAndMove('取消成功!');
+					let UserFound = response.d[keys.indexOf("UserFound")].Value;
+					let UserStatus = response.d[keys.indexOf("UserStatus")].Value;
+					let UserStatusAfter = response.d[keys.indexOf("UserStatusAfter")].Value;
+
+					if (UserFound > 0) {
+						if (UserStatus == UserStatusAfter) {
+							AlertAndMove('已取消!');
+						}
+						else {
+							btn.removeAttr('id guid CANCELKEY').addClass('disabled');
+							$("#flowStep").slider('setValue', 0);
+							AlertAndMove('取消成功!');
+						}
 					}
-					else { 
-						AlertAndMove('取消失敗!');
+					else {
+						AlertAndMove('使用者不存在!');
 					}
+					 
   
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
@@ -101,7 +107,12 @@
 		};
 		 
 		$(function () {
- 
+			if ("<%:iCancelled%>" == 1) {
+			$("#flowStep").slider('setValue', 5);
+}
+			if ("<%:iCancelled%>" == -1) {
+				$("#flowStep").slider('setValue', 1);
+			}
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();
 				

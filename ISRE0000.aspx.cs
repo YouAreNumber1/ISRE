@@ -95,7 +95,7 @@ namespace ISRE
 				//SearchResult.Visible = (IsValueToFindWebElementValue == true);    // 查詢結果
 				//SearchCriteria.Visible = (IsValueToFindWebElementValue == true);  // 搜尋條件
 																				  //  Modification date : 20230923,20230928 By Alex Huang
-				string sCriteria = GetFieID();
+				string sCriteria = ProcessLiteralSearchCriteria();
 				SearchResult.Visible = false;   // 查詢結果
 				SearchCriteria.Visible = false; // 搜尋條件  
 				if (sCriteria != null && sCriteria != "")
@@ -221,6 +221,7 @@ namespace ISRE
 			string ACT_DATE_S_DATE = Request["ACT_DATE_S_DATE"];
 			string ACT_DATE_E_DATE = Request["ACT_DATE_E_DATE"];
 			string OrderIndex = Request["OrderIndex"];
+
 			DynamicParameters param = new DynamicParameters();
 			param.Add("@SESS_LOC", SESS_LOC.SelectedValue, DbType.String, ParameterDirection.Input);
 			param.Add("@OBJ_NO", OBJ_NO.SelectedValue, DbType.String, ParameterDirection.Input);
@@ -231,7 +232,7 @@ namespace ISRE
 		 	param.Add("@ACT_DATE_S_DATE", ACT_DATE_S_DATE, DbType.String, ParameterDirection.Input);
 		 	param.Add("@ACT_DATE_E_DATE", ACT_DATE_E_DATE, DbType.String, ParameterDirection.Input);
 
-			param.Add("@OrderIndex", OrderIndex, DbType.Int16, ParameterDirection.Input);
+			param.Add("@OrderIndex", OrderIndex, DbType.String, ParameterDirection.Input);
 			param.Add("@QueryMode", "QF", DbType.String, ParameterDirection.Input);
 
 			try
@@ -393,7 +394,7 @@ namespace ISRE
 		/// Creation date: 20230922 
 		/// Author : Alex Huang
 		/// </remarks>
-		private string GetFieID()
+		private string ProcessLiteralSearchCriteria()
 		{
 			ContentPlaceHolder PageNow;
 

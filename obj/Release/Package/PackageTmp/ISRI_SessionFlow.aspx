@@ -7,7 +7,7 @@
 	<div class=" card">
 		<div class=" py-3 px-4 ms-3 ms-lg-5">
 			<input id="flowStep"
-				data-slider-value="2"
+				data-slider-value="1"
 				data-provide="slider"
 				data-slider-ticks-labels='["<%:ISRE.Enum_SessionFlow.Session.GetDescription() %>",
 				"<%:ISRE.Enum_SessionFlow.RegistrationForm.GetDescription() %>",

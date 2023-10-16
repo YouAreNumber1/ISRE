@@ -21,7 +21,7 @@
 		<% if (PREVIEW != "")
 			{ 　%>
 		<div class="card bg-danger">
-			<div class="card-body text-white text-center display-6">活動預覽</div>
+			<div class="card-body text-white text-center display-6">預覽</div>
 		</div>
 		<% 　 }%>
 
@@ -336,7 +336,7 @@
 							{%>
 
 						<a guid="<%:item.GUID %>"
-							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&RegisterMultiple=2"
+							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=2"
 							class="btn btn-danger text-nowrap mx-1  ">候補報名</a>
 
 						<% }
@@ -344,11 +344,11 @@
 							{ %>
 
 						<a guid="<%:item.GUID %>"
-							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&RegisterMultiple=0"
+							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=0"
 							class="btn btn-primary-isre text-nowrap mx-1 ">單人報名</a>
 
 						<a guid="<%:item.GUID %>"
-							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&RegisterMultiple=1"
+							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=1"
 							class="btn btn-primary-isre text-nowrap mx-1   ">多人報名 </a>
 
 						<% 	}%>

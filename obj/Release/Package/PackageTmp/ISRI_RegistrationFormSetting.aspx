@@ -16,12 +16,14 @@
 		<span>報名⾝分：</span>
 		<div class="form-check  form-check-inline">
 			<input type="radio" class="form-check-input  "
-				id="rdoREG_TYPEl" name="rdoREG_TYPE" value="1" checked>個人
+				id="rdoREG_TYPEl" name="rdoREG_TYPE" value="1" checked> 
+			<%: ISRE.Enum_REG_TYPE.Personal.GetDisplayName() %>
 			<label class="form-check-label" for="rdoREG_TYPEl"></label>
 		</div>
 		<div class="form-check  form-check-inline">
 			<input type="radio" class="form-check-input  "
-				id="rdoREG_TYPE2" name="rdoREG_TYPE" value="2">單位
+				id="rdoREG_TYPE2" name="rdoREG_TYPE" value="2">
+			<%: ISRE.Enum_REG_TYPE.Unit.GetDisplayName() %>
 			<label class="form-check-label" for="rdoREG_TYPE2"></label>
 		</div>
 	</div>
