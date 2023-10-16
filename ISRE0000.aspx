@@ -13,12 +13,20 @@
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<main>
+
+		<% if (PREVIEW != "")
+			{ 　%>
+		<div class="card bg-danger">
+			<div class="card-body text-white text-center display-6">預覽</div>
+		</div>
+		<% 　 }%>
 		<section>
 			<%--20230927 By Alex Huang --%>
 			<div id="dialog" title="訊息">
 				<p>Oops 連線失敗，請通知管理人員!</p>
 			</div>
 			<%--20230927 By Alex Huang --%>
+
 
 
 			<div class="d-flex  justify-content-between align-content-center  ">
@@ -318,7 +326,7 @@
 								<div class="d-flex">
 									<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
 
-									<a href="ISRE0001.aspx?GUID=<%:item.GUID %> "
+									<a href="ISRE0001.aspx?GUID=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>"
 										class="btn btn-primary-isre text-nowrap mx-1 px-3">檢視場次<span class="d-lg-none badge bg-warning mx-1"><%:item.TotalSessionNo %></span>
 
 									</a>
@@ -350,7 +358,7 @@
 					$(this).val('');
 				});
 			});
-			
+
 			$(".collapse").on('show.bs.collapse', function () {
 				$('#aFilter').children().addClass('fa-chevron-up').removeClass('fa-chevron-down');
 			});

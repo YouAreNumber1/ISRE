@@ -26,11 +26,19 @@
 		<%
 			string GUID = Request.QueryString["GUID"];///GUID= activity guid 
 			string SESSIONGUID = Request.QueryString["SESSIONGUID"];///GUID= activity guid 
-
+			string PREVIEW = Request.QueryString["PREVIEW"] ?? "";  /////////GUID=activity guid
 			string RegisterMultiple = Request.QueryString["RegisterMultiple"] ?? ((int)ISRE.Enum_Register.Single).ToString();
-			//dynamic Model = Process_ActivityInfo(GUID);
+
 			dynamic Model = Process_SessionInfo(SESSIONGUID);
 		%>
+		<% if (PREVIEW != "")
+			{ 　%>
+		<div class="card bg-danger">
+			<div class="card-body text-white text-center display-6">預覽</div>
+		</div>
+		<% 　 }%>
+
+
 		<div id="ISRI_SessionFlow" runat="server">
 			<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 		</div>
@@ -316,13 +324,13 @@
 					<input type="radio" class="form-check-input  "
 						id="rdoREG_TYPE1" name="rdoREG_TYPE" value="1" checked>
 					<%: ISRE.Enum_REG_TYPE.Personal.GetDisplayName() %>
-                  <label class="form-check-label" for="rdoREG_TYPE1"></label>
+					<label class="form-check-label" for="rdoREG_TYPE1"></label>
 				</div>
 				<div class="form-check mx-2  form-check-inline">
 					<input type="radio" class="form-check-input  "
 						id="rdoREG_TYPE2" name="rdoREG_TYPE" value="2">
 					<%: ISRE.Enum_REG_TYPE.Unit.GetDisplayName() %>
-                  <label class="form-check-label" for="rdoREG_TYPE2"></label>
+					<label class="form-check-label" for="rdoREG_TYPE2"></label>
 				</div>
 				<div class="text-center text-danger"><span class="note">「*」</span>為必填</div>
 			</div>
@@ -731,12 +739,12 @@
 					<div id="table_REG_TYPE2" class=" d-none  table_REG_TYPE ">
 
 						<%  bDisplay = (FormModel != null
-																									&& (FormModel.UNIT_INSUREDNO_D != null
-																									|| FormModel.UNIT_HOSPNO_D != null
-																									|| FormModel.UNIT_GUINO_D != null
-																									|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																									|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																									? true : false; %>
+																																		&& (FormModel.UNIT_INSUREDNO_D != null
+																																		|| FormModel.UNIT_HOSPNO_D != null
+																																		|| FormModel.UNIT_GUINO_D != null
+																																		|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																																		|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																																		? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -910,7 +918,7 @@
 											<input type="number" name="UNIT_EXT_D" id="UNIT_EXT_D"
 												class=" form-control <%:(bRequired)  ? "requiredInput":"" %>" placeholder="分機號碼">
 										</div>
-									</div> 
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1221,7 +1229,7 @@
 						class="btn btn-primary-isre  px-3 mx-1 mx-md-4 px-md-4 text-nowrap">清除</a>
 				</div>
 				<div>
-					<a href="\isre0000.aspx" class="btn btn-primary-isre   mx-1 mx-md-4 px-md-4 text-nowrap">回首頁</a>
+					<a href="\isre0000.aspx?PREVIEW=<%:PREVIEW%>" class="btn btn-primary-isre   mx-1 mx-md-4 px-md-4 text-nowrap">回首頁</a>
 				</div>
 
 			</div>
@@ -1345,7 +1353,7 @@
 				// contentType: false, // Not to set any content header  //formdata required
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
-					 console.log(response.d);
+					console.log(response.d);
 					///// dynamic model returned
 					var keys = response.d.map(function (o) { return o.Key; });
 					var NAME = response.d[keys.indexOf("NAME")].Value;
