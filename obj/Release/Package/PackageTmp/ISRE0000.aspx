@@ -164,10 +164,10 @@
 										</div>
 										<div class="col-8">
 											<div class="  flex-grow-1 ">
-												<select class="form-control form-select">
-													<option>發布⽇期</option>
-													<option>活動主題</option>
-													<option>活動區間</option>
+												<select id="selectSort" class="form-control form-select">
+													<option value="-4">發布⽇期↓</option>
+													<option value="1">活動主題↑</option>
+													<option value="2">活動區間↑</option>
 												</select>
 											</div>
 										</div>
@@ -254,7 +254,7 @@
 								<span class="badge bg-info">活動主題</span>
 							</span>
 							<span class="col-8 col-sm-10">
-								<%:(item == null || item.ACT_NAME ==null) ? "" : item.ACT_NAME %>
+								<%:(item == null || item.ACT_NAME ==null) ? "" : item.ACT_NAME %> 
 							</span>
 						</div>
 					</div>
@@ -376,7 +376,12 @@
 			$(".collapse").on('hide.bs.collapse', function () {
 				$('#aFilter').children().addClass('fa-chevron-down').removeClass('fa-chevron-up');
 			});
-
+			$(document).on('click', '#selectSort', function (e) {
+				e.preventDefault();
+				//console.log($(this).val());  
+				$('#OrderIndex').val($(this).val());
+			});
+		 
 			$(document).on('click', '#btn_Query', function () {
 				let thisForm = $(this).closest('form');
 				thisForm.submit();
