@@ -23,8 +23,8 @@ namespace ISRE
         public DateTime CHK_DATE_S  { get; set; } 
         public DateTime CHK_DATE_E  { get; set; } 
         public string REG_MAX_COUNT { get; set; }
-        public string WAIT_NAX_COUNT { get; set; }
-        public string UNIT_NAX_COUNT { get; set; }
+        public string WAIT_MAX_COUNT { get; set; }
+        public string UNIT_MAX_COUNT { get; set; }
         public string OBJ_NO { get; set; }
         public string OBJ_DESC { get; set; }
         public string SESS_HOST { get; set; }

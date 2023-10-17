@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web.UI;
 using Dapper;
+using System.Collections.Generic;
 
 namespace ISRE
 {
@@ -52,5 +53,42 @@ namespace ISRE
             return model;
         }
 
-    }
+		/// <summary>
+		/// //////////guid=session guid
+		/// </summary>
+		/// <param name="GUID"></param>
+		/// <returns></returns>
+		protected List<dynamic> Process_Registers(string GUID)
+		{
+			DynamicParameters param = new DynamicParameters();
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "Registers", DbType.String, ParameterDirection.Input);
+
+			List<dynamic> model = _dbConn.Query<dynamic>(
+			"Session_ISRE_SESSION_REG",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.ToList();
+
+			return model;
+		}
+
+		protected  dynamic  Process_Registers_Status(string GUID)
+		{
+			DynamicParameters param = new DynamicParameters();
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "Registers_Status", DbType.String, ParameterDirection.Input);
+
+			dynamic model = _dbConn.Query<dynamic>(
+		   "Session_ISRE_SESSION_REG",
+		   param,
+		   commandType: CommandType.StoredProcedure
+		   , commandTimeout: _ConnectionTimeout)
+		   .FirstOrDefault();
+
+			return model;
+		}
+
+	}
 }

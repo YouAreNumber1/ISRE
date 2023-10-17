@@ -290,7 +290,9 @@
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
 										<div class="badge bg-primary">
-											122
+											<%:(item == null || item.REG_MAX_COUNT ==null) 
+													? 0
+													: (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo)<0? 0:item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo  %> 
 										</div>
 									</div>
 								</div>
@@ -305,9 +307,9 @@
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-																			<%:item == null || item.ACT_DATE_S==null  
-? ""
-: string.Concat((Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd"))%>
+						 <%:item == null || item.ACT_DATE_S==null  
+						? ""
+						: string.Concat((Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd"))%>
 								
 									</div>
 								</div>

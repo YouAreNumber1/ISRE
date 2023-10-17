@@ -34,6 +34,7 @@
 
 
 
+	
 
 	<table class=" d-none table_REG_TYPE  table border  " id="table_REG_TYPE1">
 		<thead>

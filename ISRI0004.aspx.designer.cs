@@ -42,6 +42,15 @@ namespace ISRE
 		protected global::System.Web.UI.HtmlControls.HtmlGenericControl ISRI_SessionInfo;
 
 		/// <summary>
+		/// BtnQuery control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlButton BtnQuery;
+
+		/// <summary>
 		/// RegistrationFormSetting control.
 		/// </summary>
 		/// <remarks>

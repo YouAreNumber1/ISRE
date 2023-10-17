@@ -30,6 +30,14 @@
 			</div>
 
 
+			 <input type="file"  id="file1" name="file1"/>
+
+       
+
+			<button type="button" id="BtnQuery" name="BtnQuery"
+				  runat="server" Text="Button" 
+				onserverclick="BtnQuery_Click"> 
+</button>
 
 			<div id="RegistrationFormSetting" runat="server">
 				<!-- #Include virtual="ISRI_RegistrationFormSetting.aspx" -->
@@ -38,7 +46,7 @@
 
 			<div class="d-flex justify-content-center my-4">
 
-				<a href="#" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
+				<a href="#" id="test" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
 
 				<a href="#" id="btnSave" guid="<%:SESSIONGUID %>"
 					data-target="ISRI0004.aspx/Process_SettingForm"
@@ -261,12 +269,14 @@
 					$(this).closest('tr').find('.display').prop('checked', true);
 				}
 			})
-			//$(document).on('click', '.slider2', function (e) {
-			//	e.preventDefault(); 
-			//	var myslider = $("#flowStep"); 
-			//	myslider.slider('setValue', 3); 
-			//	return; 
-			//});
+			$(document).on('click', '#test', function (e) {
+				e.preventDefault(); 
+				let f = $('#file1').name;
+				let v = $('#file1').value;
+				console.log(f);
+				console.log(v);
+				return; 
+			});
 
 			$(document).on('click', '#btnSave', function (e) {
 				e.preventDefault(); 

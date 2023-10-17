@@ -106,6 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ISRE0000ALEX.aspx" />
     <Content Include="ISRE0006.aspx" />
     <Content Include="ISRE0005.aspx" />
     <Content Include="ISRE0004.aspx" />
@@ -2466,6 +2467,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\EnumSelectHelper.cs" />
+    <Compile Include="ISRE0000ALEX.aspx.cs">
+      <DependentUpon>ISRE0000ALEX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRE0000ALEX.aspx.designer.cs">
+      <DependentUpon>ISRE0000ALEX.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ISRE0006.aspx.cs">
       <DependentUpon>ISRE0006.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

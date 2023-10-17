@@ -22,7 +22,14 @@ namespace ISRE
       
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			if (!IsPostBack)
+			{
+				Response.Write("first time");
+			}
+			else
+			{
+				Response.Write("PostBack ");
+			}
         }
 
 
@@ -100,8 +107,14 @@ namespace ISRE
 
 		//	return model;
 		//}
- 
 
+		protected void BtnQuery_Click(object sender, EventArgs e)
+		{
+			//if (FileUpload1.HasFile)
+			//{
+			//	Response.Write(string.Format("對照組1:收到檔案，檔案名稱是{0}", FileUpload1.FileName));
+			//}
+		}
 		[WebMethod]
 		/////////// guid=session guid
 		public static ISRE_SESSION_REG_FORM Process_SettingForm(string GUID, string formData)
