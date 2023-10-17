@@ -246,7 +246,11 @@
 						</div>
 						<div class="col-8 col-lg-12   ">
 							<div class="d-flex justify-content-lg-center">
-								<div class="badge bg-primary">21</div>
+								<div class="badge bg-primary">
+									<%:(item == null || item.REG_MAX_COUNT ==null) 
+									? 0
+									: (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo)<0? 0:item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo  %>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -326,13 +330,13 @@
 					<div class="   d-flex align-items-center   justify-content-center mx-sm-5 mx-lg-0 ">
 
 
-						<% if (sessions.Count == 1)
+						<% if (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo <=0)
 							{ %>
 
 						<a class="btn disabled px-3   text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
 
 						<% 	}
-							else if (sessions.Count == 2)
+							else if (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT -item.RegisterNo <=0)
 							{%>
 
 						<a guid="<%:item.GUID %>"

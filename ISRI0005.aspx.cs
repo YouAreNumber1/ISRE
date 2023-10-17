@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.UI;
 using Dapper;
 using System.Collections.Generic;
+using System.Web.Services;
 
 namespace ISRE
 {
@@ -89,6 +90,25 @@ namespace ISRE
 
 			return model;
 		}
+
+		[WebMethod]
+		public static dynamic Process_Registers_Status_Update(string GUID = "")
+		{
+			DynamicParameters param = new DynamicParameters();
+			param.Add("@REG_STATUS", ( (int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString(), DbType.String, ParameterDirection.Input);
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "CHECKINByGUID", DbType.String, ParameterDirection.Input);
+
+			dynamic model = _dbConn.Query<dynamic>(
+			"Session_ISRE_SESSION_REG",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.FirstOrDefault();
+
+			return model;
+		}
+
 
 	}
 }

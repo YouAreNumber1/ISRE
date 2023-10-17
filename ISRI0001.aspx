@@ -472,10 +472,7 @@
 		let DeleteActivity = function (btn) {
 
 			let guid = btn.attr('guid');
-			let target = btn.attr('data-target');
-			console.log(guid);
-			console.log(target);
-			-
+			let target = btn.attr('data-target'); 
 				$.ajax({
 					url: target,
 					data: JSON.stringify({ 'GUID': guid }),

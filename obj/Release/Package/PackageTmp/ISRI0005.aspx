@@ -28,6 +28,10 @@
 	<script src="DataTable/datatables.js"></script>
 	<script src="Scripts/vfs_fonts_NotoSerifTC.js"></script>
 	<main aria-labelledby="title">
+			 <%
+		string GUID =   Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
+		 string SESSIONGUID =   Request.QueryString["SESSIONGUID"] ?? ""; ;/////////GUID= activity guid
+%>
 		<div class=" my-2">
 
 
@@ -100,7 +104,10 @@
 
 
 
+			<%  
 
+				dynamic Registers_Status = Process_Registers_Status(SESSIONGUID); 
+%>
 			<h3 class="text-center mt-5  ">報到人員管理  </h3>
 			<div class="card">
 				<div class="card-header">
@@ -111,7 +118,9 @@
 									value="<%: (int) ISRE.Enum_AttendCategory.Attended%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Attended.GetDisplayName()%>
-								<span id="sumAttended" class="badge bg-success">24</span>
+								<span id="sumAttended" class="badge bg-success">
+							<%: (Registers_Status!=null && Registers_Status.CHECKEDIN!=null) ? Registers_Status.CHECKEDIN  : 0 %>
+								</span>
 							</a>
 
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
@@ -119,14 +128,18 @@
 									value="<%: (int) ISRE.Enum_AttendCategory.Confirmed%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName()%>
-								<span id="sumConfirmed" class="badge bg-warning">164</span>
+								<span id="sumConfirmed" class="badge bg-warning">
+										<%: (Registers_Status!=null && Registers_Status.CONFIRMED!=null) ? Registers_Status.CONFIRMED  : 0 %>
+								</span>
 							</a>
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								<input type="checkbox" id="chkUnconfirm" checked
 									value="<%: (int) ISRE.Enum_AttendCategory.Unconfirm%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName()%>
-								<span id="sumUnconfirm" class="badge bg-danger">20</span>
+								<span id="sumUnconfirm" class="badge bg-danger">
+										<%: (Registers_Status!=null && Registers_Status.UNCONFIRM!=null) ? Registers_Status.UNCONFIRM : 0 %>
+								</span>
 							</a>
 
 							<a id="btnAdd" class="btn btn-primary-isre btn-label me-4 px-sm-4 mb-1">新增
@@ -265,29 +278,30 @@
 
 								<%  
 
-									string mobile6 = "096391";
-									string mobile = "";
+									dynamic Registers = Process_Registers(SESSIONGUID);
+									 
 									string tableClass = "";
 									string bgClass = ";";
-									for (int i = 1; i <= 250; i++)
+									foreach (var item in Registers)
 									{
-										mobile = string.Concat("000", i.ToString());
-										mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
-										tableClass = i <= 10 ? "" : "table-warning";
-										bgClass = i <= 10 ? "bg-danger" : "bg-warning";
+										//mobile = string.Concat("000", i.ToString());
+										//mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
+										 tableClass = item.REG_STATUS==((int)ISRE.Enum_RegistrationFlow.Registration).ToString() ? "" : "table-warning";
+										// bgClass = i <= 10 ? "bg-danger" : "bg-warning";
 								%>
-								<tr id="guid<%:mobile %>"
+								<tr id="<%:item.GUID %>"
 									class="<%:tableClass %>  "
-									mobile="<%:mobile %>"
-									name="來賓<%:i %>"
-									email="guest<%:i %>.yahoo.com"
-									status="<%: i<=10?  0:1 %>">
-									<td>112/05/11</td>
-									<td class="left name">來賓<%:i %>  </td>
-									<td class="left">12345678 </td>
-									<td class="left">資訊組 </td>
-									<td class="left mobile"><%:mobile %> </td>
-									<td class="left email">guest<%:i %>.yahoo.com 
+									mobile="<%: (item.MOBILE!=null) ? item.MOBILE  : "" %>"
+									name="<%: (item.NAME!=null) ? item.NAME  : "" %>"
+									email="<%: (item.EMAIL!=null) ? item.EMAIL  : "" %>"
+									status="<%: (item.REG_STATUS!=null) ? item.REG_STATUS  : "" %>"
+									>
+									<td><%: (item.CREATEDAT!=null) ? item.CREATEDAT.ToString("yyyy-MM-dd HH:mm")  : "" %></td>
+									<td class="left name"><%: (item.NAME!=null) ? item.NAME  : "" %></td>
+									<td class="left"><%: (item.UNIT_NO!=null) ? item.UNIT_NO  : "" %> </td>
+									<td class="left"><%: (item.UNITNAME!=null) ? item.UNITNAME  : "" %> </td>
+									<td class="left mobile"><%: (item.MOBILE!=null) ? item.MOBILE  : "" %></td>
+									<td class="left email"><%: (item.EMAIL!=null) ? item.EMAIL  : "" %>
 									</td>
 									<td class="left">葷食 </td>
 									<td class="left">
@@ -295,7 +309,7 @@
 										<div class="attendTime"></div>
 									</td>
 									<td class="attendStatus">
-										<% if (i <= 10)
+										<% if (item.REG_STATUS==((int)ISRE.Enum_RegistrationFlow.Registration).ToString() )
 											{   %>
 										<div class="  badge <%:bgClass %> "><%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
 										<%	}

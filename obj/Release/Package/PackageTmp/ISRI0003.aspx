@@ -278,8 +278,8 @@
 					<div class="  py-3   col-lg-10 border">
 						<div>
 							<input type="number" class="form-control  mx-1  "
-								id="WAIT_NAX_COUNT" name="WAIT_NAX_COUNT"
-								value="<%: (Model !=null &&  Model.WAIT_NAX_COUNT!=null
+								id="WAIT_MAX_COUNT" name="WAIT_MAX_COUNT"
+								value="<%: (Model !=null &&  Model.WAIT_MAX_COUNT!=null
                     ? Model.REG_MAX_COUNT : ""  )  %>">
 						</div>
 					</div>
@@ -291,9 +291,9 @@
 					<div class="  py-3   col-lg-10 border">
 						<div>
 							<input type="number" class="form-control  mx-1  "
-								id="UNIT_NAX_COUNT" name="UNIT_NAX_COUNT"
-								value="<%: (Model !=null &&  Model.UNIT_NAX_COUNT!=null
-                        ? Model.UNIT_NAX_COUNT : ""  )  %>">
+								id="UNIT_MAX_COUNT" name="UNIT_MAX_COUNT"
+								value="<%: (Model !=null &&  Model.UNIT_MAX_COUNT!=null
+                        ? Model.UNIT_MAX_COUNT : ""  )  %>">
 						</div>
 					</div>
 				</div>
