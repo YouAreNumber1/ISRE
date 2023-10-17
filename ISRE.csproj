@@ -110,6 +110,7 @@
     <Content Include="ISRE0006.aspx" />
     <Content Include="ISRE0005.aspx" />
     <Content Include="ISRE0004.aspx" />
+    <Content Include="ISRI0003Alex.aspx" />
     <Content Include="ISRI_RegistrationFlow.aspx" />
     <Content Include="ISRI_SessionInfo.aspx" />
     <Content Include="ISRI_SessionFlow.aspx" />
@@ -2508,6 +2509,13 @@
     </Compile>
     <Compile Include="ISRE0000.aspx.designer.cs">
       <DependentUpon>ISRE0000.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ISRI0003Alex.aspx.cs">
+      <DependentUpon>ISRI0003Alex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI0003Alex.aspx.designer.cs">
+      <DependentUpon>ISRI0003Alex.aspx</DependentUpon>
     </Compile>
     <Compile Include="ISRI_RegistrationFlow.aspx.cs">
       <DependentUpon>ISRI_RegistrationFlow.aspx</DependentUpon>

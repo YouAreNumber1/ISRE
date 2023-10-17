@@ -104,7 +104,10 @@
 
 
 
+			<%  
 
+				dynamic Registers_Status = Process_Registers_Status(SESSIONGUID); 
+%>
 			<h3 class="text-center mt-5  ">報到人員管理  </h3>
 			<div class="card">
 				<div class="card-header">
@@ -115,7 +118,9 @@
 									value="<%: (int) ISRE.Enum_AttendCategory.Attended%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Attended.GetDisplayName()%>
-								<span id="sumAttended" class="badge bg-success">24</span>
+								<span id="sumAttended" class="badge bg-success">
+							<%: (Registers_Status!=null && Registers_Status.CHECKEDIN!=null) ? Registers_Status.CHECKEDIN  : 0 %>
+								</span>
 							</a>
 
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
@@ -123,14 +128,18 @@
 									value="<%: (int) ISRE.Enum_AttendCategory.Confirmed%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName()%>
-								<span id="sumConfirmed" class="badge bg-warning">164</span>
+								<span id="sumConfirmed" class="badge bg-warning">
+										<%: (Registers_Status!=null && Registers_Status.CONFIRMED!=null) ? Registers_Status.CONFIRMED  : 0 %>
+								</span>
 							</a>
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								<input type="checkbox" id="chkUnconfirm" checked
 									value="<%: (int) ISRE.Enum_AttendCategory.Unconfirm%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName()%>
-								<span id="sumUnconfirm" class="badge bg-danger">20</span>
+								<span id="sumUnconfirm" class="badge bg-danger">
+										<%: (Registers_Status!=null && Registers_Status.UNCONFIRM!=null) ? Registers_Status.UNCONFIRM : 0 %>
+								</span>
 							</a>
 
 							<a id="btnAdd" class="btn btn-primary-isre btn-label me-4 px-sm-4 mb-1">新增
