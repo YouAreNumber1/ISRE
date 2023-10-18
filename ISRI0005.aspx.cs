@@ -38,13 +38,13 @@ namespace ISRE
 		}
 		 
        
-        protected ISRE_SESSION_MAIN Process_SessionInfo(string GUID)
+        protected ISRE.ISRE_SESSION_MAIN Process_SessionInfo(string GUID)
         {
             DynamicParameters param = new DynamicParameters();
             param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
             param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
 
-			ISRE_SESSION_MAIN model = _dbConn.Query<ISRE_SESSION_MAIN>(
+			ISRE.ISRE_SESSION_MAIN model = _dbConn.Query<ISRE.ISRE_SESSION_MAIN>(
             "Session_ISRE_SESSION_MAIN",
             param,
             commandType: CommandType.StoredProcedure

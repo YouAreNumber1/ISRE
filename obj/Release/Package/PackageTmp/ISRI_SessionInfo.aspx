@@ -24,12 +24,12 @@
 				地點
        
 			</div>
-			<div class=" col-lg-1 ">
+			<div class=" col-lg-2 ">
 				主辦單位
        
 			</div>
 			 
-			<div class=" col-lg-1      ">
+			<div class=" col-lg-2      ">
 				報名截⽌⽇
        
 			</div>
@@ -43,8 +43,7 @@
        
 			</div>
 			<div class=" col-lg-1    ">
-				尚餘名額
-       
+				尚餘名額 
 			</div>
 
 		</div>
@@ -73,7 +72,7 @@
 					<div class=" col-8 col-sm-7    col-lg-12  text-center  ">
 						<div class="d-flex justify-content-lg-center"> 
 						 <%:Model == null ||  Model.SESS_DATE_S.GetHashCode()==0 
-							? "" : Model.SESS_DATE_S.ToString("yyyy")	 %>
+							? "" : Model.SESS_DATE_S.ToString("yyyy-MM-dd")	 %>
 					  
 						</div>
 					</div>
@@ -85,28 +84,34 @@
 						<span class="badge bg-info">地點</span>
 					</span>
 					<div class=" col-8 col-sm-7    col-lg-12   text-center  ">
-						<div class="d-flex justify-content-lg-center">台北市 </div>
+						<div class="d-flex justify-content-lg-center">
+							 <%:Model == null || Model.CityName==null  ? "" : Model.CityName %>  
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-7 col-lg-1 ">
+			<div class="col-12 col-sm-7 col-lg-2 ">
 				<div class="row  d-flex align-items-center">
 					<span class="d-lg-none    col-4 col-sm-5      ">
 						<span class="badge bg-info">主辦單位</span>
 					</span>
 					<div class=" col-8 col-sm-7    col-lg-12   text-center  ">
-						<div class="d-flex justify-content-lg-center">台北市 </div>
+						<div class="d-flex justify-content-lg-center">
+								 <%:Model == null || Model.ACT_HOST==null  ? "" : Model.ACT_HOST %> 
+						</div>
 					</div>
 				</div>
 			</div>
 			 
-			<div class="col-12 col-sm-5 col-lg-1 ">
+			<div class="col-12 col-sm-5 col-lg-2 ">
 				<div class="row  d-flex align-items-center">
 					<div class="d-lg-none   col-4 col-sm-5       ">
 						<span class="badge bg-info">報名截⽌⽇</span>
 					</div>
 					<div class=" col-8 col-sm-7    col-lg-12  text-center  ">
-						<div class="d-flex justify-content-lg-center">112/08/31  </div>
+						<div class="d-flex justify-content-lg-center">
+					 	<%:Model == null || Model.REG_DATE_E==null  ? "" : Model.REG_DATE_E.ToString("yyyy-MM-dd") %> 
+						</div>
 					</div>
 				</div>
 			</div>
@@ -118,8 +123,9 @@
 					</div>
 					<div class=" col-8 col-sm-7    col-lg-12  text-center ">
 						<div class="d-flex justify-content-lg-center">
-							<div class="badge bg-primary">
-								21
+							<div class="badge bg-primary mb-1">
+								<%:Model == null || Model.REG_MAX_COUNT==null  ? "" : Model.REG_MAX_COUNT   %> 
+					
                        
 							</div>
 						</div>
@@ -134,8 +140,8 @@
 					</div>
 					<div class="  col-8 col-sm-7    col-lg-12  text-center ">
 						<div class="d-flex justify-content-lg-center">
-							<div class="badge bg-success">
-								7
+							<div class="badge bg-success mb-1">
+							 <%:Model == null || Model.RegisterNo==null  ? "" : Model.RegisterNo   %> 
                        
 							</div>
 						</div>
@@ -151,8 +157,7 @@
 					<div class="  col-8 col-sm-7     col-lg-12  text-center ">
 						<div class="d-flex justify-content-lg-center">
 							<div class="badge bg-dark">
-								14
-                       
+								 <%:Model == null || Model.REG_MAX_COUNT==null || Model.RegisterNo==null  ? 0 : Int32.Parse(Model.REG_MAX_COUNT) - Int32.Parse(Model.RegisterNo)   %>  
 							</div>
 						</div>
 					</div>

@@ -72,8 +72,7 @@
 					參加對象 
 				</div>
 				<div class="my-2   font85  px-3">
-					<%: (Model !=null &&  Model.OBJ_DESC!=null
-                     ? Model.OBJ_DESC   : ""  )  %>
+					<%: (Model !=null &&  Model.OBJ_DESC!=null   ? Model.OBJ_DESC   : ""  )  %>
 				</div>
 			</div>
 
@@ -167,6 +166,8 @@
 						<div class="col-8    col-lg-12 ">
 							<div class="d-flex justify-content-lg-center">
 								<%: (item !=null &&  item.SESS_SERIAL_NO!=null ? item.SESS_SERIAL_NO   : ""  )  %>
+									<%:item == null || item.SESS_SEQ_NO==null  ? "" : item.SESS_SEQ_NO %>
+								<%:item == null || item.RegisterNo==null  ? "" : item.RegisterNo %>
 							</div>
 						</div>
 					</div>

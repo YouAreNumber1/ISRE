@@ -12,7 +12,7 @@
 		}
 
 		tr.trHeader td {
-			background-color: #ccc;
+			background-color: #aaa;
 			font-weight: bold;
 		}
 
@@ -259,18 +259,18 @@
 
 
 								<tr class="trHeader">
-									<td>報名⽇期  </td>
+									<td>報名<BR />⽇期  </td>
 									<td class="left">姓名 </td>
-									<td class="left">投保單位代號 
+									<td class="left">投保單位<BR />代號 
 									</td>
 									<td class="left">
-										<div>單位名稱  </div>
+										<div>單位<BR />名稱  </div>
 									</td>
-									<td class="left">連絡電話 </td>
-									<td class="left">電⼦郵件</td>
-									<td class="left">餐飲習慣</td>
-									<td class="left">報到時間  	</td>
-									<td>報到狀態<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> </td>
+									<td class="left">連絡<BR />電話 </td>
+									<td class="left">電⼦<BR />郵件</td>
+									<td class="left">餐飲<BR />習慣</td>
+									<td class="left">報到<BR />時間  	</td>
+									<td>報到<BR />狀態<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> </td>
 									<td>編輯/報到</td>
 								</tr>
 
@@ -281,22 +281,20 @@
 									dynamic Registers = Process_Registers(SESSIONGUID);
 
 									string tableClass = "";
-									 
+
 									foreach (var item in Registers)
 									{
-										tableClass = "";
-										//mobile = string.Concat("000", i.ToString());
-										//mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
-										if (item.REG_STATUS.ToString() == ((int)ISRE.Enum_RegistrationFlow.RegistrationComplete).ToString())
+										tableClass = ""; 
+										if (item.REG_STATUS.ToString() == ((int)ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 										{
-											tableClass = "table-warning"; 
+											tableClass = "table-warning";
 										}
 										if (item.REG_STATUS.ToString() == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString()
 											|| item.REG_STATUS.ToString() == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString())
 										{
-											tableClass = "table-success"; 
+											tableClass = "table-success";
 										}
-										 
+
 								%>
 								<tr id="<%:item.GUID %>"
 									class="<%:tableClass %>  "
@@ -326,20 +324,30 @@
 									<td class="attendStatus">
 										<% if (item.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.Registration).ToString())
 											{   %>
-											<div class="  badge  "><%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
+										<div class="  badge  "><%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
 										<%	}
-											else if  (item.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.RegistrationComplete).ToString())
+											else if (item.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.RegistrationComplete).ToString())
 											{ %>
-											<div class="badge  bg-warning "><%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName() %> </div>
-										<% }  else if  (item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString()
-												|| item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
-										{ %>
-											<div class="badge  bg-success "><%: ISRE.Enum_AttendCategory.Attended.GetDisplayName() %> </div>
+										<div class="badge  bg-warning "><%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName() %> </div>
+										<% }
+											else if (item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString()
+																			   || item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
+											{ %>
+										<div class="badge  bg-success "><%: ISRE.Enum_AttendCategory.Attended.GetDisplayName() %> </div>
 										<% } %>  
 									</td>
 									<td class="text-nowrap">
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-1 mb-1">編輯</a>
+
+										<% if (item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString()
+										  || item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
+											{   %>
+										<a class="btn btn-primary-isre text-nowrap mx-md-1 mb-1 disabled">報到</a>
+										<%	}
+										else
+										{%>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-1 mb-1">報到</a>
+										<%		}%> 
 									</td>
 								</tr>
 								<%} 	%>

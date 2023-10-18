@@ -190,6 +190,8 @@
 						<div class="col-8 col-lg-12   ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
 								<%:Model == null || Model.SESS_SERIAL_NO==null  ? "" : Model.SESS_SERIAL_NO %>
+								<%:Model == null || Model.SESS_SEQ_NO==null  ? "" : Model.SESS_SEQ_NO %>
+								<%:Model == null || Model.RegisterNo==null  ? "" : Model.RegisterNo %>
 							</div>
 						</div>
 					</div>
@@ -281,7 +283,12 @@
 						</div>
 						<div class="col-8 col-lg-12    ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-								<div class="badge bg-primary">21</div>
+								<div class="badge bg-primary">
+									<%:(Model == null || Model.REG_MAX_COUNT ==null) 
+								? 0
+								: (Model.REG_MAX_COUNT+Model.UNIT_MAX_COUNT+Model.WAIT_MAX_COUNT-Model.RegisterNo)<0? 0:Model.REG_MAX_COUNT+Model.UNIT_MAX_COUNT+Model.WAIT_MAX_COUNT-Model.RegisterNo  %>
+										
+								</div>
 							</div>
 						</div>
 					</div>

@@ -56,7 +56,11 @@
 						<span class="badge bg-info">⽇期</span>
 					</span>
 					<div class="col-9 col-sm-8 col-lg-12    ">
-						<div class="d-flex justify-content-lg-center">112/08/31-112/09/30 </div>
+						<div class="d-flex justify-content-lg-center">
+							<%:(Model == null || Model.ACT_DATE_S.GetHashCode()==0 ) ? "" : Model.ACT_DATE_S.ToString("yyyy-MM-dd") %>
+							~ <%:(Model == null || Model.ACT_DATE_E.GetHashCode()==0 ) ? "" : Model.ACT_DATE_E.ToString("yyyy-MM-dd") %>
+						
+						</div>
 					</div>
 				</div>
 			</div>
@@ -67,7 +71,10 @@
 					</span>
 					<div class="col-9 col-sm-8 col-lg-12   text-center  ">
 						<div class="d-flex justify-content-lg-center">
-							<div class="badge bg-warning">DB 5</div>
+							<div class="badge bg-warning">
+							 
+								<%:(Model == null || Model.TotalSessionNo==null) ? "" : Model.TotalSessionNo %>
+							</div>
 						</div>
 					</div>
 				</div>

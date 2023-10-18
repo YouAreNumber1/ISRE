@@ -6,18 +6,24 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<%
 
-	string PREVIEW = Request.QueryString["PREVIEW"] ?? "";  /////////GUID=activity guid
+		string PREVIEW = Request.QueryString["PREVIEW"] ?? "";  /////////GUID=activity guid
 
-%>
+	%>
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
 	<main>
+		<% if (PREVIEW != "")
+			{ 　%>
+		<div class="card bg-danger">
+			<div class="card-body text-white text-center display-6">預覽</div>
+		</div>
+		<% 　 }%>
 		<section>
-			<%--20230927 By Alex Huang --%>
+			 
 			<div id="dialog" title="訊息">
 				<p>Oops 連線失敗，請通知管理人員!</p>
 			</div>
-			<%--20230927 By Alex Huang --%>
+			 
 
 			<div class="d-flex  justify-content-between align-content-center  ">
 				<div class="d-none d-sm-block"></div>
@@ -46,9 +52,9 @@
 										</div>
 										<div class="col-8">
 											<div class="  flex-grow-1 ">
-												<%--20230923 Modification By Alex Huang --%>
+												 
 												<asp:DropDownList ID="SESS_LOC" runat="server" CssClass="form-control form-select"></asp:DropDownList>
-												<%--20230923 Modification By Alex Huang --%>
+										 
 											</div>
 										</div>
 									</div>
@@ -62,10 +68,9 @@
 											</div>
 										</div>
 										<div class="col-8">
-											<div class="  flex-grow-1 ">
-												<%--20230923 Modification By Alex Huang --%>
+											<div class="  flex-grow-1 "> 
 												<asp:DropDownList ID="OBJ_NO" runat="server" CssClass="form-control form-select"></asp:DropDownList>
-												<%--20230923 Modification By Alex Huang --%>
+												 
 											</div>
 										</div>
 									</div>
@@ -79,10 +84,9 @@
 											</div>
 										</div>
 										<div class="col-8">
-											<div class="  flex-grow-1 ">
-												<%--20230925 Modification By Alex Huang --%>
+											<div class="  flex-grow-1 "> 
 												<asp:DropDownList ID="ACT_TYPE" runat="server" CssClass="form-control form-select"></asp:DropDownList>
-												<%--20230925 Modification By Alex Huang --%>
+											 
 											</div>
 										</div>
 									</div>
@@ -98,10 +102,9 @@
 											</div>
 										</div>
 										<div class="col-8 col-lg-10">
-											<div class="  flex-grow-1 ">
-												<%--20230925 Modification By Alex Huang --%>
+											<div class="  flex-grow-1 "> 
 												<asp:TextBox ID="ACT_NAME" runat="server" CssClass="form-control"></asp:TextBox>
-												<%--20230925 Modification By Alex Huang --%>
+											 
 											</div>
 										</div>
 									</div>
@@ -115,10 +118,9 @@
 											</div>
 										</div>
 										<div class="col-8">
-											<div class="  flex-grow-1 ">
-												<%--20230925 Modification By Alex Huang --%>
+											<div class="  flex-grow-1 "> 
 												<asp:TextBox ID="ACT_HOST" name="ACT_HOST" runat="server" CssClass="form-control"></asp:TextBox>
-												<%--20230925 Modification By Alex Huang --%>
+											 
 											</div>
 										</div>
 									</div>
@@ -140,7 +142,7 @@
 													<input type="text" id="ACT_DATE_S_DATE" name="ACT_DATE_S_DATE"
 														class="form-control " placeholder="民國年/月/日"
 														value="<%:  Request["ACT_DATE_S_DATE"] %>">
-													<%--<input type="hidden" id="ACT_DATE_S" name="ACT_DATE_S" /> --%>
+												 
 													<span class="mx-1">~</span>
 												</div>
 												<div class="d-lg-flex  flex-grow-1">
@@ -148,7 +150,7 @@
 													<input type="text" id="ACT_DATE_E_DATE" name="ACT_DATE_E_DATE"
 														class="form-control " placeholder="民國年/月/日"
 														value="<%:  Request["ACT_DATE_E_DATE"] %>">
-													<%--<input type="hidden" id="ACT_DATE_E" name="ACT_DATE_E"  /> --%>
+													 
 												</div>
 											</div>
 										</div>
@@ -187,15 +189,14 @@
 					</button>--%>
 
 					<a id="btn_Query" name="btn_Query" href="#"
-						class="btn btn-primary-isre px-4  mx-4 text-nowrap" 
-						 >查詢 <i class="fa-solid fa-magnifying-glass text-white"></i>
+						class="btn btn-primary-isre px-4  mx-4 text-nowrap">查詢 <i class="fa-solid fa-magnifying-glass text-white"></i>
 					</a>
 					<button type="button" id="btnClear"
 						class="btn btn-primary-isre px-4 mx-4 text-nowrap">
 						清除                    
 					</button>
 					<input type="hidden" id="OrderIndex" name="OrderIndex" value="<%:  Request["OrderIndex"] %>" />
-					<%-- Modification date : 20230923 By Alex Huang --%>
+					 
 				</div>
 			</div>
 		</section>
@@ -230,8 +231,8 @@
 					<div class="col col-lg-2 text-center">
 						<a class="btnHeader " href="#">尚餘名額</a>
 					</div>
-					<div class="col col-lg-2  text-center  "> 
-						<a class="btnHeader  " href="#">發布⽇期</a>  
+					<div class="col col-lg-2  text-center  ">
+						<a class="btnHeader  " href="#">發布⽇期</a>
 					</div>
 					<div class="col col-lg-2"></div>
 
@@ -266,7 +267,7 @@
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-										
+
 										<%:item == null || item.ACT_DATE_S==null  
 										? ""
 										: string.Concat((Int32.Parse( item.ACT_DATE_S.ToString("yyyy"))-1911),"/" , item.ACT_DATE_S.ToString("MM"), "/", item.ACT_DATE_S.ToString("dd"))%>
@@ -275,7 +276,6 @@
 										<%:item == null || item.ACT_DATE_E==null  
 										? ""
 										: string.Concat((Int32.Parse( item.ACT_DATE_E.ToString("yyyy"))-1911),"/" , item.ACT_DATE_E.ToString("MM"), "/", item.ACT_DATE_E.ToString("dd"))%>
-									
 									</div>
 								</div>
 							</div>
@@ -292,7 +292,7 @@
 										<div class="badge bg-primary">
 											<%:(item == null || item.REG_MAX_COUNT ==null) 
 													? 0
-													: (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo)<0? 0:item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo  %> 
+													: (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo)<0? 0:item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo  %>
 										</div>
 									</div>
 								</div>
@@ -307,10 +307,9 @@
 							<div class="col-8 col-sm-10 col-lg-12 ">
 								<div class=" d-flex  d-lg-block">
 									<div class="text-center">
-						 <%:item == null || item.ACT_DATE_S==null  
+										<%:item == null || item.PUB_DATE_S==null  
 						? ""
 						: string.Concat((Int32.Parse( item.PUB_DATE_S.ToString("yyyy"))-1911),"/" , item.PUB_DATE_S.ToString("MM"), "/", item.PUB_DATE_S.ToString("dd"))%>
-								
 									</div>
 								</div>
 							</div>
@@ -322,9 +321,9 @@
 								<div class="d-flex">
 									<%-- <a href="/isre0001.aspx?guid=this&multiple=1"  class="btn btn-primary-isre text-nowrap mx-1"> 查場次  </a> --%>
 									<a href="ISRE0001.aspx?GUID=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>"
-													class="btn btn-primary-isre text-nowrap mx-1 px-3">檢視場次<span class="d-lg-none badge bg-warning mx-1"><%:item.TotalSessionNo %></span>
+										class="btn btn-primary-isre text-nowrap mx-1 px-3">檢視場次<span class="d-lg-none badge bg-warning mx-1"><%:item.TotalSessionNo %></span>
 
-								 
+
 									</a>
 								</div>
 							</div>
@@ -350,7 +349,7 @@
 			if (OrderIndex == null || OrderIndex == '') {
 				OrderIndex = -4;  ///////// default value
 			}
-			console.log(OrderIndex);
+			 
 			var nthCol = Math.abs(OrderIndex) - 1;
 			var aTag = $('#card-Result').find('.col').eq(nthCol).find('a').first();
 			if (aTag.length > 0) {
@@ -361,7 +360,6 @@
 			}
 		};
 		$(document).ready(function () {
-			 
 			 
 			OrderArrow();
 			$(document).on('click', '#btnClear', function () {
@@ -379,11 +377,10 @@
 				$('#aFilter').children().addClass('fa-chevron-down').removeClass('fa-chevron-up');
 			});
 			$(document).on('click', '#selectSort', function (e) {
-				e.preventDefault();
-				//console.log($(this).val());  
+				e.preventDefault();  
 				$('#OrderIndex').val($(this).val());
 			});
-		 
+
 			$(document).on('click', '#btn_Query', function () {
 				let thisForm = $(this).closest('form');
 				thisForm.submit();
@@ -391,8 +388,7 @@
 			$(document).on('click', '.btnHeader', function (e) {
 				e.preventDefault();
 				var OrderIndex = $('#OrderIndex').val();
-				var nthCol = $(this).parent().index() + 1;
-				console.log(nthCol);
+				var nthCol = $(this).parent().index() + 1; 
 				if (Math.abs(OrderIndex) == Math.abs(nthCol))  //// same col
 				{
 					$('#OrderIndex').val(OrderIndex * (-1));
@@ -416,11 +412,7 @@
 					duration: 1000
 				}
 			});
-			//$("#dialog").dialog("open");
-
-			//function Showalert() {
-			//    alert('Call JavaScript function from codebehind');
-			//}
+			 
 		});
 	</script>
 </asp:Content>

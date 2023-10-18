@@ -42,7 +42,10 @@ namespace ISRE
         public DateTime TXT_DATE { get; set; }
         public string TXT_USER_ID { get; set; }
 		public string FILE_RESTRICTED { get; set; }
-		public string GUID { get; set; } 
-
-    }
+		public string GUID { get; set; }
+		public string CityName { get; set; }
+		public string ACT_HOST { get; set; }
+		
+			public string RegisterNo { get; set; }
+	}
 }
