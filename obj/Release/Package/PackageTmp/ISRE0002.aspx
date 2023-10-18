@@ -190,8 +190,6 @@
 						<div class="col-8 col-lg-12   ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
 								<%:Model == null || Model.SESS_SERIAL_NO==null  ? "" : Model.SESS_SERIAL_NO %>
-								<%:Model == null || Model.SESS_SEQ_NO==null  ? "" : Model.SESS_SEQ_NO %>
-								<%:Model == null || Model.RegisterNo==null  ? "" : Model.RegisterNo %>
 							</div>
 						</div>
 					</div>
@@ -287,7 +285,6 @@
 									<%:(Model == null || Model.REG_MAX_COUNT ==null) 
 								? 0
 								: (Model.REG_MAX_COUNT+Model.UNIT_MAX_COUNT+Model.WAIT_MAX_COUNT-Model.RegisterNo)<0? 0:Model.REG_MAX_COUNT+Model.UNIT_MAX_COUNT+Model.WAIT_MAX_COUNT-Model.RegisterNo  %>
-										
 								</div>
 							</div>
 						</div>
@@ -312,7 +309,7 @@
 		%>
 
 
-		<div id="registrationForm" class="mt-5">
+		<div class="mt-5">
 			<h3 class="text-center mt-5 mb-2">報名表(<%:desc %>)  </h3>
 
 			<%
@@ -343,8 +340,11 @@
 			</div>
 
 
-			<div class="card border">
+			<div id="card_Registration" class="card border">
 				<div class="card-body">
+
+
+
 					<div id="table_REG_TYPE1" class=" d-none  table_REG_TYPE ">
 						<%  bDisplay = (FormModel != null && FormModel.PERSONAL_NAME_D != null) ? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.PERSONAL_NAME_R != null) ? true : false; %>
@@ -734,24 +734,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
 					<div id="table_REG_TYPE2" class=" d-none  table_REG_TYPE ">
 
 						<%  bDisplay = (FormModel != null
-																																		&& (FormModel.UNIT_INSUREDNO_D != null
-																																		|| FormModel.UNIT_HOSPNO_D != null
-																																		|| FormModel.UNIT_GUINO_D != null
-																																		|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
-																																		|| FormModel.UNIT_ASSIGNEDNO_D != null))
-																																		? true : false; %>
+																																											&& (FormModel.UNIT_INSUREDNO_D != null
+																																											|| FormModel.UNIT_HOSPNO_D != null
+																																											|| FormModel.UNIT_GUINO_D != null
+																																											|| FormModel.UNIT_INSUREDNO_OR_GUINO_D != null
+																																											|| FormModel.UNIT_ASSIGNEDNO_D != null))
+																																											? true : false; %>
 						<% 	bRequired = (FormModel != null && FormModel.UNIT_INSUREDNO_R != null) ? true : false; %>
 						<% if (bDisplay)
 							{%>
@@ -1528,51 +1519,42 @@
 
 		var IDCheck = function () {
 			//////////製作教師研習證明 or 上傳公務⼈員訓練時數 check=yes then ⾝分證號/居留證號 must fill
-			/// and 個資使⽤同意證明 must be yes
-			console.log('TelphoneCheck');
-			////////// Telphone NO
-			//let areacodePattern = /(\d{2,3}-?|\(\d{2,3}\))/;
-			let areacodePattern = /\d{2,3}/;
-			let telphonePattern = /\d{3,4}-?\d{4}/;
-			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
-
+			/// and 個資使⽤同意證明 must be yes 
+			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val(); 
 			if (rdoValue == '1')  //// personal
 			{
-				if ($('#PERSONAL_AREACODE_D').val().trim() != '') {
-					var result = $('#PERSONAL_AREACODE_D').val().match(areacodePattern);
-					console.log(result);
-					if (result == null) {
-						AlertAndMove('區碼 not valid!', $('#PERSONAL_AREACODE_D'));
+				let PERSONAL_TEACHERPROOF_D = $('input[name="PERSONAL_TEACHERPROOF_D"]:checked').val();
+				let PERSONAL_TRAININGHOUR_D = $('input[name="PERSONAL_TRAININGHOUR_D"]:checked').val();
+				if (PERSONAL_TEACHERPROOF_D == '1' || PERSONAL_TRAININGHOUR_D == '1') {///// either one checked
+					let PERSONAL_PIDAGREE_D = $('input[name="PERSONAL_PIDAGREE_D"]:checked').val();
+					if (PERSONAL_PIDAGREE_D=='2') {
+						AlertAndMove('製作教師研習證明或上傳公務⼈員訓練時數選 "是", 個資使⽤同意證明 必須選 "是" !', $('#PERSONAL_PIDAGREE_D1'));
 						return false;
 					}
-				}
-				if ($('#PERSONAL_TELPHONE_D').val().trim() != '') {
-					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern);
-					console.log(result);
-					if (result == null) {
-						AlertAndMove('市話 not valid!', $('#PERSONAL_TELPHONE_D'));
+					let PERSONAL_IDAES_D = $('input[name="PERSONAL_IDAES_D"]').val().trim();
+					if (PERSONAL_IDAES_D == '') {
+						AlertAndMove('製作教師研習證明或上傳公務⼈員訓練時數選 "是", ⾝分證號/居留證號不能空白" !', $('#PERSONAL_IDAES_D'));
 						return false;
-					}
-				}
+					} 
+				} 
 			}
 			if (rdoValue == '2')  //// unit
 			{
-				if ($('#UNIT_AREACODE_D').val().trim() != '') {
-					var result = $('#UNIT_AREACODE_D').val().match(areacodePattern);
-					console.log(result);
-					if (result == null) {
-						AlertAndMove('區碼 not valid!', $('#UNIT_AREACODE_D'));
+				let UNIT_TEACHERPROOF_D = $('input[name="UNIT_TEACHERPROOF_D"]:checked').val();
+				let UNIT_TRAININGHOUR_D = $('input[name="UNIT_TRAININGHOUR_D"]:checked').val();
+				 
+				if (UNIT_TEACHERPROOF_D == '1' || UNIT_TRAININGHOUR_D == '1') { ///// either one checked
+					let UNIT_PIDAGREE_D = $('input[name="UNIT_PIDAGREE_D"]:checked').val();
+					if (UNIT_PIDAGREE_D == '2') {
+						AlertAndMove('製作教師研習證明或上傳公務⼈員訓練時數選 "是", 個資使⽤同意證明 必須選 "是" !', $('#UNIT_PIDAGREE_D1'));
 						return false;
 					}
-				}
-				if ($('#UNIT_TELPHONE_D').val().trim() != '') {
-					var result = $('#UNIT_TELPHONE_D').val().match(telphonePattern);
-					console.log(result);
-					if (result == null) {
-						AlertAndMove('市話 not valid!', $('#UNIT_TELPHONE_D'));
+					let UNIT_IDAES_D = $('input[name="UNIT_IDAES_D"]').val().trim();
+					if (UNIT_IDAES_D == '') {
+						AlertAndMove('製作教師研習證明或上傳公務⼈員訓練時數選 "是", ⾝分證號/居留證號不能空白" !', $('#UNIT_IDAES_D'));
 						return false;
 					}
-				}
+				} 
 			}
 			return true;
 		};
@@ -1601,7 +1583,7 @@
 
 			$(document).on('click', '#btnClear', function (e) {
 				e.preventDefault();
-				$('#cardInput').find('input[type=text]').val('');
+				$('#card_Registration').find('input[type=text], input[type=number], textarea').val('');
 			});
 
 
@@ -1615,9 +1597,13 @@
 				/// check required
 				if (HasAllRequireValue(requiredInput) == false)
 					return false;
+
+				///////製作教師研習證明 or 上傳公務⼈員訓練時數 check=yes then ⾝分證號/居留證號 must fill/
+				 
+				if (IDCheck() == false) return false;
 				////////// MOBILE NO
 				if (MobileCheck() == false) return false;
-
+				////////// Telphone 
 				if (TelphoneCheck() == false) return false;
 
 				///// check email reg exp

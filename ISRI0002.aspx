@@ -80,9 +80,9 @@
 			%>
 
 			<div class="   card p-2  my-2     ">
-				<div class=" row d-flex align-items-center  ">
+				<div class=" row d-flex align-items-start  ">
 					<div class="col-12  col-sm-5  col-lg-1 ">
-						<div class="row  d-flex align-items-center ">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">場次</span>
 							</span>
@@ -94,7 +94,7 @@
 						</div>
 					</div>
 					<div class="col-12  col-sm-7  col-lg-1 ">
-						<div class="row  d-flex align-items-center ">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none  col-4  col-sm-5    ">
 								<span class="badge bg-info">日期</span>
 							</span>
@@ -105,8 +105,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12  col-sm-7  col-lg-2 ">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12  col-sm-5  col-lg-2 ">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none  col-4  col-sm-5    ">
 								<span class="badge bg-info">時間</span>
 							</span>
@@ -118,8 +118,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-1  col-sm-5">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1  col-sm-7">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">地點</span>
 							</span>
@@ -130,8 +130,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-1 col-sm-7 ">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1 col-sm-5 ">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">報名截⽌⽇</span>
 							</div>
@@ -143,8 +143,8 @@
 						</div>
 					</div>
 
-					<div class="col-12 col-lg-1  col-sm-5">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1  col-sm-7">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none  col-4  col-sm-5   ">
 								<span class="badge bg-info">可報名⼈數</span>
 							</div>
@@ -158,8 +158,8 @@
 						</div>
 					</div>
 
-					<div class="col-12 col-lg-1  col-sm-7">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1  col-sm-5">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">已報名⼈數</span>
 							</div>
@@ -184,8 +184,8 @@
 								</div>
 							</div>
 						</div>--%>
-					<div class="col-12 col-lg-1  col-sm-5 ">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1  col-sm-7 ">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none  col-4  col-sm-5    ">
 								<span class="badge bg-info">尚餘名額</span>
 							</div>
@@ -200,7 +200,7 @@
 					</div>
 
 					<div class="col-12 col-lg-3 mt-5 mt-lg-0 ">
-						<div class="row   d-flex align-items-center  ">
+						<div class="row   d-flex align-items-start  ">
 							<div class="col d-flex justify-content-between">
 
 								<a guid="<%:item.GUID %>"

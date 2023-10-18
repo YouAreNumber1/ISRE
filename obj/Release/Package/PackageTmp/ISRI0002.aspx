@@ -5,16 +5,16 @@
 <%--this page is for backend activity info and sesseion list--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- <%
-		string GUID =   Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
-%>
+	<%
+		string GUID = Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
+	%>
 	<main>
-		<div class="my-2"> 
+		<div class="my-2">
 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
-			 
+
 			<%--   session list   start--%>
 			<div class="d-flex  justify-content-between  align-items-center mt-5 ">
 				<div></div>
@@ -29,8 +29,11 @@
 					<div class=" col-lg-1  ">
 						<span>場次 </span>
 					</div>
-					<div class=" col-lg-2   ">
-						<span>日期時間</span>
+					<div class=" col-lg-1   ">
+						<span>日期</span>
+					</div>
+					<div class=" col-lg-2  ">
+						<span>時間</span>
 					</div>
 					<div class=" col-lg-1   ">
 						<span>地點</span>
@@ -56,7 +59,7 @@
 						<span>尚餘名額</span>
 					</div>
 
-					<div class=" col-lg-4  ">
+					<div class=" col-lg-3  ">
 						<span>編輯/管理</span>
 					</div>
 
@@ -70,80 +73,101 @@
 
 			<%--session list start  --%>
 			<%  
-			
+
 				dynamic sessions = Process_SessionList(GUID);
 				foreach (var item in sessions)
 				{
 			%>
 
 			<div class="   card p-2  my-2     ">
-				<div class=" row d-flex align-items-center  ">
+				<div class=" row d-flex align-items-start  ">
 					<div class="col-12  col-sm-5  col-lg-1 ">
-						<div class="row  d-flex align-items-center ">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">場次</span>
 							</span>
 							<div class="col-8  col-sm-7  col-lg-12 ">
 								<div class="d-flex justify-content-lg-center">
-									<%: item.SESS_SERIAL_NO %>
+									<%: (item.SESS_SERIAL_NO!=null) ? item.SESS_SERIAL_NO   : "" %>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12  col-sm-7  col-lg-2 ">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12  col-sm-7  col-lg-1 ">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none  col-4  col-sm-5    ">
-								<span class="badge bg-info">日期時間</span>
+								<span class="badge bg-info">日期</span>
 							</span>
 							<div class="col-8  col-sm-7 col-lg-12    ">
 								<div class="d-flex justify-content-lg-center">
-									112/08/31 09:00
+									<%: (item.SESS_DATE_S!=null) ? item.SESS_DATE_S.ToString("yyyy-MM-dd")  : "" %>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-1  col-sm-5">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12  col-sm-5  col-lg-2 ">
+						<div class="row  d-flex align-items-start ">
+							<span class="d-lg-none  col-4  col-sm-5    ">
+								<span class="badge bg-info">時間</span>
+							</span>
+							<div class="col-8  col-sm-7 col-lg-12    ">
+								<div class="d-flex justify-content-lg-center">
+									<%: (item.SESS_DATE_S!=null) ? item.SESS_DATE_S.ToString("HH:mm")  : "" %>
+								-	<%: (item.SESS_DATE_E!=null) ? item.SESS_DATE_E.ToString("HH:mm")  : "" %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-1  col-sm-7">
+						<div class="row  d-flex align-items-start ">
 							<span class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">地點</span>
 							</span>
 							<div class="col-8    col-sm-7  col-lg-12     ">
-								<div class="d-flex justify-content-lg-center">台北市 </div>
+								<div class="d-flex justify-content-lg-center"> 
+									<%: (item.CityName!=null) ? item.CityName   : "" %>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-1 col-sm-7 ">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1 col-sm-5 ">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">報名截⽌⽇</span>
 							</div>
 							<div class="col-8  col-sm-7  col-lg-12     ">
-								<div class="d-flex justify-content-lg-center">112/08/31  </div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-12 col-lg-1  col-sm-5">
-						<div class="row  d-flex align-items-center ">
-							<div class="d-lg-none  col-4  col-sm-5   ">
-								<span class="badge bg-info">可報名⼈數</span>
-							</div>
-							<div class="col-8  col-sm-7  col-lg-12    ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-primary">21</div>
+									<%: (item.REG_DATE_E!=null) ? item.REG_DATE_E.ToString("yyyy-MM-dd")  : "" %>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-12 col-lg-1  col-sm-7">
-						<div class="row  d-flex align-items-center ">
+						<div class="row  d-flex align-items-start ">
+							<div class="d-lg-none  col-4  col-sm-5   ">
+								<span class="badge bg-info">可報名⼈數</span>
+							</div>
+							<div class="col-8  col-sm-7  col-lg-12    ">
+								<div class="d-flex justify-content-lg-center">
+									<div class="badge bg-primary">
+									<%: (item.REG_MAX_COUNT!=null) ? item.REG_MAX_COUNT   : "" %>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-lg-1  col-sm-5">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none col-4  col-sm-5   ">
 								<span class="badge bg-info">已報名⼈數</span>
 							</div>
 							<div class="col-8  col-sm-7 col-lg-12   ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-success">7</div>
+									<div class="badge bg-success">
+											<%: (item.RegisterNo!=null) ? item.RegisterNo   : "" %>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -160,21 +184,23 @@
 								</div>
 							</div>
 						</div>--%>
-					<div class="col-12 col-lg-1  col-sm-5 ">
-						<div class="row  d-flex align-items-center ">
+					<div class="col-12 col-lg-1  col-sm-7 ">
+						<div class="row  d-flex align-items-start ">
 							<div class="d-lg-none  col-4  col-sm-5    ">
 								<span class="badge bg-info">尚餘名額</span>
 							</div>
 							<div class="col-8  col-sm-7  col-lg-12   ">
 								<div class="d-flex justify-content-lg-center">
-									<div class="badge bg-dark">14</div>
+									<div class="badge bg-dark">
+										<%: (item.REG_MAX_COUNT!=null && item.RegisterNo!=null) ? Int32.Parse(item.REG_MAX_COUNT) -  Int32.Parse(item.RegisterNo)   : "" %>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-12 col-lg-4 mt-5 mt-lg-0 ">
-						<div class="row   d-flex align-items-center  ">
+					<div class="col-12 col-lg-3 mt-5 mt-lg-0 ">
+						<div class="row   d-flex align-items-start  ">
 							<div class="col d-flex justify-content-between">
 
 								<a guid="<%:item.GUID %>"
@@ -216,13 +242,13 @@
 
 	<script> 
 		$(function () {
-$(document).on('click', '#btn_Clear', function (e) {
+			$(document).on('click', '#btn_Clear', function (e) {
 				$('#cardInput').find('input[type=text]').val('');
 			});
 
-			 
+
 		});
- 
+
 
 	</script>
 </asp:Content>

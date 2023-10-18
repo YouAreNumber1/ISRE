@@ -211,14 +211,14 @@
 
 
 	<div class="table-responsive table_REG_TYPE d-none " id="table_REG_TYPE2">
-		<div class="p-2  d-flex justify-content-between align-items-center">
+		<div class="p-2  d-flex justify-content-between align-items-end">
 			<div class="font65 text-black-50 me-2">
 				註：投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀填寫。
 			</div>
 			<div class="imageHolder">
-				<div class="custom-file mb-3">
+				<div class="custom-file ">
 					<label class="btn  btn-primary-isre px-4 text-nowrap">
-						檔案上傳
+					上傳單位限定資料	 
 								<input type="file" class="d-none imgUpload " accept=".pdf, .xls, .xlsx, .csv, .txt" />
 					</label>
 				</div>

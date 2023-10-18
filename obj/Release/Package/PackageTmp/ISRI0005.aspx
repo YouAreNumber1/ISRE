@@ -12,7 +12,7 @@
 		}
 
 		tr.trHeader td {
-			background-color: #ccc;
+			background-color: #aaa;
 			font-weight: bold;
 		}
 
@@ -114,8 +114,8 @@
 					<div class="d-flex justify-content-start align-items-center">
 						<div>
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
-								<input type="checkbox" id="chkAttended" checked
-									value="<%: (int) ISRE.Enum_AttendCategory.Attended%>"
+								<input type="checkbox" id="chkCheckedIn" checked
+									value="<%: (int) ISRE.Enum_REG_STATUS.CheckIn_Backend%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Attended.GetDisplayName()%>
 								<span id="sumAttended" class="badge bg-success">
@@ -125,7 +125,7 @@
 
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								<input type="checkbox" id="chkConfirmed" checked
-									value="<%: (int) ISRE.Enum_AttendCategory.Confirmed%>"
+									value="<%: (int) ISRE.Enum_RegistrationFlow.EmailConfirm%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName()%>
 								<span id="sumConfirmed" class="badge bg-warning">
@@ -134,7 +134,7 @@
 							</a>
 							<a class="btn btn-info btn-label me-4 px-sm-4 mb-1">
 								<input type="checkbox" id="chkUnconfirm" checked
-									value="<%: (int) ISRE.Enum_AttendCategory.Unconfirm%>"
+									value="<%: (int) ISRE.Enum_RegistrationFlow.Registration%>"
 									class="chkAttendCategory" />
 								<%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName()%>
 								<span id="sumUnconfirm" class="badge bg-danger">
@@ -159,8 +159,8 @@
 					<div id="lastAttended">
 						<div>
 							<span class="badge bg-info">最新報到⼈員</span>
-							<span id="lastAttendant">謝銀河</span>
-							<span id="lastAttendantDateTime">112/05/11 09:31</span>
+							<span id="lastAttendant"><%: (Registers_Status!=null && Registers_Status.LASTATTENDNAME!=null) ? Registers_Status.LASTATTENDNAME  : "" %></span>
+							<span id="lastAttendantDateTime"><%: (Registers_Status!=null && Registers_Status.LASTATTENDTIME!=null) ? Registers_Status.LASTATTENDTIME.ToString("yyyy-MM-dd HH:mm")  : "" %></span>
 						</div>
 					</div>
 				</div>
@@ -259,18 +259,18 @@
 
 
 								<tr class="trHeader">
-									<td>報名⽇期  </td>
+									<td>報名<BR />⽇期  </td>
 									<td class="left">姓名 </td>
-									<td class="left">投保單位代號 
+									<td class="left">投保單位<BR />代號 
 									</td>
 									<td class="left">
-										<div>單位名稱  </div>
+										<div>單位<BR />名稱  </div>
 									</td>
-									<td class="left">連絡電話 </td>
-									<td class="left">電⼦郵件</td>
-									<td class="left">餐飲習慣</td>
-									<td class="left">報到時間  	</td>
-									<td>報到狀態<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> </td>
+									<td class="left">連絡<BR />電話 </td>
+									<td class="left">電⼦<BR />郵件</td>
+									<td class="left">餐飲<BR />習慣</td>
+									<td class="left">報到<BR />時間  	</td>
+									<td>報到<BR />狀態<i class="fas fa-long-arrow-alt-down ms-1 color-isre "></i> </td>
 									<td>編輯/報到</td>
 								</tr>
 
@@ -281,22 +281,20 @@
 									dynamic Registers = Process_Registers(SESSIONGUID);
 
 									string tableClass = "";
-									 
+
 									foreach (var item in Registers)
 									{
-										tableClass = "";
-										//mobile = string.Concat("000", i.ToString());
-										//mobile = string.Concat(mobile6, mobile.Substring(mobile.Length - 4));
-										if (item.REG_STATUS.ToString() == ((int)ISRE.Enum_RegistrationFlow.RegistrationComplete).ToString())
+										tableClass = ""; 
+										if (item.REG_STATUS.ToString() == ((int)ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 										{
-											tableClass = "table-warning"; 
+											tableClass = "table-warning";
 										}
 										if (item.REG_STATUS.ToString() == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString()
 											|| item.REG_STATUS.ToString() == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString())
 										{
-											tableClass = "table-success"; 
+											tableClass = "table-success";
 										}
-										 
+
 								%>
 								<tr id="<%:item.GUID %>"
 									class="<%:tableClass %>  "
@@ -326,20 +324,30 @@
 									<td class="attendStatus">
 										<% if (item.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.Registration).ToString())
 											{   %>
-											<div class="  badge  "><%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
+										<div class="  badge  "><%: ISRE.Enum_AttendCategory.Unconfirm.GetDisplayName() %> </div>
 										<%	}
-											else if  (item.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.RegistrationComplete).ToString())
+											else if (item.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 											{ %>
-											<div class="badge  bg-warning "><%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName() %> </div>
-										<% }  else if  (item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString()
-												|| item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
-										{ %>
-											<div class="badge  bg-success "><%: ISRE.Enum_AttendCategory.Attended.GetDisplayName() %> </div>
+										<div class="badge  bg-warning "><%: ISRE.Enum_AttendCategory.Confirmed.GetDisplayName() %> </div>
+										<% }
+											else if (item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString()
+											  || item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
+											{ %>
+										<div class="badge  bg-success "><%: ISRE.Enum_AttendCategory.Attended.GetDisplayName() %> </div>
 										<% } %>  
 									</td>
 									<td class="text-nowrap">
-										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-2 mb-1">編輯</a>
-										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-2 mb-1">報到</a>
+										<a class="btn btnEdit btn-primary-isre text-nowrap mx-md-1 mb-1">編輯</a>
+
+										<% if (item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Backend).ToString()
+										  || item.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
+											{   %>
+										<a class="btn btn-primary-isre text-nowrap mx-md-1 mb-1 disabled">報到</a>
+										<%	}
+										else
+										{%>
+										<a class="btn btnAttend btn-primary-isre text-nowrap mx-md-1 mb-1">報到</a>
+										<%		}%> 
 									</td>
 								</tr>
 								<%} 	%>
@@ -774,7 +782,7 @@
 						.removeClass('table-warning')
 						.addClass('table-success')
 						.find('.attendStatus').html('<div class="badge bg-success">已報到</div>');
-					if (!$('#chkAttended').is(':checked')) trTarget.addClass('d-none');
+					if (!$('#chkCheckedIn').is(':checked')) trTarget.addClass('d-none');
 					// update attendand and last attendant date/time
 					let date = new Date();
 					let attenddate = (date.getFullYear() - 1911)
@@ -859,13 +867,13 @@
 					? $('#tableList tr[status="' + $(chks[i]).val() + '"]').removeClass('d-none')
 					: $('#tableList tr[status="' + $(chks[i]).val() + '"]').addClass('d-none');
 			}
-			let status0 = $('tr[status=3]').toArray().length;
-			let status1 = $('tr[status=4]').toArray().length;
-			let status2 = $('tr[status=5]').toArray().length;
+			//let status0 = $('tr[status=3]').toArray().length;
+			//let status1 = $('tr[status=4]').toArray().length;
+			//let status2 = $('tr[status=5]').toArray().length;
 
-			$('#sumAttended').text(status2);
-			$('#sumConfirmed').text(status1);
-			$('#sumUnconfirm').text(status0);
+			//$('#sumAttended').text(status2);
+			//$('#sumConfirmed').text(status1);
+			//$('#sumUnconfirm').text(status0);
 
 			$(document).on('click', '#btnExportExcel', function (e) {
 				e.preventDefault();
@@ -1279,12 +1287,21 @@
 			});
 
 
-			$(document).on('click', '.chkAttendCategory', function (e) {
-
+			$(document).on('click', '.chkAttendCategory', function (e) { 
 				let btn = $(this);
-				btn.is(':checked')
+				let status = btn.val();
+				let id = btn.attr('id');
+				if (id == 'chkCheckedIn') {
+					btn.is(':checked')
+						? $('#tableList tr[status="5"], #tableList tr[status="6"]').removeClass('d-none')
+						: $('#tableList tr[status="5"], #tableList tr[status="6"]').addClass('d-none');
+				}
+				else {
+					btn.is(':checked')
 					? $('#tableList tr[status="' + btn.val() + '"]').removeClass('d-none')
 					: $('#tableList tr[status="' + btn.val() + '"]').addClass('d-none');
+				}
+				
 				return;
 
 			});

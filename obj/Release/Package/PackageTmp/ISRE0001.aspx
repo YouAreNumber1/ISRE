@@ -9,13 +9,7 @@
 		string PREVIEW = Request.QueryString["PREVIEW"] ?? "";  /////////GUID=activity guid
 		dynamic Model = Process_ActivityInfo(GUID);
 	%>
-	<style>
-		.table td {
-			text-align: left !important;
-			vertical-align: top !important;
-			padding: 4px !important;
-		}
-	</style>
+	 
 
 	<main aria-labelledby="title">
 		<% if (PREVIEW != "")
@@ -165,9 +159,7 @@
 						</span>
 						<div class="col-8    col-lg-12 ">
 							<div class="d-flex justify-content-lg-center">
-								<%: (item !=null &&  item.SESS_SERIAL_NO!=null ? item.SESS_SERIAL_NO   : ""  )  %>
-									<%:item == null || item.SESS_SEQ_NO==null  ? "" : item.SESS_SEQ_NO %>
-								<%:item == null || item.RegisterNo==null  ? "" : item.RegisterNo %>
+								<%: (item !=null &&  item.SESS_SERIAL_NO!=null ? item.SESS_SERIAL_NO   : ""  )  %> 
 							</div>
 						</div>
 					</div>
@@ -184,10 +176,8 @@
 			: string.Concat((Int32.Parse( item.SESS_DATE_S.ToString("yyyy"))-1911)
 			,"/" , item.SESS_DATE_S.ToString("MM")
 			, "/", item.SESS_DATE_S.ToString("dd")
-			, " ", item.SESS_DATE_S.ToString("HH")
-			, ":", item.SESS_DATE_S.ToString("mm")
-			, "-", item.SESS_DATE_E.ToString("HH")
-			, ":", item.SESS_DATE_E.ToString("mm")
+			, " ", item.SESS_DATE_S.ToString("HH:mm") 
+			, "-", item.SESS_DATE_E.ToString("HH:mm") 
 			) 
 								%>
 							</div>

@@ -31,8 +31,7 @@ namespace ISRE
 				{
 					iConfirmed = -1;  ////////// user not found
 				}
-				else if ( Model.REG_STATUS
-					==((int) ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
+				else if ( Model.REG_STATUS ==((int) ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 				{
 					iConfirmed = 1;  ////////// confirmed
 				} 
@@ -110,6 +109,7 @@ namespace ISRE
 			MailMessage mail = new MailMessage();
 			mail.From = new MailAddress(SenderEmailAccount);
 			mail.To.Add("iisiisr007@gmail.com");
+			mail.To.Add(Model.EMAIL);
 			mail.Subject = string.Concat(Model.ACT_NAME ?? "", "成功通知");
 			mail.SubjectEncoding = Encoding.UTF8;
 			mail.IsBodyHtml = true;
@@ -166,7 +166,15 @@ namespace ISRE
 			sb.Append("<br>");
 			sb.Append("2. 為尊重智慧財產權, 活動進行中未經主辦單位同意, 請勿錄音, 錄影或拍照.");
 			sb.Append("<br>");
-			sb.Append("3. 若要參考活動詳細內容, 請點此連結: 活動內容");
+			sb.Append("3. 若要參考活動詳細內容, 請點此連結: ");
+			sb.Append("<a href=");
+			sb.Append(WebAppHost);
+			sb.Append("isre0001.aspx?GUID=");
+			sb.Append(Model.ACTIVITYGUID);
+			sb.Append("&SESSIONGUID=");
+			sb.Append(Model.SESSIONGUID);
+			sb.Append(">活動內容");
+			sb.Append("</a>");
 			sb.Append("<br>");
 			sb.Append("4. 若要取消報名, 請點此連結: ");
 			sb.Append("<a href=");

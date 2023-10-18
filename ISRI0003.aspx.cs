@@ -7,14 +7,6 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dapper;
-using static ISRE.ISRI0001;
-using System.Text;
-using System.Web.Services;
-using System.Web;
-using System.Globalization;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json.Linq;
-using System.Collections.Specialized;
 
 namespace ISRE
 {
@@ -27,8 +19,8 @@ namespace ISRE
 		public string SESSIONGUID = string.Empty;
 		public string ActioinName = string.Empty;
 		public string sSelected = string.Empty;
-		//public string GUID = string.Empty;
-		public string GetGUID = string.Empty;
+		public string GUID = string.Empty;
+		//public string GetGUID = string.Empty;
 		public dynamic Model = null;
 		public dynamic SESS_LOC = null;
 		public dynamic List_CityList = null;
@@ -37,36 +29,51 @@ namespace ISRE
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
-			var GetSESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";
-			GetGUID = Request.QueryString["GUID"] ?? "";
+			//var GetSESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";
+			//GetGUID = Request.QueryString["GUID"] ?? "";
 
 			/// <remarks>
 			/// Modification date : 20230925
 			/// Modifier :Alex Huang
 			/// </remarks> 
-			if (GetGUID.Trim().Length == 0)
-			{
-				Response.Redirect("ISRI0000.ASPX");
-				return;
+			//if (GetGUID.Trim().Length == 0)
+			//{
+			//	Response.Redirect("ISRI0000.ASPX");
+			//	return;
+			//}
+
+			if (!IsPostBack)
+			{/////////// first load
+				SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////SESSIONGUID=session guid
+				GUID = Request.QueryString["GUID"] ?? "";  /////////SESSIONGUID=session guid
+
+				ActioinName = (SESSIONGUID == "") ? "新增" : "編輯";
+
+				if (SESSIONGUID == "")
+				{
+					ActioinName = "新增";
+				}
+				else
+				{
+					ActioinName = "編輯";
+					Model = Process_Session(SESSIONGUID);
+				}
+
+				sSelected = "";
+
+				
 			}
-			/// <remarks>
-			/// Modification date : 20230925
-			/// Modifier :Alex Huang
-			/// </remarks> 
+			else
+			{
 
-
+			}
+SESS_LOC = Request["SESS_LOC"] ?? "";
+				List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
 
 			//SESSIONGUID = GetSESSIONGUID;1
 			//dynamic Model1 = Process_Session(SESSIONGUID);
 
-			SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? "";  /////////SESSIONGUID=session guid
-			ActioinName = (SESSIONGUID == "") ? "新增" : "編輯";
 
-			Model = Process_Session(SESSIONGUID);
-			sSelected = "";
-
-			SESS_LOC = Request["SESS_LOC"] ?? "";
-			List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
 
 		}
 
@@ -134,18 +141,16 @@ namespace ISRE
 
 		/// <summary>
 		/// 新增按鈕
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		/// <remarks>
-		/// Modification date : 20231013 
-		/// Modifier :Alex Huang
-		/// </remarks> 
+		 
 
 		protected void btnAdd_Click(object sender, EventArgs e)
 		{
-			Send(sender, e);
-			Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", GetGUID));
+			var model=SessionAdd(sender, e);
+			if (model.SerialID>0)
+			{
+				Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}",  GUID));
+			}
+			//
 		}
 
 
@@ -170,17 +175,24 @@ namespace ISRE
 		/// Modification date : 20231013 
 		/// Modifier :Alex Huang
 		/// </remarks> 
-		protected void Send(object sender, EventArgs e)
+		protected dynamic SessionAdd(object sender, EventArgs e)
 		{
 			DynamicParameters param = new DynamicParameters();
-			string QueryMode = "C";
-			string ActSeqNO = GetActSeqNO(GetGUID);
-
-			param.Add("@QueryMode", QueryMode, DbType.String, ParameterDirection.Input);
-			param.Add(string.Format(@"@{0}", "ACT_SEQ_NO"), ActSeqNO, DbType.String, ParameterDirection.Input);
-
+			//	string QueryMode = "C"; 
+			GUID = Request.QueryString["GUID"] ?? "";  /////////SESSIONGUID=session guid
+			param.Add("@QueryMode", "C", DbType.String, ParameterDirection.Input);
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			foreach (string key in Request.Form.AllKeys)
 			{
+				//string value = Request.Form[key];
+				//if (key.Contains("__") || key.Contains("MainContent"))
+				//{
+
+				//}
+				//else
+				//{
+				//	param.Add(string.Format(@"@{0}", key), Request.Form[key], DbType.String, ParameterDirection.Input);
+				//}
 				if (!key.StartsWith("__")
 					   && !key.StartsWith("ctl00$MainContent$btnAdd"))
 				{
@@ -189,11 +201,13 @@ namespace ISRE
 				}
 			}
 			dynamic model = _dbConn.Query<dynamic>(
-							"Session_ISRE_SESSION_MAIN",
-							param,
-							commandType: CommandType.StoredProcedure
-						, commandTimeout: _ConnectionTimeout)
-						.FirstOrDefault();
+						"Session_ISRE_SESSION_MAIN",
+						param,
+						commandType: CommandType.StoredProcedure
+					, commandTimeout: _ConnectionTimeout)
+					.FirstOrDefault();
+
+			return model;
 		}
 
 		/// <summary>
@@ -236,20 +250,20 @@ namespace ISRE
 		/// Modification date : 20231013 
 		/// Modifier :Alex Huang
 		/// </remarks> 
-		public static string GetActSeqNO(string GUID = "")
-		{
+		//public static string GetActSeqNO(string GUID = "")
+		//{
 
-			IsreActivityMain GetActivityMainDatas = new IsreActivityMain();
+		//	IsreActivityMain GetActivityMainDatas = new IsreActivityMain();
 
-			string GetActSeqNO = string.Empty;
+		//	string GetActSeqNO = string.Empty;
 
-			GetActivityMainDatas = ProcessActivityInfo(GUID);
+		//	GetActivityMainDatas = ProcessActivityInfo(GUID);
 
-			GetActSeqNO = (GetActivityMainDatas == null) ? "" : GetActivityMainDatas.ACT_SEQ_NO;
+		//	GetActSeqNO = (GetActivityMainDatas == null) ? "" : GetActivityMainDatas.ACT_SEQ_NO;
 
-			return GetActSeqNO;
+		//	return GetActSeqNO;
 
-		}
+		//}
 
 		/// <summary>
 		/// class IsreActivityMain

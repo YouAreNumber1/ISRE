@@ -251,7 +251,7 @@
 					</div>
 					<div class="  py-3   col-lg-10 border">
 						<div>
-							<input type="text" class="form-control  mx-1 requiredInput"
+							<input type="number" class="form-control  mx-1 requiredInput"
 								id="SESS_CONTACT_INFO" name="SESS_CONTACT_INFO"
 								value="<%: (Model !=null &&  Model.SESS_CONTACT_INFO!=null
                         ? Model.SESS_CONTACT_INFO : ""  )  %>">
@@ -544,10 +544,11 @@
 										placeholder="民國年/月/日" class="form-control  mx-1    requiredInput"
 										value="<%: (Model !=null &&  Model.REMIND_MAIL_DATE!=null
                                 ? Model.REMIND_MAIL_DATE.ToString("yyyy-MM-dd") : ""  )  %>">
+									
 									<input type="time" id="REMIND_MAIL_TIME" name="REMIND_MAIL_TIME" placeholder="HH:mm"
 										class="form-control mx-1 flex-grow-1 requiredInput"
 										value="<%: (Model !=null &&  Model.REMIND_MAIL_TIME!=null
-                                ? Model.REMIND_MAIL_TIME : ""  )  %>" />
+                                ? Model.REMIND_MAIL_TIME  : ""  )  %>" />
 
 
 
@@ -619,8 +620,8 @@
 			 
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
-				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').addClass('d-none');
-				$('#btnInsert ').removeClass('d-none');
+				$('#btnCopy, #btnRelease, #btnDelete').addClass('d-none');
+				$('#btnInsert , #btnSave').removeClass('d-none');
 			});
 		});
 

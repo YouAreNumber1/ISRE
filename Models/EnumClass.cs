@@ -14,8 +14,8 @@ namespace ISRE
 		CheckIn_Backend = 6,
 		[Description("取消報名(線上)"), Display(Name = "取消報名(線上)")]
 		Cancel_Mail = 7,
-		//[Description("取消報名(後臺)"), Display(Name = "取消報名(後臺)")]
-		//Cancel_Backend = 8,
+		[Description("已填寫報名表(線上候補)"), Display(Name = "已填寫報名表(線上候補)")]
+		BackUp = 8,
 
 	    //[Description("已填寫報名表(線上正取"), Display(Name="已填寫報名表(線上正取")]
      //   Register_Official =10,

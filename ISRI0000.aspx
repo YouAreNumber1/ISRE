@@ -12,14 +12,10 @@
 		
 	 
 		<section class="mb-2 my-2">
-			<div class="d-flex  justify-content-between align-items-center  ">
-				<div class="d-none d-sm-block"></div>
-				<h3 class="  ">活動清單</h3>
+			 
+			<h3 class="text-center  ">活動清單</h3> 
 
-				<a href="ISRI0001.aspx" class=" btn btn-primary-isre   ">新增活動  
-				</a>
-			</div>
-			<div class="d-flex">
+			<div class="d-flex justify-content-between align-items-end">
 				<div class="  ">
 					<div>代理人員：</div>
 					<select name="agentName" id="agentName" class="form-control form-select">
@@ -28,13 +24,18 @@
 						<option value="">王大頭</option>
 					</select>
 				</div>
-				<div class="mx-1 mx-sm-3">
+				<div>
+<a href="ISRI0001.aspx" class=" btn btn-primary-isre   ">新增活動  
+</a>
+				</div>
+				
+				<%--<div class="mx-1 mx-sm-3">
 					<div>查詢條件：</div>
 					<select name="pagesize" id="pagesize" class="form-control form-select">
 						<option value="">最近20筆</option>
 						<option value="">全部</option>
 					</select>
-				</div>
+				</div>--%>
 			</div>
 		</section>
 
@@ -77,20 +78,20 @@
 			<div class=" row  d-flex align-items-center  ">
 				<div class="col-12 col-lg-3 ">
 					<div class="row      ">
-						<span class="d-lg-none col-3 col-sm-2   ">
+						<span class="d-lg-none col-4 col-sm-2   ">
 							<span class="badge bg-info">活動主題</span>
 						</span>
-						<span class="col-9 col-sm-10 col-lg-12 ">
+						<span class="col-8 col-sm-10 col-lg-12 ">
 							<%:(item == null || item.ACT_NAME ==null) ? "" : item.ACT_NAME %>
 						</span>
 					</div>
 				</div>
 				<div class="col-12 col-lg-3 ">
 					<div class="row  d-flex align-items-center ">
-						<span class="d-lg-none  col-3   col-sm-2  ">
+						<span class="d-lg-none  col-4   col-sm-2  ">
 							<span class="badge bg-info">活動⽇期區間</span>
 						</span>
-						<div class="col-9 col-sm-10 col-lg-12 ">
+						<div class="col-8 col-sm-10 col-lg-12 ">
 							<div class="d-block  d-lg-flex     justify-content-lg-center">
 								<div class=" ">
 									<%:item == null || item.ACT_DATE_S.GetHashCode()==0 
@@ -111,10 +112,10 @@
 				</div>
 				<div class="col-12 col-lg-1">
 					<div class="row  d-flex align-items-center ">
-						<div class="d-lg-none  col-3  col-sm-2   ">
+						<div class="d-lg-none  col-4  col-sm-2   ">
 							<div class="badge bg-info">總場次</div>
 						</div>
-						<div class="col-9 col-sm-10 col-lg-12 ">
+						<div class="col-8 col-sm-10 col-lg-12 ">
 							<div class=" d-block  d-lg-flex   justify-content-lg-center">
 								<div class="badge bg-warning">
 									<%: item.TotalSessionNo%>
@@ -125,10 +126,10 @@
 				</div>
 				<div class="col-12 col-lg-1 ">
 					<div class="row  d-flex align-items-center ">
-						<div class="d-lg-none  col-3  col-sm-2   ">
+						<div class="d-lg-none  col-4  col-sm-2   ">
 							<div class="badge bg-info">主辦單位</div>
 						</div>
-						<div class="col-9 col-sm-10 col-lg-12 ">
+						<div class="col-8 col-sm-10 col-lg-12 ">
 							<div class="d-block  d-lg-flex   justify-content-lg-center">
 								<div class=" ">
 									<%:(item == null || item.ACT_HOST ==null) ? "" : item.ACT_HOST %>
@@ -140,10 +141,10 @@
 
 				<div class="col-12 col-lg-2 ">
 					<div class="row  d-flex align-items-center ">
-						<span class="d-lg-none  col-3   col-sm-2  ">
+						<span class="d-lg-none  col-4   col-sm-2  ">
 							<span class="badge bg-info">發布⽇期</span>
 						</span>
-						<div class="col-9 col-sm-10 col-lg-12 ">
+						<div class="col-8 col-sm-10 col-lg-12 ">
 							<div class=" d-block  d-lg-flex   justify-content-lg-center">
 								<div class="  ">
 									<%:item == null || item.PUB_DATE_S.GetHashCode()==0 
