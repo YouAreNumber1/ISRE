@@ -45,7 +45,7 @@ namespace ISRE
 		public string GUID { get; set; }
 		public string CityName { get; set; }
 		public string ACT_HOST { get; set; }
-		
-			public string RegisterNo { get; set; }
+		public string RegisterNo { get; set; }
+		public string SESS_FLOW { get; set; }
 	}
 }

@@ -30,14 +30,10 @@
 			</div>
 
 
-			 <input type="file"  id="file1" name="file1"/>
-
+			 
        
 
-			<button type="button" id="BtnQuery" name="BtnQuery"
-				  runat="server" Text="Button" 
-				onserverclick="BtnQuery_Click"> 
-</button>
+		 
 
 			<div id="RegistrationFormSetting" runat="server">
 				<!-- #Include virtual="ISRI_RegistrationFormSetting.aspx" -->
@@ -46,7 +42,7 @@
 
 			<div class="d-flex justify-content-center my-4">
 
-				<a href="#" id="test" class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
+				<a href="#"   class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
 
 				<a href="#" id="btnSave" guid="<%:SESSIONGUID %>"
 					data-target="ISRI0004.aspx/Process_SettingForm"
@@ -70,73 +66,7 @@
 
 
 
-	//	console.log("<%:SESSIONGUID%>");
-		var GetForm = function () {
-			return;
-			var postData = { 'GUID': '<%:SESSIONGUID%>' };
-			//console.log(postData);
-
-			$.ajax({
-				url: 'ISRI0004.ASPX/Process_SessionRegForm',
-				data: JSON.stringify({ 'GUID': '<%:SESSIONGUID%>' }),
-				//dataType: 'json', // 預期從server接收的資料型態
-				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-				contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
-				type: 'POST',
-				//  enctype: 'multipart/form-data',
-				caches: false,
-				async: false,
-				// contentType: false, // Not to set any content header  //formdata required
-				//	processData: false, // Not to process data  //formdata required
-				success: function (response, textStatus, jqXHR) {
-					console.log('success');
-					var data = response.d;
-					console.log(response);
-					console.log(data);
-					let json2 = JSON.stringify(data);
-					let json3 = JSON.parse(json2);
-					console.log(json3);
-					return;
-
-					//	var obj = jQuery.parseJSON(data);
-					//	console.log(obj); 
-					////	var keys = response.map(function (o) { return o.Key; });
-					//	///console.log(keys); 
-					//	let json = JSON.stringify(data); 
-
-					//	let json2 = JSON.parse(json);
-					//	console.log(json2); 
-					//	//for (var i = 0; i < data.length; i++) {
-					//	console.log(data[i].key);
-					//	console.log(data[i].value);
-					//}
-				}
-				, fail: function (jqXHR, textStatus, errorThrown) {
-					console.log('fail');
-					console.log(errorThrown);
-				}
-				, error: function (data) {
-					console.log('error');
-					console.log(data);
-					console.log(data.responseText);
-					console.log(data.status);
-					console.log(data.statusText);
-					jQuery('<div/>', {
-						id: 'errorDiv'
-					}).html(data.responseText).appendTo($('.footer')).hide();
-					var msg = $('#errorDiv').find('title').text();
-					$('#errorDiv').remove();
-					alert(msg);
-				}
-				, done: function (data) {
-					console.log('done');
-					console.log(data);
-
-				}
-
-			});
-		};
-
+	 
 		var SaveForm = function (btn) {
 			let guid = btn.attr('guid');
 			let target = btn.attr('data-target');
@@ -190,18 +120,7 @@
 						AlertAndMove('報名表設定成功!  下一步: 場次傳送!');
 					}
 
-					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
-
-					//$("#flowStep").attr('data-slider-value', 2);
-					//$("#flowStep").attr('data-slider-value', 2);
-					//$("#flowStep").slider('refresh');
-					//$('#flowStep').slider('setValue', 2);
-					//$("#flowStep").slider().slider("value").val(2);
-					//$("#flowStep").slider({
-					//	value : 2
-					//});
-					//$('#flowStep').val(3);
-					//$('#flowStep').slider('refresh');
+					 
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -269,14 +188,7 @@
 					$(this).closest('tr').find('.display').prop('checked', true);
 				}
 			})
-			$(document).on('click', '#test', function (e) {
-				e.preventDefault(); 
-				let f = $('#file1').name;
-				let v = $('#file1').value;
-				console.log(f);
-				console.log(v);
-				return; 
-			});
+			 
 
 			$(document).on('click', '#btnSave', function (e) {
 				e.preventDefault(); 

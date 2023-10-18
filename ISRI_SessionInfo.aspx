@@ -171,7 +171,12 @@
 
 
 
+<script>
+	$(function () { 
+		$("#flowStep").slider('setValue',  "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>" ); 
+	});
 
+</script>
 
 
 

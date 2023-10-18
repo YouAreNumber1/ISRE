@@ -587,6 +587,7 @@
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">複製資料</a>
 					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">傳送</a>
 					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">刪除</a>
+					<a href="ISRI0004.aspx?GUID=<%: GUID %>&SESSIONGUID=<%: SESSIONGUID %>" id="btn_RegistrationFormSetting" class="btn btn-primary-isre   text-nowrap px-sm-4 py-2  me-md-4 m-2  ">報名表設定</a>
 
 					<% }
 						else
@@ -599,8 +600,7 @@
 					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2 ">回首頁</a>
 
 					
-					<a href="#" id="btn_RegistrationFormSetting" class="btn btn-primary-isre   text-nowrap px-sm-4 py-2  me-md-4 m-2  d-none">報名表設定</a>
-
+					
 				</div>
 
 			</div>
@@ -612,13 +612,11 @@
 	<script> 
 
 		$(document).ready(function () {
+			$("#flowStep").slider('setValue', "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>"); 
+
 			$("#SESS_DATE_S_DATE, #SESS_DATE_E_DATE,#REG_DATE_S, #REG_DATE_E, #CHK_DATE_S_DATE, #CHK_DATE_E_DATE, #REMIND_MAIL_DATE, #sch_s_datepicker")
 				.datepicker($.datepicker.regional['zh-TW']);
-			/////////// setting 報名表
-			if ("<%: SESSIONGUID %>"!='') {
-				$('#btn_RegistrationFormSetting').removeClass('d-none');
-			}
-
+			 
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
 				$('#btnCopy, #btnSave, #btnRelease, #btnDelete').addClass('d-none');

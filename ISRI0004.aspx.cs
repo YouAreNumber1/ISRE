@@ -24,11 +24,11 @@ namespace ISRE
         {
 			if (!IsPostBack)
 			{
-				Response.Write("first time");
+				 
 			}
 			else
 			{
-				Response.Write("PostBack ");
+				 
 			}
         }
 
