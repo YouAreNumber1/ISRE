@@ -17,6 +17,10 @@
 			<div id="ISRI_SessionFlow" runat="server">
 				<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 			</div>
+			<div id="ActivityInfo" runat="server">
+	<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
+</div>
+
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
 				<% if (iCancelled==0)
 					{  %>

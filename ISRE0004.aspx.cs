@@ -24,7 +24,7 @@ namespace ISRE
 			if (!this.IsPostBack)
 			{
 				 
-				string GUID = Request["GUID"] ?? "";
+				string GUID = Request["REGISTERGUID"] ?? "";
 				string CONFIRMKEY = Request["CONFIRMKEY"] ?? "";
 				dynamic Model= Process_RegisterInfo(GUID);
 				if (Model == null )
@@ -220,6 +220,21 @@ namespace ISRE
 			}
 		}
 
+		protected ISRE_ACTIVITY_MAIN Process_ActivityInfo(String GUID)
+		{
+			DynamicParameters param = new DynamicParameters();
+			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
+			param.Add("@QueryMode", "R", DbType.String, ParameterDirection.Input);
+
+			ISRE_ACTIVITY_MAIN model = _dbConn.Query<ISRE_ACTIVITY_MAIN>(
+			"Home_ISRE_ACTIVITY_MAIN",
+			param,
+			commandType: CommandType.StoredProcedure
+			, commandTimeout: _ConnectionTimeout)
+			.FirstOrDefault();
+
+			return model;
+		}
 
 	}
 }
