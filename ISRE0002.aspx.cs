@@ -170,12 +170,8 @@ namespace ISRE
 			sb.Append("<br>");
 			sb.Append("<a href=");
 			sb.Append(WebAppHost);
-			sb.Append("isre0004.aspx?REGISTERGUID=");
-			sb.Append(  GUID  );
-			sb.Append("&GUID=");
-			sb.Append(Model.ACTIVITYGUID);
-			sb.Append("&SESSIONGUID=");
-			sb.Append(Model.SESSIONGUID); 
+			sb.Append("isre0004.aspx?GUID=");
+			sb.Append(  GUID  ); 
 			sb.Append("&confirmkey=");
 			sb.Append(Model.CONFIRMKEY);
 			sb.Append(">點此確認"); 

@@ -16,30 +16,30 @@ namespace ISRE
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-
-		public int iConfirmed = 0;
+		public dynamic Model = null;
+		public int iConfirmed = 10;
 		
 		protected void Page_Load(object sender, EventArgs e)
         {
 			if (!this.IsPostBack)
 			{
-				 
-				string GUID = Request["REGISTERGUID"] ?? "";
+
+				string GUID = Request["GUID"] ?? "";
 				string CONFIRMKEY = Request["CONFIRMKEY"] ?? "";
-				dynamic Model= Process_RegisterInfo(GUID);
-				if (Model == null )
+				Model = Process_RegisterInfo(GUID);
+				if (Model == null)
 				{
 					iConfirmed = -1;  ////////// user not found
 				}
-				else if ( Model.REG_STATUS ==((int) ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
+				else if (Model.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 				{
 					iConfirmed = 1;  ////////// confirmed
-				} 
+				}
 			}
 			 
 		}
 
-		private static dynamic Process_RegisterInfo(string GUID = "")
+		protected static dynamic Process_RegisterInfo(string GUID = "")
 		{
 			DynamicParameters param = new DynamicParameters();
 

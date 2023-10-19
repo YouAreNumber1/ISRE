@@ -112,6 +112,7 @@
     <Content Include="ISRE0004.aspx" />
     <Content Include="ISRI0003Alex.aspx" />
     <Content Include="ISRI_RegistrationFlow.aspx" />
+    <Content Include="ISRI_RegisterInfo.aspx" />
     <Content Include="ISRI_SessionInfo.aspx" />
     <Content Include="ISRI_SessionFlow.aspx" />
     <Content Include="ISRI_ActivityInfo.aspx" />
@@ -2524,6 +2525,13 @@
     <Compile Include="ISRI_RegistrationFlow.aspx.designer.cs">
       <DependentUpon>ISRI_RegistrationFlow.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ISRI_RegisterInfo.aspx.cs">
+      <DependentUpon>ISRI_RegisterInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISRI_RegisterInfo.aspx.designer.cs">
+      <DependentUpon>ISRI_RegisterInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ISRI_SessionInfo.aspx.cs">
       <DependentUpon>ISRI_SessionInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2621,6 +2629,7 @@
     <Compile Include="Models\ISRE_SESSION_FILE_REF.cs" />
     <Compile Include="Models\ISRE_SESSION_MAIN.cs" />
     <Compile Include="Models\ISRE_SESSION_OP_LOG.cs" />
+    <Compile Include="Models\ISRE_SESSION_REGISTERINFO.cs" />
     <Compile Include="Models\ISRE_SESSION_REG.cs" />
     <Compile Include="Models\ISRE_SESSION_REG_FORM.cs" />
     <Compile Include="Models\ISRE_SESSION_SCH.cs" />

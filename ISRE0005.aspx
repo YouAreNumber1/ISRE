@@ -10,22 +10,26 @@
 		string CHECKINKEY = Request["CHECKINKEY"] ?? "";
 
 	%>
-	 
-	 
+
+
 	<main>
-		<section >
+		<section>
 			<div id="ISRI_SessionFlow" runat="server">
 				<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 			</div>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-				<% if (iCheckIn==0)
+				<% if (iCheckIn == 0)
 					{  %>
-
-				<a href="#" id="btnConfirm" guid="<%: GUID %>" CHECKINKEY="<%: CHECKINKEY %>"
+				<a href="#" id="btnConfirm" guid="<%: GUID %>" checkinkey="<%: CHECKINKEY %>"
 					data-target="ISRE0005.aspx/Process_Confirm"
 					class="btn btn-primary-isre px-3 mx-1 mx-md-4 px-md-4 text-nowrap">報到</a>
 				<% }
-					else
+					else if (iCheckIn == -2)
+					{  %>
+				<a class="btn btn-primary disabled">已取消</a>
+
+				<% }
+					else  
 					{  %>
 				<a class="btn btn-primary disabled"><%: iCheckIn==1? "已報到" : "使用者不存在" %></a>
 
@@ -37,15 +41,15 @@
 
 	</main>
 	<script> 
-		 
 
-		var SaveForm = function (btn) { 
-			 
+
+		var SaveForm = function (btn) {
+
 			let GUID = btn.attr('GUID');	//// TAKE  reg GUID
 			let CHECKINKEY = btn.attr('CHECKINKEY');	//// TAKE  reg GUID
 			let target = btn.attr('data-target');
-			 
-			 
+
+
 			$.ajax({
 				url: target,
 				data: JSON.stringify({ 'GUID': GUID, 'CHECKINKEY': CHECKINKEY }),
@@ -63,7 +67,7 @@
 					///// dynamic model returned
 					var keys = response.d.map(function (o) { return o.Key; });
 					//console.log(keys);
-					 
+
 					let UserFound = response.d[keys.indexOf("UserFound")].Value;
 					let UserStatus = response.d[keys.indexOf("UserStatus")].Value;
 					let UserStatusAfter = response.d[keys.indexOf("UserStatusAfter")].Value;
@@ -72,26 +76,26 @@
 						if (UserStatus == UserStatusAfter) {
 							AlertAndMove('已報到!');
 						}
-						else { 
+						else {
 							btn.removeAttr('id guid CHECKINKEY').addClass('disabled');
-							 
+
 							AlertAndMove('報到成功!');
 						}
 					}
 					else {
 						AlertAndMove('使用者不存在!');
 					}
-				///	var ROWCOUNTNO = response.d[keys.indexOf("ROWCOUNTNO")].Value;
+					///	var ROWCOUNTNO = response.d[keys.indexOf("ROWCOUNTNO")].Value;
 					//console.log(ROWCOUNTNO);
 					//if (ROWCOUNTNO > 0) { 
 					//	btn.removeAttr('id guid CHECKINKEY').addClass('disabled');
-						 
+
 					//	AlertAndMove('報到成功!');
 					//}
 					//else { 
 					//	AlertAndMove('報到失敗!');
 					//}
-  
+
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -118,26 +122,26 @@
 
 			});
 		};
-		 
+
 		$(function () {
 			if ("<%:iCheckIn%>" == 1) {
-			$("#flowStep").slider('setValue', 5);
-}
-			if ("<%:iCheckIn%>" == -1) {
+				$("#flowStep").slider('setValue', 5);
+			}
+			if ("<%:iCheckIn%>" <0  ) {
 				$("#flowStep").slider('setValue', 1);
 			}
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();
-				
+
 				var btn = $(this);
 				btn.addClass('disabled');
 				showModalAjax();
-				 
+
 				$(document).delay(500).queue(function () {
 					$(document).dequeue();
-					 SaveForm(btn);
+					SaveForm(btn);
 				});
-				
+
 			});
 		});
 

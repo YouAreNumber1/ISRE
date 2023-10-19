@@ -32,7 +32,12 @@ namespace ISRE
 					== ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
 				{
 					iCheckIn = 1;  ////////// checked in
-				} 
+				}
+				else if (Model.REG_STATUS
+					== ((int)ISRE.Enum_REG_STATUS.Cancel_Mail).ToString())
+				{
+					iCheckIn = -2;  ////////// cancel in
+				}
 			} 
 		}
 

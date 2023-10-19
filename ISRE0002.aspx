@@ -1267,7 +1267,7 @@
 
 	<script> 
 		//////////// TAKE REG GUID
-		var SendMail = function (GUID, SESSIONGUID, REGISTERGUID) {
+		var SendMail = function (GUID) {
 			$.ajax({
 				url: "ISRE0002.aspx/Process_RegisterConfirmMail",
 				data: JSON.stringify({ 'GUID': GUID }),
@@ -1373,8 +1373,7 @@
 
 					var EMAIL = response.d[keys.indexOf("EMAIL")].Value;
 					var GUID = response.d[keys.indexOf("GUID")].Value;
-					var SESSIONGUID = response.d[keys.indexOf("SESSIONGUID")].Value;
-					var REGISTERGUID = response.d[keys.indexOf("REGISTERGUID")].Value;
+					 
 					const today = new Date();
 
 					if ("<%:RegisterMultiple　%>" == '1') //// multiple register
@@ -1389,7 +1388,7 @@
 					else {  ///////// signle register
 						AlertAndMove('資料送出成功!  請查收 email並確認');
 					}
-					SendMail(GUID, SESSIONGUID, REGISTERGUID);
+					SendMail(GUID);
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
