@@ -129,10 +129,9 @@ namespace ISRE
 			 
 			if (model!=null && model.SerialID>0)
 			{
-				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 新增成功!");
-				Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]  ));
+				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 新增成功!"); 
 			}
-			//
+			 Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]  ));
 		}
 
 		protected void btnSave_Click(object sender, EventArgs e)
@@ -141,73 +140,46 @@ namespace ISRE
 			if (model != null && model.SerialID > 0)
 			{
 				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 修改成功!"); 
-				Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]));
 			}
-			//
+			 Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]));
 		}
-
+		protected void btnDelete_Click(object sender, EventArgs e)
+		{
+			var model = Process_Session(Request["SESSIONGUID"], "D");
+			if (model != null  )
+			{
+				Session["StatusMessage"] = string.Concat("場次刪除成功!"); 
+			}
+			 Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]));
+		}
 
 		/// <summary>
 		/// 更新資料
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		/// <remarks>
-		/// Modification date : 20231013 
-		/// Modifier :Alex Huang
-		/// </remarks> 
+
 		protected void btnInsert_Click(object sender, EventArgs e)
-		{ }
+		{
+			var model = Process_Session(Request["GUID"], "C");
 
-		/// <summary>
-		/// 傳送新增表單資料
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		/// <remarks>
-		/// Modification date : 20231013 
-		/// Modifier :Alex Huang
-		/// </remarks> 
-		//protected dynamic SessionAdd(object sender, EventArgs e)
-		//{
-		//	DynamicParameters param = new DynamicParameters();
-		  
-		//	param.Add("@QueryMode", "C", DbType.String, ParameterDirection.Input);
-		//	param.Add("@GUID", Request.QueryString["GUID"], DbType.String, ParameterDirection.Input);
-		//	foreach (string key in Request.Form.AllKeys)
-		//	{
-		//		//string value = Request.Form[key];
-		//		//if (key.Contains("__") || key.Contains("MainContent"))
-		//		//{
+			if (model != null && model.SerialID > 0)
+			{
+				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 新增成功!");
+			}
+			Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]));
+		}
 
-		//		//}
-		//		//else
-		//		//{
-		//		//	param.Add(string.Format(@"@{0}", key), Request.Form[key], DbType.String, ParameterDirection.Input);
-		//		//}
-		//		if (!key.StartsWith("__")
-		//			   && !key.StartsWith("ctl00$MainContent$btnAdd"))
-		//		{
-		//			string value = Request.Form[key];
-		//			param.Add(string.Format(@"@{0}", key), value, DbType.String, ParameterDirection.Input);
-		//		}
-		//	}
-		//	dynamic model = _dbConn.Query<dynamic>(
-		//				"Session_ISRE_SESSION_MAIN",
-		//				param,
-		//				commandType: CommandType.StoredProcedure
-		//			, commandTimeout: _ConnectionTimeout)
-		//			.FirstOrDefault();
+		protected void btnActivate_Click(object sender, EventArgs e)
+		{
+			var model = Process_Session(Request["SESSIONGUID"], "A");
 
-		//	return model;
-		//}
-
-		/// <summary>
-		/// ProcessActivityInfo class
-		/// </summary>
-		/// <param name="GUID"></param>
-		/// <returns></returns>
-
+			if (model != null && model.SerialID > 0)
+			{
+				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 傳送成功!");
+			}
+			Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]));
+		}
 
 		protected dynamic Process_Session(string GUID, string QueryMode)
 		{
@@ -224,14 +196,7 @@ namespace ISRE
 				else
 				{
 					param.Add(string.Format(@"@{0}", key), Request.Form[key], DbType.String, ParameterDirection.Input);
-				}
-
-				//if (!key.StartsWith("__")
-				//	   && !key.StartsWith("ctl00$MainContent$btnAdd"))
-				//{
-				//	string value = Request.Form[key];
-				//	param.Add(string.Format(@"@{0}", key), value, DbType.String, ParameterDirection.Input);
-				//}
+				} 
 			}
 			dynamic model = _dbConn.Query<dynamic>(
 						"Session_ISRE_SESSION_MAIN",

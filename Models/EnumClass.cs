@@ -8,6 +8,8 @@ namespace ISRE
 	/// </summary>
 	public enum Enum_REG_STATUS
     {
+		[Description("取消報名(線上)"), Display(Name = "取消報名(線上)")]
+		Cancel_Mail = 0,
 		[Description("已報到(掃碼、線上)"), Display(Name = "已報到(掃碼、線上)")]
 		CheckIn_Mail = 5,
 		[Description("已報到(負責人)"), Display(Name = "已報到(負責人)")]
@@ -16,8 +18,7 @@ namespace ISRE
 		CheckIn_Qrcode = 7, 
 		[Description("已填寫報名表(線上候補)"), Display(Name = "已填寫報名表(線上候補)")]
 		BackUp = 8,
-		[Description("取消報名(線上)"), Display(Name = "取消報名(線上)")]
-		Cancel_Mail = 9,
+		
 	    //[Description("已填寫報名表(線上正取"), Display(Name="已填寫報名表(線上正取")]
      //   Register_Official =10,
      //   [Description("已填寫報名表(線上候補"), Display(Name = "已填寫報名表(線上候補)")]
@@ -153,4 +154,6 @@ namespace ISRE
         [Description("ISR"), Display(Name = "ISR")]
         ISR = 3
     }
+
+	 
 }

@@ -57,8 +57,12 @@
 					</span>
 					<div class="col-9 col-sm-8 col-lg-12    ">
 						<div class="d-flex justify-content-lg-center">
-							<%:(Model == null || Model.ACT_DATE_S.GetHashCode()==0 ) ? "" : Model.ACT_DATE_S.ToString("yyyy-MM-dd") %>
-							~ <%:(Model == null || Model.ACT_DATE_E.GetHashCode()==0 ) ? "" : Model.ACT_DATE_E.ToString("yyyy-MM-dd") %>
+							<%:(Model == null || Model.ACT_DATE_S.GetHashCode()==0 ) ? "" : String.Concat(
+										(Int32.Parse(Model.ACT_DATE_S.ToString("yyyy")) - 1911).ToString(),
+										"/", Model.ACT_DATE_S.ToString("MM"), "/", Model.ACT_DATE_S.ToString("dd")) %>
+							~ <%:(Model == null || Model.ACT_DATE_E.GetHashCode()==0 ) ? "" : String.Concat(
+													(Int32.Parse(Model.ACT_DATE_E.ToString("yyyy")) - 1911).ToString(),
+													"/", Model.ACT_DATE_E.ToString("MM"), "/", Model.ACT_DATE_E.ToString("dd")) %>
 						
 						</div>
 					</div>

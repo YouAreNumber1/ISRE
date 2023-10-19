@@ -5,6 +5,11 @@
 <%--this page is for backend activity info and sesseion list--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"> 
+	<style>
+		.note{
+			color:red;
+		}
+	</style>
 	<%
 		string StatusMessage = (string)Session["StatusMessage"]??"";
 		string GUID = Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
@@ -29,8 +34,8 @@
 
 
 			<%--   session list   start--%>
-			<div class="d-flex  justify-content-between  align-items-center mt-5 ">
-				<div></div>
+			<div class="d-flex  justify-content-between  align-items-end mt-5 ">
+				<div> <span class="note">*</span>已傳送</div>
 				<h3 class="text-center ">場次列表</h3>
 				<a href="ISRI0003.aspx?GUID=<%:GUID %>" class="btn btn-Create btn-primary-isre px-3">新增場次</a>
 			</div>
@@ -101,7 +106,16 @@
 							</span>
 							<div class="col-8  col-sm-7  col-lg-12 ">
 								<div class="d-flex justify-content-lg-center">
+									<%  if (item!=null
+											&& item.SESS_STATUS!=null
+											&& item.SESS_STATUS.ToString()==((int)ISRE.Enum_SessionFlow.Activate).ToString())
+									{ %>
+										 <span class="note">*</span>
+									<%} %>
+									
 									<%: (item.SESS_NO!=null) ? item.SESS_NO   : "" %>
+								 
+								 
 								</div>
 							</div>
 						</div>
@@ -113,7 +127,9 @@
 							</span>
 							<div class="col-8  col-sm-7 col-lg-12    ">
 								<div class="d-flex justify-content-lg-center">
-									<%: (item.SESS_DATE_S!=null) ? item.SESS_DATE_S.ToString("yyyy-MM-dd")  : "" %>
+									<%: (item.SESS_DATE_S!=null) ? String.Concat(
+							 (Int32.Parse(item.SESS_DATE_S.ToString("yyyy")) -1911).ToString() ,
+							 "/", item.SESS_DATE_S.ToString("MM"), "/", item.SESS_DATE_S.ToString("dd"))  : "" %>
 								</div>
 							</div>
 						</div>
@@ -150,7 +166,9 @@
 							</div>
 							<div class="col-8  col-sm-7  col-lg-12     ">
 								<div class="d-flex justify-content-lg-center">
-									<%: (item.REG_DATE_E!=null) ? item.REG_DATE_E.ToString("yyyy-MM-dd")  : "" %>
+									<%: (item.REG_DATE_E!=null) ?  String.Concat(
+							 (Int32.Parse(item.REG_DATE_E.ToString("yyyy")) -1911).ToString() ,
+							 "/", item.REG_DATE_E.ToString("MM"), "/", item.REG_DATE_E.ToString("dd"))   : "" %>
 								</div>
 							</div>
 						</div>

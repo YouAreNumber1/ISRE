@@ -190,6 +190,7 @@
 						<div class="col-8 col-lg-12   ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
 								<%:Model == null || Model.SESS_NO==null  ? "" : Model.SESS_NO %>
+								
 							</div>
 						</div>
 					</div>
@@ -1445,10 +1446,9 @@
 			let rdoValue = $('input[name="rdoREG_TYPE"]:checked').val();
 
 			if (rdoValue == '1')  //// personal
-			{
-				if ($('#PERSONAL_MOBILE_D').val().trim() != '') {
-					var result = $('#PERSONAL_MOBILE_D').val().match(mobilePattern);
-					console.log(result);
+			{ 
+				if ($('#PERSONAL_MOBILE_D').length>0 &&  $('#PERSONAL_MOBILE_D').val().trim() != '') {
+					var result = $('#PERSONAL_MOBILE_D').val().match(mobilePattern); 
 					if (result == null) {
 						AlertAndMove('手機 not valid!', $('#PERSONAL_MOBILE_D'));
 						return false;
@@ -1457,9 +1457,8 @@
 			}
 			if (rdoValue == '2')  //// unit
 			{
-				if ($('#UNIT_MOBILE_D').val().trim() != '') {
-					var result = $('#UNIT_MOBILE_D').val().match(mobilePattern);
-					console.log(result);
+				if ($('#UNIT_MOBILE_D').length > 0 &&  $('#UNIT_MOBILE_D').val().trim() != '') {
+					var result = $('#UNIT_MOBILE_D').val().match(mobilePattern); 
 					if (result == null) {
 						AlertAndMove('手機 not valid!', $('#UNIT_MOBILE_D'));
 						return false;
@@ -1478,17 +1477,17 @@
 
 			if (rdoValue == '1')  //// personal
 			{
-				if ($('#PERSONAL_AREACODE_D').val().trim() != '') {
+				if ($('#PERSONAL_AREACODE_D').length > 0 && $('#PERSONAL_AREACODE_D').val().trim() != '') {
 					var result = $('#PERSONAL_AREACODE_D').val().match(areacodePattern);
-					console.log(result);
+				 
 					if (result == null) {
 						AlertAndMove('區碼 not valid!', $('#PERSONAL_AREACODE_D'));
 						return false;
 					}
 				}
-				if ($('#PERSONAL_TELPHONE_D').val().trim() != '') {
+				if ($('#PERSONAL_TELPHONE_D').length > 0 && $('#PERSONAL_TELPHONE_D').val().trim() != '') {
 					var result = $('#PERSONAL_TELPHONE_D').val().match(telphonePattern);
-					console.log(result);
+					 
 					if (result == null) {
 						AlertAndMove('市話 not valid!', $('#PERSONAL_TELPHONE_D'));
 						return false;
@@ -1497,17 +1496,17 @@
 			}
 			if (rdoValue == '2')  //// unit
 			{
-				if ($('#UNIT_AREACODE_D').val().trim() != '') {
+				if ($('#UNIT_AREACODE_D').length > 0 && $('#UNIT_AREACODE_D').val().trim() != '') {
 					var result = $('#UNIT_AREACODE_D').val().match(areacodePattern);
-					console.log(result);
+					 
 					if (result == null) {
 						AlertAndMove('區碼 not valid!', $('#UNIT_AREACODE_D'));
 						return false;
 					}
 				}
-				if ($('#UNIT_TELPHONE_D').val().trim() != '') {
+				if ($('#UNIT_TELPHONE_D').length > 0 && $('#UNIT_TELPHONE_D').val().trim() != '') {
 					var result = $('#UNIT_TELPHONE_D').val().match(telphonePattern);
-					console.log(result);
+					 
 					if (result == null) {
 						AlertAndMove('市話 not valid!', $('#UNIT_TELPHONE_D'));
 						return false;
@@ -1525,6 +1524,8 @@
 			{
 				let PERSONAL_TEACHERPROOF_D = $('input[name="PERSONAL_TEACHERPROOF_D"]:checked').val();
 				let PERSONAL_TRAININGHOUR_D = $('input[name="PERSONAL_TRAININGHOUR_D"]:checked').val();
+				console.log(PERSONAL_TEACHERPROOF_D);
+				console.log(PERSONAL_TRAININGHOUR_D);
 				if (PERSONAL_TEACHERPROOF_D == '1' || PERSONAL_TRAININGHOUR_D == '1') {///// either one checked
 					let PERSONAL_PIDAGREE_D = $('input[name="PERSONAL_PIDAGREE_D"]:checked').val();
 					if (PERSONAL_PIDAGREE_D=='2') {

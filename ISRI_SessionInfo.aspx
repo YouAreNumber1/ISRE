@@ -173,7 +173,7 @@
 
 <script>
 	$(function () { 
-		$("#flowStep").slider('setValue',  "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>" ); 
+		$("#flowStep").slider('setValue',  "<%:Model == null || Model.SESS_STATUS==null  ? "1" : Model.SESS_STATUS   %>" ); 
 	});
 
 </script>

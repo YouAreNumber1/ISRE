@@ -63,7 +63,7 @@
 								placeholder="民國年/月/日"
 								value="<%: (Model !=null &&  Model.SESS_DATE_S!=null
                          ? String.Concat(
-							 (int.Parse(Model.SESS_DATE_S.ToString("yyyy")) -1911).ToString() ,
+							 (Int32.Parse(Model.SESS_DATE_S.ToString("yyyy")) -1911).ToString() ,
 							 "/", Model.SESS_DATE_S.ToString("MM"), "/", Model.SESS_DATE_S.ToString("dd"))
                          : ""  )  %>">
 							<input type="time" id="SESS_DATE_S_TIME" name="SESS_DATE_S_TIME"
@@ -77,7 +77,7 @@
 								class="form-control mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null
 								? String.Concat(
-								(int.Parse(Model.SESS_DATE_E.ToString("yyyy")) -1911).ToString() ,
+								(Int32.Parse(Model.SESS_DATE_E.ToString("yyyy")) -1911).ToString() ,
 								"/", Model.SESS_DATE_E.ToString("MM"), "/", Model.SESS_DATE_E.ToString("dd"))
 								: ""  )  %>"
 								placeholder="民國年/月/日">
@@ -129,7 +129,7 @@
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.REG_DATE_S!=null
                          ? String.Concat(
-							 (int.Parse(Model.REG_DATE_S.ToString("yyyy")) -1911).ToString() ,
+							 (Int32.Parse(Model.REG_DATE_S.ToString("yyyy")) -1911).ToString() ,
 							 "/", Model.REG_DATE_S.ToString("MM"), "/", Model.REG_DATE_S.ToString("dd"))
                          : ""  )  %>">
 							<span>~</span>
@@ -137,7 +137,7 @@
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.REG_DATE_E!=null
                         ? String.Concat(
-							 int.Parse(Model.REG_DATE_E.ToString("yyyy")) -1911 ,
+							 Int32.Parse(Model.REG_DATE_E.ToString("yyyy")) -1911 ,
 							 "/", Model.REG_DATE_E.ToString("MM"), "/", Model.REG_DATE_E.ToString("dd"))
                         : ""  )  %>">
 						</div>
@@ -152,9 +152,11 @@
 						<div class="d-flex">
 							<input type="text" id="CHK_DATE_S_DATE" name="CHK_DATE_S_DATE"
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_S !=null
-                     ? Model.CHK_DATE_S.ToString("yyyy-MM-dd") 
-                     : ""  )  %>">
+								 value="<%: (Model !=null &&  Model.CHK_DATE_S!=null
+								? String.Concat(
+								(Int32.Parse(Model.CHK_DATE_S.ToString("yyyy")) -1911).ToString() ,
+								"/", Model.CHK_DATE_S.ToString("MM"), "/", Model.CHK_DATE_S.ToString("dd"))
+								: ""  )  %>" >
 							<input type="time" id="CHK_DATE_S_TIME" name="CHK_DATE_S_TIME"
 								placeholder="HH:mm" class="form-control mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.CHK_DATE_S!=null
@@ -163,14 +165,16 @@
 							<span>~</span>
 							<input type="text" id="CHK_DATE_E_DATE" name="CHK_DATE_E_DATE"
 								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
-                        ? Model.CHK_DATE_E.ToString("yyyy-MM-dd") 
-                        : ""  )  %>">
+								 value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
+								? String.Concat(
+								(Int32.Parse(Model.CHK_DATE_E.ToString("yyyy")) -1911).ToString() ,
+								"/", Model.CHK_DATE_E.ToString("MM"), "/", Model.CHK_DATE_E.ToString("dd"))
+								: ""  )  %>">
 							<input type="time" id="CHK_DATE_E_TIME" name="CHK_DATE_E_TIME"
 								placeholder="HH:mm" class="form-control mx-1 requiredInput"
-								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
-                         ? Model.CHK_DATE_E.ToString("HH:mm")  
-                         : ""  )  %>">
+								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null)
+								?   Model.CHK_DATE_E.ToString("HH:mm") 
+								 :""%>"  >
 						</div>
 					</div>
 				</div>
@@ -474,7 +478,7 @@
 
 					</div>
 				</div>
-
+				 
 				<div class="  row     ">
 					<div class=" bg-ice   py-3  col-lg-2 border  ">
 						<label>活動提醒通知信</label>
@@ -498,8 +502,11 @@
 								<div class="d-flex">
 									<input type="text" id="REMIND_MAIL_DATE" name="REMIND_MAIL_DATE"
 										placeholder="民國年/月/日" class="form-control  mx-1     "
-										value="<%: (Model !=null &&  Model.REMIND_MAIL_DATE!=null
-                                ? Model.REMIND_MAIL_DATE.ToString("yyyy-MM-dd") : ""  )  %>">
+										value="<%: (Model !=null &&  Model.REMIND_MAIL_DATE.GetHashCode() !=0  &&  Model.REMIND_MAIL_DATE!=null
+                                 ? String.Concat(
+				 (Int32.Parse(Model.REMIND_MAIL_DATE.ToString("yyyy")) -1911).ToString() ,
+				 "/", Model.REMIND_MAIL_DATE.ToString("MM"), "/", Model.REMIND_MAIL_DATE.ToString("dd"))
+ : ""   )  %>">
 
 									<input type="time" id="REMIND_MAIL_TIME" name="REMIND_MAIL_TIME" placeholder="HH:mm"
 										class="form-control mx-1 flex-grow-1  "
@@ -538,23 +545,42 @@
 					<a id="btn_Preview" target="_blank" href="ISRE0000.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
 						class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2   ">預覽</a>
 
-					<asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " OnClick="btnInsert_Click" />
-					<%--	<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">儲存</a>--%>
+					<asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " 
+						OnClientClick="return ClientValidate(this)"
+						OnClick="btnInsert_Click" />
+					
 					<asp:Button ID="btnSave" runat="server" Text="儲存" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 "
 						OnClientClick="return ClientValidate(this)"
-						OnClick="btnSave_Click"/>
+						OnClick="btnSave_Click" />
+
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">複製資料</a>
-					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">傳送</a>
-					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">刪除</a>
+					 
+					<%  if (Model!=null
+								&& Model.SESS_STATUS!=null
+								&& Model.SESS_STATUS.ToString()==((int)ISRE.Enum_SessionFlow.RegistrationForm).ToString())
+						{ %>
+										 <asp:Button ID="btnActivate" runat="server" Text="傳送" 
+						CssClass="btn btn-primary-isre  text-nowrap  
+						px-sm-4 py-2  me-md-4 m-2 "
+				OnClientClick="return ActivateConfirm();"
+				OnClick="btnActivate_Click" />
+						<%} %>
+					
+
+
+					<asp:Button ID="btnDelete" runat="server" Text="刪除" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 "
+						OnClientClick="return DeleteConfirm();"
+						OnClick="btnDelete_Click" />
+
+
 					<a href="ISRI0004.aspx?GUID=<%: GUID %>&SESSIONGUID=<%: SESSIONGUID %>" id="btn_RegistrationFormSetting" class="btn btn-primary-isre   text-nowrap px-sm-4 py-2  me-md-4 m-2  ">報名表設定</a>
 
 					<% }
 						else
 						{ %>
-					<%-- <a href="#" id="btnAdd" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">新增</a>1--%>
-					<asp:Button ID="btnAdd" runat="server" Text="新增"
+				    <asp:Button ID="btnAdd" runat="server" Text="新增"
 						CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 "
-						OnClientClick="return ClientValidate(this)"
+						OnClientClick="return ClientValidate(this);"
 						OnClick="btnAdd_Click" />
 					<%}%>
 					<a href="ISRI0002.aspx?GUID=<%: GUID %>" id="btnBack" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">回前一頁</a>
@@ -572,7 +598,7 @@
 
 	</main>
 	<script> 
-		var ClientValidate=function(btn) {
+		var ClientValidate = function (btn) {
 			let thisForm = btn.closest('form');
 
 			var requiredInput = $(thisForm).find('.requiredInput');
@@ -580,21 +606,30 @@
 				return false;
 			return true;
 		}
-
-		//function executeAfter() {
+		var DeleteConfirm = function () {
+			let ans = confirm('確定刪除此場次?');
+			return ans;
+		};
+		var ActivateConfirm = function () { 
+			let ans = confirm('確定傳送此場次?'); 
+			return ans; 
+		};
+		//function executeAfter()
 		//	alert("execute after");
 		//}
 		$(document).ready(function () {
-			$("#flowStep").slider('setValue', "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>");
+			$("#flowStep").slider('setValue', "<%:Model == null || Model.SESS_STATUS==null  ? "1" : Model.SESS_STATUS   %>");
 
 			$("#SESS_DATE_S_DATE, #SESS_DATE_E_DATE,#REG_DATE_S, #REG_DATE_E, #CHK_DATE_S_DATE, #CHK_DATE_E_DATE, #REMIND_MAIL_DATE, #sch_s_datepicker")
 				.datepicker($.datepicker.regional['zh-TW']);
 
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
-				$('#btnCopy, #btnRelease, #btnDelete, #btnSave').addClass('d-none');
+				$('#btnCopy, #btnRelease, #MainContent_btnDelete, #MainContent_btnSave').addClass('d-none');
 				$('#MainContent_btnInsert').removeClass('d-none');
 			});
+
+
 		});
 
 	</script>

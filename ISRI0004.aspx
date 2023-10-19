@@ -41,8 +41,8 @@
 
 
 			<div class="d-flex justify-content-center my-4">
-
-				<a href="#"   class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a>
+				 
+			 	<%--<a href="ISRI0003.aspx?GUID=<%:GUID %>&SESSIONGUID=<%:SESSIONGUID %>#MainContent_btnActivate"  class="btn btn-primary-isre    px-3 py-2  me-5 mb-2 ">場次傳送</a> --%>
 
 				<a href="#" id="btnSave" guid="<%:SESSIONGUID %>"
 					data-target="ISRI0004.aspx/Process_SettingForm"
@@ -109,14 +109,16 @@
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
 					thisForm.find('.requiredCheck').prop("disabled", true);
-					console.log('success');
-					//var responseDOM = $(response);
-					console.log(response);
-					console.log(response.d);
+					//console.log('success');
+					////var responseDOM = $(response);
+					//console.log(response);
+					//console.log(response.d);
 					if (response.d == null) {
 						console.log('nogood');
 					}
 					else {
+						$("#flowStep").slider('setValue', "2"); 
+
 						AlertAndMove('報名表設定成功!  下一步: 場次傳送!');
 					}
 
@@ -151,16 +153,16 @@
 
 
 		let CheckRules = function () {
-			//let checked = $('#UNIT_INSUREDNO_R').is(":checked");
+			let checked = $('#UNIT_INSUREDNO_R').is(":checked");
 			/////////投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀填寫
-			//if (checked) {
+			if (checked) {
 				var boxes = $('.display-1-5:checked');
 				///console.log(boxes.length);
 				if (boxes.length != 1) {
 					AlertAndMove('投保單位代號、醫療院所代號、統⼀編號、投保單位代號或統⼀編號、指定單位代號必須擇⼀, 也只能擇一!!', $('.display-1-5').first());
 					return -1;
 				}
-			//}
+			}
 
 			return 0;
 		};
