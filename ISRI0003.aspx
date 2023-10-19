@@ -12,7 +12,7 @@
 		string GUID = Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
 		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? ""; ;/////////GUID= activity guid
 	%>
-	 
+
 
 	<main aria-labelledby="title">
 
@@ -72,7 +72,7 @@
 							?   Model.SESS_DATE_S.ToString("HH:mm") 
 							 :""%>"
 								class="form-control mx-1 requiredInput">
-							 	<span>~ </span>
+							<span>~ </span>
 							<input type="text" id="SESS_DATE_E_DATE" name="SESS_DATE_E_DATE"
 								class="form-control mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null
@@ -87,7 +87,6 @@
 								?   Model.SESS_DATE_E.ToString("HH:mm") 
 								 :""%>"
 								placeholder="HH:mm" class="form-control mx-1 requiredInput">
-							 
 						</div>
 					</div>
 				</div>
@@ -99,14 +98,14 @@
 					</div>
 					<div class="  py-3   col-lg-10 border">
 						<div>
-							<select name="SESS_LOC" id="SESS_LOC" class="form-control form-select">
+							<select name="SESS_LOC" id="SESS_LOC" class="form-control form-select requiredInput">
 								<option value="">請選擇</option>
 								<% 
 									//dynamic SESS_LOC = Request["SESS_LOC"] ?? "";
 									//dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
 									foreach (var item in List_CityList)
 									{
-										sSelected = (Model!=null &&　Model.SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
+										sSelected = (Model != null && Model.SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
 								%>
 								<option value="<%: item.CityNo %>" <%: sSelected %>><%: item.CityName %> </option>
 								<%
@@ -156,16 +155,19 @@
 								value="<%: (Model !=null &&  Model.CHK_DATE_S !=null
                      ? Model.CHK_DATE_S.ToString("yyyy-MM-dd") 
                      : ""  )  %>">
-							<input type="time" id="CHK_DATE_S_TIME" name="CHK_DATE_S_TIME" placeholder="HH:mm" class="form-control mx-1 requiredInput"
+							<input type="time" id="CHK_DATE_S_TIME" name="CHK_DATE_S_TIME"
+								placeholder="HH:mm" class="form-control mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.CHK_DATE_S!=null
                         ? Model.CHK_DATE_S.ToString("HH:mm")  
                         : ""  )  %>">
 							<span>~</span>
-							<input type="text" id="CHK_DATE_E_DATE" name="CHK_DATE_E_DATE" placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
+							<input type="text" id="CHK_DATE_E_DATE" name="CHK_DATE_E_DATE"
+								placeholder="民國年/月/日" class="form-control  mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
                         ? Model.CHK_DATE_E.ToString("yyyy-MM-dd") 
                         : ""  )  %>">
-							<input type="time" id="CHK_DATE_E_TIME" name="CHK_DATE_E_TIME" placeholder="HH:mm" class="form-control mx-1 requiredInput"
+							<input type="time" id="CHK_DATE_E_TIME" name="CHK_DATE_E_TIME"
+								placeholder="HH:mm" class="form-control mx-1 requiredInput"
 								value="<%: (Model !=null &&  Model.CHK_DATE_E!=null
                          ? Model.CHK_DATE_E.ToString("HH:mm")  
                          : ""  )  %>">
@@ -495,12 +497,12 @@
 								<div class="ms-5 me-3 "><b>寄送時間</b></div>
 								<div class="d-flex">
 									<input type="text" id="REMIND_MAIL_DATE" name="REMIND_MAIL_DATE"
-										placeholder="民國年/月/日" class="form-control  mx-1    requiredInput"
+										placeholder="民國年/月/日" class="form-control  mx-1     "
 										value="<%: (Model !=null &&  Model.REMIND_MAIL_DATE!=null
                                 ? Model.REMIND_MAIL_DATE.ToString("yyyy-MM-dd") : ""  )  %>">
 
 									<input type="time" id="REMIND_MAIL_TIME" name="REMIND_MAIL_TIME" placeholder="HH:mm"
-										class="form-control mx-1 flex-grow-1 requiredInput"
+										class="form-control mx-1 flex-grow-1  "
 										value="<%: (Model !=null &&  Model.REMIND_MAIL_TIME!=null
                                 ? Model.REMIND_MAIL_TIME  : ""  )  %>" />
 
@@ -537,18 +539,23 @@
 						class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2   ">預覽</a>
 
 					<asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " OnClick="btnInsert_Click" />
-				<%--	<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">儲存</a>--%>
-					<asp:Button ID="btnSave" runat="server" Text="儲存" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 " OnClick="btnSave_Click" />
+					<%--	<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">儲存</a>--%>
+					<asp:Button ID="btnSave" runat="server" Text="儲存" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 "
+						OnClientClick="return ClientValidate(this)"
+						OnClick="btnSave_Click"/>
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">複製資料</a>
 					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">傳送</a>
 					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">刪除</a>
 					<a href="ISRI0004.aspx?GUID=<%: GUID %>&SESSIONGUID=<%: SESSIONGUID %>" id="btn_RegistrationFormSetting" class="btn btn-primary-isre   text-nowrap px-sm-4 py-2  me-md-4 m-2  ">報名表設定</a>
 
 					<% }
-					else
-					{ %>
+						else
+						{ %>
 					<%-- <a href="#" id="btnAdd" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">新增</a>1--%>
-					<asp:Button ID="btnAdd" runat="server" Text="新增" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 " OnClick="btnAdd_Click" />
+					<asp:Button ID="btnAdd" runat="server" Text="新增"
+						CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 "
+						OnClientClick="return ClientValidate(this)"
+						OnClick="btnAdd_Click" />
 					<%}%>
 					<a href="ISRI0002.aspx?GUID=<%: GUID %>" id="btnBack" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">回前一頁</a>
 
@@ -565,7 +572,18 @@
 
 	</main>
 	<script> 
+		var ClientValidate=function(btn) {
+			let thisForm = btn.closest('form');
 
+			var requiredInput = $(thisForm).find('.requiredInput');
+			if (HasAllRequireValue(requiredInput) == false)
+				return false;
+			return true;
+		}
+
+		//function executeAfter() {
+		//	alert("execute after");
+		//}
 		$(document).ready(function () {
 			$("#flowStep").slider('setValue', "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>");
 

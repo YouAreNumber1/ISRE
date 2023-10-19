@@ -123,24 +123,24 @@ namespace ISRE
 
 		protected void btnAdd_Click(object sender, EventArgs e)
 		{
+			////////////// if need to execute after
+			//Page.ClientScript.RegisterStartupScript(GetType(), "none", "<script>executeAfter();</script>", false);
 			var model = Process_Session(Request["GUID"], "C");
-			//var model=SessionAdd(sender, e);
-			if (model.SerialID>0)
+			 
+			if (model!=null && model.SerialID>0)
 			{
 				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 新增成功!");
-
 				Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]  ));
 			}
 			//
 		}
 
 		protected void btnSave_Click(object sender, EventArgs e)
-		{
-			var model = Process_Session(Request["GUID"], "U");
-			if (model.SerialID > 0)
+		{ 
+			var model = Process_Session(Request["SESSIONGUID"], "U");
+			if (model != null && model.SerialID > 0)
 			{
-				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 修改成功!");
-
+				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 修改成功!"); 
 				Response.Redirect(string.Format("ISRI0002.aspx?GUID={0}", Request["GUID"]));
 			}
 			//
@@ -216,13 +216,22 @@ namespace ISRE
 			param.Add("@QueryMode", QueryMode, DbType.String, ParameterDirection.Input);
 			param.Add("@GUID", GUID, DbType.String, ParameterDirection.Input);
 			foreach (string key in Request.Form.AllKeys)
-			{ 
-				if (!key.StartsWith("__")
-					   && !key.StartsWith("ctl00$MainContent$btnAdd"))
+			{
+				if (key.IndexOf("__")>=0 || key.IndexOf("MainContent") >= 0)
 				{
-					string value = Request.Form[key];
-					param.Add(string.Format(@"@{0}", key), value, DbType.String, ParameterDirection.Input);
+
 				}
+				else
+				{
+					param.Add(string.Format(@"@{0}", key), Request.Form[key], DbType.String, ParameterDirection.Input);
+				}
+
+				//if (!key.StartsWith("__")
+				//	   && !key.StartsWith("ctl00$MainContent$btnAdd"))
+				//{
+				//	string value = Request.Form[key];
+				//	param.Add(string.Format(@"@{0}", key), value, DbType.String, ParameterDirection.Input);
+				//}
 			}
 			dynamic model = _dbConn.Query<dynamic>(
 						"Session_ISRE_SESSION_MAIN",

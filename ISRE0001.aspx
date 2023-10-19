@@ -319,34 +319,15 @@
 
 				<div class="col-12 col-lg-3 mt-3 mt-lg-0 col-Command">
 					<div class="   d-flex align-items-center   justify-content-center mx-sm-5 mx-lg-0 ">
-
-
-						<% if (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT+item.WAIT_MAX_COUNT-item.RegisterNo <=0)
-							{ %>
-
-						<a class="btn disabled px-3   text-nowrap mx-1 btn-SessionSingleRegister">額滿</a>
-
-						<% 	}
-							else if (item.REG_MAX_COUNT+item.UNIT_MAX_COUNT -item.RegisterNo <=0)
-							{%>
-
 						<a guid="<%:item.GUID %>"
-							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=2"
-							class="btn btn-danger text-nowrap mx-1 text-white  ">候補報名</a>
+				href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=0"
+				class="btn btn-primary-isre text-nowrap mx-1 ">單人報名</a>
 
-						<% }
-							else
-							{ %>
+<a guid="<%:item.GUID %>"
+				href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=1"
+				class="btn btn-primary-isre text-nowrap mx-1   ">多人報名 </a>
 
-						<a guid="<%:item.GUID %>"
-							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=0"
-							class="btn btn-primary-isre text-nowrap mx-1 ">單人報名</a>
 
-						<a guid="<%:item.GUID %>"
-							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=1"
-							class="btn btn-primary-isre text-nowrap mx-1   ">多人報名 </a>
-
-						<% 	}%>
 					</div>
 				</div>
 
