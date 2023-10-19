@@ -9,8 +9,7 @@ namespace ISRE
     {
         public string SESS_SEQ_NO { get; set; }
         public string ACT_SEQ_NO { get; set; }
-		public string SESS_SERIAL_NO { get; set; }
-		
+		 
 		public string SESS_STATUS { get; set; }
         public string SESS_NO { get; set; }
         public string SESS_LOC { get; set; }

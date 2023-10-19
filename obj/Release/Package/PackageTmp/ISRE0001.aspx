@@ -332,7 +332,7 @@
 
 						<a guid="<%:item.GUID %>"
 							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=2"
-							class="btn btn-danger text-nowrap mx-1  ">候補報名</a>
+							class="btn btn-danger text-nowrap mx-1 text-white  ">候補報名</a>
 
 						<% }
 							else

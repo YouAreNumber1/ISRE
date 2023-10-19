@@ -4,16 +4,29 @@
 
 <%--this page is for backend activity info and sesseion list--%>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"> 
 	<%
+		string StatusMessage = (string)Session["StatusMessage"]??"";
 		string GUID = Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
 	%>
+	<%:StatusMessage %>
 	<main>
 		<div class="my-2">
 
 			<div id="ActivityInfo" runat="server">
 				<!-- #Include virtual="ISRI_ActivityInfo.aspx" -->
 			</div>
+
+			<% if (StatusMessage!= "")
+				{
+					 Session["StatusMessage"] = null;
+					%>
+			<div class="alert alert-success alert-dismissible mt-5">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<strong>Success!</strong>  <%:StatusMessage %>
+			</div>
+			<% }%>
+
 
 			<%--   session list   start--%>
 			<div class="d-flex  justify-content-between  align-items-center mt-5 ">
@@ -88,7 +101,7 @@
 							</span>
 							<div class="col-8  col-sm-7  col-lg-12 ">
 								<div class="d-flex justify-content-lg-center">
-									<%: (item.SESS_SERIAL_NO!=null) ? item.SESS_SERIAL_NO   : "" %>
+									<%: (item.SESS_NO!=null) ? item.SESS_NO   : "" %>
 								</div>
 							</div>
 						</div>
@@ -124,7 +137,7 @@
 								<span class="badge bg-info">地點</span>
 							</span>
 							<div class="col-8    col-sm-7  col-lg-12     ">
-								<div class="d-flex justify-content-lg-center"> 
+								<div class="d-flex justify-content-lg-center">
 									<%: (item.CityName!=null) ? item.CityName   : "" %>
 								</div>
 							</div>
@@ -151,7 +164,7 @@
 							<div class="col-8  col-sm-7  col-lg-12    ">
 								<div class="d-flex justify-content-lg-center">
 									<div class="badge bg-primary">
-									<%: (item.REG_MAX_COUNT!=null) ? item.REG_MAX_COUNT   : "" %>
+										<%: (item.REG_MAX_COUNT!=null) ? item.REG_MAX_COUNT   : "" %>
 									</div>
 								</div>
 							</div>
@@ -166,7 +179,7 @@
 							<div class="col-8  col-sm-7 col-lg-12   ">
 								<div class="d-flex justify-content-lg-center">
 									<div class="badge bg-success">
-											<%: (item.RegisterNo!=null) ? item.RegisterNo   : "" %>
+										<%: (item.RegisterNo!=null) ? item.RegisterNo   : "" %>
 									</div>
 								</div>
 							</div>

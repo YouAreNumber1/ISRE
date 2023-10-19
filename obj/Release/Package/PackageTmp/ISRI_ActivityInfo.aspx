@@ -73,7 +73,7 @@
 						<div class="d-flex justify-content-lg-center">
 							<div class="badge bg-warning">
 							 
-								<%:(Model == null || Model.TotalSessionNo==null) ? "" : Model.TotalSessionNo %>
+								<%:(Model == null || Model.TotalSessionNo==null) ? "0" : Model.TotalSessionNo %>
 							</div>
 						</div>
 					</div>

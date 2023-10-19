@@ -189,7 +189,7 @@
 						</span>
 						<div class="col-8 col-lg-12   ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-								<%:Model == null || Model.SESS_SERIAL_NO==null  ? "" : Model.SESS_SERIAL_NO %>
+								<%:Model == null || Model.SESS_NO==null  ? "" : Model.SESS_NO %>
 							</div>
 						</div>
 					</div>
@@ -1384,7 +1384,7 @@
 						$("html, body").animate({ scrollTop: $(document).height() }, 500);
 					}
 					else {  ///////// signle register
-						AlertAndMove('資料送出成功!  請 check email並確認');
+						AlertAndMove('資料送出成功!  請查收 email並確認');
 					}
 					SendMail(GUID);
 				}

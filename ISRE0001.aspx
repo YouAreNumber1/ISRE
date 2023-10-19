@@ -159,7 +159,7 @@
 						</span>
 						<div class="col-8    col-lg-12 ">
 							<div class="d-flex justify-content-lg-center">
-								<%: (item !=null &&  item.SESS_SERIAL_NO!=null ? item.SESS_SERIAL_NO   : ""  )  %> 
+								<%: (item !=null &&  item.SESS_NO!=null ? item.SESS_NO   : ""  )  %> 
 							</div>
 						</div>
 					</div>
@@ -332,7 +332,7 @@
 
 						<a guid="<%:item.GUID %>"
 							href="ISRE0002.aspx?GUID=<%: GUID %>&sessionguid=<%:item.GUID %>&PREVIEW=<%:PREVIEW%>&RegisterMultiple=2"
-							class="btn btn-danger text-nowrap mx-1  ">候補報名</a>
+							class="btn btn-danger text-nowrap mx-1 text-white  ">候補報名</a>
 
 						<% }
 							else

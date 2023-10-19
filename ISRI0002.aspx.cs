@@ -16,18 +16,19 @@ namespace ISRE
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         public static readonly int _PageSize = 3;
 
-        
-        private string RegisterMultiple = "";
+		//public string StatusMessage = string.Empty;
+		private string RegisterMultiple = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack)
-            {
-                RegisterMultiple = Request["RegisterMultiple"]; 
-            }
-            else
-            {
-                RegisterMultiple = Request["RegisterMultiple"];
-            } 
+			RegisterMultiple = Request["RegisterMultiple"];
+			//if (Page.IsPostBack)
+   //         {
+   //             RegisterMultiple = Request["RegisterMultiple"]; 
+   //         }
+   //         else
+   //         {
+   //             RegisterMultiple = Request["RegisterMultiple"];
+   //         } 
         }
         protected ISRE_ACTIVITY_MAIN Process_ActivityInfo(String GUID)
         {

@@ -5,20 +5,20 @@
 <%--this page is for backend activity create/edit--%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
-	
+
 	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	 <style>
-			.note
-			{
-				color:red;
-			}
-	 </style>
+	<style>
+		.note {
+			color: red;
+		}
+	</style>
 	<%
 		string GUID = Request.QueryString["GUID"] ?? "";  /////////GUID=activity guid
 		string ActioinName = (GUID == "") ? "新增" : "編輯";
 		string sSelected = "";
-		 ///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
+		///////GetHashCode() for an unassigned datetime Is always zero, use this to check null date 
 	%>
+	
 
 	<main aria-labelledby="title">
 		<div class=" my-2">
@@ -317,17 +317,21 @@
 					<a href="ISRI0000.ASPX" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 mb-2 ">回首頁</a>
 
 					<% if (Model != null)
-						{  if (Model==null || Model.TotalSessionNo==null ||  Model.TotalSessionNo==0) {  %>
-							<a href="#" id="btn_Delete"
-							data-target="ISRI0001.aspx/Delete_Activity"
-							guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
-						<%} else { %>
-						<a  title="這活動有場次" 
-						   class="btn   btn-primary-isre  text-nowrap   disabled  px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
-					
-						<%}   
-							} 
-					 %>
+						{
+							if (Model == null || Model.TotalSessionNo == null || Model.TotalSessionNo == 0)
+							{  %>
+					<a href="#" id="btn_Delete"
+						data-target="ISRI0001.aspx/Delete_Activity"
+						guid="<%:GUID %>" class="btn   btn-primary-isre  text-nowrap     px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+					<%}
+					else
+					{ %>
+					<a title="這活動有場次"
+						class="btn   btn-primary-isre  text-nowrap   disabled  px-sm-4 py-2  me-md-5 mb-2">刪除  </a>
+
+					<%}
+						}
+					%>
 				</div>
 
 
@@ -385,11 +389,11 @@
 				//	processData: false, // Not to process data  //formdata required
 				success: function (response, textStatus, jqXHR) {
 					thisForm.find('.requiredCheck').prop("disabled", true);
-					console.log('success'); 
+					console.log('success');
 					//console.log(response);
 					//console.log(response.d);
 					//console.log(response.d.key['GUID']);
-					 var keys = response.d.map(function (o) { return o.Key; });
+					var keys = response.d.map(function (o) { return o.Key; });
 					//console.log(keys);
 					var GUID = response.d[keys.indexOf("GUID")].Value;
 					//console.log(GUID);
@@ -408,7 +412,7 @@
 							btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
 
 						}
-					} 
+					}
 				}
 				, fail: function (jqXHR, textStatus, errorThrown) {
 					console.log('fail');
@@ -472,72 +476,72 @@
 		let DeleteActivity = function (btn) {
 
 			let guid = btn.attr('guid');
-			let target = btn.attr('data-target'); 
-				$.ajax({
-					url: target,
-					data: JSON.stringify({ 'GUID': guid }),
-					dataType: 'json', // 預期從server接收的資料型態
-					//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-					contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
-					type: 'POST',
-					caches: false,
-					async: false,
-					enctype: 'multipart/form-data',
-					// contentType: false, // Not to set any content header  //formdata required
-					//	processData: false, // Not to process data  //formdata required
-					success: function (response, textStatus, jqXHR) {
-						console.log('success');
-						//var responseDOM = $(response);
-						console.log(response);
+			let target = btn.attr('data-target');
+			$.ajax({
+				url: target,
+				data: JSON.stringify({ 'GUID': guid }),
+				dataType: 'json', // 預期從server接收的資料型態
+				//   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+				contentType: 'application/json; charset=utf-8', // 要送到server的資料型態
+				type: 'POST',
+				caches: false,
+				async: false,
+				enctype: 'multipart/form-data',
+				// contentType: false, // Not to set any content header  //formdata required
+				//	processData: false, // Not to process data  //formdata required
+				success: function (response, textStatus, jqXHR) {
+					console.log('success');
+					//var responseDOM = $(response);
+					console.log(response);
+					console.log(response.d);
+					if (response.d == null) {
+						AlertAndMove('活動新增/修改失敗!');
+					}
+					else {
 						console.log(response.d);
-						if (response.d == null) {
-							AlertAndMove('活動新增/修改失敗!');
-						}
-						else {
-							console.log(response.d);
-							ShowToast('活動刪除成功!');
-							$(document).delay(500).queue(function () {
-								$(document).dequeue();
-								window.location = 'ISRI0000.ASPX';
-							});
-							//window.location = 'ISRI0000.ASPX';
-							//guid == '' || guid == null
-							//	? AlertAndMove('活動新增成功!  下一步: 新增場次!')
-							//	: AlertAndMove('活動修改成功!');
-							//btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
-						}
-
-						//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
-
-					}
-					, fail: function (jqXHR, textStatus, errorThrown) {
-						console.log('fail');
-						console.log(errorThrown);
-					}
-					, error: function (data) {
-						console.log('error');
-						console.log(data);
-						console.log(data.responseText);
-						console.log(data.status);
-						console.log(data.statusText);
-						jQuery('<div/>', {
-							id: 'errorDiv'
-						}).html(data.responseText).appendTo($('.footer')).hide();
-						var msg = $('#errorDiv').find('title').text();
-						$('#errorDiv').remove();
-						alert(msg);
-					}
-					, done: function (data) {
-						console.log('done');
-						console.log(data);
-
+						ShowToast('活動刪除成功!');
+						$(document).delay(500).queue(function () {
+							$(document).dequeue();
+							window.location = 'ISRI0000.ASPX';
+						});
+						//window.location = 'ISRI0000.ASPX';
+						//guid == '' || guid == null
+						//	? AlertAndMove('活動新增成功!  下一步: 新增場次!')
+						//	: AlertAndMove('活動修改成功!');
+						//btn.removeAttr('id guid data-target').addClass('disabled').attr('disabled', 'disabled');
 					}
 
-				});
+					//AlertAndMove('報名表設定成功!', $('.display-1-5').first());
+
+				}
+				, fail: function (jqXHR, textStatus, errorThrown) {
+					console.log('fail');
+					console.log(errorThrown);
+				}
+				, error: function (data) {
+					console.log('error');
+					console.log(data);
+					console.log(data.responseText);
+					console.log(data.status);
+					console.log(data.statusText);
+					jQuery('<div/>', {
+						id: 'errorDiv'
+					}).html(data.responseText).appendTo($('.footer')).hide();
+					var msg = $('#errorDiv').find('title').text();
+					$('#errorDiv').remove();
+					alert(msg);
+				}
+				, done: function (data) {
+					console.log('done');
+					console.log(data);
+
+				}
+
+			});
 		};
 
 		$(function () {
-let guid = "<%:GUID%>";
+			let guid = "<%:GUID%>";
 			$("#PUB_DATE_S_DATE , #PUB_DATE_E_DATE , #ACT_DATE_S_DATE , #ACT_DATE_E_DATE ")
 				.datepicker($.datepicker.regional['zh-TW']);
 
@@ -577,14 +581,14 @@ let guid = "<%:GUID%>";
 				if (HasAllRequireValue(requiredInput) == false)
 					return false;
 
-				 
+
 				showModalAjax();
 
 				$(document).delay(500).queue(function () {
 					$(document).dequeue();
 					SaveForm(btn);
 				});
-				 
+
 			});
 
 
@@ -597,10 +601,10 @@ let guid = "<%:GUID%>";
 				ConvertImageToBase64($(this), fileObj);
 
 			})
-			 
+
 		});
 
-		 
+
 
 	</script>
 </asp:Content>

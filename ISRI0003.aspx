@@ -6,70 +6,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<link href="Scripts/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" />
 
-<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
-	 <%
-		string GUID =   Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
-		 string SESSIONGUID =   Request.QueryString["SESSIONGUID"] ?? ""; ;/////////GUID= activity guid
-%>
-	<style>
-		/*.custom-file {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: calc(2.25rem + 2px);
-    margin-bottom: 0;
-}
-.custom-file-input {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: calc(2.25rem + 2px);
-    margin: 0;
-    opacity: 0;
-}
-.custom-file-label {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    height: calc(2.25rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-}
-.custom-control-label::before, .custom-file-label, .custom-select {
-    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-.custom-file-input:disabled, .custom-file-input[readonly] {
-    background-color: #e1e1e2;
-    opacity: 1;
-    border-color: #e1e1e2;
-}
- 
-.custom-file-label::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    display: block;
-    height: 2.25rem;
-    padding: 0.375rem 0.75rem;
-    line-height: 1.5;
-    color: #495057;
-    content: "瀏覽";*/
-		/* background-color: #e9ecef;*/
-		/*background-color: gold;
-    border-left: inherit;
-    border-radius: 0 0.25rem 0.25rem 0;
-    cursor: pointer;
-}*/
-	</style>
+	<script src="Scripts/jquery-ui-custom/jquery-ui-custom.js"></script>
+	<%
+		string sSelected = "";
+		string GUID = Request.QueryString["GUID"] ?? ""; ;/////////GUID= activity guid
+		string SESSIONGUID = Request.QueryString["SESSIONGUID"] ?? ""; ;/////////GUID= activity guid
+	%>
+	 
 
 	<main aria-labelledby="title">
 
@@ -117,23 +60,34 @@
 						<div class="d-flex">
 							<input type="text" id="SESS_DATE_S_DATE" name="SESS_DATE_S_DATE"
 								class="form-control mx-1 requiredInput"
-								placeholder="民國年/月/日">
+								placeholder="民國年/月/日"
+								value="<%: (Model !=null &&  Model.SESS_DATE_S!=null
+                         ? String.Concat(
+							 (int.Parse(Model.SESS_DATE_S.ToString("yyyy")) -1911).ToString() ,
+							 "/", Model.SESS_DATE_S.ToString("MM"), "/", Model.SESS_DATE_S.ToString("dd"))
+                         : ""  )  %>">
 							<input type="time" id="SESS_DATE_S_TIME" name="SESS_DATE_S_TIME"
 								placeholder="HH:mm"
+								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null)
+							?   Model.SESS_DATE_S.ToString("HH:mm") 
+							 :""%>"
 								class="form-control mx-1 requiredInput">
-							<%--<input type="hidden" id="SESS_DATE_S" name="SESS_DATE_S"
-                                value="<%: (Model !=null &&  Model.SESS_DATE_S!=null ? Model.SESS_DATE_S : DateTime.Now ) %>" />--%>
-							<span>~ </span>
+							 	<span>~ </span>
 							<input type="text" id="SESS_DATE_E_DATE" name="SESS_DATE_E_DATE"
 								class="form-control mx-1 requiredInput"
+								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null
+								? String.Concat(
+								(int.Parse(Model.SESS_DATE_E.ToString("yyyy")) -1911).ToString() ,
+								"/", Model.SESS_DATE_E.ToString("MM"), "/", Model.SESS_DATE_E.ToString("dd"))
+								: ""  )  %>"
 								placeholder="民國年/月/日">
 
 							<input type="time" id="SESS_DATE_E_TIME" name="SESS_DATE_E_TIME"
+								value="<%: (Model !=null &&  Model.SESS_DATE_E!=null)
+								?   Model.SESS_DATE_E.ToString("HH:mm") 
+								 :""%>"
 								placeholder="HH:mm" class="form-control mx-1 requiredInput">
-							<%--<input type="hidden" id="SESS_DATE_E" name="SESS_DATE_E"
-                                value="<%: (Model !=null &&  Model.SESS_DATE_E!=null
-                         ? Model.SESS_DATE_E 
-                         : DateTime.Now )  %>" />--%>
+							 
 						</div>
 					</div>
 				</div>
@@ -152,7 +106,7 @@
 									//dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
 									foreach (var item in List_CityList)
 									{
-										sSelected = (SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
+										sSelected = (Model!=null &&　Model.SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
 								%>
 								<option value="<%: item.CityNo %>" <%: sSelected %>><%: item.CityName %> </option>
 								<%
@@ -544,7 +498,7 @@
 										placeholder="民國年/月/日" class="form-control  mx-1    requiredInput"
 										value="<%: (Model !=null &&  Model.REMIND_MAIL_DATE!=null
                                 ? Model.REMIND_MAIL_DATE.ToString("yyyy-MM-dd") : ""  )  %>">
-									
+
 									<input type="time" id="REMIND_MAIL_TIME" name="REMIND_MAIL_TIME" placeholder="HH:mm"
 										class="form-control mx-1 flex-grow-1 requiredInput"
 										value="<%: (Model !=null &&  Model.REMIND_MAIL_TIME!=null
@@ -579,20 +533,20 @@
 
 					<% if (Model != null)
 						{%>
-					<a   id="btn_Preview" target="_blank" href="ISRE0000.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
+					<a id="btn_Preview" target="_blank" href="ISRE0000.ASPX?PREVIEW=<%:GUID %>&guid=<%:GUID %>"
 						class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2   ">預覽</a>
 
-				    <asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " OnClick="btnInsert_Click" />
-					<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">儲存</a>
-
+					<asp:Button ID="btnInsert" runat="server" Text="新增" CssClass="btn btn-primary-isre d-none text-nowrap    px-sm-4 py-2  me-md-5 m-2 " OnClick="btnInsert_Click" />
+				<%--	<a href="#" id="btnSave" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">儲存</a>--%>
+					<asp:Button ID="btnSave" runat="server" Text="儲存" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 " OnClick="btnSave_Click" />
 					<a href="#" id="btnCopy" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">複製資料</a>
 					<a href="#" id="btnRelease" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">傳送</a>
 					<a href="#" id="btnDelete" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 ">刪除</a>
 					<a href="ISRI0004.aspx?GUID=<%: GUID %>&SESSIONGUID=<%: SESSIONGUID %>" id="btn_RegistrationFormSetting" class="btn btn-primary-isre   text-nowrap px-sm-4 py-2  me-md-4 m-2  ">報名表設定</a>
 
 					<% }
-						else
-						{ %>
+					else
+					{ %>
 					<%-- <a href="#" id="btnAdd" class="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-5 m-2 ">新增</a>1--%>
 					<asp:Button ID="btnAdd" runat="server" Text="新增" CssClass="btn btn-primary-isre  text-nowrap    px-sm-4 py-2  me-md-4 m-2 " OnClick="btnAdd_Click" />
 					<%}%>
@@ -600,8 +554,8 @@
 
 					<a href="ISRI0000.ASPX" id="btnBackToHome" class="btn btn-primary-isre  text-nowrap px-sm-4 py-2  me-md-4 m-2 ">回首頁</a>
 
-					
-					
+
+
 				</div>
 
 			</div>
@@ -613,15 +567,15 @@
 	<script> 
 
 		$(document).ready(function () {
-			$("#flowStep").slider('setValue', "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>"); 
+			$("#flowStep").slider('setValue', "<%:Model == null || Model.SESS_FLOW==null  ? "1" : Model.SESS_FLOW   %>");
 
 			$("#SESS_DATE_S_DATE, #SESS_DATE_E_DATE,#REG_DATE_S, #REG_DATE_E, #CHK_DATE_S_DATE, #CHK_DATE_E_DATE, #REMIND_MAIL_DATE, #sch_s_datepicker")
 				.datepicker($.datepicker.regional['zh-TW']);
-			 
+
 			$(document).on('click', '#btnCopy', function (e) {
 				e.preventDefault();
-				$('#btnCopy, #btnRelease, #btnDelete').addClass('d-none');
-				$('#btnInsert , #btnSave').removeClass('d-none');
+				$('#btnCopy, #btnRelease, #btnDelete, #btnSave').addClass('d-none');
+				$('#MainContent_btnInsert').removeClass('d-none');
 			});
 		});
 
