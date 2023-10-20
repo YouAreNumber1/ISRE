@@ -239,7 +239,7 @@
 						</span>
 						<div class="col-8  col-lg-12     ">
 							<div class="d-block d-lg-flex justify-content-lg-center">
-								<%: (Model !=null &&  Model.CityName!=null ? Model.CityName   : ""  )  %>
+								<%: (Model !=null &&  Model.CITYNAME!=null ? Model.CITYNAME   : ""  )  %>
 							</div>
 						</div>
 					</div>

@@ -16,8 +16,8 @@ namespace ISRE
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-
-		public int iCancelled = 0;
+		public dynamic Model = null;
+		public int iCancelled = -1;
 		
 		protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,23 +25,18 @@ namespace ISRE
 			{ 
 				string GUID = Request["GUID"] ?? "";
 				string CANCELKEY = Request["CANCELKEY"] ?? "";
-				dynamic Model= Process_RegisterInfo(GUID);
+			    Model= Process_RegisterInfo(GUID);
 
 				if (Model == null)
 				{
-					iCancelled = -1;  ////////// user not found
+					iCancelled = -2;  ////////// user not found
 				}
 				else if (Model.REG_STATUS
 					== ((int)ISRE.Enum_REG_STATUS.Cancel_Mail).ToString())
 				{
-					iCancelled = 1;  ////////// cancelled, should not be here
+					iCancelled = 0;  ////////// cancelled, should not be here
 				}
-
-				//if (Model != null && Model.REG_STATUS
-				//	== ((int)ISRE.Enum_REG_STATUS.Cancel_Mail).ToString())
-				//{ 
-				//	bCancelled = true;
-				//} 
+				 
 			}
 			 
 		}

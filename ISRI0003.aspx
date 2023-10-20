@@ -105,9 +105,9 @@
 									//dynamic List_CityList = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "CityList");
 									foreach (var item in List_CityList)
 									{
-										sSelected = (Model != null && Model.SESS_LOC.ToString() == item.CityNo.ToString()) ? "selected" : "";
+										sSelected = (Model != null && Model.SESS_LOC.ToString() == item.CITYNO.ToString()) ? "selected" : "";
 								%>
-								<option value="<%: item.CityNo %>" <%: sSelected %>><%: item.CityName %> </option>
+								<option value="<%: item.CITYNO %>" <%: sSelected %>><%: item.CITYNAME %> </option>
 								<%
 									}
 								%>

@@ -85,7 +85,7 @@
 					</span>
 					<div class=" col-8 col-sm-7    col-lg-12   text-center  ">
 						<div class="d-flex justify-content-lg-center">
-							 <%:Model == null || Model.CityName==null  ? "" : Model.CityName %>  
+							 <%:Model == null || Model.CITYNAME==null  ? "" : Model.CITYNAME %>  
 						</div>
 					</div>
 				</div>

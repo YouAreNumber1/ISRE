@@ -12,13 +12,13 @@
 				活動名稱: 
 			</div>
 			<div class=" col-9 col-md-10  col-lg-11">
-				<%:Model.ACT_NAME  %>
+				<%:Model == null || Model.ACT_NAME==null? "" : Model.ACT_NAME  %>
 			</div>
 			<div class=" col-3 col-md-2  col-lg-1">
 				場次:  
 			</div>
 			<div class=" col-9 col-md-10  col-lg-11">
-				<%:Model.SESS_NO  %>
+			 <%:Model == null || Model.SESS_NO==null? "" : Model.SESS_NO  %>
 			</div>
 
 			<div class=" col-3 col-md-2  col-lg-1">
@@ -26,13 +26,13 @@
 			</div>
 
 			<div class=" col-9 col-md-10  col-lg-11">
-				<%:Model.SESS_DATE_S %>
+				 <%:Model == null || Model.SESS_DATE_S==null? "" : Model.SESS_DATE_S  %>
 			</div>
 			<div class=" col-3 col-md-2  col-lg-1">
 				地點: 
 			</div>
 			<div class=" col-9 col-md-10  col-lg-11">
-				 <%:Model.CityName %>
+				 <%:Model == null || Model.CITYNAME==null? "" : Model.CITYNAME  %>
 			</div>
 		</div>
 

@@ -13,20 +13,19 @@ namespace ISRE
     {
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-
-		public int iCheckIn = 0;
-		
+		public dynamic Model = null;
+		public int iCheckIn = -1;  //default
 		protected void Page_Load(object sender, EventArgs e)
         {
 			if (!this.IsPostBack)
 			{ 
 				string GUID = Request["GUID"] ?? "";
 				string CHECKINKEY = Request["CHECKINKEY"] ?? "";
-				dynamic Model= Process_RegisterInfo(GUID);
+			    Model= Process_RegisterInfo(GUID);
 
 				if (Model == null)
 				{
-					iCheckIn = -1;  ////////// user not found
+					iCheckIn = -2;  ////////// user not found
 				}
 				else if ( Model.REG_STATUS
 					== ((int)ISRE.Enum_REG_STATUS.CheckIn_Mail).ToString())
@@ -36,7 +35,7 @@ namespace ISRE
 				else if (Model.REG_STATUS
 					== ((int)ISRE.Enum_REG_STATUS.Cancel_Mail).ToString())
 				{
-					iCheckIn = -2;  ////////// cancel in
+					iCheckIn = 0;  ////////// cancel  
 				}
 			} 
 		}

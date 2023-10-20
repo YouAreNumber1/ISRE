@@ -21,9 +21,7 @@
 
 	</div>
  
-
-
-
+ 
 	<script>
 		$(function () {
 			 let w = window.innerWidth;
@@ -36,6 +34,8 @@
 				}) 
 			}
 			let sLocation = window.location.href; 
+			 
+
 			if (sLocation.indexOf("0000") > 0) $("#flowStep").slider('setValue', 1);
 			if (sLocation.indexOf("0001") > 0) $("#flowStep").slider('setValue', 2);
 			if (sLocation.indexOf("0002") > 0) $("#flowStep").slider('setValue', 3);

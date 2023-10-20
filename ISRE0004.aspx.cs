@@ -17,7 +17,11 @@ namespace ISRE
         public static readonly int _ConnectionTimeout = 10000;
         public static readonly IDbConnection _dbConn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 		public dynamic Model = null;
-		public int iConfirmed = 10;
+		public int iConfirmed = -1;  //default
+		/// ///// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		
 		protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,11 +33,15 @@ namespace ISRE
 				Model = Process_RegisterInfo(GUID);
 				if (Model == null)
 				{
-					iConfirmed = -1;  ////////// user not found
+					iConfirmed = -2;  ////////// user not found
 				}
 				else if (Model.REG_STATUS == ((int)ISRE.Enum_RegistrationFlow.EmailConfirm).ToString())
 				{
 					iConfirmed = 1;  ////////// confirmed
+				}
+				else if (Model.REG_STATUS == ((int)ISRE.Enum_REG_STATUS.Cancel_Mail).ToString())
+				{
+					iConfirmed = 0;  ////////// cancelled
 				}
 			}
 			 

@@ -17,8 +17,11 @@
 			<div id="ISRI_SessionFlow" runat="server">
 				<!-- #Include virtual="ISRI_RegistrationFlow.aspx" -->
 			</div>
+			<div id="Div2" runat="server">
+				<!-- #Include virtual="ISRI_RegisterInfo.aspx" -->
+			</div>
 			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
-				<% if (iCheckIn == 0)
+				<% if (iCheckIn == -1)
 					{  %>
 				<a href="#" id="btnConfirm" guid="<%: GUID %>" checkinkey="<%: CHECKINKEY %>"
 					data-target="ISRE0005.aspx/Process_Confirm"
@@ -26,12 +29,17 @@
 				<% }
 					else if (iCheckIn == -2)
 					{  %>
+				<a class="btn btn-primary disabled">使用者不存在</a>
+
+				<% }
+					else if (iCheckIn == 0)
+					{  %>
 				<a class="btn btn-primary disabled">已取消</a>
 
 				<% }
-					else  
+					else if (iCheckIn == 1)
 					{  %>
-				<a class="btn btn-primary disabled"><%: iCheckIn==1? "已報到" : "使用者不存在" %></a>
+				<a class="btn btn-primary disabled">已確認</a>
 
 				<% } %>
 			</div>
@@ -124,12 +132,13 @@
 		};
 
 		$(function () {
-			if ("<%:iCheckIn%>" == 1) {
+			if (  "<%:iCheckIn%>" ==  1) {
 				$("#flowStep").slider('setValue', 5);
 			}
-			if ("<%:iCheckIn%>" <0  ) {
+			if ("<%:iCheckIn%>" == -2 || "<%:iCheckIn%>" == 0) {
 				$("#flowStep").slider('setValue', 1);
 			}
+			 
 			$(document).on('click', '#btnConfirm', function (e) {
 				e.preventDefault();
 

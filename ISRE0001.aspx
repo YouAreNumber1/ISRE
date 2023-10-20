@@ -191,7 +191,7 @@
 						</span>
 						<div class="col-8 col-lg-12     ">
 							<div class="d-flex justify-content-lg-center">
-								<%: (item !=null &&  item.CityName!=null ? item.CityName   : ""  )  %>
+								<%: (item !=null &&  item.CITYNAME!=null ? item.CITYNAME   : ""  )  %>
 							</div>
 						</div>
 					</div>
