@@ -27,7 +27,7 @@
 		 
 			<%: iConfirmed  %>
 
-			<div class="d-flex justify-content-between justify-content-md-center mx-2 my-5">
+			<div class="d-flex justify-content-center   mx-2 my-5">
 				<% if (iConfirmed == 0)
 					{  %>
 				<a href="#" id="btnConfirm" guid="<%: GUID %>" confirmkey="<%: CONFIRMKEY %>"

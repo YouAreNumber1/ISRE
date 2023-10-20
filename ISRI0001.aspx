@@ -179,9 +179,9 @@
 								dynamic List_ACT_TYPE = StaticQueryDB("Home_ISRE_ACTIVITY_MAIN", "ACT_TYPE");
 								foreach (var item in List_ACT_TYPE)
 								{
-									sSelected = (Model != null && Model.ACT_TYPE.ToString() == item.SerialID.ToString()) ? "selected" : "";
+									sSelected = (Model != null && Model.ACT_TYPE.ToString() == item.SERIALID.ToString()) ? "selected" : "";
 							%>
-							<option value="<%: item.SerialID %>" <%: sSelected %>><%: item.TYPE_NAME%> </option>
+							<option value="<%: item.SERIALID %>" <%: sSelected %>><%: item.TYPE_NAME%> </option>
 							<%
 								}
 							%>

@@ -127,7 +127,7 @@ namespace ISRE
 			//Page.ClientScript.RegisterStartupScript(GetType(), "none", "<script>executeAfter();</script>", false);
 			var model = Process_Session(Request["GUID"], "C");
 			 
-			if (model!=null && model.SerialID>0)
+			if (model!=null && model.SERIALID > 0)
 			{
 				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 新增成功!"); 
 			}
@@ -137,7 +137,7 @@ namespace ISRE
 		protected void btnSave_Click(object sender, EventArgs e)
 		{ 
 			var model = Process_Session(Request["SESSIONGUID"], "U");
-			if (model != null && model.SerialID > 0)
+			if (model != null && model.SERIALID > 0)
 			{
 				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 修改成功!"); 
 			}
@@ -163,7 +163,7 @@ namespace ISRE
 		{
 			var model = Process_Session(Request["GUID"], "C");
 
-			if (model != null && model.SerialID > 0)
+			if (model != null && model.SERIALID > 0)
 			{
 				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 新增成功!");
 			}
@@ -174,7 +174,7 @@ namespace ISRE
 		{
 			var model = Process_Session(Request["SESSIONGUID"], "A");
 
-			if (model != null && model.SerialID > 0)
+			if (model != null && model.SERIALID > 0)
 			{
 				Session["StatusMessage"] = string.Concat("場次 ", model.SESS_NO, " 傳送成功!");
 			}

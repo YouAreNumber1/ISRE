@@ -319,7 +319,7 @@ namespace ISRE
 				{
 					CboDataList comObj1 = new CboDataList
 					{ //SerialID
-						Cbo_Value = item.SerialID.ToString(),
+						Cbo_Value = item.SERIALID.ToString(),
 						Cbo_Name = item.OBJ_NO_NAME
 					};
 					lis_DataList.Add(comObj1);
@@ -344,7 +344,7 @@ namespace ISRE
 				{
 					CboDataList comObj1 = new CboDataList
 					{ //SerialID
-						Cbo_Value = item.SerialID.ToString(),
+						Cbo_Value = item.SERIALID.ToString(),
 						Cbo_Name = item.TYPE_NAME
 					};
 					lis_DataList.Add(comObj1);
